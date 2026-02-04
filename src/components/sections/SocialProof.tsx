@@ -1,69 +1,22 @@
 export function SocialProof() {
-  const testimonials = [
-    {
-      name: 'Thomas R.',
-      role: 'Geschäftsführer, IT-Dienstleister',
-      initials: 'TR',
-      quote: 'Ich dachte ich verstehe AI. Dann hat Andy mir gezeigt was Owen den ganzen Tag macht. Das war ein Augenöffner.',
-    },
-    {
-      name: 'Nina K.',
-      role: 'Selbstständige Beraterin',
-      initials: 'NK',
-      quote: 'Endlich mal jemand der sagt was AI NICHT kann. Das hat mir mehr geholfen als alle Hype-Artikel zusammen.',
-    },
-    {
-      name: 'Markus S.',
-      role: 'Product Owner',
-      initials: 'MS',
-      quote: 'Nach dem Workshop hatte ich meinen ersten Agent in unter 2 Stunden am Laufen. Die Schritt-für-Schritt-Anleitung hat den Unterschied gemacht.',
-    },
-  ];
-
   return (
     <section id="testimonials" className="py-32 lg:py-40 px-4 bg-stone-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
-            Was andere sagen
+            Kein Demo. Kein Hype.
           </h2>
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Feedback aus bisherigen Workshops und Beratungen.
+            Dieser Workshop ist neu. Aber das System dahinter läuft seit über 2 Jahren im Echtbetrieb.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-8 border border-stone-200"
-            >
-              <blockquote className="text-stone-700 text-2xl leading-relaxed mb-8 font-serif">
-                "{testimonial.quote}"
-              </blockquote>
-
-              <div className="flex items-center gap-4 border-t border-stone-200 pt-6">
-                <div className="w-12 h-12 rounded-full border border-stone-300 bg-warm-100 flex items-center justify-center">
-                  <span className="text-warm-700 text-sm font-bold">{testimonial.initials}</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-stone-900">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-sm text-stone-600">
-                    {testimonial.role}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 bg-white rounded-2xl p-8 border border-stone-200">
+        {/* Stats */}
+        <div className="mb-16 bg-white rounded-2xl p-8 border border-stone-200">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-stone-900 mb-2">3+ Jahre</div>
-              <div className="text-stone-600">AI-Agents im Einsatz</div>
+              <div className="text-4xl font-bold text-stone-900 mb-2">Seit 2023</div>
+              <div className="text-stone-600">AI-Agents im Echtbetrieb</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-stone-900 mb-2">50k+</div>
@@ -72,6 +25,37 @@ export function SocialProof() {
             <div>
               <div className="text-4xl font-bold text-stone-900 mb-2">0</div>
               <div className="text-stone-600">Bullshit-Versprechen</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Honest Block */}
+        <div className="bg-white rounded-2xl p-12 border border-stone-200 max-w-4xl mx-auto">
+          <div className="text-center">
+            <p className="text-xl md:text-2xl text-stone-700 leading-relaxed mb-8">
+              Owen managed täglich Mails, Kalender, Code und WhatsApp — kein Demo-Setup. 
+              Das ist kein Konzept aus einem YouTube-Video. Das ist ein echtes Produktivsystem, 
+              das seit Jahren im Einsatz ist.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-stone-600">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Gründer von PULSE (AI Community)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>steinberger [ʁaʊ̯m̩] Consulting</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Praktische Praxiserfahrung, kein Theorie-Bla</span>
+              </div>
             </div>
           </div>
         </div>

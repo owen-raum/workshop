@@ -18,7 +18,7 @@ export function Button({
   
   const variantStyles = {
     primary: 'bg-stone-900 hover:bg-stone-800 text-white disabled:opacity-50 disabled:cursor-not-allowed',
-    secondary: 'bg-stone-900 hover:bg-stone-800 text-white disabled:opacity-50 disabled:cursor-not-allowed',
+    secondary: 'bg-warm-100 hover:bg-warm-200 text-warm-800 disabled:opacity-50 disabled:cursor-not-allowed',
     outline: 'border-2 border-stone-300 hover:border-warm-600 hover:bg-warm-50 text-stone-700 hover:text-warm-700 disabled:opacity-50 disabled:cursor-not-allowed',
   };
 

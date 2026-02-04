@@ -2,15 +2,15 @@ export function AboutUs() {
   const team = [
     {
       name: 'Andy Steinberger',
-      role: 'Der, der Owen gebaut hat',
+      role: 'Gründer von PULSE & steinberger [ʁaʊ̯m̩]',
       initials: 'AS',
-      bio: 'Baut seit 2023 AI-Systeme für echte Arbeit. Hat sich geweigert, noch eine Demo zu bauen die nur cool aussieht aber nichts kann.',
+      bio: 'Gründer von PULSE (AI Community) und steinberger [ʁaʊ̯m̩] (Consulting). Baut seit 2023 AI-Systeme für echte Arbeit — Owen ist sein tägliches Produktivsystem, kein Demo-Projekt. Hat sich geweigert, noch eine weitere "coole AI-Demo" zu bauen die nichts kann.',
     },
     {
       name: 'Owen 🐸',
       role: 'Der Agent, um den es geht',
       initials: '🐸',
-      bio: 'Beantwortet Andys Mails. Koordiniert Termine. Schreibt Code. Managed WhatsApp-Gruppen. Schläft nie. Beschwert sich nie.',
+      bio: 'Beantwortet Andys Mails. Koordiniert Termine. Schreibt Code. Managed WhatsApp-Gruppen. Läuft seit über 2 Jahren im Echtbetrieb. Schläft nie. Beschwert sich nie. Kein Demo-Setup.',
     },
   ];
 

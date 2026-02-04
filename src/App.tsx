@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
 import { WhatIsOpenClaw } from './components/sections/WhatIsOpenClaw';
 import { AboutUs } from './components/sections/AboutUs';
@@ -7,10 +9,14 @@ import { Pricing } from './components/sections/Pricing';
 import { SocialProof } from './components/sections/SocialProof';
 import { FAQ } from './components/sections/FAQ';
 import { Footer } from './components/sections/Footer';
+import { Impressum } from './pages/Impressum';
+import { Datenschutz } from './pages/Datenschutz';
+import { AGB } from './pages/AGB';
 
-function App() {
+function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <Header />
       <Hero />
       <WhatIsOpenClaw />
       <AboutUs />
@@ -20,7 +26,22 @@ function App() {
       <SocialProof />
       <FAQ />
       <Footer />
-    </main>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <main className="min-h-screen bg-white">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/agb" element={<AGB />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 

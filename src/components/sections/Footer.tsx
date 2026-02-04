@@ -1,5 +1,3 @@
-import { Button } from '../ui/Button';
-
 export function Footer() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
@@ -16,13 +14,12 @@ export function Footer() {
           <p className="text-lg md:text-xl text-stone-300 max-w-2xl mx-auto mb-8 leading-relaxed">
             90 Minuten. Ein Setup. Dein erster Agent.
           </p>
-          <Button
-            variant="primary"
-            size="large"
+          <button
             onClick={scrollToPricing}
+            className="bg-white text-stone-900 hover:bg-stone-100 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
             Jetzt Ticket buchen →
-          </Button>
+          </button>
         </div>
 
         <div className="border-t border-stone-700 mb-12" />

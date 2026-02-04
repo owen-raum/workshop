@@ -43,7 +43,7 @@ export function Pricing() {
         {/* Single Pricing Card */}
         <div className="bg-white rounded-2xl border border-stone-200 p-10 md:p-14 mb-10">
           {/* Price Tiers Visualization */}
-          <div className="flex justify-between items-center mb-10 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-10 text-sm gap-6 md:gap-0">
             <div className={`text-center ${soldCount < earlyBirdTotal ? 'text-stone-900' : 'text-stone-400'}`}>
               <div className="font-bold text-lg">149€</div>
               <div>Erste 10</div>
@@ -51,7 +51,8 @@ export function Pricing() {
                 <div className="text-warm-600 font-medium mt-1">← Du bist hier</div>
               )}
             </div>
-            <div className="flex-1 h-px bg-stone-200 mx-4" />
+            <div className="hidden md:block flex-1 h-px bg-stone-200 mx-4" />
+            <div className="md:hidden w-px h-8 bg-stone-200" />
             <div className={`text-center ${soldCount >= earlyBirdTotal && soldCount < midTierTotal ? 'text-stone-900' : 'text-stone-400'}`}>
               <div className="font-bold text-lg">199€</div>
               <div>Platz 11–50</div>
@@ -59,7 +60,8 @@ export function Pricing() {
                 <div className="text-warm-600 font-medium mt-1">← Du bist hier</div>
               )}
             </div>
-            <div className="flex-1 h-px bg-stone-200 mx-4" />
+            <div className="hidden md:block flex-1 h-px bg-stone-200 mx-4" />
+            <div className="md:hidden w-px h-8 bg-stone-200" />
             <div className={`text-center ${soldCount >= midTierTotal ? 'text-stone-900' : 'text-stone-400'}`}>
               <div className="font-bold text-lg">249€</div>
               <div>Ab Platz 51</div>
