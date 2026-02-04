@@ -1,11 +1,33 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { getTierInfo, getNextTiers, type TierInfo } from '@/lib/tiers';
 
 export function Hero() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Ticket data
+  const [soldCount, setSoldCount] = useState(0);
+  const [ticketsLoading, setTicketsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/tickets')
+      .then((res) => res.json())
+      .then((data) => {
+        setSoldCount(data.sold ?? 0);
+      })
+      .catch(() => {
+        setSoldCount(0);
+      })
+      .finally(() => {
+        setTicketsLoading(false);
+      });
+  }, []);
+
+  const tier: TierInfo = getTierInfo(soldCount);
+  const nextTiers = getNextTiers(tier.name);
 
   // Countdown Timer
   const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
@@ -91,10 +113,23 @@ export function Hero() {
             onClick={scrollToPricing}
             className="bg-navy-600 hover:bg-navy-700 text-white font-bold text-xl py-5 px-12 rounded-xl shadow-lg hover:shadow-xl transition-all"
           >
-            Early Bird für 149€ sichern
+            {ticketsLoading
+              ? 'Ticket sichern'
+              : tier.name === 'early_bird'
+                ? `Early Bird für ${tier.price}€ sichern`
+                : tier.name === 'regular'
+                  ? `Jetzt für ${tier.price}€ sichern`
+                  : `Letzten Platz für ${tier.price}€ sichern`}
           </button>
           <p className="text-slate-700 text-base">
-            Noch <strong className="text-orange-600">4 Early Bird Tickets</strong> (149€) – danach 199€
+            {ticketsLoading ? (
+              <span className="text-slate-500">Lade Verfügbarkeit...</span>
+            ) : (
+              <>
+                Noch <strong className="text-orange-600">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€)
+                {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€</>}
+              </>
+            )}
           </p>
         </div>
       </div>
