@@ -26,13 +26,17 @@ export function AboutUs() {
                 Andy Steinberger
               </h3>
               <p className="text-warm-600 font-semibold text-lg mb-6">
-                Gründer von PULSE · steinberger [ʁaʊ̯m̩]
+                Early Adopter. Kein Vendor.
               </p>
               <div className="space-y-4 text-stone-700 text-lg leading-relaxed">
                 <p>
-                  Ich baue AI-Systeme seit 2023 — nicht als Spielerei, sondern als echte 
-                  Infrastruktur für mein Business. Mein Agent Owen läuft 24/7 und erledigt 
-                  alles, was mich von der eigentlichen Arbeit abhält.
+                  Ich nutze OpenClaw seit Monaten produktiv — nicht für Demos, sondern als 
+                  echte Infrastruktur. Owen läuft 24/7 und erledigt alles, was mich von 
+                  der eigentlichen Arbeit abhält.
+                </p>
+                <p>
+                  Was ich dir zeige läuft wirklich. Was nicht funktioniert sag ich dir auch. 
+                  Better done than perfect — das ist mein Approach seit Jahren.
                 </p>
                 <p>
                   Mit <a href="https://pulse.how" target="_blank" rel="noopener" className="text-warm-600 hover:text-warm-700 font-semibold underline underline-offset-2">PULSE</a> habe 
@@ -43,7 +47,7 @@ export function AboutUs() {
                 <p>
                   Diesen Deep Dive mache ich, weil ich es leid bin zu sehen, wie Leute AI 
                   "testen" statt nutzen. Ich zeige dir das Setup, das bei mir funktioniert — 
-                  inklusive aller Fehler, die du vermeiden solltest.
+                  inklusive aller Fehler, die ich gemacht hab.
                 </p>
               </div>
             </div>
@@ -64,7 +68,7 @@ export function AboutUs() {
                 Owen
               </h3>
               <p className="text-warm-600 font-semibold text-lg mb-6">
-                Der Agent, um den es geht
+                Der Agent, um den es geht — powered by OpenClaw
               </p>
               <div className="space-y-4 text-stone-700 text-lg leading-relaxed">
                 <p>
@@ -74,7 +78,8 @@ export function AboutUs() {
                 </p>
                 <p>
                   Im Deep Dive siehst du Owen live bei der Arbeit — kein vorbereitetes 
-                  Demo-Setup, sondern das echte System, das täglich im Einsatz ist.
+                  Demo-Setup, sondern das echte System, das täglich im Einsatz ist. Manchmal 
+                  geht was schief. Auch das siehst du.
                 </p>
               </div>
             </div>

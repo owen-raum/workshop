@@ -35,7 +35,7 @@ export function Hero() {
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Eyebrow */}
         <p className="text-warm-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
-          Ein Deep Dive von Andy Steinberger · Sonntag, 15. Februar 2026
+          OpenClaw Production Deep Dive · Mit Andy Steinberger · Sonntag, 15. Februar 2026
         </p>
 
         {/* Countdown Timer */}
@@ -73,7 +73,7 @@ export function Hero() {
 
         {/* Subheadline */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-stone-800 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
-          Wie ein AI-Agent dir 20+ Stunden pro Woche zurückgibt (ohne dass du coden musst)
+          Production Setup. Real Use Cases. Zero Bullshit.
         </h2>
 
         {/* CTA */}

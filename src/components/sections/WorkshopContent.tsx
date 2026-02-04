@@ -1,7 +1,7 @@
 export function WorkshopContent() {
   const modules = [
     {
-      title: 'Was können AI-Agents wirklich?',
+      title: 'Was kann OpenClaw wirklich?',
       duration: '25 Min',
       points: [
         'Der Unterschied zwischen Chatbot und Agent',
@@ -11,12 +11,12 @@ export function WorkshopContent() {
       ],
     },
     {
-      title: 'Live-Demo: Owen in Aktion',
+      title: 'Live-Demo: Andys Production Setup',
       duration: '25 Min',
       points: [
-        'Mein echtes System, kein vorbereitetes Demo',
+        'Andys Production Setup — läuft seit Monaten, kein Demo',
         'Wie Owen meinen Tag strukturiert',
-        'Wo es manchmal schief geht (ja, passiert)',
+        'Fehler die ich gemacht hab (und wie du sie vermeidest)',
         'Der Unterschied zwischen Theorie und Alltag',
       ],
     },
@@ -27,7 +27,7 @@ export function WorkshopContent() {
         'Was kann schief gehen? (Spoiler: einiges)',
         'Datenschutz: Wo landen deine Daten?',
         'Kosten: Was kostet das wirklich pro Monat?',
-        'Wann AI-Agents keinen Sinn machen',
+        'Wann OpenClaw keinen Sinn macht',
       ],
     },
     {

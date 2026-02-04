@@ -60,6 +60,9 @@ export function WhatIsOpenClaw() {
     <section id="what" className="py-32 lg:py-40 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
+            Was ist OpenClaw?
+          </h2>
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             ChatGPT gibt dir Antworten. OpenClaw führt sie aus. Klingt abstrakt? Live-Demo kommt im Deep Dive.
           </p>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
+import { Disclaimer } from './components/sections/Disclaimer';
 import { OpenClawOneLiner } from './components/sections/OpenClawOneLiner';
 import { WhatIsOpenClaw } from './components/sections/WhatIsOpenClaw';
 import { AboutUs } from './components/sections/AboutUs';
@@ -20,6 +21,7 @@ function HomePage() {
     <>
       <Header />
       <Hero />
+      <Disclaimer />
       <AboutUs />
       <OpenClawOneLiner />
       <WhatIsOpenClaw />
