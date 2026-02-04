@@ -4,7 +4,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-white py-32 lg:py-40 px-4">
+    <footer className="bg-navy-900 text-white py-32 lg:py-40 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Final CTA Section */}
         <div className="text-center mb-16">
@@ -16,13 +16,13 @@ export function Footer() {
           </p>
           <button
             onClick={scrollToPricing}
-            className="bg-white text-slate-900 hover:bg-slate-100 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
+            className="bg-orange-600 text-white hover:bg-orange-700 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
             Early Bird für 149€ sichern
           </button>
         </div>
 
-        <div className="border-t border-slate-700 mb-12" />
+        <div className="border-t border-navy-700 mb-12" />
 
         {/* Footer Links & Info */}
         <div className="grid md:grid-cols-3 gap-12 mb-12">
@@ -115,7 +115,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+        <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
           <div>
             © {new Date().getFullYear()} STEINBERGER LTD
           </div>
@@ -133,13 +133,13 @@ export function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 pt-6 border-t border-slate-800 space-y-4">
-          <p className="text-slate-600 text-xs leading-relaxed max-w-3xl mx-auto text-center">
-            <strong className="text-slate-500">⚠️ Wichtiger Hinweis:</strong> Andy ist unabhängiger Early Adopter – nicht affiliated mit OpenClaw. 
+        <div className="mt-8 pt-6 border-t border-navy-800 space-y-4">
+          <p className="text-slate-500 text-xs leading-relaxed max-w-3xl mx-auto text-center">
+            <strong className="text-slate-400">⚠️ Wichtiger Hinweis:</strong> Andy ist unabhängiger Early Adopter – nicht affiliated mit OpenClaw. 
             Kein Vendor-Pitch. Keine Sales-Agenda. Nur echte Erfahrung aus Monaten Production Use. 
             Was funktioniert, was nicht, und wo du aufpassen musst – ohne Marketing-Filter.
           </p>
-          <p className="text-slate-700 text-xs leading-relaxed max-w-2xl mx-auto text-center">
+          <p className="text-slate-600 text-xs leading-relaxed max-w-2xl mx-auto text-center">
             Dieser Deep Dive ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 
             offiziellen Verbindung zum OpenClaw-Projekt oder dessen Entwicklern. OpenClaw ist ein 
             Open-Source-Projekt unter eigener Lizenz.

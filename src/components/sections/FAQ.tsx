@@ -45,20 +45,20 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-32 lg:py-40 px-4 bg-white">
+    <section id="faq" className="py-32 lg:py-40 px-4 bg-navy-600">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Noch Fragen?
           </h2>
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
             Die häufigsten. Wenn deine nicht dabei ist – schreib mir.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+        <div className="bg-navy-700 rounded-2xl border border-navy-500 overflow-hidden">
           <div className="px-10">
             {faqs.map((faq, index) => (
               <FAQItem key={index} question={faq.question} answer={faq.answer} />
@@ -67,16 +67,16 @@ export function FAQ() {
         </div>
 
         {/* Contact Box */}
-        <div className="mt-14 bg-white rounded-2xl p-10 border border-slate-200 text-center">
-          <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">
+        <div className="mt-14 bg-navy-700 rounded-2xl p-10 border border-navy-500 text-center">
+          <h3 className="font-display text-2xl font-bold text-white mb-4">
             Deine Frage war nicht dabei?
           </h3>
-          <p className="text-slate-600 text-lg mb-6">
-            Schreib mir: <a href="mailto:andy@raum.so" className="font-bold text-slate-900 hover:text-slate-700 underline">andy@raum.so</a>
+          <p className="text-slate-200 text-lg mb-6">
+            Schreib mir: <a href="mailto:andy@raum.so" className="font-bold text-white hover:text-slate-200 underline">andy@raum.so</a>
           </p>
           <a
             href="mailto:andy@raum.so"
-            className="inline-flex items-center gap-3 text-slate-900 hover:text-slate-700 font-bold text-lg transition-all"
+            className="inline-flex items-center gap-3 text-white hover:text-slate-200 font-bold text-lg transition-all"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

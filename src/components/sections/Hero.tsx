@@ -31,10 +31,10 @@ export function Hero() {
   }, [eventDate]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-white">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-navy-600">
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Eyebrow */}
-        <p className="text-orange-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
+        <p className="text-orange-400 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
           OpenClaw Production Deep Dive · Mit Andy Steinberger · Sonntag, 15. Februar 2026
         </p>
 
@@ -47,32 +47,32 @@ export function Hero() {
           </div>
         ) : (
           <div className="flex justify-center gap-3 md:gap-4 mb-10">
-            <div className="bg-white border border-slate-200 rounded-xl px-4 py-3 min-w-[70px]">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.days}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Tage</div>
+            <div className="bg-navy-700 border border-navy-500 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.days}</div>
+              <div className="text-xs text-slate-300 uppercase tracking-wide">Tage</div>
             </div>
-            <div className="bg-white border border-slate-200 rounded-xl px-4 py-3 min-w-[70px]">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.hours}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Std</div>
+            <div className="bg-navy-700 border border-navy-500 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.hours}</div>
+              <div className="text-xs text-slate-300 uppercase tracking-wide">Std</div>
             </div>
-            <div className="bg-white border border-slate-200 rounded-xl px-4 py-3 min-w-[70px]">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.minutes}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Min</div>
+            <div className="bg-navy-700 border border-navy-500 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.minutes}</div>
+              <div className="text-xs text-slate-300 uppercase tracking-wide">Min</div>
             </div>
-            <div className="bg-white border border-slate-200 rounded-xl px-4 py-3 min-w-[70px]">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.seconds}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Sek</div>
+            <div className="bg-navy-700 border border-navy-500 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.seconds}</div>
+              <div className="text-xs text-slate-300 uppercase tracking-wide">Sek</div>
             </div>
           </div>
         )}
 
         {/* Main Headline - HUGE */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-slate-900 mb-8 leading-[1.05] tracking-tight">
+        <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-white mb-8 leading-[1.05] tracking-tight">
           Ein AI-Agent, der wirklich arbeitet – nicht nur chattet.
         </h1>
 
         {/* Subheadline */}
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-slate-800 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl text-slate-100 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
           Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt.
         </h2>
 
@@ -84,8 +84,8 @@ export function Hero() {
           >
             Early Bird für 149€ sichern
           </button>
-          <p className="text-slate-600 text-base">
-            Noch <strong className="text-orange-700">4 Early Bird Tickets</strong> (149€) – danach 199€
+          <p className="text-slate-200 text-base">
+            Noch <strong className="text-orange-400">4 Early Bird Tickets</strong> (149€) – danach 199€
           </p>
         </div>
       </div>
