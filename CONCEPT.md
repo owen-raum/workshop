@@ -5,7 +5,7 @@ Landing Page für Andys OpenClaw Workshop (Live-Webinar am 13.02.2026).
 
 **Tech Stack:** Vite + React + TypeScript + Tailwind CSS  
 **Deployment:** Vercel (auto-deploy from main)  
-**Domain:** TBD (workshop.openclaw.ai oder event.raum.so)
+**Domain:** openclaw.andy.cy
 
 ---
 
@@ -21,7 +21,7 @@ Landing Page für Andys OpenClaw Workshop (Live-Webinar am 13.02.2026).
 | `WorkshopContent.tsx` | Agenda | What attendees will learn |
 | `ForWhom.tsx` | Target Audience | Who should attend (✅/❌) |
 | `Pricing.tsx` | Conversion | 3 Tiers, Dynamic Pricing, Stripe CTA |
-| `SocialProof.tsx` | Trust | Testimonials, Live Counter |
+| `SocialProof.tsx` | Trust | Testimonials (from past online events), Live Counter |
 | `FAQ.tsx` | Objection Handling | Accordion with common questions |
 | `Footer.tsx` | Final CTA | Repeat CTA, Legal Links, Contact |
 
@@ -54,27 +54,27 @@ Landing Page für Andys OpenClaw Workshop (Live-Webinar am 13.02.2026).
 
 ## 2. Design System
 
-### Color Palette (Dark Theme)
+### Color Palette (Light Mode)
 ```css
 /* Primary */
---bg-primary: #0a0a0a;        /* Deep black */
---bg-secondary: #1a1a1a;      /* Card background */
---bg-accent: #2a2a2a;         /* Hover states */
+--bg-primary: #ffffff;         /* Pure white */
+--bg-secondary: #f8f9fa;       /* Card background */
+--bg-accent: #e9ecef;          /* Hover states */
 
 /* Text */
---text-primary: #ffffff;       /* Headings */
---text-secondary: #a0a0a0;     /* Body text */
---text-muted: #666666;         /* Subtle text */
+--text-primary: #1a1a1a;       /* Headings (dark) */
+--text-secondary: #4a5568;     /* Body text (gray) */
+--text-muted: #9ca3af;         /* Subtle text */
 
 /* Brand Colors */
---accent-primary: #00ff88;     /* OpenClaw green (CTAs) */
---accent-hover: #00cc6a;       /* Hover state */
---accent-glow: rgba(0, 255, 136, 0.2); /* Glow effects */
+--accent-primary: #00cc6a;     /* OpenClaw green (CTAs) */
+--accent-hover: #00a355;       /* Hover state */
+--accent-glow: rgba(0, 204, 106, 0.15); /* Glow effects */
 
 /* State Colors */
---success: #00ff88;
---warning: #ffa500;
---error: #ff4444;
+--success: #00cc6a;
+--warning: #f59e0b;
+--error: #ef4444;
 ```
 
 ### Typography
@@ -232,67 +232,75 @@ VITE_STRIPE_PUBLIC_KEY=pk_live_xxx
 
 ## 5. Dynamic Pricing Mechanism
 
-### Concept: "Seats Left" instead of Countdown Timer
-- **Current approach (NO):** "Noch 2 Stunden zum Early-Bird-Preis!"
-- **Our approach (YES):** "Noch 15 Plätze zum aktuellen Preis verfügbar"
+### Concept: Time-Based Pricing (Early Bird → Regular → Late)
+- **Early Bird:** First phase (149€ / 199€ / 249€)
+- **Regular:** +30€ per tier (179€ / 229€ / 279€)
+- **Late:** +20€ more (199€ / 249€ / 299€)
 
 ### Price Increase Logic
-| Sold Tickets | Price Tier | Standard | Middle | Premium |
-|--------------|------------|----------|--------|---------|
-| 0-30         | Early Bird | 149€     | 199€   | 249€    |
-| 31-60        | Regular    | 179€     | 229€   | 279€    |
-| 61-100       | Late       | 199€     | 249€   | 299€    |
+| Phase      | Standard | Middle | Premium |
+|------------|----------|--------|---------|
+| Early Bird | 149€     | 199€   | 249€    |
+| Regular    | 179€     | 229€   | 279€    |
+| Late       | 199€     | 249€   | 299€    |
+
+**Timing:** Phase transitions are date/time-based (e.g., Early Bird until X days before event, then Regular, then Late).
 
 ### Implementation Options
 
-#### Option A: Stripe Metadata (Recommended)
-- Store `soldCount` in Stripe Price metadata
-- Query on page load: `stripe.prices.list({ active: true })`
-- Update via webhook when purchase completes
-- **Pros:** Single source of truth, no extra backend
-- **Cons:** Requires webhook setup
+#### Option A: Client-Side Date Logic (Recommended for MVP)
+- Calculate current pricing phase based on `Date.now()` vs. hardcoded phase dates
+- No backend required
+- **Pros:** Simple, instant, no API calls
+- **Cons:** Must redeploy to change phase dates
 
 #### Option B: Simple JSON API
 - Static JSON file hosted on Vercel (`/api/pricing-status.json`)
-- Updated manually or via webhook
-- **Pros:** Fast, cacheable, no Stripe API calls on page load
-- **Cons:** Manual updates required
+- Returns current phase + prices
+- **Pros:** Can update pricing without redeploy
+- **Cons:** Extra network request
 
-#### Option C: Real-time Backend (Later Phase)
-- Supabase/Firebase for real-time counters
-- **Pros:** Live updates, scalable
-- **Cons:** Overkill for MVP
+#### Option C: Stripe Price Switching
+- Create 9 Stripe Prices (3 tiers × 3 phases)
+- Frontend selects correct price based on current date
+- **Pros:** Clean separation of concerns
+- **Cons:** More Stripe config
 
-**Decision for MVP:** **Option B** (Static JSON + Manual Updates)
+**Decision for MVP:** **Option A** (Client-Side Date Logic)
 
 ### UI Implementation (`src/components/sections/Pricing.tsx`)
 
 ```tsx
-interface PricingStatus {
-  currentTier: 'early' | 'regular' | 'late';
-  soldCount: number;
-  seatsLeftInCurrentTier: number;
+type PricingPhase = 'early' | 'regular' | 'late';
+
+const PRICING_PHASES = {
+  early: { endDate: new Date('2026-02-06T23:59:59'), label: 'Early Bird' },
+  regular: { endDate: new Date('2026-02-10T23:59:59'), label: 'Regular' },
+  late: { endDate: new Date('2026-02-13T00:00:00'), label: 'Late' },
+};
+
+function getCurrentPhase(): PricingPhase {
+  const now = Date.now();
+  if (now < PRICING_PHASES.early.endDate.getTime()) return 'early';
+  if (now < PRICING_PHASES.regular.endDate.getTime()) return 'regular';
+  return 'late';
 }
 
 function Pricing() {
-  const [status, setStatus] = useState<PricingStatus | null>(null);
-  
-  useEffect(() => {
-    fetch('/api/pricing-status.json')
-      .then(res => res.json())
-      .then(setStatus);
-  }, []);
-  
-  const seatsLeft = status?.seatsLeftInCurrentTier ?? null;
+  const currentPhase = getCurrentPhase();
+  const phaseLabel = PRICING_PHASES[currentPhase].label;
   
   return (
     <section>
-      {seatsLeft && seatsLeft < 20 && (
+      <div className="phase-indicator">
+        Aktueller Preis: <strong>{phaseLabel}</strong>
+      </div>
+      {currentPhase === 'early' && (
         <div className="urgency-banner">
-          ⚡ Nur noch {seatsLeft} Plätze zum aktuellen Preis!
+          ⚡ Early Bird Preis endet bald!
         </div>
       )}
-      {/* Pricing cards */}
+      {/* Pricing cards with phase-dependent prices */}
     </section>
   );
 }
@@ -322,14 +330,14 @@ function Pricing() {
 <!-- Open Graph -->
 <meta property="og:title" content="OpenClaw Workshop — Baue deinen AI-Assistenten">
 <meta property="og:description" content="Live-Webinar am 13.02.2026. 90 Minuten. 100 Plätze.">
-<meta property="og:image" content="https://workshop.openclaw.ai/og-image.png">
+<meta property="og:image" content="https://openclaw.andy.cy/og-image.png">
 <meta property="og:type" content="website">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OpenClaw Workshop">
 <meta name="twitter:description" content="Live-Webinar am 13.02.2026">
-<meta name="twitter:image" content="https://workshop.openclaw.ai/og-image.png">
+<meta name="twitter:image" content="https://openclaw.andy.cy/og-image.png">
 ```
 
 ---
@@ -418,13 +426,14 @@ function Pricing() {
 
 ### Content
 - [ ] Was unterscheidet die 3 Pricing-Tiers genau? (Nur Workshop vs. + Bonus Material?)
-- [ ] Ab wie vielen verkauften Plätzen steigt der Preis? (30/60/100?)
-- [ ] Gibt es bereits Testimonials oder PULSE Community Quotes?
+- [x] **Domain:** openclaw.andy.cy
+- [x] **Pricing:** Zeit-basiert (Early Bird → Regular → Late)
+- [x] **Testimonials:** Aus vergangenen Online Events nutzen
 - [ ] Max. Teilnehmerzahl = 100?
 
 ### Technical
 - [ ] Welcher Stripe Account? (STEINBERGER LTD?)
-- [ ] Domain: workshop.openclaw.ai oder event.raum.so?
+- [ ] Wann genau enden Early Bird / Regular Phasen? (Daten festlegen)
 - [ ] Brauchen wir ein Backend für Webhook Handling?
 
 ### Assets
@@ -499,4 +508,4 @@ workshop/
 ---
 
 **Last Updated:** 2026-02-04  
-**Status:** ⏳ Awaiting Review
+**Status:** ✅ Updated (Light Mode, Time-Based Pricing, Domain: openclaw.andy.cy)
