@@ -4,7 +4,7 @@ services:
   builder:
     image: node:22
     volumes:
-      - app_v15:/output
+      - app_v16:/output
     command: >
       /bin/sh -c "
         set -ex &&
@@ -33,7 +33,7 @@ services:
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
       - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
     volumes:
-      - app_v15:/app
+      - app_v16:/app
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
@@ -46,7 +46,7 @@ services:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
 
 volumes:
-  app_v15:
+  app_v16:
 
 networks:
   pulse:
