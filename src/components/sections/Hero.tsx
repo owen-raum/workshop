@@ -6,7 +6,7 @@ export function Hero() {
   };
 
   // Countdown Timer
-  const eventDate = new Date('2026-02-15T11:00:00+02:00').getTime();
+  const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {

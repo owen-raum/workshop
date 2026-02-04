@@ -28,7 +28,7 @@ export function FAQ() {
     },
     {
       question: 'Wie läuft der Deep Dive ab?',
-      answer: 'Live-Session am 15. Februar um 11:00 Uhr (90 Minuten). Ich zeige dir mein Setup, erkläre wie der Agent funktioniert, wo Probleme auftreten können, und beantworte alle Fragen. Kein Verkaufs-Pitch, nur ehrliche Einblicke.',
+      answer: 'Live-Session am 15. Februar um 19:00 Uhr (90 Minuten). Ich zeige dir mein Setup, erkläre wie der Agent funktioniert, wo Probleme auftreten können, und beantworte alle Fragen. Kein Verkaufs-Pitch, nur ehrliche Einblicke.',
     },
     {
       question: 'Warum kostet der Deep Dive etwas? Andere Workshops sind kostenlos.',
