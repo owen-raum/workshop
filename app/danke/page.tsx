@@ -41,7 +41,7 @@ export default function Danke() {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-orange-600 font-bold mt-0.5">3.</span>
-              <span>Am 15. Februar um 11:00 Uhr geht&apos;s los – live und interaktiv</span>
+              <span>Am 15. Februar um 19:00 Uhr geht&apos;s los – live und interaktiv</span>
             </li>
           </ul>
         </div>
