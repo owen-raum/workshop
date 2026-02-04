@@ -41,43 +41,41 @@ export function Pricing() {
         </div>
 
         {/* Single Pricing Card - Enhanced for Early Bird */}
-        <div className={`bg-white rounded-2xl p-10 md:p-14 mb-10 relative ${
+        <div className={`bg-white rounded-2xl p-8 md:p-14 mb-10 relative mt-8 ${
           soldCount < earlyBirdTotal 
-            ? 'border-4 border-warm-500 shadow-2xl shadow-warm-200/50 scale-105' 
+            ? 'border-2 border-warm-400 shadow-2xl shadow-warm-200/50 md:scale-105' 
             : 'border border-stone-200'
         }`}>
           {/* BESTE WAHL Badge - nur für Early Bird */}
           {soldCount < earlyBirdTotal && (
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-warm-600 to-warm-500 text-white font-bold text-sm px-6 py-2.5 rounded-full shadow-lg">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-warm-600 to-warm-500 text-white font-bold text-sm px-5 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
               🔥 BESTE WAHL — 100€ sparen
             </div>
           )}
 
           {/* Price Tiers Visualization */}
-          <div className="flex flex-col md:flex-row justify-between items-center mb-10 text-sm gap-6 md:gap-0">
+          <div className="flex flex-row justify-between items-center mb-10 text-sm mt-4">
             <div className={`text-center ${soldCount < earlyBirdTotal ? 'text-stone-900' : 'text-stone-400'}`}>
               <div className="font-bold text-lg">149€</div>
-              <div>Erste 10</div>
+              <div className="text-xs md:text-sm">Erste 10</div>
               {soldCount < earlyBirdTotal && (
-                <div className="text-warm-600 font-medium mt-1">← Du bist hier</div>
+                <div className="text-warm-600 font-medium mt-1 text-xs md:text-sm">← Du bist hier</div>
               )}
             </div>
-            <div className="hidden md:block flex-1 h-px bg-stone-200 mx-4" />
-            <div className="md:hidden w-px h-8 bg-stone-200" />
+            <div className="flex-1 h-px bg-stone-200 mx-3 md:mx-4" />
             <div className={`text-center ${soldCount >= earlyBirdTotal && soldCount < midTierTotal ? 'text-stone-900' : 'text-stone-400'}`}>
               <div className="font-bold text-lg">199€</div>
-              <div>Platz 11–50</div>
+              <div className="text-xs md:text-sm">Platz 11–50</div>
               {soldCount >= earlyBirdTotal && soldCount < midTierTotal && (
-                <div className="text-warm-600 font-medium mt-1">← Du bist hier</div>
+                <div className="text-warm-600 font-medium mt-1 text-xs md:text-sm">← Du bist hier</div>
               )}
             </div>
-            <div className="hidden md:block flex-1 h-px bg-stone-200 mx-4" />
-            <div className="md:hidden w-px h-8 bg-stone-200" />
+            <div className="flex-1 h-px bg-stone-200 mx-3 md:mx-4" />
             <div className={`text-center ${soldCount >= midTierTotal ? 'text-stone-900' : 'text-stone-400'}`}>
               <div className="font-bold text-lg">249€</div>
-              <div>Ab Platz 51</div>
+              <div className="text-xs md:text-sm">Ab Platz 51</div>
               {soldCount >= midTierTotal && (
-                <div className="text-warm-600 font-medium mt-1">← Du bist hier</div>
+                <div className="text-warm-600 font-medium mt-1 text-xs md:text-sm">← Du bist hier</div>
               )}
             </div>
           </div>
