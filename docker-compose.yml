@@ -4,7 +4,7 @@ services:
   builder:
     image: node:22
     volumes:
-      - app_v6:/output
+      - app_v7:/output
     command: >
       /bin/sh -c "
         set -ex &&
@@ -30,7 +30,7 @@ services:
       - PORT=${WEBSERVER_PORT:-9019}
       - NODE_ENV=production
     volumes:
-      - app_v6:/app
+      - app_v7:/app
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
@@ -43,7 +43,7 @@ services:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
 
 volumes:
-  app_v6:
+  app_v7:
 
 networks:
   pulse:
