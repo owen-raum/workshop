@@ -71,6 +71,11 @@ export function WhatIsOpenClaw() {
               Nachrichten versenden, Termine buchen, Dateien bearbeiten, Browser steuern.
               Du gibst den Auftrag — er erledigt den Rest.
             </p>
+            <p className="text-stone-800 text-xl leading-relaxed mb-8">
+              Ich nutze das jeden Tag. Owen — mein Agent — checkt morgens meine Mails, 
+              koordiniert Termine, schreibt Code und überwacht meine Systeme. Das ist kein 
+              Side-Project. Das ist mein Workflow.
+            </p>
             <p className="text-stone-800 text-xl leading-relaxed">
               🔐 <strong>100% lokal.</strong> Open Source. Läuft auf deinem Rechner. 
               Deine Daten gehen nirgendwo hin.

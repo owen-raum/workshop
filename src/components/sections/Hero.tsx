@@ -49,7 +49,7 @@ export function Hero() {
 
         {/* Eyebrow */}
         <p className="text-warm-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
-          Live-Workshop · Sonntag, 15. Februar 2026
+          Ein Workshop von Andy Steinberger · Sonntag, 15. Februar 2026
         </p>
 
         {/* Countdown Timer */}
@@ -81,9 +81,9 @@ export function Hero() {
 
         {/* Subline */}
         <p className="text-xl md:text-2xl text-stone-600 mb-16 max-w-3xl mx-auto leading-relaxed">
-          ChatGPT kann reden. Dein OpenClaw-Agent kann <em>handeln</em>: Mails beantworten, 
-          Termine koordinieren, Code deployen. In 90 Minuten zeige ich dir, wie das funktioniert — 
-          und wie du es für dein Business aufsetzt.
+          Mein AI-Agent Owen managed 70% meiner Routine — Mails, Termine, Code, WhatsApp. 
+          Kein Demo. Kein Konzept. Echtes System, jeden Tag im Einsatz. 
+          In 90 Minuten zeige ich dir, wie du dir das Gleiche baust.
         </p>
 
         {/* CTAs */}

@@ -28,13 +28,14 @@ export function Header() {
         {/* Logo/Text */}
         <a
           href="#"
-          className="font-display text-lg font-bold text-stone-900 hover:text-warm-600 transition-colors"
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          OpenClaw Workshop
+          <span className="font-display text-lg font-bold text-stone-900">Andy Steinberger</span>
+          <span className="text-stone-400 text-sm font-medium hidden sm:inline">× OpenClaw Workshop</span>
         </a>
 
         {/* CTA Button */}

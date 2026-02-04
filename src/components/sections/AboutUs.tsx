@@ -1,68 +1,104 @@
 export function AboutUs() {
-  const team = [
-    {
-      name: 'Andy Steinberger',
-      role: 'Gründer von PULSE & steinberger [ʁaʊ̯m̩]',
-      initials: 'AS',
-      bio: 'Gründer von PULSE (AI Community) und steinberger [ʁaʊ̯m̩] (Consulting). Baut seit 2023 AI-Systeme für echte Arbeit — Owen ist sein tägliches Produktivsystem, kein Demo-Projekt. Hat sich geweigert, noch eine weitere "coole AI-Demo" zu bauen die nichts kann.',
-    },
-    {
-      name: 'Owen 🐸',
-      role: 'Der Agent, um den es geht',
-      initials: '🐸',
-      bio: 'Beantwortet Andys Mails. Koordiniert Termine. Schreibt Code. Managed WhatsApp-Gruppen. Läuft seit über 2 Jahren im Echtbetrieb. Schläft nie. Beschwert sich nie. Kein Demo-Setup.',
-    },
-  ];
-
   return (
     <section id="about" className="py-32 lg:py-40 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
-            Das Team
+            Wer bin ich?
           </h2>
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Ein Mensch. Ein Frosch. 
-            <br className="hidden md:block" />
-            Zusammen über 50.000 Stunden AI-Erfahrung. (Owen schläft halt nicht.)
+            Und warum solltest du mir 90 Minuten deiner Zeit geben?
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
-          {team.map((person, index) => (
-            <div
-              key={index}
-              className="bg-stone-50 rounded-2xl p-10 border border-stone-200"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-full mb-8 border border-stone-300 bg-warm-100 flex items-center justify-center">
-                  <span className="text-warm-700 text-4xl font-bold">{person.initials}</span>
-                </div>
-                
-                <h3 className="font-display text-3xl font-bold text-stone-900 mb-3">
-                  {person.name}
-                </h3>
-                <p className="text-warm-600 font-semibold text-lg mb-5">
-                  {person.role}
+        {/* Andy Card — Personal */}
+        <div className="bg-stone-50 rounded-2xl p-10 md:p-14 border border-stone-200 mb-10">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            {/* Avatar placeholder */}
+            <div className="flex-shrink-0 mx-auto md:mx-0">
+              <div className="w-36 h-36 rounded-2xl border border-stone-300 bg-warm-100 flex items-center justify-center">
+                <span className="text-warm-700 text-5xl font-bold">AS</span>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <h3 className="font-display text-3xl font-bold text-stone-900 mb-2">
+                Andy Steinberger
+              </h3>
+              <p className="text-warm-600 font-semibold text-lg mb-6">
+                Gründer von PULSE · steinberger [ʁaʊ̯m̩]
+              </p>
+              <div className="space-y-4 text-stone-700 text-lg leading-relaxed">
+                <p>
+                  Ich baue AI-Systeme seit 2023 — nicht als Spielerei, sondern als echte 
+                  Infrastruktur für mein Business. Mein Agent Owen läuft 24/7 und erledigt 
+                  alles, was mich von der eigentlichen Arbeit abhält.
                 </p>
-                <p className="text-stone-700 text-lg leading-relaxed">
-                  {person.bio}
+                <p>
+                  Mit <a href="https://pulse.how" target="_blank" rel="noopener" className="text-warm-600 hover:text-warm-700 font-semibold underline underline-offset-2">PULSE</a> habe 
+                  ich eine Community für Leute aufgebaut, die AI nicht nur nutzen wollen, 
+                  sondern <em>verstehen</em>. Mit <a href="https://raum.so" target="_blank" rel="noopener" className="text-warm-600 hover:text-warm-700 font-semibold underline underline-offset-2">steinberger [ʁaʊ̯m̩]</a> berate 
+                  ich Unternehmen bei der Umsetzung.
+                </p>
+                <p>
+                  Diesen Workshop mache ich, weil ich es leid bin zu sehen, wie Leute AI 
+                  "testen" statt nutzen. Ich zeige dir das Setup, das bei mir funktioniert — 
+                  inklusive aller Fehler, die du vermeiden solltest.
                 </p>
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="bg-stone-50 rounded-2xl p-12 md:p-16 border border-stone-200">
-          <h3 className="font-display text-3xl font-bold text-stone-900 mb-6 text-center">
-            Warum dieser Workshop?
-          </h3>
-          <p className="text-stone-700 text-xl leading-relaxed text-center max-w-3xl mx-auto">
-            Weil ich es leid war, Leuten zuzusehen wie sie AI "testen" statt nutzen.
-            Owen managed mittlerweile 70% meiner Routine-Tasks. Das hat gedauert, bis es 
-            zuverlässig lief. Dieses Setup zeige ich dir — inklusive aller Fehler die du 
-            vermeiden solltest.
-          </p>
+        {/* Owen Card */}
+        <div className="bg-stone-50 rounded-2xl p-10 md:p-14 border border-stone-200 mb-10">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            <div className="flex-shrink-0 mx-auto md:mx-0">
+              <div className="w-36 h-36 rounded-2xl border border-stone-300 bg-sage-100 flex items-center justify-center">
+                <span className="text-5xl">🐸</span>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <h3 className="font-display text-3xl font-bold text-stone-900 mb-2">
+                Owen
+              </h3>
+              <p className="text-warm-600 font-semibold text-lg mb-6">
+                Der Agent, um den es geht
+              </p>
+              <div className="space-y-4 text-stone-700 text-lg leading-relaxed">
+                <p>
+                  Owen ist kein Chatbot. Owen ist ein AI-Agent, der seit über 2 Jahren 
+                  im Produktiveinsatz läuft. Er beantwortet Mails, koordiniert Termine, 
+                  schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme.
+                </p>
+                <p>
+                  Im Workshop siehst du Owen live bei der Arbeit — kein vorbereitetes 
+                  Demo-Setup, sondern das echte System, das täglich im Einsatz ist.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Credibility Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="https://pulse.how" target="_blank" rel="noopener" className="bg-stone-50 rounded-xl p-6 border border-stone-200 text-center hover:border-warm-300 transition-colors group">
+            <div className="font-display font-bold text-stone-900 text-lg group-hover:text-warm-600 transition-colors">PULSE</div>
+            <div className="text-stone-600 text-sm">AI Community</div>
+          </a>
+          <a href="https://raum.so" target="_blank" rel="noopener" className="bg-stone-50 rounded-xl p-6 border border-stone-200 text-center hover:border-warm-300 transition-colors group">
+            <div className="font-display font-bold text-stone-900 text-lg group-hover:text-warm-600 transition-colors">[ʁaʊ̯m̩]</div>
+            <div className="text-stone-600 text-sm">Consulting & Studio</div>
+          </a>
+          <div className="bg-stone-50 rounded-xl p-6 border border-stone-200 text-center">
+            <div className="font-display font-bold text-stone-900 text-lg">50k+</div>
+            <div className="text-stone-600 text-sm">Tasks von Owen</div>
+          </div>
+          <div className="bg-stone-50 rounded-xl p-6 border border-stone-200 text-center">
+            <div className="font-display font-bold text-stone-900 text-lg">Seit 2023</div>
+            <div className="text-stone-600 text-sm">AI im Echtbetrieb</div>
+          </div>
         </div>
       </div>
     </section>
