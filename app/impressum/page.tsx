@@ -24,18 +24,31 @@ export default function Impressum() {
           </h2>
 
           <p className="text-navy-800 leading-relaxed mb-4">
-            <strong>STEINBERGER LTD</strong>
+            <strong>steinberger Limited</strong>
             <br />
-            Registrierungsnummer: HE 123456
+            Panagiotou Theofilou 1, House 19
             <br />
-            Zypern
+            7040 Oroklini, Larnaca
+            <br />
+            Cyprus
+          </p>
+
+          <h3 className="font-display text-xl font-bold text-navy-900 mt-6 mb-3">
+            Eintragung
+          </h3>
+          <p className="text-navy-800 leading-relaxed mb-4">
+            Registrar: Department of Registrar of Companies and Intellectual Property, Nicosia
+            <br />
+            Company Number: HE 449386
+            <br />
+            VAT-ID: CY60026377I
           </p>
 
           <h3 className="font-display text-xl font-bold text-navy-900 mt-6 mb-3">
             Vertreten durch
           </h3>
           <p className="text-navy-800 leading-relaxed mb-4">
-            Andy Steinberger
+            Andreas Peter Steinberger (Director)
           </p>
 
           <h3 className="font-display text-xl font-bold text-navy-900 mt-6 mb-3">
