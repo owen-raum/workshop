@@ -131,6 +131,15 @@ export function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Disclaimer */}
+        <div className="mt-8 pt-6 border-t border-stone-800 text-center">
+          <p className="text-stone-600 text-xs leading-relaxed max-w-2xl mx-auto">
+            Dieser Workshop ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 
+            offiziellen Verbindung zum OpenClaw-Projekt oder dessen Entwicklern. OpenClaw ist ein 
+            Open-Source-Projekt unter eigener Lizenz.
+          </p>
+        </div>
       </div>
     </footer>
   );
