@@ -16,7 +16,7 @@ export function Footer() {
           </p>
           <button
             onClick={scrollToPricing}
-            className="bg-orange-600 text-white hover:bg-orange-700 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
+            className="bg-navy-600 text-white hover:bg-navy-700 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
             Early Bird für 149€ sichern
           </button>

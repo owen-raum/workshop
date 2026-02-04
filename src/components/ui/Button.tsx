@@ -17,9 +17,9 @@ export function Button({
   const baseStyles = 'font-display font-semibold rounded-xl transition-colors inline-flex items-center justify-center';
   
   const variantStyles = {
-    primary: 'bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50 disabled:cursor-not-allowed',
+    primary: 'bg-navy-600 hover:bg-navy-700 text-white disabled:opacity-50 disabled:cursor-not-allowed',
     secondary: 'bg-orange-100 hover:bg-orange-200 text-orange-800 disabled:opacity-50 disabled:cursor-not-allowed',
-    outline: 'border-2 border-slate-300 hover:border-orange-600 hover:bg-orange-50 text-slate-700 hover:text-orange-700 disabled:opacity-50 disabled:cursor-not-allowed',
+    outline: 'border-2 border-slate-300 hover:border-navy-600 hover:bg-navy-50 text-slate-700 hover:text-navy-700 disabled:opacity-50 disabled:cursor-not-allowed',
   };
 
   const sizeStyles = {

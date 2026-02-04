@@ -100,8 +100,8 @@ export function Pricing() {
             onClick={handleBook}
             className={`w-full font-bold text-lg py-4 px-8 rounded-xl transition-all ${
               soldCount < earlyBirdTotal
-                ? 'bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white shadow-lg hover:shadow-xl'
-                : 'bg-slate-900 hover:bg-slate-800 text-white'
+                ? 'bg-navy-600 hover:bg-navy-700 text-white shadow-lg hover:shadow-xl'
+                : 'bg-navy-600 hover:bg-navy-700 text-white'
             }`}
           >
             {soldCount < earlyBirdTotal ? 'Early Bird für 149€ sichern' : 'Jetzt Platz sichern'}

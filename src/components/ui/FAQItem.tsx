@@ -9,16 +9,16 @@ export function FAQItem({ question, answer }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-navy-600 last:border-b-0">
+    <div className="border-b border-slate-200 last:border-b-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-7 flex items-center justify-between text-left group transition-all duration-300"
       >
-        <span className="font-display text-xl font-bold text-white pr-8 group-hover:text-orange-400 transition-colors">
+        <span className="font-display text-xl font-bold text-slate-900 pr-8 group-hover:text-orange-600 transition-colors">
           {question}
         </span>
         <svg
-          className={`w-7 h-7 text-orange-400 flex-shrink-0 transition-all duration-300 ${
+          className={`w-7 h-7 text-orange-600 flex-shrink-0 transition-all duration-300 ${
             isOpen ? 'rotate-180 scale-110' : ''
           }`}
           fill="none"
@@ -38,7 +38,7 @@ export function FAQItem({ question, answer }: FAQItemProps) {
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="pb-8 text-slate-200 text-lg leading-relaxed font-medium">
+        <div className="pb-8 text-slate-700 text-lg leading-relaxed font-medium">
           {answer}
         </div>
       </div>
