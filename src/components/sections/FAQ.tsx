@@ -7,7 +7,7 @@ export function FAQ() {
       answer: 'Nein. Wenn du weißt was ChatGPT ist, reicht das. Es geht um Verständnis, nicht um Programmieren.',
     },
     {
-      question: 'Wie läuft der Workshop ab?',
+      question: 'Wie läuft der Deep Dive ab?',
       answer: 'Live-Session am 15. Februar um 11:00 Uhr (90 Minuten). Ich zeige dir mein Setup, erkläre wie der Agent funktioniert, wo Probleme auftreten können, und beantworte alle Fragen. Kein Verkaufs-Pitch, nur ehrliche Einblicke.',
     },
     {

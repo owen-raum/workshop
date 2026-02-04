@@ -17,10 +17,10 @@ export function Pricing() {
   const currentTier = getCurrentTier();
 
   const features = [
-    'Live-Teilnahme am Workshop (90 Min)',
+    'Live-Teilnahme am Deep Dive (90 Min)',
     'Komplette Aufzeichnung zum Nachschauen',
     'Alle Slides und Ressourcen',
-    'Fragen stellen während des Workshops',
+    'Fragen stellen während des Deep Dives',
   ];
 
   const handleBook = () => {

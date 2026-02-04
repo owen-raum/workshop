@@ -24,16 +24,16 @@ export function AGB() {
           </h2>
           <p className="text-stone-700 leading-relaxed mb-4">
             Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge über die Teilnahme am
-            OpenClaw Workshop zwischen STEINBERGER LTD (nachfolgend „Anbieter") und dem Kunden.
+            OpenClaw Deep Dive zwischen STEINBERGER LTD (nachfolgend „Anbieter") und dem Kunden.
           </p>
 
           <h2 className="font-display text-2xl font-bold text-stone-900 mt-8 mb-4">
             2. Vertragsgegenstand
           </h2>
           <p className="text-stone-700 leading-relaxed mb-4">
-            Gegenstand des Vertrages ist die Teilnahme am OpenClaw Workshop am 15. Februar 2026.
-            Der Workshop findet als Online-Veranstaltung statt. Im Preis inbegriffen ist eine
-            Aufzeichnung des Workshops, die nach der Veranstaltung zur Verfügung gestellt wird.
+            Gegenstand des Vertrages ist die Teilnahme am OpenClaw Deep Dive am 15. Februar 2026.
+            Der Deep Dive findet als Online-Veranstaltung statt. Im Preis inbegriffen ist eine
+            Aufzeichnung des Deep Dives, die nach der Veranstaltung zur Verfügung gestellt wird.
           </p>
 
           <h2 className="font-display text-2xl font-bold text-stone-900 mt-8 mb-4">
@@ -71,8 +71,8 @@ export function AGB() {
             6. Aufzeichnung
           </h2>
           <p className="text-stone-700 leading-relaxed mb-4">
-            Der Workshop wird aufgezeichnet. Die Aufzeichnung wird allen Teilnehmern nach dem
-            Workshop zur Verfügung gestellt. Mit der Buchung stimmen Sie der Aufzeichnung zu.
+            Der Deep Dive wird aufgezeichnet. Die Aufzeichnung wird allen Teilnehmern nach dem
+            Deep Dive zur Verfügung gestellt. Mit der Buchung stimmen Sie der Aufzeichnung zu.
           </p>
 
           <h2 className="font-display text-2xl font-bold text-stone-900 mt-8 mb-4">

@@ -19,7 +19,7 @@ export function SocialProof() {
               jeden Tag, managed mein Business, und ich wäre aufgeschmissen ohne ihn.
             </p>
             <p>
-              Diesen Workshop gibt es, weil mich jede Woche Leute fragen: 
+              Diesen Deep Dive gibt es, weil mich jede Woche Leute fragen: 
               <strong className="text-stone-900"> "Wie hast du das aufgesetzt?"</strong> — 
               und die Antwort passt nicht in eine WhatsApp-Nachricht.
             </p>

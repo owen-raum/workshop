@@ -46,7 +46,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#content" className="hover:text-stone-200 transition-colors">
-                  Workshop-Inhalte
+                  Deep Dive-Inhalte
                 </a>
               </li>
               <li>
@@ -135,7 +135,7 @@ export function Footer() {
         {/* Disclaimer */}
         <div className="mt-8 pt-6 border-t border-stone-800 text-center">
           <p className="text-stone-600 text-xs leading-relaxed max-w-2xl mx-auto">
-            Dieser Workshop ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 
+            Dieser Deep Dive ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 
             offiziellen Verbindung zum OpenClaw-Projekt oder dessen Entwicklern. OpenClaw ist ein 
             Open-Source-Projekt unter eigener Lizenz.
           </p>

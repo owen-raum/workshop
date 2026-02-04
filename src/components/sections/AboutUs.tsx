@@ -41,7 +41,7 @@ export function AboutUs() {
                   ich Unternehmen bei der Umsetzung.
                 </p>
                 <p>
-                  Diesen Workshop mache ich, weil ich es leid bin zu sehen, wie Leute AI 
+                  Diesen Deep Dive mache ich, weil ich es leid bin zu sehen, wie Leute AI 
                   "testen" statt nutzen. Ich zeige dir das Setup, das bei mir funktioniert — 
                   inklusive aller Fehler, die du vermeiden solltest.
                 </p>
@@ -73,7 +73,7 @@ export function AboutUs() {
                   schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme.
                 </p>
                 <p>
-                  Im Workshop siehst du Owen live bei der Arbeit — kein vorbereitetes 
+                  Im Deep Dive siehst du Owen live bei der Arbeit — kein vorbereitetes 
                   Demo-Setup, sondern das echte System, das täglich im Einsatz ist.
                 </p>
               </div>

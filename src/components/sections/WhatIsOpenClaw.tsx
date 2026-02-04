@@ -61,7 +61,7 @@ export function WhatIsOpenClaw() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            ChatGPT gibt dir Antworten. OpenClaw führt sie aus. Klingt abstrakt? Live-Demo kommt im Workshop.
+            ChatGPT gibt dir Antworten. OpenClaw führt sie aus. Klingt abstrakt? Live-Demo kommt im Deep Dive.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export function WhatIsOpenClaw() {
                 </svg>
               </div>
               <p className="font-display text-2xl font-bold text-stone-700 mb-2">
-                Live-Demo im Workshop
+                Live-Demo im Deep Dive
               </p>
               <p className="text-stone-500">
                 Hier siehst du später, wie Owen in Aktion aussieht

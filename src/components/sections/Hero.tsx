@@ -35,14 +35,14 @@ export function Hero() {
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Eyebrow */}
         <p className="text-warm-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
-          Ein Workshop von Andy Steinberger · Sonntag, 15. Februar 2026
+          Ein Deep Dive von Andy Steinberger · Sonntag, 15. Februar 2026
         </p>
 
         {/* Countdown Timer */}
         {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < new Date().getTime() ? (
           <div className="mb-10">
             <p className="text-3xl md:text-4xl font-bold text-warm-700 bg-warm-50 border-2 border-warm-300 rounded-xl px-8 py-6 inline-block">
-              🎉 Der Workshop hat begonnen!
+              🎉 Der Deep Dive hat begonnen!
             </p>
           </div>
         ) : (
