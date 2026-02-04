@@ -1,13 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function Pricing() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [soldCount, setSoldCount] = useState(0);
+  const [ticketsLoading, setTicketsLoading] = useState(true);
+
+  // Fetch ticket count on mount
+  useEffect(() => {
+    fetch('/api/tickets')
+      .then((res) => res.json())
+      .then((data) => {
+        setSoldCount(data.sold ?? 0);
+      })
+      .catch(() => {
+        setSoldCount(0);
+      })
+      .finally(() => {
+        setTicketsLoading(false);
+      });
+  }, []);
 
   // Gestaffelte Preise: 10 @ 149€, 40 @ 199€, Rest @ 249€
-  const soldCount = 6; // TODO: Dynamisch aus DB/Stripe
   const earlyBirdTotal = 10;
   const midTierTotal = 50; // 10 + 40
 
@@ -54,6 +70,9 @@ export function Pricing() {
     }
   };
 
+  // Progress percentage (capped at 100%)
+  const progressPercent = Math.min((soldCount / earlyBirdTotal) * 100, 100);
+
   return (
     <section id="pricing" className="py-32 lg:py-40 px-4 bg-navy-50">
       <div className="max-w-3xl mx-auto">
@@ -78,18 +97,24 @@ export function Pricing() {
           <div className="mb-10 mt-4">
             <div className="flex justify-between items-center mb-3">
               <span className="text-sm font-semibold text-orange-700">
-                {Math.round((soldCount / earlyBirdTotal) * 100)}% ausverkauft
+                {ticketsLoading ? '...' : `${Math.round(progressPercent)}% ausverkauft`}
               </span>
-              <span className="text-sm text-navy-600">Noch {currentTier.spotsLeft} von 10 verfügbar</span>
+              <span className="text-sm text-navy-600">
+                {ticketsLoading ? '...' : `Noch ${currentTier.spotsLeft} von 10 verfügbar`}
+              </span>
             </div>
             <div className="w-full bg-navy-200 rounded-full h-4 shadow-inner">
               <div 
                 className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 h-4 rounded-full transition-all duration-500 shadow-lg"
-                style={{ width: `${(soldCount / earlyBirdTotal) * 100}%` }}
+                style={{ width: ticketsLoading ? '0%' : `${progressPercent}%` }}
               />
             </div>
             <p className="text-center text-base font-medium text-navy-700 mt-3">
-              <strong className="text-navy-900">{soldCount} von 10 Early Birds verkauft</strong>
+              {ticketsLoading ? (
+                <span className="text-navy-500">Lade Verkaufszahlen...</span>
+              ) : (
+                <strong className="text-navy-900">{soldCount} von 10 Early Birds verkauft</strong>
+              )}
             </p>
           </div>
 
