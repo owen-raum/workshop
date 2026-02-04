@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  builder:
+    image: node:21
+    working_dir: /app
+    volumes:
+      - .:/app
+      - build_volume:/app/dist
+    command: >
+      /bin/sh -c "
+        npm install --include=dev --legacy-peer-deps &&
+        npx vite build"
+    environment:
+      - NODE_ENV=production
+
+  web:
+    image: node:21
+    working_dir: /web
+    environment:
+      - WEBSERVER_PORT=${WEBSERVER_PORT}
+    volumes:
+      - build_volume:/web/dist
+    ports:
+      - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
+    depends_on:
+      - builder
+    command: npx serve -s ./dist -l ${WEBSERVER_PORT} --cors
+    networks:
+      pulse:
+        ipv4_address: ${IPV4_ADDRESS}
+
+volumes:
+  build_volume:
+
+networks:
+  pulse:
+    external: true
