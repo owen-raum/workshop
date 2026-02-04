@@ -21,9 +21,11 @@ export function AboutUsSocialProof() {
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 {/* Avatar */}
                 <div className="flex-shrink-0 mx-auto sm:mx-0">
-                  <div className="w-28 h-28 rounded-2xl border border-slate-200 bg-orange-100 flex items-center justify-center">
-                    <span className="text-orange-700 text-4xl font-bold">AS</span>
-                  </div>
+                  <img 
+                    src="/andy.jpg" 
+                    alt="Andy Steinberger" 
+                    className="w-28 h-28 rounded-2xl border border-slate-200 object-cover object-top"
+                  />
                 </div>
 
                 <div className="flex-1">
@@ -67,14 +69,16 @@ export function AboutUsSocialProof() {
             <div className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="flex-shrink-0 mx-auto sm:mx-0">
-                  <div className="w-28 h-28 rounded-2xl border border-slate-200 bg-orange-100 flex items-center justify-center">
-                    <span className="text-5xl">🐸</span>
-                  </div>
+                  <img 
+                    src="/owen.jpg" 
+                    alt="Owen der Frosch" 
+                    className="w-28 h-28 rounded-2xl border border-slate-200 object-cover"
+                  />
                 </div>
 
                 <div className="flex-1">
                   <h3 className="font-display text-2xl font-bold text-slate-900 mb-1">
-                    Owen
+                    Owen 🐸
                   </h3>
                   <p className="text-orange-600 font-semibold mb-4">
                     Der Agent, powered by OpenClaw
