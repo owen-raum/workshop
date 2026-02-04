@@ -81,13 +81,13 @@ export function Hero() {
           </div>
         )}
 
-        {/* Main Headline - HUGE */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-slate-900 mb-8 leading-[1.05] tracking-tight">
+        {/* Main Headline */}
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 mb-12 leading-[1.1] tracking-tight">
           Ein AI-Agent, der wirklich arbeitet – nicht nur chattet.
         </h1>
 
         {/* Subheadline */}
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-slate-700 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
+        <h2 className="text-xl md:text-2xl lg:text-3xl text-slate-700 font-medium mb-14 max-w-4xl mx-auto leading-relaxed">
           Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt.
         </h2>
 
