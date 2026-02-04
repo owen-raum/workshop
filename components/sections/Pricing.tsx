@@ -1,30 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { getTierInfo, formatLaterPrices, type TierInfo } from '@/lib/tiers';
+import { useState } from 'react';
+import { formatLaterPrices } from '@/lib/tiers';
+import { useTickets, getCtaText } from '@/lib/useTickets';
 
 export function Pricing() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [soldCount, setSoldCount] = useState(0);
-  const [ticketsLoading, setTicketsLoading] = useState(true);
 
-  // Fetch ticket count on mount
-  useEffect(() => {
-    fetch('/api/tickets')
-      .then((res) => res.json())
-      .then((data) => {
-        setSoldCount(data.sold ?? 0);
-      })
-      .catch(() => {
-        setSoldCount(0);
-      })
-      .finally(() => {
-        setTicketsLoading(false);
-      });
-  }, []);
-
-  const tier: TierInfo = getTierInfo(soldCount);
+  // Ticket data – zentralisiert
+  const { tier, loading: ticketsLoading } = useTickets();
   const laterPrices = formatLaterPrices(tier.name);
 
   const features = [
@@ -61,9 +46,7 @@ export function Pricing() {
   // Button Text dynamisch
   const getButtonText = () => {
     if (loading) return 'Wird geladen...';
-    if (tier.name === 'early_bird') return `Early Bird für ${tier.price}€ sichern`;
-    if (tier.name === 'regular') return `Jetzt für ${tier.price}€ sichern`;
-    return `Letzten Platz für ${tier.price}€ sichern`;
+    return getCtaText(tier, false);
   };
 
   return (

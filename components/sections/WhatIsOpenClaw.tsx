@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function WhatIsOpenClaw() {
   const features = [
     {
@@ -71,10 +73,11 @@ export function WhatIsOpenClaw() {
         {/* Demo Image */}
         <div className="mb-12 md:mb-16 max-w-4xl mx-auto">
           <div className="relative aspect-video rounded-2xl border-2 border-navy-300 overflow-hidden shadow-lg">
-            <img 
+            <Image 
               src="/owen-demo.jpg" 
               alt="Owen AI Agent Live Demo" 
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p className="font-display text-xl md:text-2xl font-bold text-white">

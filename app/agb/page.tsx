@@ -24,7 +24,7 @@ export default function AGB() {
           </h2>
           <p className="text-navy-800 leading-relaxed mb-4">
             Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge über die Teilnahme am
-            OpenClaw Deep Dive zwischen STEINBERGER LTD (nachfolgend „Anbieter") und dem Kunden.
+            OpenClaw Deep Dive zwischen STEINBERGER LTD (nachfolgend &bdquo;Anbieter&ldquo;) und dem Kunden.
           </p>
 
           <h2 className="font-display text-2xl font-bold text-navy-900 mt-8 mb-4">

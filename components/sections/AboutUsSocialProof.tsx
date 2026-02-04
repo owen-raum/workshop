@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function AboutUsSocialProof() {
   return (
     <section id="about" className="py-20 md:py-32 lg:py-40 px-4 bg-white">
@@ -21,9 +23,11 @@ export function AboutUsSocialProof() {
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 {/* Avatar */}
                 <div className="flex-shrink-0 mx-auto sm:mx-0">
-                  <img 
+                  <Image 
                     src="/andy.jpg" 
                     alt="Andy Steinberger" 
+                    width={112}
+                    height={112}
                     className="w-28 h-28 rounded-2xl border border-slate-200 object-cover object-top"
                   />
                 </div>
@@ -37,7 +41,7 @@ export function AboutUsSocialProof() {
                   </p>
                   <div className="space-y-3 text-slate-700 leading-relaxed">
                     <p>
-                      Owen gibt's seit 2021. Erst auf OpenAI-Tools experimentiert, dann auf Make und Fireflies 
+                      Owen gibt&apos;s seit 2021. Erst auf OpenAI-Tools experimentiert, dann auf Make und Fireflies 
                       produktiv gebracht. Hat funktioniert – aber mit Einschränkungen.
                     </p>
                     <p>
@@ -69,9 +73,11 @@ export function AboutUsSocialProof() {
             <div className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="flex-shrink-0 mx-auto sm:mx-0">
-                  <img 
+                  <Image 
                     src="/owen.jpg" 
                     alt="Owen der Frosch" 
+                    width={112}
+                    height={112}
                     className="w-28 h-28 rounded-2xl border border-slate-200 object-cover"
                   />
                 </div>
@@ -114,7 +120,7 @@ export function AboutUsSocialProof() {
                 </p>
                 <p>
                   Diesen Deep Dive gibt es, weil mich jede Woche Leute fragen: 
-                  <strong className="text-slate-900"> "Wie hast du das aufgesetzt?"</strong> – 
+                  <strong className="text-slate-900"> &quot;Wie hast du das aufgesetzt?&quot;</strong> – 
                   und die Antwort passt nicht in eine WhatsApp-Nachricht.
                 </p>
                 <p>
@@ -133,7 +139,7 @@ export function AboutUsSocialProof() {
                     <h4 className="font-display font-bold text-slate-900 mb-2">Kein Bullshit</h4>
                     <p className="text-slate-700 text-sm leading-relaxed">
                       Ich sage dir was funktioniert und was nicht. Keine übertriebenen Versprechen, 
-                      keine "10x Productivity"-Claims.
+                      keine &quot;10x Productivity&quot;-Claims.
                     </p>
                   </div>
                 </div>

@@ -1,33 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { getTierInfo, type TierInfo } from '@/lib/tiers';
+import { useTickets, getCtaText } from '@/lib/useTickets';
 
 export function Footer() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Ticket data
-  const [soldCount, setSoldCount] = useState(0);
-  const [ticketsLoading, setTicketsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/tickets')
-      .then((res) => res.json())
-      .then((data) => {
-        setSoldCount(data.sold ?? 0);
-      })
-      .catch(() => {
-        setSoldCount(0);
-      })
-      .finally(() => {
-        setTicketsLoading(false);
-      });
-  }, []);
-
-  const tier: TierInfo = getTierInfo(soldCount);
+  // Ticket data – zentralisiert
+  const { tier, loading: ticketsLoading } = useTickets();
 
   return (
     <footer className="bg-navy-900 text-white py-32 lg:py-40 px-4">
@@ -44,13 +26,7 @@ export function Footer() {
             onClick={scrollToPricing}
             className="bg-navy-600 text-white hover:bg-navy-700 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
-            {ticketsLoading
-              ? 'Ticket sichern'
-              : tier.name === 'early_bird'
-                ? `Early Bird für ${tier.price}€ sichern`
-                : tier.name === 'regular'
-                  ? `Jetzt für ${tier.price}€ sichern`
-                  : `Letzten Platz für ${tier.price}€ sichern`}
+            {getCtaText(tier, ticketsLoading)}
           </button>
         </div>
 

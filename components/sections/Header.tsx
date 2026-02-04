@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTickets, getCtaText } from '@/lib/useTickets';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { tier, loading: ticketsLoading } = useTickets();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +47,7 @@ export function Header() {
           onClick={scrollToPricing}
           className="px-5 py-2.5 text-sm font-display font-semibold bg-navy-600 hover:bg-navy-700 text-white rounded-lg transition-colors"
         >
-          Early Bird sichern
+          {getCtaText(tier, ticketsLoading)}
         </button>
       </div>
     </header>

@@ -39,7 +39,7 @@ export default function Datenschutz() {
             <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong>
             <br />
             Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
-            Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser
+            Kontaktdaten können Sie dem Abschnitt &bdquo;Hinweis zur Verantwortlichen Stelle&ldquo; in dieser
             Datenschutzerklärung entnehmen.
           </p>
 

@@ -2,27 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '../ui/Button';
-import { getTierInfo, type TierInfo } from '@/lib/tiers';
+import { useTickets } from '@/lib/useTickets';
 
 export function StickyCTABar() {
   const [isVisible, setIsVisible] = useState(false);
-  const [soldCount, setSoldCount] = useState(0);
-  const [ticketsLoading, setTicketsLoading] = useState(true);
 
-  // Fetch ticket count on mount
-  useEffect(() => {
-    fetch('/api/tickets')
-      .then((res) => res.json())
-      .then((data) => {
-        setSoldCount(data.sold ?? 0);
-      })
-      .catch(() => {
-        setSoldCount(0);
-      })
-      .finally(() => {
-        setTicketsLoading(false);
-      });
-  }, []);
+  // Ticket data – zentralisiert
+  const { tier, loading: ticketsLoading } = useTickets();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,8 +41,6 @@ export function StickyCTABar() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const tier: TierInfo = getTierInfo(soldCount);
 
   return (
     <div

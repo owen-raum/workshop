@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function SocialProof() {
   const testimonials = [
     {
@@ -25,10 +27,10 @@ export function SocialProof() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-navy-900 mb-4">
-            Was Teilnehmer sagen
+            Stimmen aus der Community
           </h2>
           <p className="text-lg md:text-xl text-navy-700 max-w-2xl mx-auto">
-            Ehrliches Feedback von Menschen, die den Deep Dive bereits erlebt haben
+            Feedback aus Andys Workshops und Community
           </p>
         </div>
 
@@ -47,15 +49,17 @@ export function SocialProof() {
 
               {/* Quote Text */}
               <p className="text-navy-700 leading-relaxed mb-6 italic">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-navy-100">
                 {testimonial.avatar ? (
-                  <img 
+                  <Image 
                     src={testimonial.avatar} 
                     alt={testimonial.name}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full object-cover border border-navy-200"
                   />
                 ) : (
