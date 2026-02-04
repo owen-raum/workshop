@@ -3,19 +3,22 @@ version: '3.8'
 services:
   builder:
     image: node:22
-    working_dir: /app
     volumes:
       - build_dist:/output
     command: >
       /bin/sh -c "
+        set -ex &&
         apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
-        echo 'Fresh clone...' &&
-        git clone --depth 1 --branch main https://github.com/owen-raum/workshop.git /app &&
-        echo "Cloned commit: $(cd /app && git rev-parse HEAD)" &&
-        npm install --include=dev --legacy-peer-deps &&
-        npx vite build &&
+        git clone --depth 1 --branch main https://github.com/owen-raum/workshop.git /tmp/build &&
+        cd /tmp/build &&
+        ls -la public/ &&
+        npm install --include=dev --legacy-peer-deps 2>&1 &&
+        npx vite build 2>&1 &&
+        ls -la dist/ &&
         rm -rf /output/* &&
-        cp -r /app/dist/* /output/"
+        cp -r dist/* /output/ &&
+        ls -la /output/ &&
+        echo 'BUILD DONE'"
     environment:
       - NODE_ENV=production
 
