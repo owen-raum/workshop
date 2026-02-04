@@ -2,13 +2,31 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '../ui/Button';
+import { getTierInfo, type TierInfo } from '@/lib/tiers';
 
 export function StickyCTABar() {
   const [isVisible, setIsVisible] = useState(false);
+  const [soldCount, setSoldCount] = useState(0);
+  const [ticketsLoading, setTicketsLoading] = useState(true);
+
+  // Fetch ticket count on mount
+  useEffect(() => {
+    fetch('/api/tickets')
+      .then((res) => res.json())
+      .then((data) => {
+        setSoldCount(data.sold ?? 0);
+      })
+      .catch(() => {
+        setSoldCount(0);
+      })
+      .finally(() => {
+        setTicketsLoading(false);
+      });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.querySelector('section'); // First section (Hero)
+      const heroSection = document.querySelector('section');
       const pricingSection = document.getElementById('pricing');
 
       if (!heroSection) return;
@@ -16,23 +34,20 @@ export function StickyCTABar() {
       const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
       const scrollPosition = window.scrollY + window.innerHeight;
 
-      // Show bar when scrolled past hero
       const isPastHero = window.scrollY > heroBottom;
 
-      // Hide bar before pricing section enters viewport (100px buffer)
       let isPricingVisible = false;
       if (pricingSection) {
         const pricingTop = pricingSection.offsetTop;
         const pricingBottom = pricingTop + pricingSection.offsetHeight;
-        isPricingVisible = 
-          scrollPosition > (pricingTop - 100) && 
-          window.scrollY < pricingBottom;
+        isPricingVisible =
+          scrollPosition > pricingTop - 100 && window.scrollY < pricingBottom;
       }
 
       setIsVisible(isPastHero && !isPricingVisible);
     };
 
-    handleScroll(); // Check on mount
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -40,6 +55,8 @@ export function StickyCTABar() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const tier: TierInfo = getTierInfo(soldCount);
 
   return (
     <div
@@ -50,13 +67,15 @@ export function StickyCTABar() {
       <div className="bg-navy-800 border-t border-navy-600 shadow-2xl">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white text-base sm:text-lg font-medium">
-            Noch <strong className="text-orange-400">4 Early Bird Tickets</strong> (149€)
+            {ticketsLoading ? (
+              <span className="text-navy-300">Lade...</span>
+            ) : (
+              <>
+                Noch <strong className="text-orange-400">{tier.spotsLeft} {tier.label}-Tickets</strong> ({tier.price}€)
+              </>
+            )}
           </p>
-          <Button
-            variant="primary"
-            size="medium"
-            onClick={scrollToPricing}
-          >
+          <Button variant="primary" size="medium" onClick={scrollToPricing}>
             Jetzt sichern
           </Button>
         </div>
