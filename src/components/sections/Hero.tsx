@@ -68,12 +68,12 @@ export function Hero() {
 
         {/* Main Headline - HUGE */}
         <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-stone-900 mb-8 leading-[1.05] tracking-tight">
-          70% deiner Routine-Arbeit — erledigt.
+          Ein AI-Agent, der wirklich arbeitet — nicht nur chattet.
         </h1>
 
         {/* Subheadline */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-stone-800 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
-          Production Setup. Real Use Cases. Zero Bullshit.
+          Seit 2 Jahren im Produktiveinsatz. Über 50.000 Tasks erledigt. Läuft auf einem Mac Mini M4 in Zypern.
         </h2>
 
         {/* CTA */}

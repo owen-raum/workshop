@@ -35,9 +35,10 @@ export function AboutUsSocialProof() {
                   </p>
                   <div className="space-y-3 text-stone-700 leading-relaxed">
                     <p>
-                      Ich nutze OpenClaw seit Monaten produktiv — nicht für Demos, sondern als 
-                      echte Infrastruktur. Owen läuft 24/7 und erledigt alles, was mich von 
-                      der eigentlichen Arbeit abhält.
+                      Ich arbeite mit den Tools von OpenAI seit 2021 — lange bevor ChatGPT für alle kam. 
+                      2023 habe ich Owen gebaut, damals mit Make und Tools wie Fireflies & Co. 
+                      Dann kam OpenClaw — plötzlich konnte Owen Browser steuern, Sub-Agents spawnen, 
+                      WhatsApp schreiben. Ein komplett neues Level.
                     </p>
                     <p>
                       Was ich dir zeige läuft wirklich. Was nicht funktioniert sag ich dir auch. 
@@ -50,7 +51,7 @@ export function AboutUsSocialProof() {
               {/* Credibility Links */}
               <div className="mt-6 pt-6 border-t border-stone-200 grid grid-cols-2 gap-3">
                 <a href="https://pulse.how" target="_blank" rel="noopener" className="text-center py-3 px-4 bg-white rounded-lg border border-stone-200 hover:border-warm-300 transition-colors group">
-                  <div className="font-display font-bold text-stone-900 text-sm group-hover:text-warm-600 transition-colors">PULSE</div>
+                  <div className="font-display font-bold text-stone-900 text-sm group-hover:text-warm-600 transition-colors">The Circle</div>
                   <div className="text-stone-600 text-xs">AI Community</div>
                 </a>
                 <a href="https://raum.so" target="_blank" rel="noopener" className="text-center py-3 px-4 bg-white rounded-lg border border-stone-200 hover:border-warm-300 transition-colors group">
@@ -80,7 +81,8 @@ export function AboutUsSocialProof() {
                     <p>
                       Owen ist kein Chatbot. Owen ist ein AI-Agent, der seit über 2 Jahren 
                       im Produktiveinsatz läuft. Er beantwortet Mails, koordiniert Termine, 
-                      schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme.
+                      schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme. 
+                      Läuft auf einem Mac Mini M4 in Zypern.
                     </p>
                     <p>
                       Im Deep Dive siehst du Owen live bei der Arbeit — kein vorbereitetes 

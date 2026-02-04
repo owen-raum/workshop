@@ -3,6 +3,26 @@ import { FAQItem } from '../ui/FAQItem';
 export function FAQ() {
   const faqs = [
     {
+      question: 'Ist das nicht unsicher? Ein AI-Agent mit Zugriff auf alles?',
+      answer: 'Owen läuft auf DEINEM Mac. Nicht in irgendeiner Cloud. Du kontrollierst, was er darf und was nicht. Jeder Zugriff ist geloggt.',
+    },
+    {
+      question: 'Brauche ich Coding-Skills?',
+      answer: 'Nein. Ich zeige dir Schritt für Schritt, wie du deinen Agent aufsetzt. Kein Terminal-Voodoo. Copy & Paste reicht.',
+    },
+    {
+      question: 'Was kostet OpenClaw?',
+      answer: 'OpenClaw selbst ist Open Source. Du zahlst nur für die AI-Modelle (OpenAI, Anthropic). In meinem Setup: ~50–100€ pro Monat.',
+    },
+    {
+      question: 'Wie lange dauert das Setup?',
+      answer: 'An einem Sonntag Vormittag bist du durch. Ich zeige dir meinen kompletten Stack — live.',
+    },
+    {
+      question: 'Was, wenn etwas kaputt geht?',
+      answer: 'Owen macht keine irreversiblen Actions ohne Confirmation. Alles ist nachvollziehbar. Und: Du bist Teil von The Circle — wir helfen uns gegenseitig.',
+    },
+    {
       question: 'Brauche ich technisches Vorwissen?',
       answer: 'Nein. Wenn du weißt was ChatGPT ist, reicht das. Es geht um Verständnis, nicht um Programmieren.',
     },

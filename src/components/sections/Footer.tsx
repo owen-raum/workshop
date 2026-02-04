@@ -30,7 +30,7 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Andy Steinberger × OpenClaw</h3>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Gründer von PULSE und steinberger [ʁaʊ̯m̩]. 
+              Gründer von The Circle und steinberger [ʁaʊ̯m̩]. 
               Baut AI-Agents für echte Arbeit — kein Hype, kein Bullshit.
             </p>
           </div>
@@ -84,7 +84,7 @@ export function Footer() {
                   className="hover:text-stone-200 transition-colors flex items-center gap-2"
                 >
                   <span className="w-4 h-4 text-center text-xs">●</span>
-                  PULSE Community
+                  The Circle Community
                 </a>
               </li>
               <li>
