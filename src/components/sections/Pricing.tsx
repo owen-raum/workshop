@@ -40,8 +40,19 @@ export function Pricing() {
           </p>
         </div>
 
-        {/* Single Pricing Card */}
-        <div className="bg-white rounded-2xl border border-stone-200 p-10 md:p-14 mb-10">
+        {/* Single Pricing Card - Enhanced for Early Bird */}
+        <div className={`bg-white rounded-2xl p-10 md:p-14 mb-10 relative ${
+          soldCount < earlyBirdTotal 
+            ? 'border-4 border-warm-500 shadow-2xl shadow-warm-200/50 scale-105' 
+            : 'border border-stone-200'
+        }`}>
+          {/* BESTE WAHL Badge - nur für Early Bird */}
+          {soldCount < earlyBirdTotal && (
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-warm-600 to-warm-500 text-white font-bold text-sm px-6 py-2.5 rounded-full shadow-lg">
+              🔥 BESTE WAHL — 100€ sparen
+            </div>
+          )}
+
           {/* Price Tiers Visualization */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-10 text-sm gap-6 md:gap-0">
             <div className={`text-center ${soldCount < earlyBirdTotal ? 'text-stone-900' : 'text-stone-400'}`}>
@@ -71,11 +82,31 @@ export function Pricing() {
             </div>
           </div>
 
+          {/* Progress Indicator - nur für Early Bird */}
+          {soldCount < earlyBirdTotal && (
+            <div className="mb-8">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-stone-700">
+                  Noch <strong className="text-warm-700">{currentTier.spotsLeft} von 10</strong> verfügbar
+                </span>
+                <span className="text-sm text-stone-500">{Math.round((soldCount / earlyBirdTotal) * 100)}% ausverkauft</span>
+              </div>
+              <div className="w-full bg-stone-200 rounded-full h-3">
+                <div 
+                  className="bg-gradient-to-r from-warm-600 to-warm-500 h-3 rounded-full transition-all duration-500"
+                  style={{ width: `${(soldCount / earlyBirdTotal) * 100}%` }}
+                />
+              </div>
+            </div>
+          )}
+
           {/* Current Price */}
           <div className="text-center mb-10">
-            <div className="inline-block bg-warm-100 text-warm-700 text-sm font-bold px-4 py-2 rounded-full mb-4">
-              {currentTier.label} — noch {currentTier.spotsLeft} Plätze
-            </div>
+            {soldCount >= earlyBirdTotal && (
+              <div className="inline-block bg-warm-100 text-warm-700 text-sm font-bold px-4 py-2 rounded-full mb-4">
+                {currentTier.label} — noch {currentTier.spotsLeft} Plätze
+              </div>
+            )}
             <div className="font-display text-6xl md:text-7xl font-bold text-stone-900">
               {currentTier.price}€
             </div>
@@ -96,13 +127,33 @@ export function Pricing() {
             ))}
           </ul>
 
-          {/* CTA */}
+          {/* CTA - verstärkt für Early Bird */}
           <button
             onClick={handleBook}
-            className="w-full bg-stone-900 hover:bg-stone-800 text-white font-bold text-lg py-4 px-8 rounded-xl transition-colors"
+            className={`w-full font-bold text-lg py-4 px-8 rounded-xl transition-all ${
+              soldCount < earlyBirdTotal
+                ? 'bg-gradient-to-r from-warm-600 to-warm-500 hover:from-warm-700 hover:to-warm-600 text-white shadow-lg hover:shadow-xl'
+                : 'bg-stone-900 hover:bg-stone-800 text-white'
+            }`}
           >
-            Jetzt Platz sichern
+            {soldCount < earlyBirdTotal ? 'Early Bird für 149€ sichern' : 'Jetzt Platz sichern'}
           </button>
+
+          {/* Risk Reversal - prominenter Block */}
+          <div className="mt-8 p-6 bg-sage-50 border-2 border-sage-200 rounded-xl">
+            <div className="flex items-start gap-3">
+              <svg className="w-6 h-6 text-sage-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <div>
+                <h4 className="font-bold text-stone-900 mb-1">100% Geld-zurück-Garantie</h4>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  Wenn du nach dem Workshop das Gefühl hast, dass es deine Zeit nicht wert war, 
+                  bekommst du den vollen Betrag zurück. Kein Kleingedrucktes, keine Fragen.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Trust Badges */}
@@ -112,12 +163,6 @@ export function Pricing() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             <span>Sichere Zahlung via Stripe</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
-            </svg>
-            <span>14 Tage Geld-zurück-Garantie</span>
           </div>
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

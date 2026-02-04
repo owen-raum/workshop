@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { Button } from '../ui/Button';
 
 export function Hero() {
-  const registeredCount = 6;
-  const maxSeats = 100;
-
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -37,16 +34,6 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-stone-50">
       <div className="relative max-w-6xl mx-auto text-center">
-        {/* Live Counter Badge - Clean & Static */}
-        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-stone-200 mb-12">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-warm-500"></span>
-          </span>
-          <span className="text-stone-700 font-medium text-sm">
-            <strong className="text-stone-900">{registeredCount}</strong> von {maxSeats} Plätzen gebucht
-          </span>
-        </div>
-
         {/* Eyebrow */}
         <p className="text-warm-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
           Ein Workshop von Andy Steinberger · Sonntag, 15. Februar 2026
@@ -73,18 +60,37 @@ export function Hero() {
         </div>
 
         {/* Main Headline - HUGE */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-stone-900 mb-10 leading-[1.05] tracking-tight">
-          Dein AI-Agent.
-          <br />
-          Kein Spielzeug.
+        <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-stone-900 mb-8 leading-[1.05] tracking-tight">
+          70% deiner Routine-Arbeit — erledigt.
         </h1>
 
-        {/* Subline */}
-        <p className="text-xl md:text-2xl text-stone-600 mb-16 max-w-3xl mx-auto leading-relaxed">
-          Mein AI-Agent Owen managed 70% meiner Routine — Mails, Termine, Code, WhatsApp. 
-          In 90 Minuten zeige ich dir, was AI-Agents wirklich können, wo die Grenzen sind, 
+        {/* Subheadline */}
+        <h2 className="text-2xl md:text-3xl lg:text-4xl text-stone-800 font-semibold mb-6 max-w-4xl mx-auto leading-tight">
+          Wie ein AI-Agent dir 20+ Stunden pro Woche zurückgibt (ohne dass du coden musst)
+        </h2>
+
+        {/* Description */}
+        <p className="text-lg md:text-xl text-stone-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+          Mein AI-Agent Owen managed Mails, Termine, Code und WhatsApp seit 2+ Jahren im Produktiveinsatz. 
+          In 90 Minuten zeige ich dir wie das Setup funktioniert, was schief gehen kann, 
           und ob das für dein Business Sinn macht.
         </p>
+
+        {/* Social Proof - direkt unter Hero */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 text-base md:text-lg">
+          <div className="flex items-center gap-2.5">
+            <svg className="w-5 h-5 text-sage-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span className="text-stone-700"><strong className="text-stone-900">50.000+ echte Tasks</strong> erledigt — kein Demo, echtes System</span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <svg className="w-5 h-5 text-warm-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="text-stone-700">Noch <strong className="text-warm-700">4 Early Bird Tickets</strong> (149€) — danach 199€</span>
+          </div>
+        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
@@ -93,7 +99,7 @@ export function Hero() {
             size="large"
             onClick={scrollToPricing}
           >
-            Jetzt Platz sichern
+            Early Bird für 149€ sichern
           </Button>
           <Button
             variant="outline"
