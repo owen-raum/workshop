@@ -10,7 +10,8 @@ services:
       /bin/sh -c "
         apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
         echo 'Fresh clone...' &&
-        git clone https://github.com/owen-raum/workshop.git /app &&
+        git clone --depth 1 --branch main https://github.com/owen-raum/workshop.git /app &&
+        echo "Cloned commit: $(cd /app && git rev-parse HEAD)" &&
         npm install --include=dev --legacy-peer-deps &&
         npx vite build &&
         rm -rf /output/* &&
