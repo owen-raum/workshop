@@ -10,12 +10,10 @@ services:
       - node_modules:/build/node_modules
     command: >
       /bin/sh -c "
-        if [ ! -f /build/package.json ]; then
-          echo 'Cloning repo...' &&
-          apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
-          git clone https://github.com/owen-raum/workshop.git /tmp/repo &&
-          cp -r /tmp/repo/* /tmp/repo/.* /build/ 2>/dev/null || true;
-        fi &&
+        apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
+        echo 'Pulling latest code...' &&
+        git clone https://github.com/owen-raum/workshop.git /tmp/repo &&
+        cp -r /tmp/repo/* /tmp/repo/.* /build/ 2>/dev/null || true &&
         npm install --include=dev --legacy-peer-deps &&
         npx vite build"
     environment:
