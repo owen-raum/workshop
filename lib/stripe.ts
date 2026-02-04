@@ -15,13 +15,11 @@ export function getStripe(): Stripe {
  * Zählt verkaufte "OpenClaw Deep Dive" Tickets aus bezahlten Stripe Checkout Sessions
  */
 export async function getSoldTicketsCount(stripe: Stripe): Promise<number> {
-  const sessions = await stripe.checkout.sessions.list({
-    limit: 100,
-    payment_status: 'paid',
-    expand: ['data.line_items'],
-  });
+  const sessions = await stripe.checkout.sessions
+    .list({ payment_status: 'paid', expand: ['data.line_items'] })
+    .autoPagingToArray({ limit: 1000 });
 
-  return sessions.data.filter((session) =>
+  return sessions.filter((session) =>
     session.line_items?.data.some((item) =>
       item.description?.includes('OpenClaw Deep Dive')
     )
