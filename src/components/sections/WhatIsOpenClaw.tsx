@@ -48,58 +48,59 @@ export function WhatIsOpenClaw() {
   ];
 
   return (
-    <section id="what" className="relative py-20 px-4 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-emerald-50/30" />
+    <section id="what" className="relative py-24 md:py-32 px-4 overflow-hidden">
+      {/* Premium Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30" />
       
-      <div className="relative max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+      <div className="relative max-w-6xl mx-auto">
+        {/* Header - Premium Typography */}
+        <div className="text-center mb-20">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Was ist OpenClaw?
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Das fehlende Puzzlestück zwischen AI und Realität. 
             <br className="hidden md:block" />
             Claude und GPT können denken — aber sie haben keine Hände.
           </p>
         </div>
 
-        {/* Main Explanation */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 border border-slate-200">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-slate-700 text-lg leading-relaxed mb-6">
-              <strong className="text-emerald-600">OpenClaw übersetzt AI-Intentionen in reale Aktionen.</strong>
+        {/* Main Explanation - Glassmorphism */}
+        <div className="glass rounded-3xl shadow-2xl p-10 md:p-14 mb-16 border border-white/50">
+          <div className="max-w-none">
+            <p className="text-slate-800 text-xl leading-relaxed mb-8">
+              <strong className="text-emerald-600 text-2xl">OpenClaw übersetzt AI-Intentionen in reale Aktionen.</strong>
+              <br />
               <br />
               Während ChatGPT und Claude dir nur Text zurückgeben können, kann ein OpenClaw-Agent 
               tatsächlich Messages versenden, Reminders setzen, Code schreiben, Browser steuern 
               und vieles mehr.
             </p>
-            <p className="text-slate-700 text-lg leading-relaxed">
+            <p className="text-slate-800 text-xl leading-relaxed">
               🔐 <strong>Open Source.</strong> Läuft lokal auf deinem Gerät. 
               Deine Daten bleiben bei dir. Keine Cloud-Abhängigkeit.
             </p>
           </div>
         </div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Premium Cards */}
         <div>
-          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+          <h3 className="font-display text-3xl font-bold text-slate-900 mb-10 text-center">
             Was OpenClaw kann
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 border border-slate-200 hover:border-emerald-300 transition-all hover:shadow-lg"
+                className="glass rounded-2xl p-8 border border-white/50 shadow-xl hover-lift hover:shadow-2xl hover:shadow-emerald-500/10"
               >
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg">
                   {feature.icon}
                 </div>
-                <h4 className="font-semibold text-slate-900 mb-2">
+                <h4 className="font-display font-bold text-slate-900 mb-3 text-lg">
                   {feature.title}
                 </h4>
-                <p className="text-slate-600 text-sm">
+                <p className="text-slate-600 text-base font-medium">
                   {feature.description}
                 </p>
               </div>

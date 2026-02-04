@@ -14,18 +14,18 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-semibold rounded-lg transition-all duration-200 inline-flex items-center justify-center';
+  const baseStyles = 'font-display font-bold rounded-xl transition-all duration-300 inline-flex items-center justify-center transform hover:scale-105 active:scale-95';
   
   const variantStyles = {
-    primary: 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed',
-    secondary: 'bg-gray-100 hover:bg-gray-200 text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed',
-    outline: 'border-2 border-gray-300 hover:border-green-600 hover:text-green-600 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed',
+    primary: 'bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 text-white shadow-xl shadow-emerald-500/25 hover:shadow-2xl hover:shadow-emerald-500/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
+    secondary: 'bg-slate-900 hover:bg-emerald-600 text-white shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
+    outline: 'border-2 border-slate-300 hover:border-emerald-600 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
   };
 
   const sizeStyles = {
-    small: 'px-4 py-2 text-sm',
-    medium: 'px-6 py-3 text-base',
-    large: 'px-8 py-4 text-lg',
+    small: 'px-5 py-2.5 text-sm',
+    medium: 'px-7 py-3.5 text-base',
+    large: 'px-10 py-5 text-lg',
   };
 
   return (

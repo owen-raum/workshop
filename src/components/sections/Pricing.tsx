@@ -52,17 +52,17 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="relative py-20 px-4 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-emerald-50" />
+    <section id="pricing" className="relative py-32 px-4 overflow-hidden">
+      {/* Premium Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50" />
       
-      <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+      <div className="relative max-w-7xl mx-auto">
+        {/* Header - Premium Typography */}
+        <div className="text-center mb-20">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Sichere dir deinen Platz
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Early-Bird-Preise nur für die ersten 30 Teilnehmer. 
             <br className="hidden md:block" />
             Danach steigt der Preis auf den regulären Tarif.
@@ -85,36 +85,36 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Trust Badges */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-          <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        {/* Trust Badges - Premium Glassmorphism */}
+        <div className="glass rounded-3xl p-10 shadow-2xl border border-white/50">
+          <div className="flex flex-wrap justify-center gap-10 text-base text-slate-700">
+            <div className="flex items-center gap-3">
+              <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              <span>Sichere Zahlung via Stripe</span>
+              <span className="font-semibold">Sichere Zahlung via Stripe</span>
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+            <div className="flex items-center gap-3">
+              <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
               </svg>
-              <span>14 Tage Geld-zurück-Garantie</span>
+              <span className="font-semibold">14 Tage Geld-zurück-Garantie</span>
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="flex items-center gap-3">
+              <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Inkl. Aufzeichnung & Slides</span>
+              <span className="font-semibold">Inkl. Aufzeichnung & Slides</span>
             </div>
           </div>
         </div>
 
-        {/* Urgency Banner */}
-        <div className="mt-8 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-xl p-6 text-center">
-          <p className="text-slate-900 font-semibold text-lg">
+        {/* Urgency Banner - Premium Styling */}
+        <div className="mt-10 bg-gradient-to-r from-gold-100 via-amber-100 to-orange-100 border-2 border-gold-400 rounded-2xl p-8 text-center shadow-xl shadow-gold-500/20">
+          <p className="font-display text-slate-900 font-bold text-2xl">
             ⏰ Early-Bird endet in: <span className="text-red-600">48 Stunden</span>
           </p>
-          <p className="text-slate-600 mt-2">
+          <p className="text-slate-700 mt-3 text-lg font-medium">
             Danach steigen die Preise auf 249€ / 349€ / 449€
           </p>
         </div>

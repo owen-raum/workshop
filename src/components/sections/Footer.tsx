@@ -6,7 +6,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-slate-900 text-white py-20 px-4 overflow-hidden">
+    <footer className="relative bg-slate-900 text-white py-24 md:py-32 px-4 overflow-hidden">
       {/* Decorative Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900/30 opacity-90" />
       

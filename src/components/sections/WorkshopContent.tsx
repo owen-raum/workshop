@@ -43,17 +43,17 @@ export function WorkshopContent() {
   ];
 
   return (
-    <section id="content" className="relative py-20 px-4 overflow-hidden">
+    <section id="content" className="relative py-24 md:py-32 px-4 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50/30 to-slate-50" />
       
       <div className="relative max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Was du lernst
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             90 Minuten intensiv. Von den Grundlagen bis zu konkreten Use Cases 
             für dein Business. Live, interaktiv, mit echten Beispielen.
           </p>

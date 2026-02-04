@@ -24,17 +24,17 @@ export function SocialProof() {
   ];
 
   return (
-    <section id="testimonials" className="relative py-20 px-4 overflow-hidden">
+    <section id="testimonials" className="relative py-24 md:py-32 px-4 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-teal-50/30" />
       
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Was Teilnehmer sagen
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Ehrliche Bewertungen von Menschen, die bereits mit OpenClaw arbeiten.
           </p>
         </div>
