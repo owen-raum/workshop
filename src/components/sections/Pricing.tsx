@@ -60,7 +60,7 @@ export function Pricing() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Sichere dir deinen <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Platz</span>
+            Sichere dir deinen Platz
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Early-Bird-Preise nur für die ersten 30 Teilnehmer. 

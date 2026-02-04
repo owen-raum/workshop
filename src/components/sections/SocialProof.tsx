@@ -32,7 +32,7 @@ export function SocialProof() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Was <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Teilnehmer</span> sagen
+            Was Teilnehmer sagen
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Ehrliche Bewertungen von Menschen, die bereits mit OpenClaw arbeiten.
