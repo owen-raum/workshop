@@ -33,7 +33,14 @@ export function Hero() {
   }, [eventDate]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-white">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-gradient-to-br from-white via-navy-50/30 to-white">
+      {/* Subtle decorative pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle at 20% 50%, var(--color-navy-600) 1px, transparent 1px),
+                         radial-gradient(circle at 80% 80%, var(--color-navy-600) 1px, transparent 1px)`,
+        backgroundSize: '50px 50px',
+      }} />
+      
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Eyebrow */}
         <p className="text-orange-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">

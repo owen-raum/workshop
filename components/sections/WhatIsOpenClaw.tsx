@@ -68,20 +68,17 @@ export function WhatIsOpenClaw() {
           </p>
         </div>
 
-        {/* Video Placeholder */}
+        {/* Demo Image */}
         <div className="mb-12 md:mb-16 max-w-4xl mx-auto">
-          <div className="relative aspect-video bg-gradient-to-br from-navy-100 to-navy-200 rounded-2xl border-2 border-navy-300 flex items-center justify-center overflow-hidden">
-            <div className="text-center p-6 md:p-8">
-              <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 bg-navy-300 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 md:w-10 md:h-10 text-navy-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <p className="font-display text-xl md:text-2xl font-bold text-navy-700 mb-2">
+          <div className="relative aspect-video rounded-2xl border-2 border-navy-300 overflow-hidden shadow-lg">
+            <img 
+              src="/owen-demo.jpg" 
+              alt="Owen AI Agent Live Demo" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <p className="font-display text-xl md:text-2xl font-bold text-white">
                 Live-Demo im Deep Dive
-              </p>
-              <p className="text-sm md:text-base text-navy-600">
-                Hier siehst du später, wie Owen in Aktion aussieht
               </p>
             </div>
           </div>
