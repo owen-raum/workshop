@@ -133,8 +133,13 @@ export function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 pt-6 border-t border-stone-800 text-center">
-          <p className="text-stone-600 text-xs leading-relaxed max-w-2xl mx-auto">
+        <div className="mt-8 pt-6 border-t border-stone-800 space-y-4">
+          <p className="text-stone-600 text-xs leading-relaxed max-w-3xl mx-auto text-center">
+            <strong className="text-stone-500">⚠️ Wichtiger Hinweis:</strong> Andy ist unabhängiger Early Adopter — nicht affiliated mit OpenClaw. 
+            Kein Vendor-Pitch. Keine Sales-Agenda. Nur echte Erfahrung aus Monaten Production Use. 
+            Was funktioniert, was nicht, und wo du aufpassen musst — ohne Marketing-Filter.
+          </p>
+          <p className="text-stone-700 text-xs leading-relaxed max-w-2xl mx-auto text-center">
             Dieser Deep Dive ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 
             offiziellen Verbindung zum OpenClaw-Projekt oder dessen Entwicklern. OpenClaw ist ein 
             Open-Source-Projekt unter eigener Lizenz.

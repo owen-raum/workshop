@@ -11,6 +11,10 @@ export function FAQ() {
       answer: 'Live-Session am 15. Februar um 11:00 Uhr (90 Minuten). Ich zeige dir mein Setup, erkläre wie der Agent funktioniert, wo Probleme auftreten können, und beantworte alle Fragen. Kein Verkaufs-Pitch, nur ehrliche Einblicke.',
     },
     {
+      question: 'Warum kostet der Deep Dive etwas? Andere Workshops sind kostenlos.',
+      answer: 'Weil kostenlose Workshops meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmal 149€ und bekommst alles — mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
+    },
+    {
       question: 'Bekomme ich eine Aufzeichnung?',
       answer: 'Ja. Du bekommst die komplette Aufnahme + Slides. Wenn du live nicht dabei sein kannst, kein Problem.',
     },
@@ -21,7 +25,7 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-32 lg:py-40 px-4 bg-stone-50">
+    <section id="faq" className="py-32 lg:py-40 px-4 bg-white">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">

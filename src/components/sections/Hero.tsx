@@ -31,7 +31,7 @@ export function Hero() {
   }, [eventDate]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-stone-50">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-white">
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Eyebrow */}
         <p className="text-warm-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">

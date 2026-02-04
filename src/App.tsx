@@ -1,14 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
-import { Disclaimer } from './components/sections/Disclaimer';
-import { OpenClawOneLiner } from './components/sections/OpenClawOneLiner';
 import { WhatIsOpenClaw } from './components/sections/WhatIsOpenClaw';
-import { AboutUs } from './components/sections/AboutUs';
+import { AboutUsSocialProof } from './components/sections/AboutUsSocialProof';
 import { WorkshopContent } from './components/sections/WorkshopContent';
 import { ForWhom } from './components/sections/ForWhom';
 import { Pricing } from './components/sections/Pricing';
-import { SocialProof } from './components/sections/SocialProof';
 import { FAQ } from './components/sections/FAQ';
 import { Footer } from './components/sections/Footer';
 import { StickyCTABar } from './components/sections/StickyCTABar';
@@ -21,14 +18,11 @@ function HomePage() {
     <>
       <Header />
       <Hero />
-      <Disclaimer />
-      <AboutUs />
-      <OpenClawOneLiner />
-      <WhatIsOpenClaw />
       <WorkshopContent />
       <ForWhom />
+      <AboutUsSocialProof />
+      <WhatIsOpenClaw />
       <Pricing />
-      <SocialProof />
       <FAQ />
       <Footer />
       <StickyCTABar />
