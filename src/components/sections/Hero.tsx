@@ -73,7 +73,7 @@ export function Hero() {
 
         {/* Subheadline */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-stone-800 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
-          Über 50.000 Tasks erledigt. Läuft auf einem Mac Mini M4 in Zypern.
+          Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt.
         </h2>
 
         {/* CTA */}
