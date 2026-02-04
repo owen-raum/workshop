@@ -21,7 +21,6 @@ export function Pricing() {
     'Komplette Aufzeichnung zum Nachschauen',
     'Alle Slides und Ressourcen',
     'Fragen stellen während des Workshops',
-    'Zugang zur Community',
   ];
 
   const handleBook = () => {

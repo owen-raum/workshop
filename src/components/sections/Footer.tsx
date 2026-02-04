@@ -13,7 +13,7 @@ export function Footer() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Zeit, dass AI für dich arbeitet.
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-stone-300 max-w-2xl mx-auto mb-8 leading-relaxed">
             90 Minuten. Ein Setup. Dein erster Agent.
           </p>
           <Button
@@ -23,10 +23,6 @@ export function Footer() {
           >
             Jetzt Ticket buchen →
           </Button>
-          
-          <p className="mt-6 text-stone-400 text-sm">
-            ⏰ Noch <strong className="text-white">26 Plätze</strong> zum Early-Bird-Preis verfügbar
-          </p>
         </div>
 
         <div className="border-t border-stone-700 mb-12" />
@@ -36,8 +32,8 @@ export function Footer() {
           {/* About */}
           <div>
             <h3 className="font-bold text-lg mb-4">OpenClaw Workshop</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Live-Workshop mit Andy Steinberger und Owen 🐸 — 
+            <p className="text-stone-400 text-sm leading-relaxed">
+              Live-Workshop mit Andy Steinberger — 
               AI-Agents verstehen und praktisch einsetzen.
             </p>
           </div>
@@ -47,22 +43,22 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-stone-400 text-sm">
               <li>
-                <a href="#what" className="hover:text-warm-300 transition-colors">
+                <a href="#what" className="hover:text-stone-200 transition-colors">
                   Was ist OpenClaw?
                 </a>
               </li>
               <li>
-                <a href="#content" className="hover:text-warm-300 transition-colors">
+                <a href="#content" className="hover:text-stone-200 transition-colors">
                   Workshop-Inhalte
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-warm-300 transition-colors">
-                  Tickets & Preise
+                <a href="#pricing" className="hover:text-stone-200 transition-colors">
+                  Ticket
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-warm-300 transition-colors">
+                <a href="#faq" className="hover:text-stone-200 transition-colors">
                   FAQ
                 </a>
               </li>
@@ -74,26 +70,13 @@ export function Footer() {
             <ul className="space-y-3 text-stone-400 text-sm">
               <li>
                 <a
-                  href="mailto:hello@openclaw.com"
-                  className="hover:text-warm-300 transition-colors flex items-center gap-2"
+                  href="mailto:andy@raum.so"
+                  className="hover:text-stone-200 transition-colors flex items-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  hello@openclaw.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://twitter.com/openclaw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-warm-300 transition-colors flex items-center gap-2"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                  </svg>
-                  @openclaw
+                  andy@raum.so
                 </a>
               </li>
             </ul>
@@ -102,16 +85,16 @@ export function Footer() {
 
         <div className="border-t border-stone-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-stone-500 text-sm">
           <div>
-            © {new Date().getFullYear()} OpenClaw Workshop. All rights reserved.
+            © {new Date().getFullYear()} STEINBERGER LTD
           </div>
           <div className="flex gap-6">
-            <a href="/impressum" className="hover:text-warm-300 transition-colors">
+            <a href="/impressum" className="hover:text-stone-200 transition-colors">
               Impressum
             </a>
-            <a href="/datenschutz" className="hover:text-warm-300 transition-colors">
+            <a href="/datenschutz" className="hover:text-stone-200 transition-colors">
               Datenschutz
             </a>
-            <a href="/agb" className="hover:text-warm-300 transition-colors">
+            <a href="/agb" className="hover:text-stone-200 transition-colors">
               AGB
             </a>
           </div>

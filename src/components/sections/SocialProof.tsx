@@ -16,7 +16,7 @@ export function SocialProof() {
       name: 'Markus S.',
       role: 'Product Owner',
       initials: 'MS',
-      quote: 'Der 1:1 Call danach war Gold wert. Andy hat meinen konkreten Use Case durchdacht und mir gesagt wo ich anfangen soll.',
+      quote: 'Nach dem Workshop hatte ich meinen ersten Agent in unter 2 Stunden am Laufen. Die Schritt-für-Schritt-Anleitung hat den Unterschied gemacht.',
     },
   ];
 

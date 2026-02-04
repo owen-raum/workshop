@@ -1,7 +1,7 @@
 import { Button } from '../ui/Button';
 
 export function Hero() {
-  const registeredCount = 24;
+  const registeredCount = 6;
   const maxSeats = 100;
 
   const scrollToPricing = () => {
