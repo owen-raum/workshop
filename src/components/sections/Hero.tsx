@@ -23,7 +23,7 @@ export function Hero() {
 
         {/* Eyebrow */}
         <p className="text-warm-600 font-semibold text-sm md:text-base mb-8 tracking-wide uppercase">
-          Live-Workshop · Donnerstag, 13. Februar 2026
+          Live-Workshop · Sonntag, 15. Februar 2026
         </p>
 
         {/* Main Headline - HUGE */}
