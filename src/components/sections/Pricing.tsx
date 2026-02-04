@@ -65,6 +65,9 @@ export function Pricing() {
 
           {/* Current Price - PROMINENT */}
           <div className="text-center mb-4">
+            <p className="text-orange-600 font-bold text-lg mb-4 flex items-center justify-center gap-2">
+              🔥 Anmeldung endet am 10. Februar
+            </p>
             <div className="font-display text-7xl md:text-8xl font-bold text-stone-900">
               149€
             </div>

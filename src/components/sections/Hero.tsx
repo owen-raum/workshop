@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Button } from '../ui/Button';
 
 export function Hero() {
   const scrollToPricing = () => {
@@ -93,14 +92,16 @@ export function Hero() {
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
-          <Button
-            variant="primary"
-            size="large"
+        <div className="flex flex-col gap-4 justify-center items-center mb-20">
+          <button
             onClick={scrollToPricing}
+            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-xl py-5 px-12 rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all"
           >
             Early Bird für 149€ sichern
-          </Button>
+          </button>
+          <p className="text-orange-600 font-semibold text-lg flex items-center gap-2">
+            ⚠️ Nur noch {10 - 6} von 10 Early Bird Plätzen
+          </p>
         </div>
 
         {/* Trust Indicators */}

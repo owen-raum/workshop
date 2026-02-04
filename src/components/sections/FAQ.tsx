@@ -7,20 +7,16 @@ export function FAQ() {
       answer: 'Nein. Wenn du weißt was ChatGPT ist, reicht das. Es geht um Verständnis, nicht um Programmieren.',
     },
     {
-      question: 'Ist das ein Verkaufs-Pitch für OpenClaw?',
-      answer: 'Nein. Ich zeige dir mein Setup, aber du musst nichts kaufen. OpenClaw ist Open Source. Wenn du danach entscheidest, dass AI-Agents nichts für dich sind — auch gut.',
+      question: 'Wie läuft der Workshop ab?',
+      answer: 'Live-Session am 15. Februar um 11:00 Uhr (90 Minuten). Ich zeige dir mein Setup, erkläre wie der Agent funktioniert, wo Probleme auftreten können, und beantworte alle Fragen. Kein Verkaufs-Pitch, nur ehrliche Einblicke.',
     },
     {
-      question: 'Gibt es eine Aufzeichnung?',
+      question: 'Bekomme ich eine Aufzeichnung?',
       answer: 'Ja. Du bekommst die komplette Aufnahme + Slides. Wenn du live nicht dabei sein kannst, kein Problem.',
     },
     {
-      question: 'Was wenn ich danach Fragen habe?',
-      answer: 'Schreib mir einfach eine Mail. Die meisten Fragen lassen sich in 2-3 Nachrichten klären.',
-    },
-    {
-      question: 'Warum steigt der Preis?',
-      answer: 'Die ersten 10 Plätze sind am günstigsten (149€), danach 199€, ab Platz 51 dann 249€. Wer früh bucht, zahlt weniger. Einfache Rechnung.',
+      question: 'Was ist, wenn ich nicht teilnehmen kann?',
+      answer: 'Kein Problem — du bekommst die Aufzeichnung und alle Materialien. Du verpasst nur die Möglichkeit, live Fragen zu stellen.',
     },
   ];
 
