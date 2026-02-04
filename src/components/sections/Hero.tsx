@@ -1,7 +1,6 @@
 import { Button } from '../ui/Button';
 
 export function Hero() {
-  // TODO: Replace with real live counter from Stripe/API
   const registeredCount = 24;
   const maxSeats = 100;
 
@@ -10,67 +9,85 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 bg-white">
-      {/* Background Pattern (subtle) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-green-50/50 to-transparent pointer-events-none" />
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+      {/* Background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50" />
+      
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-emerald-200/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
 
-      <div className="relative max-w-4xl mx-auto text-center">
+      <div className="relative max-w-5xl mx-auto text-center">
         {/* Live Counter Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-8 animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium mb-8 border border-emerald-200">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-600"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
           </span>
           <span>
-            <strong>{registeredCount}</strong> von {maxSeats} Plätzen bereits gebucht
+            <strong>{registeredCount}</strong> von {maxSeats} Plätzen gebucht
           </span>
         </div>
 
+        {/* Eyebrow */}
+        <p className="text-emerald-600 font-semibold text-lg mb-4 tracking-wide uppercase">
+          Live-Workshop · 13. Februar 2026
+        </p>
+
         {/* Main Headline */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-          Baue deinen eigenen{' '}
-          <span className="text-green-600 inline-block">AI-Assistenten</span>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+          OpenClaw verstehen.
+          <br />
+          <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+            AI-Agents richtig nutzen.
+          </span>
         </h1>
 
         {/* Subline */}
-        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Live-Workshop mit Andy Steinberger am{' '}
-          <strong className="text-gray-900">13. Februar 2026</strong>.
-          <br />
-          Lerne in 90 Minuten, wie du OpenClaw für dein Business nutzt.
+        <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          In 90 Minuten lernst du, was OpenClaw ist, wie es funktioniert und 
+          wie du es konkret für dein Business einsetzt — ohne Tech-Bullshit, 
+          mit echten Praxisbeispielen.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
           <Button
             variant="primary"
             size="large"
             onClick={scrollToPricing}
+            className="shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-shadow"
           >
-            Jetzt Platz sichern →
+            Jetzt Platz sichern
           </Button>
           <Button
-            variant="secondary"
+            variant="outline"
             size="large"
             onClick={() => document.getElementById('content')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Mehr erfahren
+            Was du lernst ↓
           </Button>
         </div>
 
-        {/* Key Facts */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto pt-8 border-t border-gray-200">
-          <div>
-            <div className="text-3xl font-bold text-green-600 mb-1">90 Min</div>
-            <div className="text-sm text-gray-600">Kompakt & praxisnah</div>
+        {/* Trust Indicators */}
+        <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Kein Vorwissen nötig</span>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-green-600 mb-1">Live Q&A</div>
-            <div className="text-sm text-gray-600">Alle Fragen beantwortet</div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Live mit Andy Steinberger</span>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-green-600 mb-1">100 Plätze</div>
-            <div className="text-sm text-gray-600">Begrenzte Teilnehmerzahl</div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Echte Praxisbeispiele</span>
           </div>
         </div>
       </div>
