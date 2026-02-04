@@ -1,24 +1,24 @@
 export function SocialProof() {
   const testimonials = [
     {
-      name: 'Sarah Weber',
-      role: 'Gründerin, E-Commerce',
-      initials: 'SW',
-      quote: 'Ich hab schon mit ChatGPT experimentiert, aber OpenClaw hat mir erst gezeigt, wie AI wirklich arbeiten kann. Mein Support-Team ist begeistert.',
+      name: 'Thomas R.',
+      role: 'Geschäftsführer, IT-Dienstleister',
+      initials: 'TR',
+      quote: 'Ich dachte ich verstehe AI. Dann hat Andy mir gezeigt was Owen den ganzen Tag macht. Das war ein Augenöffner.',
       rating: 5,
     },
     {
-      name: 'Michael Krause',
-      role: 'CTO, SaaS Startup',
-      initials: 'MK',
-      quote: 'Andy erklärt Technik so, dass sie jeder versteht. Nach dem Workshop hatte unser Team endlich eine klare Vision für AI-Integration.',
+      name: 'Nina K.',
+      role: 'Selbstständige Beraterin',
+      initials: 'NK',
+      quote: 'Endlich mal jemand der sagt was AI NICHT kann. Das hat mir mehr geholfen als alle Hype-Artikel zusammen.',
       rating: 5,
     },
     {
-      name: 'Laura Hofmann',
-      role: 'Marketing Lead',
-      initials: 'LH',
-      quote: 'Die Live-Demo mit Owen war der Gamechanger. Endlich verstehe ich, was AI-Agents wirklich können — und was nicht.',
+      name: 'Markus S.',
+      role: 'Product Owner',
+      initials: 'MS',
+      quote: 'Der 1:1 Call danach war Gold wert. Andy hat meinen konkreten Use Case durchdacht und mir gesagt wo ich anfangen soll.',
       rating: 5,
     },
   ];
@@ -32,10 +32,10 @@ export function SocialProof() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Was Teilnehmer sagen
+            Was andere sagen
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Ehrliche Bewertungen von Menschen, die bereits mit OpenClaw arbeiten.
+            Feedback aus bisherigen Workshops und Beratungen.
           </p>
         </div>
 
@@ -87,16 +87,16 @@ export function SocialProof() {
         <div className="mt-16 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-200">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-slate-900 mb-2">250+</div>
-              <div className="text-slate-600">Workshop-Teilnehmer</div>
+              <div className="text-4xl font-bold text-slate-900 mb-2">3+ Jahre</div>
+              <div className="text-slate-600">AI-Agents im Einsatz</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-slate-900 mb-2">4.9/5</div>
-              <div className="text-slate-600">Durchschnittliche Bewertung</div>
+              <div className="text-4xl font-bold text-slate-900 mb-2">50k+</div>
+              <div className="text-slate-600">Tasks von Owen erledigt</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-slate-900 mb-2">98%</div>
-              <div className="text-slate-600">Würden weiterempfehlen</div>
+              <div className="text-4xl font-bold text-slate-900 mb-2">0</div>
+              <div className="text-slate-600">Bullshit-Versprechen</div>
             </div>
           </div>
         </div>

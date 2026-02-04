@@ -1,43 +1,43 @@
 export function WorkshopContent() {
   const modules = [
     {
-      title: 'Was ist OpenClaw und wie funktioniert es?',
+      title: 'Die Basics: Was kann OpenClaw — und was nicht?',
       duration: '20 Min',
       points: [
-        'Die Architektur verstehen',
-        'Tools, Agents und Sessions',
-        'Unterschied zu ChatGPT/Claude',
-        'Setup und erste Schritte',
+        'Warum normale Chatbots nicht reichen',
+        'Wie Tools, Skills und Channels zusammenspielen',
+        'Was du realistisch erwarten kannst',
+        'Wo AI heute noch versagt (und wie du damit umgehst)',
       ],
     },
     {
-      title: 'Live-Demo mit Owen',
+      title: 'Live-Demo: Owen macht echte Arbeit',
       duration: '30 Min',
       points: [
-        'Owen in Aktion sehen',
-        'Reale Tasks ausführen lassen',
-        'Message-Flow verstehen',
-        'Debugging und Troubleshooting',
+        'Emails checken und beantworten',
+        'Kalender koordinieren',
+        'WhatsApp-Nachrichten senden',
+        'Code schreiben und deployen',
       ],
     },
     {
-      title: 'Konkrete Use Cases für dein Business',
+      title: 'Dein Setup: Von Null auf funktionierend',
       duration: '25 Min',
       points: [
-        'Customer Support automatisieren',
-        'Content-Workflows optimieren',
-        'Research und Monitoring',
-        'Team-Kommunikation verbessern',
+        'Installation und Konfiguration',
+        'Die ersten Skills einrichten',
+        'Messaging-Kanäle verbinden',
+        'Typische Anfängerfehler vermeiden',
       ],
     },
     {
-      title: 'Q&A Session',
+      title: 'Deine Fragen, meine Antworten',
       duration: '15 Min',
       points: [
-        'Deine Fragen beantworten',
-        'Individuelle Use Cases besprechen',
-        'Next Steps definieren',
-        'Community und Support',
+        'Use Cases für dein Business besprechen',
+        'Technische Fragen klären',
+        'Was als nächstes ansteht',
+        'Wie du Support bekommst',
       ],
     },
   ];
@@ -51,11 +51,11 @@ export function WorkshopContent() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Was du lernst
+            90 Minuten. Kein Fluff.
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            90 Minuten intensiv. Von den Grundlagen bis zu konkreten Use Cases 
-            für dein Business. Live, interaktiv, mit echten Beispielen.
+            Ich zeige dir genau das, was du brauchst um loszulegen. 
+            Nicht mehr, nicht weniger.
           </p>
         </div>
 

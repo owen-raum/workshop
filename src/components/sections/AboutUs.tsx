@@ -2,15 +2,15 @@ export function AboutUs() {
   const team = [
     {
       name: 'Andy Steinberger',
-      role: 'Founder & KI-Berater',
+      role: 'Der, der Owen gebaut hat',
       initials: 'AS',
-      bio: 'Hilft Unternehmen dabei, AI konkret und praktisch einzusetzen — ohne Tech-Bullshit, mit echtem Business-Impact.',
+      bio: 'Baut seit 2023 AI-Systeme für echte Arbeit. Hat sich geweigert, noch eine Demo zu bauen die nur cool aussieht aber nichts kann.',
     },
     {
       name: 'Owen 🐸',
-      role: 'AI-Assistent',
+      role: 'Der Agent, um den es geht',
       initials: '🐸',
-      bio: 'Plüschfrosch, OpenClaw-Agent und Andys rechte Hand. Lebt in WhatsApp, schreibt Code und managt den Alltag.',
+      bio: 'Beantwortet Andys Mails. Koordiniert Termine. Schreibt Code. Managed WhatsApp-Gruppen. Schläft nie. Beschwert sich nie.',
     },
   ];
 
@@ -23,11 +23,12 @@ export function AboutUs() {
         {/* Header - Premium Typography */}
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Wer steckt dahinter?
+            Das Team
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Keine Agentur. Kein Corporate-Speak. Nur echte Menschen (und ein Frosch), 
-            die AI wirklich verstehen und praktisch einsetzen.
+            Ein Mensch. Ein Frosch. 
+            <br className="hidden md:block" />
+            Zusammen über 50.000 Stunden AI-Erfahrung. (Owen schläft halt nicht.)
           </p>
         </div>
 
@@ -62,12 +63,13 @@ export function AboutUs() {
         {/* Story Box - Premium Glassmorphism */}
         <div className="glass rounded-3xl p-12 md:p-16 border border-emerald-200 shadow-2xl">
           <h3 className="font-display text-3xl font-bold text-slate-900 mb-6 text-center">
-            Die Story
+            Warum dieser Workshop?
           </h3>
           <p className="text-slate-800 text-xl leading-relaxed text-center max-w-3xl mx-auto font-medium">
-            Andy hat OpenClaw gebaut, weil er genug hatte von AI-Demos die cool aussehen, 
-            aber im echten Leben nicht funktionieren. Owen ist das Ergebnis: Ein AI-Agent 
-            der tatsächlich arbeitet, nicht nur redet. Jetzt zeigen wir dir, wie du das auch kannst.
+            Weil ich es leid war, Leuten zuzusehen wie sie AI "testen" statt nutzen.
+            Owen managed mittlerweile 70% meiner Routine-Tasks. Das hat gedauert, bis es 
+            zuverlässig lief. Dieses Setup zeige ich dir — inklusive aller Fehler die du 
+            vermeiden solltest.
           </p>
         </div>
       </div>

@@ -3,44 +3,44 @@ import { PricingCard } from '../ui/PricingCard';
 export function Pricing() {
   const tiers = [
     {
-      tier: 'Solo',
+      tier: 'Zuschauer',
       price: '149€',
-      originalPrice: '249€',
+      originalPrice: '199€',
       availableSeats: 15,
       features: [
-        'Live-Teilnahme am Workshop',
-        'Zugriff auf Aufzeichnung',
-        'Slides & Ressourcen',
-        'Q&A während des Workshops',
-        '30 Tage Zugriff auf Community',
+        'Live dabei sein',
+        'Aufzeichnung zum Nachschauen',
+        'Alle Slides und Ressourcen',
+        'Fragen stellen im Chat',
+        '30 Tage Community-Zugang',
       ],
     },
     {
-      tier: 'Professional',
+      tier: 'Macher',
       price: '199€',
-      originalPrice: '349€',
+      originalPrice: '279€',
       availableSeats: 8,
       highlighted: true,
       features: [
-        'Alles aus Solo',
-        '1:1 Follow-up Call (30 Min)',
-        'OpenClaw Setup-Support',
-        'Use Case Review',
-        '90 Tage Community-Zugriff',
-        'Direkte Frage-Hotline',
+        'Alles vom Zuschauer-Ticket',
+        '30-Min 1:1 Call nach dem Workshop',
+        'Ich helfe dir beim Setup',
+        'Dein Use Case, meine Meinung',
+        '90 Tage Community-Zugang',
+        'Direkt-Kanal für Fragen',
       ],
     },
     {
       tier: 'Team',
       price: '249€',
-      originalPrice: '449€',
+      originalPrice: '349€',
       availableSeats: 3,
       features: [
-        'Alles aus Professional',
-        'Team-Workshop für 3-5 Personen',
-        'Custom Use Case Workshop',
-        'Implementation Support',
-        'Lifetime Community-Zugriff',
+        'Alles vom Macher-Ticket',
+        'Für dich + 2-4 Kollegen',
+        'Separater Team-Call danach',
+        'Hilfe beim Unternehmens-Setup',
+        'Lifetime Community-Zugang',
         'Priority Support',
       ],
     },
@@ -60,12 +60,12 @@ export function Pricing() {
         {/* Header - Premium Typography */}
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Sichere dir deinen Platz
+            Was kostet das?
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Early-Bird-Preise nur für die ersten 30 Teilnehmer. 
+            Early-Bird für die, die nicht warten.
             <br className="hidden md:block" />
-            Danach steigt der Preis auf den regulären Tarif.
+            Danach wird's teurer.
           </p>
         </div>
 

@@ -3,32 +3,28 @@ import { FAQItem } from '../ui/FAQItem';
 export function FAQ() {
   const faqs = [
     {
-      question: 'Brauche ich Vorwissen in AI oder Programmierung?',
-      answer: 'Nein! Der Workshop ist so aufgebaut, dass auch absolute Einsteiger alles verstehen. Wir erklären die Grundlagen verständlich und zeigen dir Schritt für Schritt, wie OpenClaw funktioniert. Tech-Know-how ist hilfreich, aber nicht notwendig.',
+      question: 'Muss ich programmieren können?',
+      answer: 'Nein. Du solltest wissen was ein Terminal ist und keine Angst vor Konfigurationsdateien haben. Den Rest zeige ich dir. Wenn du schon mit ChatGPT gearbeitet hast, reicht das als Vorwissen.',
     },
     {
-      question: 'Wird der Workshop aufgezeichnet?',
-      answer: 'Ja! Du bekommst Zugriff auf die komplette Aufzeichnung + alle Slides und Ressourcen. Falls du live nicht dabei sein kannst oder etwas nochmal anschauen willst, ist das kein Problem.',
+      question: 'Gibt es eine Aufzeichnung?',
+      answer: 'Ja. Du bekommst die komplette Aufnahme + Slides. Wenn du live nicht dabei sein kannst, kein Problem.',
     },
     {
-      question: 'Für wen ist der Workshop wirklich geeignet?',
-      answer: 'Perfekt für Unternehmer, Führungskräfte und Tech-affine Professionals, die AI konkret nutzen wollen. NICHT geeignet für Leute die Quick-Fixes erwarten oder nur oberflächlich interessiert sind. Du solltest bereit sein, zu lernen und umzusetzen.',
+      question: 'Was wenn ich danach Fragen habe?',
+      answer: 'Mit dem Zuschauer-Ticket: 30 Tage Community-Zugang. Mit Macher oder Team: Direkter Draht zu mir für Fragen. Die meisten Leute brauchen 2-3 Rückfragen bis es läuft.',
     },
     {
-      question: 'Gibt es eine Geld-zurück-Garantie?',
-      answer: 'Ja! Wenn du nach dem Workshop nicht zufrieden bist, bekommst du innerhalb von 14 Tagen dein Geld zurück — ohne Wenn und Aber. Wir sind überzeugt vom Wert des Workshops, und du gehst kein Risiko ein.',
+      question: 'Kann ich danach sofort loslegen?',
+      answer: 'Wenn du ein Macher- oder Team-Ticket hast: Ja, wir machen das Setup zusammen. Mit dem Zuschauer-Ticket brauchst du vielleicht 1-2 Stunden selbst, aber ich zeige dir genau wie.',
     },
     {
-      question: 'Was ist, wenn ich technische Fragen nach dem Workshop habe?',
-      answer: 'Je nach Ticket-Tier hast du Zugriff auf die Community (30-90 Tage oder Lifetime) und bei Professional/Team sogar Follow-up Calls und direkte Support-Hotline. Du stehst nicht alleine da.',
+      question: 'Geld zurück wenn es mir nicht gefällt?',
+      answer: '14 Tage, keine Fragen. Wenn du nach dem Workshop denkst es war Zeitverschwendung, schreib mir und du kriegst dein Geld zurück.',
     },
     {
-      question: 'Kann ich OpenClaw direkt nach dem Workshop nutzen?',
-      answer: 'Absolut! Wir zeigen dir das Setup und die ersten Schritte. Bei den höheren Tiers helfen wir dir sogar aktiv beim Setup. Du bekommst alles, was du brauchst, um sofort loszulegen.',
-    },
-    {
-      question: 'Warum sollte ich JETZT buchen?',
-      answer: 'Der Early-Bird-Preis ist zeitlich begrenzt. Danach steigen die Preise deutlich. Außerdem sind die Plätze limitiert (max. 100 Teilnehmer), damit wir auf individuelle Fragen eingehen können.',
+      question: 'Warum Early Bird?',
+      answer: 'Weil ich ehrlich bin: Der Workshop ist neu in diesem Format. Wer jetzt bucht, zahlt weniger. Danach wird\'s teurer. Einfache Rechnung.',
     },
   ];
 
@@ -41,11 +37,10 @@ export function FAQ() {
         {/* Header - Premium Typography */}
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Häufige Fragen
+            Noch Fragen?
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Hier findest du Antworten auf die wichtigsten Fragen. 
-            Noch etwas unklar? Schreib uns einfach!
+            Die häufigsten. Wenn deine nicht dabei ist — schreib mir.
           </p>
         </div>
 

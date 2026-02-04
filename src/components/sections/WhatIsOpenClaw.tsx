@@ -56,12 +56,12 @@ export function WhatIsOpenClaw() {
         {/* Header - Premium Typography */}
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Was ist OpenClaw?
+            Die Lücke zwischen Denken und Handeln
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Das fehlende Puzzlestück zwischen AI und Realität. 
+            ChatGPT kann dir einen Plan schreiben.
             <br className="hidden md:block" />
-            Claude und GPT können denken — aber sie haben keine Hände.
+            Aber Copy-Pasten musst du immer noch selbst.
           </p>
         </div>
 
@@ -69,16 +69,16 @@ export function WhatIsOpenClaw() {
         <div className="glass rounded-3xl shadow-2xl p-10 md:p-14 mb-16 border border-white/50">
           <div className="max-w-none">
             <p className="text-slate-800 text-xl leading-relaxed mb-8">
-              <strong className="text-emerald-600 text-2xl">OpenClaw übersetzt AI-Intentionen in reale Aktionen.</strong>
+              <strong className="text-emerald-600 text-2xl">OpenClaw gibt AI Hände.</strong>
               <br />
               <br />
-              Während ChatGPT und Claude dir nur Text zurückgeben können, kann ein OpenClaw-Agent 
-              tatsächlich Messages versenden, Reminders setzen, Code schreiben, Browser steuern 
-              und vieles mehr.
+              Statt nur Text zurückzugeben, führt dein Agent echte Aktionen aus: 
+              Nachrichten versenden, Termine buchen, Dateien bearbeiten, Browser steuern.
+              Du gibst den Auftrag — er erledigt den Rest.
             </p>
             <p className="text-slate-800 text-xl leading-relaxed">
-              🔐 <strong>Open Source.</strong> Läuft lokal auf deinem Gerät. 
-              Deine Daten bleiben bei dir. Keine Cloud-Abhängigkeit.
+              🔐 <strong>100% lokal.</strong> Open Source. Läuft auf deinem Rechner. 
+              Deine Daten gehen nirgendwo hin.
             </p>
           </div>
         </div>

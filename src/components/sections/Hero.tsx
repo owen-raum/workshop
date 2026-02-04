@@ -32,23 +32,23 @@ export function Hero() {
 
         {/* Eyebrow - Premium Typography */}
         <p className="font-display text-emerald-600 font-bold text-xl md:text-2xl mb-6 tracking-wide uppercase">
-          Live-Workshop · 13. Februar 2026
+          Live-Workshop · Donnerstag, 13. Februar 2026
         </p>
 
         {/* Main Headline - HUGE & Premium */}
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 mb-8 leading-[1.1] tracking-tight">
-          OpenClaw verstehen.
+          Dein AI-Agent.
           <br />
           <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
-            AI-Agents richtig nutzen.
+            Kein Spielzeug.
           </span>
         </h1>
 
         {/* Subline - Better Readability */}
         <p className="text-xl md:text-2xl text-slate-600 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
-          In 90 Minuten lernst du, was OpenClaw ist, wie es funktioniert und 
-          wie du es konkret für dein Business einsetzt — ohne Tech-Bullshit, 
-          mit echten Praxisbeispielen.
+          ChatGPT kann reden. Dein OpenClaw-Agent kann <em>handeln</em>: Mails beantworten, 
+          Termine koordinieren, Code deployen. In 90 Minuten zeige ich dir, wie das funktioniert — 
+          und wie du es für dein Business aufsetzt.
         </p>
 
         {/* CTAs - Enhanced Hover Effects */}
