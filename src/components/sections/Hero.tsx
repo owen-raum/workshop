@@ -101,13 +101,6 @@ export function Hero() {
           >
             Early Bird für 149€ sichern
           </Button>
-          <Button
-            variant="outline"
-            size="large"
-            onClick={() => document.getElementById('content')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Was du lernst ↓
-          </Button>
         </div>
 
         {/* Trust Indicators */}

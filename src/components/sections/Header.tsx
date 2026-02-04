@@ -43,7 +43,7 @@ export function Header() {
           onClick={scrollToPricing}
           className="px-5 py-2.5 text-sm font-display font-semibold bg-stone-900 hover:bg-stone-800 text-white rounded-lg transition-colors"
         >
-          Jetzt Ticket sichern
+          Early Bird sichern
         </button>
       </div>
     </header>

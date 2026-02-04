@@ -10,6 +10,7 @@ import { Pricing } from './components/sections/Pricing';
 import { SocialProof } from './components/sections/SocialProof';
 import { FAQ } from './components/sections/FAQ';
 import { Footer } from './components/sections/Footer';
+import { StickyCTABar } from './components/sections/StickyCTABar';
 import { Impressum } from './pages/Impressum';
 import { Datenschutz } from './pages/Datenschutz';
 import { AGB } from './pages/AGB';
@@ -28,6 +29,7 @@ function HomePage() {
       <SocialProof />
       <FAQ />
       <Footer />
+      <StickyCTABar />
     </>
   );
 }

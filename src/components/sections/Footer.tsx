@@ -18,7 +18,7 @@ export function Footer() {
             onClick={scrollToPricing}
             className="bg-white text-stone-900 hover:bg-stone-100 font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
-            Jetzt Ticket buchen →
+            Early Bird für 149€ sichern
           </button>
         </div>
 

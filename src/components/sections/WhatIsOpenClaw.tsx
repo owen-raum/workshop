@@ -59,49 +59,10 @@ export function WhatIsOpenClaw() {
   return (
     <section id="what" className="py-32 lg:py-40 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
-            Die Lücke zwischen Denken und Handeln
-          </h2>
+        <div className="text-center mb-16">
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            ChatGPT kann dir einen Plan schreiben.
-            <br className="hidden md:block" />
-            Aber Copy-Pasten musst du immer noch selbst.
+            ChatGPT gibt dir Antworten. OpenClaw führt sie aus. Klingt abstrakt? Live-Demo kommt im Workshop.
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-16 items-center">
-          <div className="bg-stone-50 rounded-3xl p-10 md:p-12 border border-stone-200">
-            <p className="text-stone-800 text-xl leading-relaxed mb-8">
-              <strong className="text-warm-700 text-2xl">OpenClaw gibt AI Hände.</strong>
-              <br />
-              <br />
-              Statt nur Text zurückzugeben, führt dein Agent echte Aktionen aus: 
-              Nachrichten versenden, Termine buchen, Dateien bearbeiten, Browser steuern.
-            </p>
-            <p className="text-stone-800 text-xl leading-relaxed mb-8">
-              Ich nutze das jeden Tag. Owen checkt morgens meine Mails, 
-              koordiniert Termine, schreibt Code und überwacht meine Systeme.
-            </p>
-            <p className="text-stone-800 text-xl leading-relaxed">
-              🔐 <strong>100% lokal.</strong> Open Source. Läuft auf deinem Rechner. 
-              Deine Daten gehen nirgendwo hin.
-            </p>
-          </div>
-
-          {/* Owen Demo Screenshot */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <img 
-                src="/owen-demo.jpg" 
-                alt="Owen checkt Emails via WhatsApp — echtes Beispiel" 
-                className="rounded-2xl shadow-2xl max-w-[340px] w-full border border-stone-200"
-              />
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-stone-200">
-                <span className="text-sm text-stone-600 font-medium">Echte Konversation 🐸</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div>
