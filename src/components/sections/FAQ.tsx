@@ -3,8 +3,12 @@ import { FAQItem } from '../ui/FAQItem';
 export function FAQ() {
   const faqs = [
     {
-      question: 'Muss ich programmieren können?',
-      answer: 'Nein. Du solltest wissen was ein Terminal ist und keine Angst vor Konfigurationsdateien haben. Den Rest zeige ich dir. Wenn du schon mit ChatGPT gearbeitet hast, reicht das als Vorwissen.',
+      question: 'Brauche ich technisches Vorwissen?',
+      answer: 'Nein. Wenn du weißt was ChatGPT ist, reicht das. Es geht um Verständnis, nicht um Programmieren.',
+    },
+    {
+      question: 'Ist das ein Verkaufs-Pitch für OpenClaw?',
+      answer: 'Nein. Ich zeige dir mein Setup, aber du musst nichts kaufen. OpenClaw ist Open Source. Wenn du danach entscheidest, dass AI-Agents nichts für dich sind — auch gut.',
     },
     {
       question: 'Gibt es eine Aufzeichnung?',
@@ -13,10 +17,6 @@ export function FAQ() {
     {
       question: 'Was wenn ich danach Fragen habe?',
       answer: 'Schreib mir einfach eine Mail. Die meisten Fragen lassen sich in 2-3 Nachrichten klären.',
-    },
-    {
-      question: 'Kann ich danach sofort loslegen?',
-      answer: 'Ja. Ich zeige dir das komplette Setup Schritt für Schritt. Rechne mit 1-2 Stunden nach dem Workshop, bis dein Agent läuft.',
     },
     {
       question: 'Geld zurück wenn es mir nicht gefällt?',

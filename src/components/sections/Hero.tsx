@@ -82,8 +82,8 @@ export function Hero() {
         {/* Subline */}
         <p className="text-xl md:text-2xl text-stone-600 mb-16 max-w-3xl mx-auto leading-relaxed">
           Mein AI-Agent Owen managed 70% meiner Routine — Mails, Termine, Code, WhatsApp. 
-          Kein Demo. Kein Konzept. Echtes System, jeden Tag im Einsatz. 
-          In 90 Minuten zeige ich dir, wie du dir das Gleiche baust.
+          In 90 Minuten zeige ich dir, was AI-Agents wirklich können, wo die Grenzen sind, 
+          und ob das für dein Business Sinn macht.
         </p>
 
         {/* CTAs */}

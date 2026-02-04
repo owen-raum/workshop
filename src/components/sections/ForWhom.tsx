@@ -3,36 +3,36 @@ export function ForWhom() {
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Du verbrennst Zeit mit Routine',
-      description: 'Emails, Termine, Reports — alles wiederholt sich. Du weißt, dass es besser geht.',
+      title: 'Du willst verstehen, nicht nur glauben',
+      description: 'Du hörst überall "AI-Agents" aber niemand zeigt dir ein echtes System im Einsatz.',
     },
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
       ),
-      title: 'ChatGPT war nur der Anfang',
-      description: 'Du hast mit AI experimentiert. Jetzt willst du, dass sie tatsächlich arbeitet.',
+      title: 'Du willst die Risiken kennen',
+      description: 'Bevor du Zeit investierst, willst du wissen was schief gehen kann und was es wirklich kostet.',
     },
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Du willst echte Ergebnisse',
-      description: 'Keine Theorie, keine Demos. Du willst etwas bauen, das am nächsten Tag schon läuft.',
+      title: 'Du willst eine ehrliche Einschätzung',
+      description: 'Macht das für mein Business überhaupt Sinn? Keine Verkaufs-Pitch, sondern echte Antwort.',
     },
   ];
 
   const notFor = [
-    'Du erwartest einen Zauberstab (AI macht Arbeit, sie eliminiert sie nicht)',
-    'Du hasst es, neue Tools zu lernen',
-    'Du willst nur mitreden können statt umzusetzen',
+    'Du willst nur den Hype mitnehmen ohne kritisch hinzuschauen',
+    'Du suchst nach einer "alles wird automatisch"-Lösung',
+    'Du hast keine 90 Minuten für eine ehrliche Bestandsaufnahme',
   ];
 
   return (
@@ -95,7 +95,7 @@ export function ForWhom() {
 
         <div className="mt-12 text-center bg-stone-50 rounded-2xl p-8 border border-stone-200">
           <p className="text-lg text-stone-700 font-medium">
-            💡 Kein Vorwissen nötig — aber die Bereitschaft, zu lernen und umzusetzen.
+            💡 Kein technisches Vorwissen nötig — nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
           </p>
         </div>
       </div>

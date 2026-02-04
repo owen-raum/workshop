@@ -1,43 +1,43 @@
 export function WorkshopContent() {
   const modules = [
     {
-      title: 'Die Basics: Was kann OpenClaw — und was nicht?',
-      duration: '20 Min',
-      points: [
-        'Warum normale Chatbots nicht reichen',
-        'Wie Tools, Skills und Channels zusammenspielen',
-        'Was du realistisch erwarten kannst',
-        'Wo AI heute noch versagt (und wie du damit umgehst)',
-      ],
-    },
-    {
-      title: 'Live-Demo: Owen macht echte Arbeit',
-      duration: '30 Min',
-      points: [
-        'Emails checken und beantworten',
-        'Kalender koordinieren',
-        'WhatsApp-Nachrichten senden',
-        'Code schreiben und deployen',
-      ],
-    },
-    {
-      title: 'Dein Setup: Von Null auf funktionierend',
+      title: 'Was können AI-Agents wirklich?',
       duration: '25 Min',
       points: [
-        'Installation und Konfiguration',
-        'Die ersten Skills einrichten',
-        'Messaging-Kanäle verbinden',
-        'Typische Anfängerfehler vermeiden',
+        'Der Unterschied zwischen Chatbot und Agent',
+        'Echte Use Cases: Mails, Kalender, Code, Messaging',
+        'Was heute schon funktioniert — und was noch nicht',
+        'Warum 90% der "AI-Agent"-Demos Bullshit sind',
       ],
     },
     {
-      title: 'Deine Fragen, meine Antworten',
-      duration: '15 Min',
+      title: 'Live-Demo: Owen in Aktion',
+      duration: '25 Min',
       points: [
-        'Use Cases für dein Business besprechen',
-        'Technische Fragen klären',
-        'Was als nächstes ansteht',
-        'Wie du Support bekommst',
+        'Mein echtes System, kein vorbereitetes Demo',
+        'Wie Owen meinen Tag strukturiert',
+        'Wo es manchmal schief geht (ja, passiert)',
+        'Der Unterschied zwischen Theorie und Alltag',
+      ],
+    },
+    {
+      title: 'Risiken & Grenzen',
+      duration: '20 Min',
+      points: [
+        'Was kann schief gehen? (Spoiler: einiges)',
+        'Datenschutz: Wo landen deine Daten?',
+        'Kosten: Was kostet das wirklich pro Monat?',
+        'Wann AI-Agents keinen Sinn machen',
+      ],
+    },
+    {
+      title: 'Ist das was für dich?',
+      duration: '20 Min',
+      points: [
+        'Für wen sich das lohnt — und für wen nicht',
+        'Der realistische Aufwand zum Einstieg',
+        'Deine Fragen, meine ehrlichen Antworten',
+        'Nächste Schritte wenn du weitermachen willst',
       ],
     },
   ];
@@ -47,11 +47,11 @@ export function WorkshopContent() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
-            90 Minuten. Kein Fluff.
+            90 Minuten. Kein Hype.
           </h2>
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Ich zeige dir genau das, was du brauchst um loszulegen. 
-            Nicht mehr, nicht weniger.
+            Ich zeige dir was AI-Agents können, wo sie versagen, 
+            und ob das für dich relevant ist.
           </p>
         </div>
 
