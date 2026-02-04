@@ -39,24 +39,32 @@ export function Hero() {
         </p>
 
         {/* Countdown Timer */}
-        <div className="flex justify-center gap-3 md:gap-4 mb-10">
-          <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
-            <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.days}</div>
-            <div className="text-xs text-stone-600 uppercase tracking-wide">Tage</div>
+        {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < new Date().getTime() ? (
+          <div className="mb-10">
+            <p className="text-3xl md:text-4xl font-bold text-warm-700 bg-warm-50 border-2 border-warm-300 rounded-xl px-8 py-6 inline-block">
+              🎉 Der Workshop hat begonnen!
+            </p>
           </div>
-          <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
-            <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.hours}</div>
-            <div className="text-xs text-stone-600 uppercase tracking-wide">Std</div>
+        ) : (
+          <div className="flex justify-center gap-3 md:gap-4 mb-10">
+            <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.days}</div>
+              <div className="text-xs text-stone-600 uppercase tracking-wide">Tage</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.hours}</div>
+              <div className="text-xs text-stone-600 uppercase tracking-wide">Std</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.minutes}</div>
+              <div className="text-xs text-stone-600 uppercase tracking-wide">Min</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
+              <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.seconds}</div>
+              <div className="text-xs text-stone-600 uppercase tracking-wide">Sek</div>
+            </div>
           </div>
-          <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
-            <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.minutes}</div>
-            <div className="text-xs text-stone-600 uppercase tracking-wide">Min</div>
-          </div>
-          <div className="bg-white border border-stone-200 rounded-xl px-4 py-3 min-w-[70px]">
-            <div className="text-2xl md:text-3xl font-bold text-stone-900">{timeLeft.seconds}</div>
-            <div className="text-xs text-stone-600 uppercase tracking-wide">Sek</div>
-          </div>
-        </div>
+        )}
 
         {/* Main Headline - HUGE */}
         <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-stone-900 mb-8 leading-[1.05] tracking-tight">

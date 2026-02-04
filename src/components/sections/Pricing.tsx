@@ -49,18 +49,21 @@ export function Pricing() {
 
           {/* Progress Indicator */}
           <div className="mb-10 mt-4">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-stone-700">
-                Noch <strong className="text-warm-700">{currentTier.spotsLeft} von 10</strong> Early Birds verfügbar
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-sm font-semibold text-warm-700">
+                {Math.round((soldCount / earlyBirdTotal) * 100)}% ausverkauft
               </span>
-              <span className="text-sm text-stone-500">{Math.round((soldCount / earlyBirdTotal) * 100)}% ausverkauft</span>
+              <span className="text-sm text-stone-500">Noch {currentTier.spotsLeft} von 10 verfügbar</span>
             </div>
-            <div className="w-full bg-stone-200 rounded-full h-3">
+            <div className="w-full bg-stone-200 rounded-full h-4 shadow-inner">
               <div 
-                className="bg-gradient-to-r from-warm-600 to-warm-500 h-3 rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 h-4 rounded-full transition-all duration-500 shadow-lg"
                 style={{ width: `${(soldCount / earlyBirdTotal) * 100}%` }}
               />
             </div>
+            <p className="text-center text-base font-medium text-stone-700 mt-3">
+              <strong className="text-stone-900">{soldCount} von 10 Early Birds verkauft</strong>
+            </p>
           </div>
 
           {/* Current Price - PROMINENT */}

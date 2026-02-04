@@ -45,10 +45,10 @@ export function FAQ() {
         {/* Contact Box */}
         <div className="mt-14 bg-white rounded-2xl p-10 border border-stone-200 text-center">
           <h3 className="font-display text-2xl font-bold text-stone-900 mb-4">
-            Noch Fragen?
+            Deine Frage war nicht dabei?
           </h3>
           <p className="text-stone-600 text-lg mb-6">
-            Schreib mir einfach, ich antworte meistens innerhalb von 24 Stunden.
+            Schreib mir: <a href="mailto:andy@raum.so" className="font-bold text-stone-900 hover:text-stone-700 underline">andy@raum.so</a>
           </p>
           <a
             href="mailto:andy@raum.so"
