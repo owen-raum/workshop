@@ -16,10 +16,11 @@ export function getStripe(): Stripe {
  */
 export async function getSoldTicketsCount(stripe: Stripe): Promise<number> {
   const sessions = await stripe.checkout.sessions
-    .list({ payment_status: 'paid', expand: ['data.line_items'] })
+    .list({ status: 'complete', expand: ['data.line_items'] })
     .autoPagingToArray({ limit: 1000 });
 
   return sessions.filter((session) =>
+    session.payment_status === 'paid' &&
     session.line_items?.data.some((item) =>
       item.description?.includes('OpenClaw Deep Dive')
     )

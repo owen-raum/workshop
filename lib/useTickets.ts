@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { getTierInfo, type TierInfo } from './tiers';
 
 interface TicketsState {
@@ -11,7 +11,7 @@ interface TicketsState {
 }
 
 // Singleton cache für alle Komponenten
-let globalCache: {
+const globalCache: {
   soldCount: number | null;
   timestamp: number;
   promise: Promise<number> | null;
