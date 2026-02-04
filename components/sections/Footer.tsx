@@ -125,7 +125,7 @@ export function Footer() {
 
         <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
           <div>
-            © {new Date().getFullYear()} STEINBERGER LTD
+            © {new Date().getFullYear()} steinberger Limited
           </div>
           <div className="flex gap-6">
             <Link href="/impressum" className="hover:text-slate-200 transition-colors">
@@ -148,7 +148,7 @@ export function Footer() {
             Was funktioniert, was nicht, und wo du aufpassen musst – ohne Marketing-Filter.
           </p>
           <p className="text-slate-600 text-xs leading-relaxed max-w-2xl mx-auto text-center">
-            Dieser Deep Dive ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 
+            Dieser Deep Dive ist ein unabhängiges Angebot von steinberger Limited und steht in keiner 
             offiziellen Verbindung zum OpenClaw-Projekt oder dessen Entwicklern. OpenClaw ist ein 
             Open-Source-Projekt unter eigener Lizenz.
           </p>

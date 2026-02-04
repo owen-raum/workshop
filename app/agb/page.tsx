@@ -24,7 +24,7 @@ export default function AGB() {
           </h2>
           <p className="text-navy-800 leading-relaxed mb-4">
             Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge über die Teilnahme am
-            OpenClaw Deep Dive zwischen STEINBERGER LTD (nachfolgend &bdquo;Anbieter&ldquo;) und dem Kunden.
+            OpenClaw Deep Dive zwischen steinberger Limited (nachfolgend &bdquo;Anbieter&ldquo;) und dem Kunden.
           </p>
 
           <h2 className="font-display text-2xl font-bold text-navy-900 mt-8 mb-4">
@@ -62,7 +62,7 @@ export default function AGB() {
             widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsschlusses.
           </p>
           <p className="text-navy-800 leading-relaxed mb-4">
-            Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (STEINBERGER LTD, E-Mail: andy@raum.so)
+            Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (steinberger Limited, E-Mail: andy@raum.so)
             mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder
             E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.
           </p>
@@ -95,7 +95,7 @@ export default function AGB() {
             9. Kontakt
           </h2>
           <p className="text-navy-800 leading-relaxed mb-4">
-            <strong>STEINBERGER LTD</strong>
+            <strong>steinberger Limited</strong>
             <br />
             E-Mail:{' '}
             <a href="mailto:andy@raum.so" className="text-orange-600 hover:text-orange-700 underline">

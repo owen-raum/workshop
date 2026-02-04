@@ -107,7 +107,7 @@ export default function Datenschutz() {
             bei Auskünften, Berichtigung, Sperrung oder Löschung von Daten wenden Sie sich bitte an:
           </p>
           <p className="text-navy-800 leading-relaxed mb-4">
-            <strong>STEINBERGER LTD</strong>
+            <strong>steinberger Limited</strong>
             <br />
             E-Mail:{' '}
             <a href="mailto:andy@raum.so" className="text-orange-600 hover:text-orange-700 underline">
