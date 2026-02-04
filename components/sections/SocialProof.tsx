@@ -3,21 +3,27 @@ import Image from 'next/image';
 export function SocialProof() {
   const testimonials = [
     {
-      quote: "Die Kombination aus echtem Praxisbeispiel und technischem Deep Dive war genau das, was ich gesucht habe. Endlich mal kein oberflächliches AI-Blabla.",
-      name: "Thomas M.",
-      role: "Tech Lead @ Startup",
+      quote: "Über einen Content-Kurs bin ich in The Circle gelandet und geblieben wegen dem Vibe: Spezialisten und Anfänger zusammen, auf Augenhöhe, respektvoll, hilfsbereit. Mit Support aus der Gruppe habe ich meine Website selbst gebaut, den Checkout angebunden und eine Mini Automation aufgesetzt und gemerkt: Bauen macht mega Spaß!",
+      name: "Salvatore Bellopede",
+      role: "The Circle Member",
       avatar: null,
     },
     {
-      quote: "Was Andy hier zeigt ist kein Marketing-Demo. Das ist ein echtes System im Produktiveinsatz. Man sieht die Stolpersteine und lernt daraus mehr als aus jedem perfekt polierten Tutorial.",
-      name: "Sarah K.",
-      role: "Product Manager",
+      quote: "Die Community ist voll neugieriger, hilfsbereiter Mitstreiter. Neue Themen und Trends greift Andy schnell auf und diskutiert sie in den Community-Calls – und das weit über 'nur' AI & Automation hinaus.",
+      name: "Michael Minge",
+      role: "The Circle Member",
       avatar: null,
     },
     {
-      quote: "Ich hatte vorher nur vage Vorstellungen, was mit AI-Agents möglich ist. Nach dem Workshop weiß ich genau, wo ich ansetzen kann und was realistisch machbar ist.",
-      name: "Michael R.",
-      role: "Founder & CEO",
+      quote: "Mein größtes Aha-Erlebnis im Circle? Da gab's einige! Von den ganzen technischen Themen wie API-Calls oder HTTP-Requests bis hin zur Erkenntnis, dass KI zwar unglaublich viel kann, aber nicht immer alles richtig macht – und dass man die Ergebnisse selbst einschätzen können muss.",
+      name: "Dirk Schumann",
+      role: "The Circle Member",
+      avatar: null,
+    },
+    {
+      quote: "Die Community war dafür ein echter Hebel. Wenn ich irgendwo hängen blieb, war sofort jemand da. Keine Egos, kein 'mach mal selber', sondern echte Hilfe. Das hier ist kein Kurs, den du durchklickst. Es ist ein Umfeld, das dich mitzieht.",
+      name: "Kerstin Schrapf",
+      role: "The Circle Member",
       avatar: null,
     },
   ];
@@ -27,14 +33,14 @@ export function SocialProof() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-navy-900 mb-4">
-            Stimmen aus der Community
+            Stimmen aus The Circle
           </h2>
           <p className="text-lg md:text-xl text-navy-700 max-w-2xl mx-auto">
-            Feedback aus Andys Workshops und Community
+            Echte Mitglieder. Echtes Feedback.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
