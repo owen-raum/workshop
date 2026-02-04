@@ -16,14 +16,19 @@ export async function GET() {
   try {
     const stripe = getStripe();
     
-    // Fetch all successful checkout sessions
+    // Fetch all successful checkout sessions with line items
     const sessions = await stripe.checkout.sessions.list({
       limit: 100,
+      expand: ['data.line_items'],
     });
     
-    // Count only paid sessions
+    // Count only paid sessions for our product
     const sold = sessions.data.filter(
-      (session) => session.payment_status === 'paid'
+      (session) =>
+        session.payment_status === 'paid' &&
+        session.line_items?.data.some((item) =>
+          item.description?.includes('OpenClaw Deep Dive')
+        )
     ).length;
 
     return NextResponse.json(
