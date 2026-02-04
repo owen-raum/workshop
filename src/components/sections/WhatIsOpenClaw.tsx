@@ -57,30 +57,30 @@ export function WhatIsOpenClaw() {
   ];
 
   return (
-    <section id="what" className="py-32 lg:py-40 px-4 bg-white">
+    <section id="what" className="py-20 md:py-32 lg:py-40 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 md:mb-6 px-2">
             Was ist OpenClaw?
           </h2>
-          <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
             ChatGPT gibt dir Antworten. OpenClaw führt sie aus. Klingt abstrakt? Live-Demo kommt im Deep Dive.
           </p>
         </div>
 
         {/* Video Placeholder */}
-        <div className="mb-16 max-w-4xl mx-auto">
-          <div className="relative aspect-video bg-gradient-to-br from-stone-100 to-stone-200 rounded-2xl border-2 border-stone-300 flex items-center justify-center overflow-hidden">
-            <div className="text-center p-8">
-              <div className="w-20 h-20 mx-auto mb-4 bg-stone-300 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+        <div className="mb-12 md:mb-16 max-w-4xl mx-auto">
+          <div className="relative aspect-video bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl border-2 border-slate-300 flex items-center justify-center overflow-hidden">
+            <div className="text-center p-6 md:p-8">
+              <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 bg-slate-300 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 md:w-10 md:h-10 text-slate-500" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <p className="font-display text-2xl font-bold text-stone-700 mb-2">
+              <p className="font-display text-xl md:text-2xl font-bold text-slate-700 mb-2">
                 Live-Demo im Deep Dive
               </p>
-              <p className="text-stone-500">
+              <p className="text-sm md:text-base text-slate-500">
                 Hier siehst du später, wie Owen in Aktion aussieht
               </p>
             </div>
@@ -88,22 +88,22 @@ export function WhatIsOpenClaw() {
         </div>
 
         <div>
-          <h3 className="font-display text-3xl font-bold text-stone-900 mb-10 text-center">
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-8 md:mb-10 text-center px-2">
             Was OpenClaw kann
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-stone-50 rounded-2xl p-8 border border-stone-200"
+                className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all"
               >
-                <div className="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center text-sage-700 mb-5">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-4 md:mb-5">
                   {feature.icon}
                 </div>
-                <h4 className="font-display font-bold text-stone-900 mb-3 text-lg">
+                <h4 className="font-display font-bold text-slate-900 mb-2 md:mb-3 text-base md:text-lg">
                   {feature.title}
                 </h4>
-                <p className="text-stone-600 text-base">
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
                   {feature.description}
                 </p>
               </div>

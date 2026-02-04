@@ -21,36 +21,36 @@ export function PricingCard({
     <div
       className={`rounded-2xl p-8 transition-colors ${
         highlighted
-          ? 'bg-warm-50 border-2 border-warm-400'
-          : 'bg-white border border-stone-200'
+          ? 'bg-orange-50 border-2 border-orange-400'
+          : 'bg-white border border-slate-200'
       }`}
     >
       {highlighted && (
         <div className="mb-4 text-center">
-          <span className="bg-warm-200 text-warm-900 px-4 py-1.5 rounded-full text-sm font-semibold">
+          <span className="bg-orange-200 text-orange-900 px-4 py-1.5 rounded-full text-sm font-semibold">
             ⭐ Beliebteste Wahl
           </span>
         </div>
       )}
 
-      <h3 className="font-display text-3xl font-bold text-stone-900 mb-3 text-center">
+      <h3 className="font-display text-3xl font-bold text-slate-900 mb-3 text-center">
         {tier}
       </h3>
 
       <div className="text-center mb-6">
         {originalPrice && (
-          <span className="text-stone-400 line-through text-xl mr-2">
+          <span className="text-slate-400 line-through text-xl mr-2">
             {originalPrice}
           </span>
         )}
-        <div className="font-display text-5xl font-bold text-stone-900">
+        <div className="font-display text-5xl font-bold text-slate-900">
           {price}
-          <span className="text-lg text-stone-600 font-normal"> / Person</span>
+          <span className="text-lg text-slate-600 font-normal"> / Person</span>
         </div>
       </div>
 
-      <div className="bg-warm-100 rounded-xl p-4 mb-8 text-center border border-warm-200">
-        <span className="text-warm-800 font-medium text-sm">
+      <div className="bg-orange-100 rounded-xl p-4 mb-8 text-center border border-orange-200">
+        <span className="text-orange-800 font-medium text-sm">
           🔥 Noch {availableSeats} Plätze zum Early-Bird-Preis
         </span>
       </div>
@@ -59,7 +59,7 @@ export function PricingCard({
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-3">
             <svg
-              className="w-5 h-5 text-sage-600 mt-0.5 flex-shrink-0"
+              className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -71,7 +71,7 @@ export function PricingCard({
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            <span className="text-stone-700">{feature}</span>
+            <span className="text-slate-700">{feature}</span>
           </li>
         ))}
       </ul>
@@ -80,8 +80,8 @@ export function PricingCard({
         onClick={onSelect}
         className={`w-full py-4 rounded-xl font-semibold text-lg transition-colors ${
           highlighted
-            ? 'bg-warm-600 text-white hover:bg-warm-700'
-            : 'bg-stone-900 text-white hover:bg-stone-800'
+            ? 'bg-orange-600 text-white hover:bg-orange-700'
+            : 'bg-slate-900 text-white hover:bg-slate-800'
         }`}
       >
         Jetzt buchen

@@ -45,10 +45,10 @@ export function StickyCTABar() {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
       }`}
     >
-      <div className="bg-stone-900 border-t border-stone-700 shadow-2xl">
+      <div className="bg-slate-900 border-t border-slate-700 shadow-2xl">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white text-base sm:text-lg font-medium">
-            Noch <strong className="text-warm-400">4 Early Bird Tickets</strong> (149€)
+            Noch <strong className="text-orange-400">4 Early Bird Tickets</strong> (149€)
           </p>
           <Button
             variant="primary"
