@@ -19,10 +19,6 @@ export function FAQ() {
       answer: 'Schreib mir einfach eine Mail. Die meisten Fragen lassen sich in 2-3 Nachrichten klären.',
     },
     {
-      question: 'Geld zurück wenn es mir nicht gefällt?',
-      answer: '14 Tage, keine Fragen. Wenn du nach dem Workshop denkst es war Zeitverschwendung, schreib mir und du kriegst dein Geld zurück.',
-    },
-    {
       question: 'Warum steigt der Preis?',
       answer: 'Die ersten 10 Plätze sind am günstigsten (149€), danach 199€, ab Platz 51 dann 249€. Wer früh bucht, zahlt weniger. Einfache Rechnung.',
     },

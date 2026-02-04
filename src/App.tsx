@@ -20,9 +20,9 @@ function HomePage() {
     <>
       <Header />
       <Hero />
+      <AboutUs />
       <OpenClawOneLiner />
       <WhatIsOpenClaw />
-      <AboutUs />
       <WorkshopContent />
       <ForWhom />
       <Pricing />

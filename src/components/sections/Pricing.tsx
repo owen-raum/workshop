@@ -40,76 +40,40 @@ export function Pricing() {
           </p>
         </div>
 
-        {/* Single Pricing Card - Enhanced for Early Bird */}
-        <div className={`bg-white rounded-2xl p-8 md:p-14 mb-10 relative mt-8 ${
-          soldCount < earlyBirdTotal 
-            ? 'border-2 border-warm-400 shadow-2xl shadow-warm-200/50 md:scale-105' 
-            : 'border border-stone-200'
-        }`}>
-          {/* BESTE WAHL Badge - nur für Early Bird */}
-          {soldCount < earlyBirdTotal && (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-warm-600 to-warm-500 text-white font-bold text-sm px-5 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
-              🔥 BESTE WAHL — 100€ sparen
-            </div>
-          )}
+        {/* Single Pricing Card - Simplified */}
+        <div className="bg-white rounded-2xl p-8 md:p-14 mb-10 relative mt-8 border-2 border-warm-400 shadow-2xl shadow-warm-200/50">
+          {/* BESTE WAHL Badge */}
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-warm-600 to-warm-500 text-white font-bold text-sm px-5 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
+            🔥 EARLY BIRD
+          </div>
 
-          {/* Price Tiers Visualization */}
-          <div className="flex flex-row justify-between items-center mb-10 text-sm mt-4">
-            <div className={`text-center ${soldCount < earlyBirdTotal ? 'text-stone-900' : 'text-stone-400'}`}>
-              <div className="font-bold text-lg">149€</div>
-              <div className="text-xs md:text-sm">Erste 10</div>
-              {soldCount < earlyBirdTotal && (
-                <div className="text-warm-600 font-medium mt-1 text-xs md:text-sm">← Du bist hier</div>
-              )}
+          {/* Progress Indicator */}
+          <div className="mb-10 mt-4">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-stone-700">
+                Noch <strong className="text-warm-700">{currentTier.spotsLeft} von 10</strong> Early Birds verfügbar
+              </span>
+              <span className="text-sm text-stone-500">{Math.round((soldCount / earlyBirdTotal) * 100)}% ausverkauft</span>
             </div>
-            <div className="flex-1 h-px bg-stone-200 mx-3 md:mx-4" />
-            <div className={`text-center ${soldCount >= earlyBirdTotal && soldCount < midTierTotal ? 'text-stone-900' : 'text-stone-400'}`}>
-              <div className="font-bold text-lg">199€</div>
-              <div className="text-xs md:text-sm">Platz 11–50</div>
-              {soldCount >= earlyBirdTotal && soldCount < midTierTotal && (
-                <div className="text-warm-600 font-medium mt-1 text-xs md:text-sm">← Du bist hier</div>
-              )}
-            </div>
-            <div className="flex-1 h-px bg-stone-200 mx-3 md:mx-4" />
-            <div className={`text-center ${soldCount >= midTierTotal ? 'text-stone-900' : 'text-stone-400'}`}>
-              <div className="font-bold text-lg">249€</div>
-              <div className="text-xs md:text-sm">Ab Platz 51</div>
-              {soldCount >= midTierTotal && (
-                <div className="text-warm-600 font-medium mt-1 text-xs md:text-sm">← Du bist hier</div>
-              )}
+            <div className="w-full bg-stone-200 rounded-full h-3">
+              <div 
+                className="bg-gradient-to-r from-warm-600 to-warm-500 h-3 rounded-full transition-all duration-500"
+                style={{ width: `${(soldCount / earlyBirdTotal) * 100}%` }}
+              />
             </div>
           </div>
 
-          {/* Progress Indicator - nur für Early Bird */}
-          {soldCount < earlyBirdTotal && (
-            <div className="mb-8">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-stone-700">
-                  Noch <strong className="text-warm-700">{currentTier.spotsLeft} von 10</strong> verfügbar
-                </span>
-                <span className="text-sm text-stone-500">{Math.round((soldCount / earlyBirdTotal) * 100)}% ausverkauft</span>
-              </div>
-              <div className="w-full bg-stone-200 rounded-full h-3">
-                <div 
-                  className="bg-gradient-to-r from-warm-600 to-warm-500 h-3 rounded-full transition-all duration-500"
-                  style={{ width: `${(soldCount / earlyBirdTotal) * 100}%` }}
-                />
-              </div>
+          {/* Current Price - PROMINENT */}
+          <div className="text-center mb-4">
+            <div className="font-display text-7xl md:text-8xl font-bold text-stone-900">
+              149€
             </div>
-          )}
-
-          {/* Current Price */}
-          <div className="text-center mb-10">
-            {soldCount >= earlyBirdTotal && (
-              <div className="inline-block bg-warm-100 text-warm-700 text-sm font-bold px-4 py-2 rounded-full mb-4">
-                {currentTier.label} — noch {currentTier.spotsLeft} Plätze
-              </div>
-            )}
-            <div className="font-display text-6xl md:text-7xl font-bold text-stone-900">
-              {currentTier.price}€
-            </div>
-            <div className="text-stone-500 mt-2">
+            <div className="text-stone-500 mt-2 mb-4">
               einmalig, inkl. MwSt.
+            </div>
+            {/* Later prices as small info */}
+            <div className="text-sm text-stone-400">
+              Später: 199€ (Platz 11–50) / 249€ (ab Platz 51)
             </div>
           </div>
 

@@ -65,6 +65,25 @@ export function WhatIsOpenClaw() {
           </p>
         </div>
 
+        {/* Video Placeholder */}
+        <div className="mb-16 max-w-4xl mx-auto">
+          <div className="relative aspect-video bg-gradient-to-br from-stone-100 to-stone-200 rounded-2xl border-2 border-stone-300 flex items-center justify-center overflow-hidden">
+            <div className="text-center p-8">
+              <div className="w-20 h-20 mx-auto mb-4 bg-stone-300 rounded-full flex items-center justify-center">
+                <svg className="w-10 h-10 text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <p className="font-display text-2xl font-bold text-stone-700 mb-2">
+                Live-Demo im Workshop
+              </p>
+              <p className="text-stone-500">
+                Hier siehst du später, wie Owen in Aktion aussieht
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div>
           <h3 className="font-display text-3xl font-bold text-stone-900 mb-10 text-center">
             Was OpenClaw kann
