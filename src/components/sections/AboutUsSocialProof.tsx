@@ -35,14 +35,14 @@ export function AboutUsSocialProof() {
                   </p>
                   <div className="space-y-3 text-stone-700 leading-relaxed">
                     <p>
-                      Ich arbeite mit den Tools von OpenAI seit 2021 — lange bevor ChatGPT für alle kam. 
+                      Ich arbeite mit den Tools von OpenAI seit 2021 – lange bevor ChatGPT für alle kam. 
                       2023 habe ich Owen gebaut, damals mit Make und Tools wie Fireflies & Co. 
-                      Dann kam OpenClaw — plötzlich konnte Owen Browser steuern, Sub-Agents spawnen, 
+                      Dann kam OpenClaw – plötzlich konnte Owen Browser steuern, Sub-Agents spawnen, 
                       WhatsApp schreiben. Ein komplett neues Level.
                     </p>
                     <p>
                       Was ich dir zeige läuft wirklich. Was nicht funktioniert sag ich dir auch. 
-                      Better done than perfect — das ist mein Approach seit Jahren.
+                      Better done than perfect – das ist mein Approach seit Jahren.
                     </p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export function AboutUsSocialProof() {
                       Läuft auf einem Mac Mini M4 in Zypern.
                     </p>
                     <p>
-                      Im Deep Dive siehst du Owen live bei der Arbeit — kein vorbereitetes 
+                      Im Deep Dive siehst du Owen live bei der Arbeit – kein vorbereitetes 
                       Demo-Setup, sondern das echte System.
                     </p>
                   </div>
@@ -103,12 +103,12 @@ export function AboutUsSocialProof() {
               </h3>
               <div className="space-y-4 text-stone-700 leading-relaxed">
                 <p>
-                  Ich verkaufe keine Theorie. Owen ist mein <em>echtes</em> System — er läuft 
+                  Ich verkaufe keine Theorie. Owen ist mein <em>echtes</em> System – er läuft 
                   jeden Tag, managed mein Business, und ich wäre aufgeschmissen ohne ihn.
                 </p>
                 <p>
                   Diesen Deep Dive gibt es, weil mich jede Woche Leute fragen: 
-                  <strong className="text-stone-900"> "Wie hast du das aufgesetzt?"</strong> — 
+                  <strong className="text-stone-900"> "Wie hast du das aufgesetzt?"</strong> – 
                   und die Antwort passt nicht in eine WhatsApp-Nachricht.
                 </p>
                 <p>

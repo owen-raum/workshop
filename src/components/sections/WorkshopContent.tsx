@@ -6,7 +6,7 @@ export function WorkshopContent() {
       points: [
         'Der Unterschied zwischen Chatbot und Agent',
         'Echte Use Cases: Mails, Kalender, Code, Messaging',
-        'Was heute schon funktioniert — und was noch nicht',
+        'Was heute schon funktioniert – und was noch nicht',
         'Warum 90% der "AI-Agent"-Demos Bullshit sind',
       ],
     },
@@ -14,7 +14,7 @@ export function WorkshopContent() {
       title: 'Live-Demo: Andys Production Setup',
       duration: '25 Min',
       points: [
-        'Andys Production Setup — läuft seit Monaten, kein Demo',
+        'Andys Production Setup – läuft seit Monaten, kein Demo',
         'Wie Owen meinen Tag strukturiert',
         'Fehler die ich gemacht hab (und wie du sie vermeidest)',
         'Der Unterschied zwischen Theorie und Alltag',
@@ -34,7 +34,7 @@ export function WorkshopContent() {
       title: 'Ist das was für dich?',
       duration: '20 Min',
       points: [
-        'Für wen sich das lohnt — und für wen nicht',
+        'Für wen sich das lohnt – und für wen nicht',
         'Der realistische Aufwand zum Einstieg',
         'Deine Fragen, meine ehrlichen Antworten',
         'Nächste Schritte wenn du weitermachen willst',

@@ -31,7 +31,7 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">Andy Steinberger × OpenClaw</h3>
             <p className="text-stone-400 text-sm leading-relaxed">
               Gründer von The Circle und steinberger [ʁaʊ̯m̩]. 
-              Baut AI-Agents für echte Arbeit — kein Hype, kein Bullshit.
+              Baut AI-Agents für echte Arbeit – kein Hype, kein Bullshit.
             </p>
           </div>
 
@@ -135,9 +135,9 @@ export function Footer() {
         {/* Disclaimer */}
         <div className="mt-8 pt-6 border-t border-stone-800 space-y-4">
           <p className="text-stone-600 text-xs leading-relaxed max-w-3xl mx-auto text-center">
-            <strong className="text-stone-500">⚠️ Wichtiger Hinweis:</strong> Andy ist unabhängiger Early Adopter — nicht affiliated mit OpenClaw. 
+            <strong className="text-stone-500">⚠️ Wichtiger Hinweis:</strong> Andy ist unabhängiger Early Adopter – nicht affiliated mit OpenClaw. 
             Kein Vendor-Pitch. Keine Sales-Agenda. Nur echte Erfahrung aus Monaten Production Use. 
-            Was funktioniert, was nicht, und wo du aufpassen musst — ohne Marketing-Filter.
+            Was funktioniert, was nicht, und wo du aufpassen musst – ohne Marketing-Filter.
           </p>
           <p className="text-stone-700 text-xs leading-relaxed max-w-2xl mx-auto text-center">
             Dieser Deep Dive ist ein unabhängiges Angebot von STEINBERGER LTD und steht in keiner 

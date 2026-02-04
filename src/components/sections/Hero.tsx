@@ -68,7 +68,7 @@ export function Hero() {
 
         {/* Main Headline - HUGE */}
         <h1 className="font-display text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-stone-900 mb-8 leading-[1.05] tracking-tight">
-          Ein AI-Agent, der wirklich arbeitet — nicht nur chattet.
+          Ein AI-Agent, der wirklich arbeitet – nicht nur chattet.
         </h1>
 
         {/* Subheadline */}
@@ -85,7 +85,7 @@ export function Hero() {
             Early Bird für 149€ sichern
           </button>
           <p className="text-stone-600 text-base">
-            Noch <strong className="text-warm-700">4 Early Bird Tickets</strong> (149€) — danach 199€
+            Noch <strong className="text-warm-700">4 Early Bird Tickets</strong> (149€) – danach 199€
           </p>
         </div>
       </div>

@@ -95,7 +95,7 @@ export function ForWhom() {
 
         <div className="mt-12 text-center bg-stone-50 rounded-2xl p-8 border border-stone-200">
           <p className="text-lg text-stone-700 font-medium">
-            💡 Kein technisches Vorwissen nötig — nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
+            💡 Kein technisches Vorwissen nötig – nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
           </p>
         </div>
       </div>

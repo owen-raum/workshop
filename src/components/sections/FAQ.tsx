@@ -16,11 +16,11 @@ export function FAQ() {
     },
     {
       question: 'Wie lange dauert das Setup?',
-      answer: 'An einem Sonntag Vormittag bist du durch. Ich zeige dir meinen kompletten Stack — live.',
+      answer: 'An einem Sonntag Vormittag bist du durch. Ich zeige dir meinen kompletten Stack – live.',
     },
     {
       question: 'Was, wenn etwas kaputt geht?',
-      answer: 'Owen macht keine irreversiblen Actions ohne Confirmation. Alles ist nachvollziehbar. Und: Du bist Teil von The Circle — wir helfen uns gegenseitig.',
+      answer: 'Owen macht keine irreversiblen Actions ohne Confirmation. Alles ist nachvollziehbar. Und: Du bist Teil von The Circle – wir helfen uns gegenseitig.',
     },
     {
       question: 'Brauche ich technisches Vorwissen?',
@@ -32,7 +32,7 @@ export function FAQ() {
     },
     {
       question: 'Warum kostet der Deep Dive etwas? Andere Workshops sind kostenlos.',
-      answer: 'Weil kostenlose Workshops meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmal 149€ und bekommst alles — mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
+      answer: 'Weil kostenlose Workshops meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmal 149€ und bekommst alles – mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
     },
     {
       question: 'Bekomme ich eine Aufzeichnung?',
@@ -40,7 +40,7 @@ export function FAQ() {
     },
     {
       question: 'Was ist, wenn ich nicht teilnehmen kann?',
-      answer: 'Kein Problem — du bekommst die Aufzeichnung und alle Materialien. Du verpasst nur die Möglichkeit, live Fragen zu stellen.',
+      answer: 'Kein Problem – du bekommst die Aufzeichnung und alle Materialien. Du verpasst nur die Möglichkeit, live Fragen zu stellen.',
     },
   ];
 
@@ -53,7 +53,7 @@ export function FAQ() {
             Noch Fragen?
           </h2>
           <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Die häufigsten. Wenn deine nicht dabei ist — schreib mir.
+            Die häufigsten. Wenn deine nicht dabei ist – schreib mir.
           </p>
         </div>
 
