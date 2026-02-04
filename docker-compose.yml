@@ -34,7 +34,8 @@ services:
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
-      - builder
+      builder:
+        condition: service_completed_successfully
     command: npm start
     restart: unless-stopped
     networks:
