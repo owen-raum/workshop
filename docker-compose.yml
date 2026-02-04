@@ -28,8 +28,7 @@ services:
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
-      builder:
-        condition: service_completed_successfully
+      - builder
     command: npx serve -s ./dist -l ${WEBSERVER_PORT:-9019} --cors
     networks:
       pulse:
