@@ -2,27 +2,24 @@ version: '3.8'
 
 services:
   builder:
-    image: node:21
-    working_dir: /build
+    image: node:22
+    working_dir: /app
     volumes:
-      - app_source:/build
-      - build_dist:/build/dist
-      - node_modules:/build/node_modules
+      - build_dist:/output
     command: >
       /bin/sh -c "
         apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
-        echo 'Pulling latest code...' &&
-        rm -rf /build/* /build/.* 2>/dev/null || true &&
-        git clone https://github.com/owen-raum/workshop.git /tmp/repo &&
-        cp -r /tmp/repo/* /tmp/repo/.* /build/ 2>/dev/null || true &&
-        rm -rf /build/dist/* 2>/dev/null || true &&
+        echo 'Fresh clone...' &&
+        git clone https://github.com/owen-raum/workshop.git /app &&
         npm install --include=dev --legacy-peer-deps &&
-        npx vite build"
+        npx vite build &&
+        rm -rf /output/* &&
+        cp -r /app/dist/* /output/"
     environment:
       - NODE_ENV=production
 
   web:
-    image: node:21
+    image: node:22
     working_dir: /app
     environment:
       - PORT=${WEBSERVER_PORT:-9019}
@@ -40,9 +37,7 @@ services:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
 
 volumes:
-  app_source:
   build_dist:
-  node_modules:
 
 networks:
   pulse:
