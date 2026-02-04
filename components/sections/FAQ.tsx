@@ -8,7 +8,7 @@ export function FAQ() {
     },
     {
       question: 'Brauche ich Coding-Skills?',
-      answer: 'Nein. Ich zeige dir Schritt für Schritt, wie du deinen Agent aufsetzt. Kein Terminal-Voodoo. Copy & Paste reicht.',
+      answer: 'Nein. Im Workshop schaust du zu – ich zeige, was Owen kann. Danach bekommst du einen Leitfaden fürs eigene Setup. Copy & Paste reicht, kein Terminal-Voodoo.',
     },
     {
       question: 'Was kostet OpenClaw?',
@@ -16,7 +16,7 @@ export function FAQ() {
     },
     {
       question: 'Wie lange dauert das Setup?',
-      answer: 'An einem Sonntag Vormittag bist du durch. Ich zeige dir meinen kompletten Stack – live.',
+      answer: 'Ein Sonntag Vormittag reicht. Im Workshop siehst du Owen live – das Setup machst du danach mit dem Leitfaden, den du bekommst. Schritt für Schritt, kein Rätselraten.',
     },
     {
       question: 'Was, wenn etwas kaputt geht?',
@@ -28,7 +28,7 @@ export function FAQ() {
     },
     {
       question: 'Wie läuft der Deep Dive ab?',
-      answer: 'Live-Session am 15. Februar um 19:00 Uhr (90 Minuten). Ich zeige dir mein Setup, erkläre wie der Agent funktioniert, wo Probleme auftreten können, und beantworte alle Fragen. Kein Verkaufs-Pitch, nur ehrliche Einblicke.',
+      answer: 'Live-Session am 15. Februar um 19:00 Uhr (90 Minuten). Ich zeige dir Owen in Action – echte Demos, was alles möglich ist, wo es hakt. Keine Installation, keine Anleitung. Q&A am Ende. Kein Verkaufs-Pitch.',
     },
     {
       question: 'Warum kostet der Deep Dive etwas? Andere Workshops sind kostenlos.',
