@@ -1,6 +1,11 @@
 'use client';
 
+import { useState } from 'react';
+
 export function Pricing() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   // Gestaffelte Preise: 10 @ 149€, 40 @ 199€, Rest @ 249€
   const soldCount = 6; // TODO: Dynamisch aus DB/Stripe
   const earlyBirdTotal = 10;
@@ -25,8 +30,28 @@ export function Pricing() {
     'Fragen stellen während des Deep Dives',
   ];
 
-  const handleBook = () => {
-    alert('Stripe Integration kommt bald!');
+  const handleBook = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tier: 'early_bird' }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || 'Checkout konnte nicht erstellt werden');
+      }
+
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Etwas ist schiefgelaufen');
+      setLoading(false);
+    }
   };
 
   return (
@@ -97,16 +122,30 @@ export function Pricing() {
             ))}
           </ul>
 
+          {/* Error */}
+          {error && (
+            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
+              {error}
+            </div>
+          )}
+
           {/* CTA - verstärkt für Early Bird */}
           <button
             onClick={handleBook}
+            disabled={loading}
             className={`w-full font-bold text-lg py-4 px-8 rounded-xl transition-all ${
-              soldCount < earlyBirdTotal
-                ? 'bg-navy-600 hover:bg-navy-700 text-white shadow-lg hover:shadow-xl'
-                : 'bg-navy-600 hover:bg-navy-700 text-white'
+              loading
+                ? 'bg-navy-400 text-white cursor-wait'
+                : soldCount < earlyBirdTotal
+                  ? 'bg-navy-600 hover:bg-navy-700 text-white shadow-lg hover:shadow-xl'
+                  : 'bg-navy-600 hover:bg-navy-700 text-white'
             }`}
           >
-            {soldCount < earlyBirdTotal ? 'Early Bird für 149€ sichern' : 'Jetzt Platz sichern'}
+            {loading
+              ? 'Wird geladen...'
+              : soldCount < earlyBirdTotal
+                ? 'Early Bird für 149€ sichern'
+                : 'Jetzt Platz sichern'}
           </button>
         </div>
 

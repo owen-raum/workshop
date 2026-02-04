@@ -22,6 +22,7 @@ services:
         echo 'BUILD DONE'"
     environment:
       - NODE_ENV=production
+      - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
 
   web:
     image: node:22
@@ -29,6 +30,8 @@ services:
     environment:
       - PORT=${WEBSERVER_PORT:-9019}
       - NODE_ENV=production
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
     volumes:
       - app_v9:/app
     ports:
