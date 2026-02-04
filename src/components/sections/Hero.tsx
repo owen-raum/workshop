@@ -72,66 +72,21 @@ export function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-stone-800 font-semibold mb-6 max-w-4xl mx-auto leading-tight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl text-stone-800 font-semibold mb-10 max-w-4xl mx-auto leading-tight">
           Wie ein AI-Agent dir 20+ Stunden pro Woche zurückgibt (ohne dass du coden musst)
         </h2>
 
-        {/* Description */}
-        <p className="text-lg md:text-xl text-stone-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-          Mein AI-Agent Owen managed Mails, Termine, Code und WhatsApp seit 2+ Jahren im Produktiveinsatz. 
-          In 90 Minuten zeige ich dir wie das Setup funktioniert, was schief gehen kann, 
-          und ob das für dein Business Sinn macht.
-        </p>
-
-        {/* Social Proof - direkt unter Hero */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 text-base md:text-lg">
-          <div className="flex items-center gap-2.5">
-            <svg className="w-5 h-5 text-sage-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span className="text-stone-700"><strong className="text-stone-900">50.000+ echte Tasks</strong> erledigt — kein Demo, echtes System</span>
-          </div>
-          <div className="flex items-center gap-2.5">
-            <svg className="w-5 h-5 text-warm-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-stone-700">Noch <strong className="text-warm-700">4 Early Bird Tickets</strong> (149€) — danach 199€</span>
-          </div>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-col gap-4 justify-center items-center mb-20">
+        {/* CTA */}
+        <div className="flex flex-col gap-3 justify-center items-center">
           <button
             onClick={scrollToPricing}
             className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-xl py-5 px-12 rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all"
           >
             Early Bird für 149€ sichern
           </button>
-          <p className="text-orange-600 font-semibold text-lg flex items-center gap-2">
-            ⚠️ Nur noch {10 - 6} von 10 Early Bird Plätzen
+          <p className="text-stone-600 text-base">
+            Noch <strong className="text-warm-700">4 Early Bird Tickets</strong> (149€) — danach 199€
           </p>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="inline-flex flex-wrap justify-center gap-8 md:gap-12 text-sm md:text-base">
-          <div className="flex items-center gap-2.5">
-            <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span className="text-stone-700">Kein Vorwissen nötig</span>
-          </div>
-          <div className="flex items-center gap-2.5">
-            <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span className="text-stone-700">Live mit Andy Steinberger</span>
-          </div>
-          <div className="flex items-center gap-2.5">
-            <svg className="w-5 h-5 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span className="text-stone-700">Echte Praxisbeispiele</span>
-          </div>
         </div>
       </div>
     </section>
