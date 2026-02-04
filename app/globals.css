@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fonts */
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  --font-display: var(--font-space-grotesk), var(--font-inter), sans-serif;
-
   /* Colors - Orange als Hauptakzent */
   --color-primary-50: #fff7ed;
   --color-primary-100: #ffedd5;
@@ -44,7 +40,7 @@
   }
 
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--bg-primary);
@@ -52,6 +48,6 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
   }
 }
