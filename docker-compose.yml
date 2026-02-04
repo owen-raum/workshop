@@ -4,20 +4,17 @@ services:
   builder:
     image: node:22
     volumes:
-      - build_dist:/output
+      - dist_v2:/output
     command: >
       /bin/sh -c "
         set -ex &&
         apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
         git clone --depth 1 --branch main https://github.com/owen-raum/workshop.git /tmp/build &&
         cd /tmp/build &&
-        ls -la public/ &&
         npm install --include=dev --legacy-peer-deps 2>&1 &&
         npx vite build 2>&1 &&
-        ls -la dist/ &&
         rm -rf /output/* &&
         cp -r dist/* /output/ &&
-        ls -la /output/ &&
         echo 'BUILD DONE'"
     environment:
       - NODE_ENV=production
@@ -29,7 +26,7 @@ services:
       - PORT=${WEBSERVER_PORT:-9019}
       - NODE_ENV=production
     volumes:
-      - build_dist:/app/dist
+      - dist_v2:/app/dist
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
@@ -41,7 +38,7 @@ services:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
 
 volumes:
-  build_dist:
+  dist_v2:
 
 networks:
   pulse:
