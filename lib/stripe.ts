@@ -15,14 +15,18 @@ export function getStripe(): Stripe {
  * Zählt verkaufte "OpenClaw Deep Dive" Tickets aus bezahlten Stripe Checkout Sessions
  */
 export async function getSoldTicketsCount(stripe: Stripe): Promise<number> {
+  const SOLD_OFFSET = 2;
+  
   const sessions = await stripe.checkout.sessions
     .list({ status: 'complete', expand: ['data.line_items'] })
     .autoPagingToArray({ limit: 1000 });
 
-  return sessions.filter((session) =>
+  const count = sessions.filter((session) =>
     session.payment_status === 'paid' &&
     session.line_items?.data.some((item) =>
       item.description?.includes('OpenClaw Deep Dive')
     )
   ).length;
+  
+  return count + SOLD_OFFSET;
 }
