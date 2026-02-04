@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owen WhatsApp Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0b141a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .phone {
+      width: 380px;
+      background: #0b141a;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+    }
+    
+    .header {
+      background: #1f2c34;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .back-arrow {
+      color: #00a884;
+      font-size: 20px;
+    }
+    
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    
+    .contact-info {
+      flex: 1;
+    }
+    
+    .contact-name {
+      color: #e9edef;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    .contact-status {
+      color: #8696a0;
+      font-size: 13px;
+    }
+    
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      color: #aebac1;
+      font-size: 20px;
+    }
+    
+    .chat {
+      background: #0b141a;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23182229' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      padding: 16px;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .message {
+      max-width: 85%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      position: relative;
+      line-height: 1.4;
+    }
+    
+    .message-out {
+      background: #005c4b;
+      color: #e9edef;
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
+    
+    .message-in {
+      background: #202c33;
+      color: #e9edef;
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+    
+    .message-text {
+      font-size: 14.5px;
+      word-wrap: break-word;
+    }
+    
+    .message-time {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      text-align: right;
+      margin-top: 4px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .check {
+      color: #53bdeb;
+    }
+    
+    .date-divider {
+      text-align: center;
+      margin: 12px 0;
+    }
+    
+    .date-divider span {
+      background: #182229;
+      color: #8696a0;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    
+    .emoji {
+      font-size: 16px;
+    }
+
+    .message-gap {
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <div class="header">
+      <span class="back-arrow">←</span>
+      <div class="avatar">🐸</div>
+      <div class="contact-info">
+        <div class="contact-name">Owen</div>
+        <div class="contact-status">online</div>
+      </div>
+      <div class="header-icons">
+        <span>📹</span>
+        <span>📞</span>
+        <span>⋮</span>
+      </div>
+    </div>
+    
+    <div class="chat">
+      <div class="date-divider"><span>Heute</span></div>
+      
+      <div class="message message-out">
+        <div class="message-text">Check mal meine Mails, ist was Wichtiges dabei?</div>
+        <div class="message-time">09:14 <span class="check">✓✓</span></div>
+      </div>
+      
+      <div class="message message-in message-gap">
+        <div class="message-text">Moment, ich schau durch...</div>
+        <div class="message-time">09:14</div>
+      </div>
+      
+      <div class="message message-in">
+        <div class="message-text">Done. 23 Mails gecheckt. 3 sind relevant:
+
+📧 <strong>Stripe</strong> — Auszahlung 2.340€ verarbeitet
+📧 <strong>CityVet</strong> — Sias Blutwerte sind da (alles okay)
+📧 <strong>DATEV</strong> — Beleg fehlt für Dezember-Rechnung
+
+Rest war Newsletter und Spam. Soll ich auf was antworten?</div>
+        <div class="message-time">09:15</div>
+      </div>
+      
+      <div class="message message-out message-gap">
+        <div class="message-text">Geil, danke. DATEV kannst du ignorieren, das macht der Steuerberater.</div>
+        <div class="message-time">09:16 <span class="check">✓✓</span></div>
+      </div>
+      
+      <div class="message message-in">
+        <div class="message-text">Alles klar 👍</div>
+        <div class="message-time">09:16</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

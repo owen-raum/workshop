@@ -61,25 +61,37 @@ export function WhatIsOpenClaw() {
           </p>
         </div>
 
-        <div className="bg-stone-50 rounded-3xl p-10 md:p-14 mb-16 border border-stone-200">
-          <div className="max-w-none">
+        <div className="grid md:grid-cols-2 gap-8 mb-16 items-center">
+          <div className="bg-stone-50 rounded-3xl p-10 md:p-12 border border-stone-200">
             <p className="text-stone-800 text-xl leading-relaxed mb-8">
               <strong className="text-warm-700 text-2xl">OpenClaw gibt AI Hände.</strong>
               <br />
               <br />
               Statt nur Text zurückzugeben, führt dein Agent echte Aktionen aus: 
               Nachrichten versenden, Termine buchen, Dateien bearbeiten, Browser steuern.
-              Du gibst den Auftrag — er erledigt den Rest.
             </p>
             <p className="text-stone-800 text-xl leading-relaxed mb-8">
-              Ich nutze das jeden Tag. Owen — mein Agent — checkt morgens meine Mails, 
-              koordiniert Termine, schreibt Code und überwacht meine Systeme. Das ist kein 
-              Side-Project. Das ist mein Workflow.
+              Ich nutze das jeden Tag. Owen checkt morgens meine Mails, 
+              koordiniert Termine, schreibt Code und überwacht meine Systeme.
             </p>
             <p className="text-stone-800 text-xl leading-relaxed">
               🔐 <strong>100% lokal.</strong> Open Source. Läuft auf deinem Rechner. 
               Deine Daten gehen nirgendwo hin.
             </p>
+          </div>
+
+          {/* Owen Demo Screenshot */}
+          <div className="flex justify-center">
+            <div className="relative">
+              <img 
+                src="/owen-demo.jpg" 
+                alt="Owen checkt Emails via WhatsApp — echtes Beispiel" 
+                className="rounded-2xl shadow-2xl max-w-[340px] w-full border border-stone-200"
+              />
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-stone-200">
+                <span className="text-sm text-stone-600 font-medium">Echte Konversation 🐸</span>
+              </div>
+            </div>
           </div>
         </div>
 
