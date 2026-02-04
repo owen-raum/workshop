@@ -4,7 +4,7 @@ services:
   builder:
     image: node:22
     volumes:
-      - dist_v2:/output
+      - app_v3:/output
     command: >
       /bin/sh -c "
         set -ex &&
@@ -12,9 +12,13 @@ services:
         git clone --depth 1 --branch main https://github.com/owen-raum/workshop.git /tmp/build &&
         cd /tmp/build &&
         npm install --include=dev --legacy-peer-deps 2>&1 &&
-        npx vite build 2>&1 &&
+        npm run build 2>&1 &&
         rm -rf /output/* &&
-        cp -r dist/* /output/ &&
+        cp -r .next /output/.next &&
+        cp -r public /output/public &&
+        cp -r node_modules /output/node_modules &&
+        cp package.json /output/package.json &&
+        cp next.config.ts /output/next.config.ts 2>/dev/null || true &&
         echo 'BUILD DONE'"
     environment:
       - NODE_ENV=production
@@ -26,19 +30,19 @@ services:
       - PORT=${WEBSERVER_PORT:-9019}
       - NODE_ENV=production
     volumes:
-      - dist_v2:/app/dist
+      - app_v3:/app
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
       - builder
-    command: npx serve -s ./dist -l ${WEBSERVER_PORT:-9019} --cors
+    command: npm start
     restart: unless-stopped
     networks:
       pulse:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
 
 volumes:
-  dist_v2:
+  app_v3:
 
 networks:
   pulse:
