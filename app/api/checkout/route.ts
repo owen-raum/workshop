@@ -1,32 +1,6 @@
 import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { getStripe, getSoldTicketsCount, TOTAL_TICKETS } from '@/lib/stripe';
 import { getTierInfo } from '@/lib/tiers';
-
-const TOTAL_TICKETS = 100;
-
-function getStripe() {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    throw new Error('STRIPE_SECRET_KEY is not set');
-  }
-  return new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2026-01-28.clover',
-  });
-}
-
-async function getSoldCount(stripe: Stripe): Promise<number> {
-  const sessions = await stripe.checkout.sessions.list({
-    limit: 100,
-    expand: ['data.line_items'],
-  });
-
-  return sessions.data.filter(
-    (session) =>
-      session.payment_status === 'paid' &&
-      session.line_items?.data.some((item) =>
-        item.description?.includes('OpenClaw Deep Dive')
-      )
-  ).length;
-}
 
 export async function POST(request: Request) {
   try {
@@ -35,7 +9,7 @@ export async function POST(request: Request) {
     const origin = request.headers.get('origin') || 'https://agents.andy.cy';
 
     // Dynamischer Preis basierend auf aktuellem Verkaufsstand
-    const sold = await getSoldCount(stripe);
+    const sold = await getSoldTicketsCount(stripe);
     
     if (sold >= TOTAL_TICKETS) {
       return NextResponse.json(

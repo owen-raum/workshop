@@ -1,34 +1,10 @@
 import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
-
-const TOTAL_TICKETS = 100;
-
-function getStripe() {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    throw new Error('STRIPE_SECRET_KEY is not set');
-  }
-  return new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2026-01-28.clover',
-  });
-}
+import { getStripe, getSoldTicketsCount, TOTAL_TICKETS } from '@/lib/stripe';
 
 export async function GET() {
   try {
     const stripe = getStripe();
-    
-    // Fetch only paid checkout sessions with line items
-    const sessions = await stripe.checkout.sessions.list({
-      limit: 100,
-      payment_status: 'paid',
-      expand: ['data.line_items'],
-    });
-    
-    // Count only sessions for our product
-    const sold = sessions.data.filter((session) =>
-      session.line_items?.data.some((item) =>
-        item.description?.includes('OpenClaw Deep Dive')
-      )
-    ).length;
+    const sold = await getSoldTicketsCount(stripe);
 
     return NextResponse.json(
       { sold, total: TOTAL_TICKETS },
