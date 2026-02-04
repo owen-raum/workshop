@@ -3,13 +3,19 @@ version: '3.8'
 services:
   builder:
     image: node:21
-    working_dir: /app
+    working_dir: /build
     volumes:
-      - .:/app
-      - node_modules:/app/node_modules
-      - build_dist:/app/dist
+      - app_source:/build
+      - build_dist:/build/dist
+      - node_modules:/build/node_modules
     command: >
       /bin/sh -c "
+        if [ ! -f /build/package.json ]; then
+          echo 'Cloning repo...' &&
+          apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
+          git clone https://github.com/owen-raum/workshop.git /tmp/repo &&
+          cp -r /tmp/repo/* /tmp/repo/.* /build/ 2>/dev/null || true;
+        fi &&
         npm install --include=dev --legacy-peer-deps &&
         npx vite build"
     environment:
@@ -22,21 +28,21 @@ services:
       - PORT=${WEBSERVER_PORT:-9019}
       - NODE_ENV=production
     volumes:
-      - .:/app
-      - node_modules:/app/node_modules
       - build_dist:/app/dist
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
       - builder
     command: npx serve -s ./dist -l ${WEBSERVER_PORT:-9019} --cors
+    restart: unless-stopped
     networks:
       pulse:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
 
 volumes:
-  node_modules:
+  app_source:
   build_dist:
+  node_modules:
 
 networks:
   pulse:
