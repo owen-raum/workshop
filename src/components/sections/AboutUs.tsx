@@ -3,13 +3,13 @@ export function AboutUs() {
     {
       name: 'Andy Steinberger',
       role: 'Founder & KI-Berater',
-      image: 'https://via.placeholder.com/400x400/059669/ffffff?text=Andy', // Placeholder
+      initials: 'AS',
       bio: 'Hilft Unternehmen dabei, AI konkret und praktisch einzusetzen — ohne Tech-Bullshit, mit echtem Business-Impact.',
     },
     {
       name: 'Owen 🐸',
       role: 'AI-Assistent',
-      image: 'https://via.placeholder.com/400x400/0d9488/ffffff?text=Owen', // Placeholder
+      initials: '🐸',
       bio: 'Plüschfrosch, OpenClaw-Agent und Andys rechte Hand. Lebt in WhatsApp, schreibt Code und managt den Alltag.',
     },
   ];
@@ -39,13 +39,9 @@ export function AboutUs() {
               className="bg-white rounded-2xl shadow-xl p-8 border border-slate-200 hover:border-emerald-300 transition-all"
             >
               <div className="flex flex-col items-center text-center">
-                {/* Photo */}
-                <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-emerald-100">
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    className="w-full h-full object-cover"
-                  />
+                {/* Avatar */}
+                <div className="w-32 h-32 rounded-full mb-6 border-4 border-emerald-100 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                  <span className="text-white text-4xl font-bold">{person.initials}</span>
                 </div>
                 
                 {/* Info */}

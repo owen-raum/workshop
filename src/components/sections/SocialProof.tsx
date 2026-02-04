@@ -3,21 +3,21 @@ export function SocialProof() {
     {
       name: 'Sarah Weber',
       role: 'Gründerin, E-Commerce',
-      photo: 'https://via.placeholder.com/200x200/059669/ffffff?text=SW',
+      initials: 'SW',
       quote: 'Ich hab schon mit ChatGPT experimentiert, aber OpenClaw hat mir erst gezeigt, wie AI wirklich arbeiten kann. Mein Support-Team ist begeistert.',
       rating: 5,
     },
     {
       name: 'Michael Krause',
       role: 'CTO, SaaS Startup',
-      photo: 'https://via.placeholder.com/200x200/0d9488/ffffff?text=MK',
+      initials: 'MK',
       quote: 'Andy erklärt Technik so, dass sie jeder versteht. Nach dem Workshop hatte unser Team endlich eine klare Vision für AI-Integration.',
       rating: 5,
     },
     {
       name: 'Laura Hofmann',
       role: 'Marketing Lead',
-      photo: 'https://via.placeholder.com/200x200/14b8a6/ffffff?text=LH',
+      initials: 'LH',
       quote: 'Die Live-Demo mit Owen war der Gamechanger. Endlich verstehe ich, was AI-Agents wirklich können — und was nicht.',
       rating: 5,
     },
@@ -67,12 +67,8 @@ export function SocialProof() {
 
               {/* Author */}
               <div className="flex items-center gap-4 border-t border-slate-200 pt-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-100">
-                  <img
-                    src={testimonial.photo}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-12 h-12 rounded-full border-2 border-emerald-100 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">{testimonial.initials}</span>
                 </div>
                 <div>
                   <div className="font-semibold text-slate-900">
