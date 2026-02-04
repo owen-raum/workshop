@@ -12,8 +12,10 @@ services:
       /bin/sh -c "
         apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
         echo 'Pulling latest code...' &&
+        rm -rf /build/* /build/.* 2>/dev/null || true &&
         git clone https://github.com/owen-raum/workshop.git /tmp/repo &&
         cp -r /tmp/repo/* /tmp/repo/.* /build/ 2>/dev/null || true &&
+        rm -rf /build/dist/* 2>/dev/null || true &&
         npm install --include=dev --legacy-peer-deps &&
         npx vite build"
     environment:
