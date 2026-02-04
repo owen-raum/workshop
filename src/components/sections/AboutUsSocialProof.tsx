@@ -35,10 +35,12 @@ export function AboutUsSocialProof() {
                   </p>
                   <div className="space-y-3 text-stone-700 leading-relaxed">
                     <p>
-                      Ich arbeite mit den Tools von OpenAI seit 2021 – lange bevor ChatGPT für alle kam. 
-                      2023 habe ich Owen gebaut, damals mit Make und Tools wie Fireflies & Co. 
-                      Dann kam OpenClaw – plötzlich konnte Owen Browser steuern, Sub-Agents spawnen, 
-                      WhatsApp schreiben. Ein komplett neues Level.
+                      Owen gibt's seit 2021. Erst auf OpenAI-Tools experimentiert, dann auf Make und Fireflies 
+                      produktiv gebracht. Hat funktioniert – aber mit Einschränkungen.
+                    </p>
+                    <p>
+                      Dann kam OpenClaw. Weil ich die Kontrolle wollte. Weil Cloud-Abhängigkeit nervt. 
+                      Weil ein Agent auf eigenem Gerät besser ist als auf fremden Servern.
                     </p>
                     <p>
                       Was ich dir zeige läuft wirklich. Was nicht funktioniert sag ich dir auch. 
@@ -79,10 +81,10 @@ export function AboutUsSocialProof() {
                   </p>
                   <div className="space-y-3 text-stone-700 leading-relaxed">
                     <p>
-                      Owen ist kein Chatbot. Owen ist ein AI-Agent, der seit über 2 Jahren 
-                      im Produktiveinsatz läuft. Er beantwortet Mails, koordiniert Termine, 
-                      schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme. 
-                      Läuft auf einem Mac Mini M4 in Zypern.
+                      Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz. 
+                      Er beantwortet Mails, koordiniert Termine, schreibt und deployt Code, 
+                      managed WhatsApp-Gruppen und überwacht Systeme. 
+                      Läuft auf einem Mac Mini M4 in Zypern – powered by OpenClaw.
                     </p>
                     <p>
                       Im Deep Dive siehst du Owen live bei der Arbeit – kein vorbereitetes 
@@ -167,8 +169,8 @@ export function AboutUsSocialProof() {
                 <div className="text-stone-600 text-sm">Tasks von Owen</div>
               </div>
               <div className="bg-stone-50 rounded-xl p-6 border border-stone-200 text-center">
-                <div className="font-display font-bold text-stone-900 text-xl">Seit 2023</div>
-                <div className="text-stone-600 text-sm">AI im Echtbetrieb</div>
+                <div className="font-display font-bold text-stone-900 text-xl">Seit 2021</div>
+                <div className="text-stone-600 text-sm">Owen im Einsatz</div>
               </div>
             </div>
           </div>
