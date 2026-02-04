@@ -36,39 +36,34 @@ export function ForWhom() {
   ];
 
   return (
-    <section id="whom" className="relative py-24 md:py-32 px-4 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-purple-50/30" />
-      
-      <div className="relative max-w-5xl mx-auto">
-        {/* Header */}
+    <section id="whom" className="py-32 lg:py-40 px-4 bg-white">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
             Ist das was für dich?
           </h2>
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             Ehrliche Antwort: Kommt drauf an.
           </p>
         </div>
 
-        {/* Perfect For */}
         <div className="mb-12">
-          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+          <h3 className="text-2xl font-bold text-stone-900 mb-8 text-center">
             ✅ Perfekt für dich, wenn du...
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {perfectFor.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 border-2 border-emerald-200 hover:border-emerald-400 transition-all shadow-lg"
+                className="bg-stone-50 rounded-2xl p-6 border border-stone-200"
               >
-                <div className="w-16 h-16 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-4">
+                <div className="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center text-sage-700 mb-4">
                   {item.icon}
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-3">
+                <h4 className="text-lg font-bold text-stone-900 mb-3">
                   {item.title}
                 </h4>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-stone-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -76,21 +71,20 @@ export function ForWhom() {
           </div>
         </div>
 
-        {/* Not For */}
         <div>
-          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+          <h3 className="text-2xl font-bold text-stone-900 mb-8 text-center">
             ❌ Nicht für dich, wenn du...
           </h3>
-          <div className="bg-white rounded-2xl p-8 md:p-10 border-2 border-red-200 shadow-lg">
+          <div className="bg-stone-50 rounded-2xl p-8 md:p-10 border border-stone-200">
             <ul className="space-y-4">
               {notFor.map((item, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-200 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
-                  <span className="text-slate-700 text-lg">
+                  <span className="text-stone-700 text-lg">
                     {item}
                   </span>
                 </li>
@@ -99,9 +93,8 @@ export function ForWhom() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-200">
-          <p className="text-lg text-slate-700 font-semibold">
+        <div className="mt-12 text-center bg-stone-50 rounded-2xl p-8 border border-stone-200">
+          <p className="text-lg text-stone-700 font-medium">
             💡 Kein Vorwissen nötig — aber die Bereitschaft, zu lernen und umzusetzen.
           </p>
         </div>

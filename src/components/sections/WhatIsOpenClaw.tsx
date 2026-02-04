@@ -48,59 +48,53 @@ export function WhatIsOpenClaw() {
   ];
 
   return (
-    <section id="what" className="relative py-24 md:py-32 px-4 overflow-hidden">
-      {/* Premium Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30" />
-      
-      <div className="relative max-w-6xl mx-auto">
-        {/* Header - Premium Typography */}
+    <section id="what" className="py-32 lg:py-40 px-4 bg-white">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6">
             Die Lücke zwischen Denken und Handeln
           </h2>
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             ChatGPT kann dir einen Plan schreiben.
             <br className="hidden md:block" />
             Aber Copy-Pasten musst du immer noch selbst.
           </p>
         </div>
 
-        {/* Main Explanation - Glassmorphism */}
-        <div className="glass rounded-3xl shadow-2xl p-10 md:p-14 mb-16 border border-white/50">
+        <div className="bg-stone-50 rounded-3xl p-10 md:p-14 mb-16 border border-stone-200">
           <div className="max-w-none">
-            <p className="text-slate-800 text-xl leading-relaxed mb-8">
-              <strong className="text-emerald-600 text-2xl">OpenClaw gibt AI Hände.</strong>
+            <p className="text-stone-800 text-xl leading-relaxed mb-8">
+              <strong className="text-warm-700 text-2xl">OpenClaw gibt AI Hände.</strong>
               <br />
               <br />
               Statt nur Text zurückzugeben, führt dein Agent echte Aktionen aus: 
               Nachrichten versenden, Termine buchen, Dateien bearbeiten, Browser steuern.
               Du gibst den Auftrag — er erledigt den Rest.
             </p>
-            <p className="text-slate-800 text-xl leading-relaxed">
+            <p className="text-stone-800 text-xl leading-relaxed">
               🔐 <strong>100% lokal.</strong> Open Source. Läuft auf deinem Rechner. 
               Deine Daten gehen nirgendwo hin.
             </p>
           </div>
         </div>
 
-        {/* Features Grid - Premium Cards */}
         <div>
-          <h3 className="font-display text-3xl font-bold text-slate-900 mb-10 text-center">
+          <h3 className="font-display text-3xl font-bold text-stone-900 mb-10 text-center">
             Was OpenClaw kann
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="glass rounded-2xl p-8 border border-white/50 shadow-xl hover-lift hover:shadow-2xl hover:shadow-emerald-500/10"
+                className="bg-stone-50 rounded-2xl p-8 border border-stone-200"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg">
+                <div className="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center text-sage-700 mb-5">
                   {feature.icon}
                 </div>
-                <h4 className="font-display font-bold text-slate-900 mb-3 text-lg">
+                <h4 className="font-display font-bold text-stone-900 mb-3 text-lg">
                   {feature.title}
                 </h4>
-                <p className="text-slate-600 text-base font-medium">
+                <p className="text-stone-600 text-base">
                   {feature.description}
                 </p>
               </div>

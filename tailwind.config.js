@@ -11,48 +11,41 @@ export default {
         display: ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
-        gold: {
-          50: '#fefce8',
-          100: '#fef9c3',
-          200: '#fef08a',
-          300: '#fde047',
-          400: '#facc15',
-          500: '#eab308',
-          600: '#ca8a04',
-          700: '#a16207',
-          800: '#854d0e',
-          900: '#713f12',
+        sand: {
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
         },
-      },
-      animation: {
-        'gradient': 'gradient 8s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
-      },
-      keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          },
+        sage: {
+          50: '#f6f7f6',
+          100: '#e3e6e3',
+          200: '#c7cdc7',
+          300: '#a3aca3',
+          400: '#7d8a7d',
+          500: '#5f6e5f',
+          600: '#4a574a',
+          700: '#3c463c',
+          800: '#323a32',
+          900: '#2b312b',
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        'glow-pulse': {
-          '0%, 100%': { 
-            'box-shadow': '0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.2)',
-            'opacity': '1'
-          },
-          '50%': { 
-            'box-shadow': '0 0 30px rgba(16, 185, 129, 0.6), 0 0 60px rgba(16, 185, 129, 0.3)',
-            'opacity': '0.9'
-          },
+        warm: {
+          50: '#faf7f5',
+          100: '#f5ede8',
+          200: '#e9d8cf',
+          300: '#dbbfaf',
+          400: '#c99d85',
+          500: '#b8836a',
+          600: '#a86f5e',
+          700: '#8b5c50',
+          800: '#714d45',
+          900: '#5d4139',
         },
       },
     },

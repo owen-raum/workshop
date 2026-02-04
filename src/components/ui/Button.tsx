@@ -14,12 +14,12 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-display font-bold rounded-xl transition-all duration-300 inline-flex items-center justify-center transform hover:scale-105 active:scale-95';
+  const baseStyles = 'font-display font-semibold rounded-xl transition-colors inline-flex items-center justify-center';
   
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 text-white shadow-xl shadow-emerald-500/25 hover:shadow-2xl hover:shadow-emerald-500/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
-    secondary: 'bg-slate-900 hover:bg-emerald-600 text-white shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
-    outline: 'border-2 border-slate-300 hover:border-emerald-600 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
+    primary: 'bg-warm-600 hover:bg-warm-700 text-white disabled:opacity-50 disabled:cursor-not-allowed',
+    secondary: 'bg-stone-900 hover:bg-stone-800 text-white disabled:opacity-50 disabled:cursor-not-allowed',
+    outline: 'border-2 border-stone-300 hover:border-warm-600 hover:bg-warm-50 text-stone-700 hover:text-warm-700 disabled:opacity-50 disabled:cursor-not-allowed',
   };
 
   const sizeStyles = {
