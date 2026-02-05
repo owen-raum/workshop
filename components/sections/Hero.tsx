@@ -82,7 +82,7 @@ export function Hero() {
 
           {/* Headline */}
           <h1 className="text-[40px] sm:text-[50px] md:text-[62px] font-bold leading-[1.1] tracking-[-0.02em] text-black mb-6">
-            Ein AI-Agent, der wirklich{' '}
+            Mein AI-Agent Owen hat letzte Woche{' '}
             <span 
               className="relative inline-block font-extrabold"
               style={{
@@ -90,14 +90,14 @@ export function Hero() {
                 padding: '0 4px',
               }}
             >
-              arbeitet
+              14 Stunden
             </span>
-            .
+            {' '}Arbeit übernommen. Ich zeige dir wie.
           </h1>
 
           {/* Subline */}
           <p className="text-[19px] leading-[1.6] text-[#525252] mb-10 max-w-[580px] mx-auto">
-            Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt. Kein Hype, nur ein echtes Production-Setup.
+            90 Minuten Deep Dive in Owen — mein echtes Agent-Setup. Du siehst den Code, die Prompts, die Fails. Am Ende weißt du genau, ob das für dein Business Sinn macht – oder nicht.
           </p>
 
           {/* CTA + Badge Row */}
