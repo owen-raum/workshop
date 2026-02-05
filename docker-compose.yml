@@ -13,7 +13,7 @@ services:
         cd /tmp/build &&
         npm install --include=dev --legacy-peer-deps 2>&1 &&
         npm run build 2>&1 &&
-        rm -rf /output/* &&
+        rm -rf /output/.next /output/* &&
         cp -r .next /output/.next &&
         cp -r public /output/public &&
         cp -r node_modules /output/node_modules &&
