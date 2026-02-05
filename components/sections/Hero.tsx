@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useTickets, getCtaText } from '@/lib/useTickets';
 import { getNextTiers } from '@/lib/tiers';
 import { BadgeCheck } from 'lucide-react';
@@ -12,14 +13,71 @@ export function Hero() {
   const { tier, loading: ticketsLoading } = useTickets();
   const nextTiers = getNextTiers(tier.name);
 
+  // Countdown
+  const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
+  const calcTimeLeft = () => {
+    const distance = eventDate - Date.now();
+    if (distance < 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((distance % (1000 * 60)) / 1000),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
+
+  useEffect(() => {
+    setTimeLeft(calcTimeLeft());
+    const interval = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
+    return () => clearInterval(interval);
+  }, [eventDate]);
+
+  const eventStarted = timeLeft && timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now();
+
   return (
     <section className="relative bg-[#F1EFEB]">
       <div className="relative z-10 w-full min-h-[88vh] flex items-center">
         <div className="w-full max-w-[800px] mx-auto px-6 py-20 lg:py-24 text-center">
           
+          {/* Countdown */}
+          {!eventStarted && timeLeft && (
+            <div className="mb-3">
+              <div className="flex justify-center gap-4 mb-2">
+                {[
+                  { value: timeLeft.days, label: 'Tage' },
+                  { value: timeLeft.hours, label: 'Std' },
+                  { value: timeLeft.minutes, label: 'Min' },
+                  { value: timeLeft.seconds, label: 'Sek' },
+                ].map((item) => (
+                  <div key={item.label} className="text-center min-w-[60px]">
+                    <div className="text-[48px] md:text-[64px] font-bold text-black tabular-nums leading-none tracking-[-0.03em]">
+                      {item.value}
+                    </div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.05em] text-[#737373] mt-1">
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {eventStarted && (
+            <div className="mb-6">
+              <p className="text-xl font-bold text-black">🎉 Der Deep Dive hat begonnen!</p>
+            </div>
+          )}
+
+          {/* Date & Time */}
+          <p className="text-[14px] font-medium text-[#737373] mb-2">
+            Sonntag, 15. Februar 2026 · 19:00 Uhr (CET)
+          </p>
+
           {/* Tagline */}
-          <p className="text-[14px] font-medium text-[#737373] mb-4">
-            Live Deep Dive · Sonntag, 15. Februar 2026 · 19:00 Uhr
+          <p className="text-[12px] text-[#a3a3a3] mb-12">
+            Der OpenClaw Production Deep Dive
           </p>
 
           {/* Headline */}
@@ -51,7 +109,7 @@ export function Hero() {
               {getCtaText(tier, ticketsLoading)}
             </button>
             
-            {/* Hosted by Badge */}
+            {/* Made by Badge */}
             <div className="flex items-center gap-2 bg-[#FAFAFA] border border-[#e5e5e5] rounded-full py-1.5 px-3">
               <img 
                 src="/andy.jpg" 
