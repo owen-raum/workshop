@@ -134,15 +134,24 @@ export function AboutUsSocialProof() {
             </div>
 
             <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 text-white">
-              <h4 className="text-xl font-semibold mb-3">Owen 🐸</h4>
-              <p className="text-white/80 leading-relaxed">
-                Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz. Er beantwortet Mails,
-                koordiniert Termine, schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme.
-                Läuft auf einem Mac Mini M4 in Zypern – powered by OpenClaw.
-              </p>
-              <p className="text-white/80 leading-relaxed mt-4">
-                Im Deep Dive siehst du Owen live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System.
-              </p>
+              <div className="flex items-start gap-6">
+                <img 
+                  src="/owen.jpg" 
+                  alt="Owen der Plüschfrosch" 
+                  className="w-24 h-24 rounded-2xl object-cover flex-shrink-0"
+                />
+                <div>
+                  <h4 className="text-xl font-semibold mb-3">Owen 🐸</h4>
+                  <p className="text-white/80 leading-relaxed">
+                    Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz. Er beantwortet Mails,
+                    koordiniert Termine, schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme.
+                    Läuft auf einem Mac Mini M4 in Zypern – powered by OpenClaw.
+                  </p>
+                  <p className="text-white/80 leading-relaxed mt-4">
+                    Im Deep Dive siehst du Owen live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
