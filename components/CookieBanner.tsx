@@ -50,35 +50,45 @@ export function CookieBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[200] bg-[#0B0B0B] text-white border-t border-white/10">
-      <div className="mx-auto max-w-5xl px-4 py-4 md:flex md:items-center md:justify-between md:gap-6">
-        <div className="text-sm text-white/80">
-          Wir verwenden Cookies, um das Nutzungserlebnis zu verbessern. Details in der{" "}
-          <Link href="/datenschutz" className="text-white underline underline-offset-4 hover:text-white/70">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+      <div className="mx-4 w-full max-w-md rounded-2xl border border-[rgba(34,34,34,0.12)] bg-[#F1EFEB] p-8 shadow-2xl">
+        <div className="mb-6 flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]">
+            <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h2 className="font-display text-xl font-semibold text-gray-900">Cookie-Einstellungen</h2>
+        </div>
+        
+        <p className="mb-6 text-sm leading-relaxed text-gray-600">
+          Wir verwenden Cookies, um dein Erlebnis zu verbessern und anonyme Nutzungsstatistiken zu erheben. Details findest du in unserer{" "}
+          <Link href="/datenschutz" className="font-medium text-gray-900 underline underline-offset-4 hover:text-gray-700">
             Datenschutzerklärung
           </Link>
           .
-        </div>
-        <div className="mt-3 flex items-center gap-3 md:mt-0">
-          <button
-            type="button"
-            onClick={() => {
-              setStoredConsent("false");
-              setIsVisible(false);
-            }}
-            className="rounded-full border border-white/20 px-4 py-2 text-xs font-medium text-white/80 hover:bg-white/10"
-          >
-            Nur notwendige
-          </button>
+        </p>
+
+        <div className="flex flex-col gap-3">
           <button
             type="button"
             onClick={() => {
               setStoredConsent("true");
               setIsVisible(false);
             }}
-            className="rounded-full bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
+            className="w-full rounded-xl bg-[#111111] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1a1a1a]"
           >
             Alles akzeptieren
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setStoredConsent("false");
+              setIsVisible(false);
+            }}
+            className="w-full rounded-xl border border-[rgba(34,34,34,0.12)] bg-transparent px-6 py-3.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+          >
+            Nur notwendige
           </button>
         </div>
       </div>
