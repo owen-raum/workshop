@@ -107,11 +107,16 @@ export function Hero() {
           >
             {getCtaText(tier, ticketsLoading)}
           </button>
-          {!ticketsLoading && nextTiers.length > 0 && (
-            <p className="text-slate-600 text-base">
-              Danach {nextTiers[0].price}€
-            </p>
-          )}
+          <p className="text-slate-700 text-base">
+            {ticketsLoading ? (
+              <span className="text-slate-500">Lade Verfügbarkeit...</span>
+            ) : (
+              <>
+                Noch <strong className="text-orange-600">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€)
+                {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€</>}
+              </>
+            )}
+          </p>
         </div>
       </div>
     </section>
