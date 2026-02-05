@@ -59,10 +59,10 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-16">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Was kostet das?
           </h2>
@@ -184,7 +184,7 @@ export function Pricing() {
         </div>
 
         {/* Trust Badges */}
-        <div className="reveal flex flex-wrap justify-center gap-8 text-sm text-gray-600">
+        <div className="reveal flex flex-wrap justify-center gap-12 text-sm text-gray-600">
           <div className="flex items-center gap-2">
             <svg
               className="w-5 h-5 text-gray-700"

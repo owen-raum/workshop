@@ -43,9 +43,9 @@ export function WhatIsOpenClaw() {
   ];
 
   return (
-    <section id="what" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="what" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Was ist OpenClaw?
           </h2>
@@ -54,7 +54,7 @@ export function WhatIsOpenClaw() {
           </p>
         </div>
 
-        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 mb-12">
+        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 mb-16">
           <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-4">Live Demo</p>
@@ -82,7 +82,7 @@ export function WhatIsOpenClaw() {
         </div>
 
         <div>
-          <h3 className="reveal font-display text-2xl md:text-3xl font-semibold text-gray-900 mb-8 text-center">
+          <h3 className="reveal font-display text-2xl md:text-3xl font-semibold text-gray-900 mb-12 text-center">
             Was OpenClaw kann
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

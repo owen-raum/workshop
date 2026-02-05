@@ -26,9 +26,9 @@ export function ForWhom() {
   ];
 
   return (
-    <section id="whom" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="whom" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">
             Ist das was für dich?
           </h2>
@@ -37,7 +37,7 @@ export function ForWhom() {
           </p>
         </div>
 
-        <div className="mb-12">
+        <div className="mb-16">
           <h3 className="reveal text-2xl font-medium text-gray-900 mb-6 text-center">
             ✅ Perfekt für dich, wenn du...
           </h3>
