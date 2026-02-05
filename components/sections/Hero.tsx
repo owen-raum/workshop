@@ -13,26 +13,23 @@ export function Hero() {
   const { tier, loading: ticketsLoading } = useTickets();
   const nextTiers = getNextTiers(tier.name);
 
-  // Countdown Timer
+  // Countdown Timer — sofort berechnen statt mit 0:0:0:0 zu starten
   const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const calcTimeLeft = () => {
+    const distance = eventDate - Date.now();
+    if (distance < 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((distance % (1000 * 60)) / 1000),
+    };
+  };
+  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000),
-        });
-      }
+      setTimeLeft(calcTimeLeft());
     }, 1000);
 
     return () => clearInterval(interval);
