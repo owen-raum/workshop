@@ -13,7 +13,7 @@ export function Hero() {
   const { tier, loading: ticketsLoading } = useTickets();
   const nextTiers = getNextTiers(tier.name);
 
-  // Countdown Timer — sofort berechnen statt mit 0:0:0:0 zu starten
+  // Countdown Timer
   const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
   const calcTimeLeft = () => {
     const distance = eventDate - Date.now();
@@ -25,9 +25,11 @@ export function Hero() {
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
     };
   };
-  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
+  // Start with null to avoid SSR/client hydration mismatch
+  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
 
   useEffect(() => {
+    setTimeLeft(calcTimeLeft());
     const interval = setInterval(() => {
       setTimeLeft(calcTimeLeft());
     }, 1000);
@@ -51,7 +53,16 @@ export function Hero() {
         </p>
 
         {/* Countdown Timer */}
-        {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < new Date().getTime() ? (
+        {timeLeft === null ? (
+          <div className="flex justify-center gap-3 md:gap-4 mb-10">
+            {['Tage', 'Std', 'Min', 'Sek'].map((label) => (
+              <div key={label} className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
+                <div className="text-2xl md:text-3xl font-bold text-slate-900">–</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wide">{label}</div>
+              </div>
+            ))}
+          </div>
+        ) : timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now() ? (
           <div className="mb-10">
             <p className="text-3xl md:text-4xl font-bold text-orange-700 bg-orange-50 border-2 border-orange-300 rounded-xl px-8 py-6 inline-block">
               🎉 Der Deep Dive hat begonnen!
