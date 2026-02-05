@@ -79,8 +79,12 @@ export function Hero() {
                 
                 {/* Made by Badge */}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold">AS</span>
+                  <div className="w-9 h-9 rounded-full overflow-hidden border border-[rgba(0,0,0,0.08)] shadow-sm">
+                    <img 
+                      src="/andy.jpg" 
+                      alt="Andy Steinberger" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex items-center gap-1">
                     <span className="text-[14px] text-[#666]">Made by</span>
