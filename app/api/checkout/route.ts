@@ -38,6 +38,7 @@ export async function POST(request: Request) {
         },
       ],
       customer_creation: 'always',
+      billing_address_collection: 'required',
       invoice_creation: {
         enabled: true,
       },
