@@ -21,23 +21,23 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
     <>
       {loading && (
         <div
-          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy-600 transition-opacity duration-500 ${
+          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#F1EFEB] transition-opacity duration-500 ${
             fadeOut ? 'opacity-0' : 'opacity-100'
           }`}
         >
           {/* Subtle grid pattern */}
           <div
-            className="absolute inset-0 pointer-events-none opacity-10"
+            className="absolute inset-0 pointer-events-none opacity-30"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
+                'linear-gradient(rgba(17,17,17,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,0.06) 1px, transparent 1px)',
               backgroundSize: '40px 40px',
             }}
           />
 
           <div className="relative flex flex-col items-center animate-fade-in">
             {/* Profile Image */}
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl mb-6">
+            <div className="w-20 h-20 rounded-full overflow-hidden border border-[rgba(34,34,34,0.12)] shadow-2xl mb-6">
               <img
                 src="/andy.jpg"
                 alt="Andy Steinberger"
@@ -46,17 +46,17 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* Title */}
-            <h1 className="font-display text-xl font-bold text-white tracking-tight mb-1">
+            <h1 className="font-display text-xl font-bold text-gray-900 tracking-tight mb-1">
               OpenClaw Deep Dive
             </h1>
-            <p className="text-white/50 text-xs font-mono tracking-wider uppercase">
+            <p className="text-gray-500 text-xs font-mono tracking-wider uppercase">
               Andy Steinberger
             </p>
 
             {/* Loading bar */}
-            <div className="mt-8 h-[2px] w-32 bg-white/10 rounded-full overflow-hidden">
+            <div className="mt-8 h-[2px] w-32 bg-black/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-white/70 rounded-full"
+                className="h-full bg-[#111111]/70 rounded-full"
                 style={{
                   animation: 'loading-bar 1.5s ease-in-out',
                   animationFillMode: 'forwards',

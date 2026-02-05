@@ -48,14 +48,18 @@ export function StickyCTABar() {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
       }`}
     >
-      <div className="bg-navy-800 border-t border-navy-600 shadow-2xl">
+      <div className="bg-[#F1EFEB]/95 border-t border-[rgba(34,34,34,0.12)] backdrop-blur-md shadow-[0_-12px_40px_-20px_rgba(17,17,17,0.4)]">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white text-base sm:text-lg font-medium">
+          <p className="text-gray-700 text-base sm:text-lg font-medium">
             {ticketsLoading ? (
-              <span className="text-navy-300">Lade...</span>
+              <span className="text-gray-500">Lade...</span>
             ) : (
               <>
-                Noch <strong className="text-orange-400">{tier.spotsLeft} {tier.label}-Tickets</strong> ({tier.price}€ inkl. MwSt)
+                Noch{' '}
+                <strong className="text-gray-900">
+                  {tier.spotsLeft} {tier.label}-Tickets
+                </strong>{' '}
+                ({tier.price}€ inkl. MwSt)
               </>
             )}
           </p>

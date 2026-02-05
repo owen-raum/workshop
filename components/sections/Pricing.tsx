@@ -59,60 +59,60 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-32 lg:py-40 px-4 bg-navy-50">
-      <div className="max-w-3xl mx-auto">
+    <section id="pricing" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
             Was kostet das?
           </h2>
-          <p className="text-xl md:text-2xl text-navy-700 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
             Ein Ticket. Der Preis steigt mit der Nachfrage.
           </p>
         </div>
 
         {/* Single Pricing Card */}
-        <div className="bg-white rounded-2xl p-8 md:p-14 mb-10 relative mt-8 border-2 border-orange-400 shadow-2xl shadow-orange-200/50">
+        <div className="bg-white rounded-3xl p-8 md:p-12 mb-10 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           {/* Badge – dynamisch */}
           {ticketsLoading ? (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-navy-300 text-white font-bold text-sm px-5 py-2 rounded-full shadow-lg whitespace-nowrap z-10 animate-pulse">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 animate-pulse">
               Lädt...
             </div>
           ) : (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold text-sm px-5 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
               {tier.badge}
             </div>
           )}
 
           {/* Progress Indicator */}
-          <div className="mb-10 mt-4">
-            <div className="flex justify-between items-center mb-3">
-              <span className="text-sm font-semibold text-orange-700">
+          <div className="mb-10 mt-6">
+            <div className="flex flex-wrap justify-between items-center gap-2 mb-3 text-sm text-gray-600">
+              <span className="font-medium">
                 {ticketsLoading ? (
-                  <span className="inline-block w-20 h-4 bg-navy-200 rounded animate-pulse" />
+                  <span className="inline-block w-32 h-4 bg-gray-200 rounded animate-pulse" />
                 ) : (
                   `${Math.round(tier.progressPercent)}% dieser Stufe vergeben`
                 )}
               </span>
-              <span className="text-sm text-navy-600">
+              <span>
                 {ticketsLoading ? (
-                  <span className="inline-block w-32 h-4 bg-navy-200 rounded animate-pulse" />
+                  <span className="inline-block w-40 h-4 bg-gray-200 rounded animate-pulse" />
                 ) : (
                   `Noch ${tier.spotsLeft} von ${tier.spotsInTier} verfügbar`
                 )}
               </span>
             </div>
-            <div className="w-full bg-navy-200 rounded-full h-4 shadow-inner">
+            <div className="w-full bg-gray-200 rounded-full h-2">
               <div
-                className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 h-4 rounded-full transition-all duration-500 shadow-lg"
+                className="bg-[#111111] h-2 rounded-full transition-all duration-500"
                 style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
               />
             </div>
-            <p className="text-center text-base font-medium text-navy-700 mt-3">
+            <p className="text-center text-sm text-gray-600 mt-3">
               {ticketsLoading ? (
-                <span className="text-navy-500">Lade Verkaufszahlen...</span>
+                <span className="text-gray-500">Lade Verkaufszahlen...</span>
               ) : (
-                <strong className="text-navy-900">
+                <strong className="text-gray-900">
                   {tier.soldInTier} von {tier.spotsInTier} {tier.label}-Tickets verkauft
                 </strong>
               )}
@@ -120,32 +120,32 @@ export function Pricing() {
           </div>
 
           {/* Current Price – PROMINENT */}
-          <div className="text-center mb-4">
-            <p className="text-orange-600 font-bold text-lg mb-4 flex items-center justify-center gap-2">
+          <div className="text-center mb-6">
+            <p className="text-gray-700 font-semibold text-sm md:text-base mb-4">
               🔥 Anmeldung endet am 10. Februar
             </p>
             {ticketsLoading ? (
               <div className="h-24 flex items-center justify-center">
-                <span className="inline-block w-40 h-20 bg-navy-200 rounded animate-pulse" />
+                <span className="inline-block w-44 h-20 bg-gray-200 rounded animate-pulse" />
               </div>
             ) : (
-              <div className="font-display text-7xl md:text-8xl font-bold text-navy-900">
+              <div className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900">
                 {tier.price}€
               </div>
             )}
-            <div className="text-navy-600 mt-2 mb-4">einmalig, inkl. MwSt.</div>
+            <div className="text-gray-500 mt-2 mb-4">einmalig, inkl. MwSt.</div>
             {/* Later prices – dynamisch */}
             {!ticketsLoading && laterPrices && (
-              <div className="text-sm text-navy-500">Später: {laterPrices}</div>
+              <div className="text-sm text-gray-500">Später: {laterPrices}</div>
             )}
           </div>
 
           {/* Features */}
           <ul className="space-y-4 mb-10">
             {features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-3 text-navy-800">
+              <li key={index} className="flex items-start gap-3 text-gray-700">
                 <svg
-                  className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0"
+                  className="w-5 h-5 text-gray-800 mt-0.5 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ export function Pricing() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-lg">{feature}</span>
+                <span className="text-base md:text-lg">{feature}</span>
               </li>
             ))}
           </ul>
@@ -173,10 +173,10 @@ export function Pricing() {
           <button
             onClick={handleBook}
             disabled={loading || ticketsLoading}
-            className={`w-full font-bold text-lg py-4 px-8 rounded-xl transition-all ${
+            className={`w-full font-semibold text-lg py-4 px-8 rounded-xl transition-all ${
               loading || ticketsLoading
-                ? 'bg-navy-400 text-white cursor-wait'
-                : 'bg-navy-600 hover:bg-navy-700 text-white shadow-lg hover:shadow-xl'
+                ? 'bg-gray-400 text-white cursor-wait'
+                : 'bg-[#111111] hover:bg-[#1a1a1a] text-white'
             }`}
           >
             {ticketsLoading ? 'Lade Preise...' : getButtonText()}
@@ -184,10 +184,10 @@ export function Pricing() {
         </div>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center gap-8 text-sm text-navy-700">
+        <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
           <div className="flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-orange-600"
+              className="w-5 h-5 text-gray-700"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ export function Pricing() {
           </div>
           <div className="flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-orange-600"
+              className="w-5 h-5 text-gray-700"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
