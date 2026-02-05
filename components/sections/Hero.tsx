@@ -26,6 +26,9 @@ export function Hero() {
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
     };
   };
+  const timerBoxClass = 'bg-white/80 backdrop-blur-sm border border-[rgba(34,34,34,0.12)] rounded-2xl px-4 py-3 min-w-[78px] shadow-[0_10px_30px_-22px_rgba(17,17,17,0.4)]';
+  const timerLabelClass = 'text-[11px] text-gray-500 uppercase tracking-[0.2em]';
+
   // Start with null to avoid SSR/client hydration mismatch
   const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
 
@@ -40,45 +43,45 @@ export function Hero() {
 
   return (
     <section className="relative bg-[#F1EFEB]">
-      <div className="relative z-10 w-full min-h-screen flex flex-col justify-center items-center">
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 pt-8 lg:pt-32 pb-24 md:py-16 max-w-[1300px]">
-          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
+      <div className="relative z-10 w-full min-h-[85vh] flex flex-col justify-center items-center">
+        <div className="w-full grid lg:grid-cols-[1.05fr,0.95fr] items-center gap-12 lg:gap-16 px-8 md:px-16 lg:px-24 pt-12 lg:pt-24 pb-20 md:py-16 max-w-[1200px]">
+          <div className="w-full flex flex-col items-center lg:items-start">
             <p className="reveal text-xl mb-3 font-medium text-gray-600 text-center lg:text-left">
               OpenClaw Production Deep Dive · Mit Andy Steinberger · Sonntag, 15. Februar 2026
             </p>
 
             {timeLeft === null ? (
-              <div className="reveal flex flex-wrap gap-3 mb-8">
+              <div className="reveal flex flex-wrap gap-3 mb-6">
                 {['Tage', 'Std', 'Min', 'Sek'].map((label) => (
-                  <div key={label} className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                  <div key={label} className={timerBoxClass}>
                     <div className="text-2xl font-bold text-gray-900">–</div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">{label}</div>
+                    <div className={timerLabelClass}>{label}</div>
                   </div>
                 ))}
               </div>
             ) : timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now() ? (
-              <div className="reveal mb-8">
-                <p className="text-2xl md:text-3xl font-bold text-gray-900 bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-6 py-4 inline-block">
+              <div className="reveal mb-6">
+                <p className="text-2xl md:text-3xl font-bold text-gray-900 bg-white/80 backdrop-blur-sm border border-[rgba(34,34,34,0.12)] rounded-2xl px-6 py-4 inline-block shadow-[0_10px_30px_-22px_rgba(17,17,17,0.4)]">
                   🎉 Der Deep Dive hat begonnen!
                 </p>
               </div>
             ) : (
-              <div className="reveal flex flex-wrap gap-3 mb-8">
-                <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+              <div className="reveal flex flex-wrap gap-3 mb-6">
+                <div className={timerBoxClass}>
                   <div className="text-2xl font-bold text-gray-900">{timeLeft.days}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">Tage</div>
+                  <div className={timerLabelClass}>Tage</div>
                 </div>
-                <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className={timerBoxClass}>
                   <div className="text-2xl font-bold text-gray-900">{timeLeft.hours}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">Std</div>
+                  <div className={timerLabelClass}>Std</div>
                 </div>
-                <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className={timerBoxClass}>
                   <div className="text-2xl font-bold text-gray-900">{timeLeft.minutes}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">Min</div>
+                  <div className={timerLabelClass}>Min</div>
                 </div>
-                <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className={timerBoxClass}>
                   <div className="text-2xl font-bold text-gray-900">{timeLeft.seconds}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">Sek</div>
+                  <div className={timerLabelClass}>Sek</div>
                 </div>
               </div>
             )}
@@ -87,12 +90,12 @@ export function Hero() {
               Ein AI-Agent, der{' '}
               <span className="relative inline-block">
                 wirklich arbeitet
-                <span className="absolute inset-0 bg-[#85c4ff] opacity-30 -rotate-3 -z-10 rounded-sm" />
+                <span className="absolute -bottom-1 left-0 right-0 h-[6px] bg-[#85c4ff] opacity-40 -rotate-1 rounded-full -z-10" />
               </span>{' '}
               – nicht nur chattet.
             </h1>
 
-            <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-10 text-center lg:text-left">
+            <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8 text-center lg:text-left">
               Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt. Kein Hype, nur ein echtes Production-Setup.
             </p>
 
@@ -116,8 +119,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="reveal w-full lg:w-1/2 mt-16 lg:mt-0 flex justify-center items-center">
-            <div className="w-full max-w-xl bg-white rounded-3xl border border-[rgba(34,34,34,0.12)] p-8 md:p-10 shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
+          <div className="reveal w-full mt-12 lg:mt-0 flex justify-center lg:justify-end items-center">
+            <div className="w-full max-w-[520px] bg-white rounded-3xl border border-[rgba(34,34,34,0.12)] p-8 md:p-10 shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
               <div className="flex items-center justify-between mb-6">
                 <p className="text-sm uppercase tracking-[0.2em] text-gray-500">Live Setup</p>
                 <span className="text-xs px-3 py-1 rounded-full border border-[rgba(34,34,34,0.12)] text-gray-600">Production</span>

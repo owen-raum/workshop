@@ -45,10 +45,10 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="faq" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Noch Fragen?
           </h2>
@@ -67,7 +67,7 @@ export function FAQ() {
         </div>
 
         {/* Contact Box */}
-        <div className="reveal mt-10 md:mt-14 bg-transparent rounded-2xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)] text-center">
+        <div className="reveal mt-8 md:mt-10 bg-transparent rounded-2xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)] text-center">
           <h3 className="font-display text-2xl font-semibold text-gray-900 mb-3">
             Deine Frage war nicht dabei?
           </h3>

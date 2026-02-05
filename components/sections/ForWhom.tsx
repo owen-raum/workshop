@@ -26,9 +26,9 @@ export function ForWhom() {
   ];
 
   return (
-    <section id="whom" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="whom" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">
             Ist das was für dich?
           </h2>
@@ -37,8 +37,8 @@ export function ForWhom() {
           </p>
         </div>
 
-        <div className="mb-16">
-          <h3 className="reveal text-2xl font-medium text-gray-900 mb-8 text-center">
+        <div className="mb-12">
+          <h3 className="reveal text-2xl font-medium text-gray-900 mb-6 text-center">
             ✅ Perfekt für dich, wenn du...
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -65,7 +65,7 @@ export function ForWhom() {
         </div>
 
         <div>
-          <h3 className="reveal text-2xl font-medium text-gray-900 mb-8 text-center">
+          <h3 className="reveal text-2xl font-medium text-gray-900 mb-6 text-center">
             ❌ Nicht für dich, wenn du...
           </h3>
           <div className="reveal bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
@@ -82,7 +82,7 @@ export function ForWhom() {
           </div>
         </div>
 
-        <div className="reveal mt-12 text-center bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+        <div className="reveal mt-10 text-center bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
           <p className="text-base md:text-lg text-gray-700 font-medium px-2">
             💡 Kein technisches Vorwissen nötig – nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
           </p>

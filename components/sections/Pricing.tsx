@@ -59,10 +59,10 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="pricing" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Was kostet das?
           </h2>
@@ -72,7 +72,7 @@ export function Pricing() {
         </div>
 
         {/* Single Pricing Card */}
-        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-10 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
+        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           {/* Badge – dynamisch */}
           {ticketsLoading ? (
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 animate-pulse">

@@ -49,9 +49,9 @@ export function WorkshopContent() {
   ];
 
   return (
-    <section id="content" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="content" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 max-w-4xl">
+        <div className="mb-12 max-w-4xl">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold leading-tight text-gray-900 mb-6">
             90 Minuten. Kein Hype.
           </h2>
@@ -92,7 +92,7 @@ export function WorkshopContent() {
           })}
         </div>
 
-        <div className="reveal mt-12 bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+        <div className="reveal mt-10 bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
           <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center text-center sm:text-left">
             <div className="flex items-center gap-2 text-gray-700">
               <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={1.5} />

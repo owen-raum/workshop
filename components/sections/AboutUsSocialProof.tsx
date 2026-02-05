@@ -3,9 +3,9 @@ import { CheckCircle2 } from 'lucide-react';
 
 export function AboutUsSocialProof() {
   return (
-    <section id="about" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="about" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-6">
             Wer bin ich?
           </h2>
@@ -14,7 +14,7 @@ export function AboutUsSocialProof() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           <div className="reveal bg-transparent rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <div className="flex-shrink-0 mx-auto sm:mx-0">
@@ -84,7 +84,7 @@ export function AboutUsSocialProof() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             <div className="reveal bg-transparent rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
               <h3 className="font-display text-2xl font-semibold text-gray-900 mb-6">
                 Warum ausgerechnet ich?

@@ -43,9 +43,9 @@ export function WhatIsOpenClaw() {
   ];
 
   return (
-    <section id="what" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="what" className="w-full py-16 md:py-20 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Was ist OpenClaw?
           </h2>
@@ -54,12 +54,12 @@ export function WhatIsOpenClaw() {
           </p>
         </div>
 
-        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-14 mb-16">
+        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 mb-12">
           <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-4">Live Demo</p>
               <h3 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-                Ein AI-Agent, der wirklich arbeitet.
+                Ein AI-Agent, der wirklich handelt.
               </h3>
               <p className="text-white/70 leading-relaxed">
                 Du siehst Owen live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System.
