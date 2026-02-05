@@ -3,13 +3,22 @@ version: '3.8'
 services:
   builder:
     image: node:22
-    working_dir: /app
     volumes:
-      - .:/app
+      - app:/output
     command: >
       /bin/sh -c "
+        set -ex &&
+        apt-get update -qq && apt-get install -y -qq git > /dev/null 2>&1 &&
+        git clone --depth 1 --branch main https://github.com/owen-raum/workshop.git /tmp/build &&
+        cd /tmp/build &&
         npm install --include=dev --legacy-peer-deps 2>&1 &&
         npm run build 2>&1 &&
+        rm -rf /output/* &&
+        cp -r .next /output/.next &&
+        cp -r public /output/public &&
+        cp -r node_modules /output/node_modules &&
+        cp package.json /output/package.json &&
+        cp next.config.ts /output/next.config.ts 2>/dev/null || true &&
         echo 'BUILD DONE'"
     environment:
       - NODE_ENV=production
@@ -18,23 +27,26 @@ services:
   web:
     image: node:22
     working_dir: /app
-    volumes:
-      - .:/app
-    ports:
-      - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
-    depends_on:
-      builder:
-        condition: service_completed_successfully
     environment:
       - PORT=${WEBSERVER_PORT:-9019}
       - NODE_ENV=production
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
       - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+    volumes:
+      - app:/app
+    ports:
+      - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
+    depends_on:
+      builder:
+        condition: service_completed_successfully
     command: npm start
     restart: unless-stopped
     networks:
       pulse:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
+
+volumes:
+  app:
 
 networks:
   pulse:

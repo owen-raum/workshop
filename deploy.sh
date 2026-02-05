@@ -13,7 +13,7 @@ fi
 
 STACK_ID=52
 ENDPOINT_ID=4
-VOLUME_NAME="workshop_app"
+VOLUME_NAME="workshop_app"  # matches compose: volumes.app → prefixed with stack name
 
 API="${PORTAINER_URL}/api"
 AUTH="-H X-API-Key:${PORTAINER_API_KEY}"
