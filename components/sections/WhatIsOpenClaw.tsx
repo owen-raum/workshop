@@ -1,113 +1,108 @@
 import Image from 'next/image';
+import {
+  MessageSquare,
+  Globe,
+  Search,
+  UserPlus,
+  CreditCard,
+  Users,
+} from 'lucide-react';
 
 export function WhatIsOpenClaw() {
   const features = [
     {
       title: 'WhatsApp-Messages schreiben',
       description: 'An Kunden, ans Team, automatisch oder auf Command',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-      ),
+      icon: MessageSquare,
     },
     {
       title: 'Browser steuern',
       description: 'Formulare ausfüllen, Screenshots machen, Websites scrapen',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-        </svg>
-      ),
+      icon: Globe,
     },
     {
       title: 'Mein gesamtes Leben durchsuchen',
       description: 'Mails, Kalender, Notizen, Files – alles an einem Ort',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      ),
+      icon: Search,
     },
     {
       title: 'Accounts erstellen',
       description: 'Anmeldungen, Registrierungen, Setups',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-        </svg>
-      ),
+      icon: UserPlus,
     },
     {
       title: 'Geld ausgeben',
-      description: 'Wenn ich\'s ihm erlaube (Bestellungen, Buchungen, Zahlungen)',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-        </svg>
-      ),
+      description: "Wenn ich's ihm erlaube (Bestellungen, Buchungen, Zahlungen)",
+      icon: CreditCard,
     },
     {
       title: 'Sub-Agents spawnen',
       description: 'Parallele Tasks, die gleichzeitig laufen',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
+      icon: Users,
     },
   ];
 
   return (
-    <section id="what" className="py-20 md:py-32 lg:py-40 px-4 bg-navy-50">
+    <section id="what" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-4 md:mb-6 px-2">
+        <div className="text-center mb-14 md:mb-20">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 px-2">
             Was ist OpenClaw?
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-navy-700 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             ChatGPT gibt dir Antworten. OpenClaw führt sie aus. Klingt abstrakt? Live-Demo kommt im Deep Dive.
           </p>
         </div>
 
-        {/* Demo Image */}
-        <div className="mb-12 md:mb-16 max-w-4xl mx-auto">
-          <div className="relative aspect-video rounded-2xl border-2 border-navy-300 overflow-hidden shadow-lg">
-            <Image 
-              src="/owen-demo.jpg" 
-              alt="Owen AI Agent Live Demo" 
-              fill
-              className="object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <p className="font-display text-xl md:text-2xl font-bold text-white">
-                Live-Demo im Deep Dive
+        <div className="bg-[#1A1A1A] rounded-3xl p-8 md:p-14 mb-16">
+          <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-4">Live Demo</p>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+                Ein AI-Agent, der wirklich arbeitet.
+              </h3>
+              <p className="text-white/70 leading-relaxed">
+                Du siehst Owen live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System.
               </p>
+            </div>
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
+              <Image
+                src="/owen-demo.jpg"
+                alt="Owen AI Agent Live Demo"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <p className="font-display text-lg font-semibold text-white">
+                  Live-Demo im Deep Dive
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         <div>
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-navy-900 mb-8 md:mb-10 text-center px-2">
+          <h3 className="font-display text-2xl md:text-3xl font-semibold text-gray-900 mb-8 text-center px-2">
             Was OpenClaw kann
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 md:p-8 border border-navy-200 hover:border-orange-300 hover:shadow-lg transition-all"
-              >
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-4 md:mb-5">
-                  {feature.icon}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-transparent rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
+                >
+                  <Icon className="w-8 h-8 text-zinc-700 mb-4" strokeWidth={1.5} />
+                  <h4 className="font-display font-medium text-gray-900 mb-2 text-base md:text-lg">
+                    {feature.title}
+                  </h4>
+                  <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h4 className="font-display font-bold text-navy-900 mb-2 md:mb-3 text-base md:text-lg">
-                  {feature.title}
-                </h4>
-                <p className="text-navy-700 text-sm md:text-base leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

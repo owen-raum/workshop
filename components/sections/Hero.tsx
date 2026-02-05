@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Check } from 'lucide-react';
 import { getNextTiers } from '@/lib/tiers';
 import { useTickets, getCtaText } from '@/lib/useTickets';
 
@@ -38,85 +39,108 @@ export function Hero() {
   }, [eventDate]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-gradient-to-br from-white via-navy-50/30 to-white">
-      {/* Subtle decorative pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `radial-gradient(circle at 20% 50%, var(--color-navy-600) 1px, transparent 1px),
-                         radial-gradient(circle at 80% 80%, var(--color-navy-600) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px',
-      }} />
-      
-      <div className="relative max-w-6xl mx-auto text-center">
-        {/* Eyebrow */}
-        <p className="text-orange-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
-          OpenClaw Production Deep Dive · Mit Andy Steinberger · Sonntag, 15. Februar 2026
-        </p>
+    <section className="relative px-4 pt-32 pb-24 lg:pt-36 bg-[#F1EFEB]">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center">
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+            OpenClaw Production Deep Dive · Mit Andy Steinberger · Sonntag, 15. Februar 2026
+          </p>
 
-        {/* Countdown Timer */}
-        {timeLeft === null ? (
-          <div className="flex justify-center gap-3 md:gap-4 mb-10">
-            {['Tage', 'Std', 'Min', 'Sek'].map((label) => (
-              <div key={label} className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-                <div className="text-2xl md:text-3xl font-bold text-slate-900">–</div>
-                <div className="text-xs text-slate-600 uppercase tracking-wide">{label}</div>
+          {timeLeft === null ? (
+            <div className="flex flex-wrap gap-3 mb-8">
+              {['Tage', 'Std', 'Min', 'Sek'].map((label) => (
+                <div key={label} className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                  <div className="text-2xl font-bold text-gray-900">–</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wide">{label}</div>
+                </div>
+              ))}
+            </div>
+          ) : timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now() ? (
+            <div className="mb-8">
+              <p className="text-2xl md:text-3xl font-bold text-gray-900 bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-6 py-4 inline-block">
+                🎉 Der Deep Dive hat begonnen!
+              </p>
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-3 mb-8">
+              <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className="text-2xl font-bold text-gray-900">{timeLeft.days}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Tage</div>
               </div>
-            ))}
-          </div>
-        ) : timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now() ? (
-          <div className="mb-10">
-            <p className="text-3xl md:text-4xl font-bold text-orange-700 bg-orange-50 border-2 border-orange-300 rounded-xl px-8 py-6 inline-block">
-              🎉 Der Deep Dive hat begonnen!
+              <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className="text-2xl font-bold text-gray-900">{timeLeft.hours}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Std</div>
+              </div>
+              <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className="text-2xl font-bold text-gray-900">{timeLeft.minutes}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Min</div>
+              </div>
+              <div className="bg-white border border-[rgba(34,34,34,0.12)] rounded-xl px-4 py-3 min-w-[72px]">
+                <div className="text-2xl font-bold text-gray-900">{timeLeft.seconds}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Sek</div>
+              </div>
+            </div>
+          )}
+
+          <h1 className="font-display text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.05] text-gray-900 mb-6">
+            Ein AI-Agent, der <span className="highlight-marker">wirklich arbeitet</span> – nicht nur chattet.
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-10">
+            Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt. Kein Hype, nur ein echtes Production-Setup.
+          </p>
+
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <button
+              onClick={scrollToPricing}
+              className="bg-[#111111] hover:bg-[#1a1a1a] text-white font-semibold text-lg py-4 px-8 rounded-xl transition-colors"
+            >
+              {getCtaText(tier, ticketsLoading)}
+            </button>
+            <p className="text-gray-600 text-sm">
+              {ticketsLoading ? (
+                <span className="text-gray-500">Lade Verfügbarkeit...</span>
+              ) : (
+                <>
+                  Noch <strong className="text-gray-900">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€ inkl. MwSt)
+                  {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€ inkl. MwSt</>}
+                </>
+              )}
             </p>
           </div>
-        ) : (
-          <div className="flex justify-center gap-3 md:gap-4 mb-10">
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.days}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Tage</div>
+        </div>
+
+        <div className="bg-white rounded-3xl border border-[rgba(34,34,34,0.12)] p-8 md:p-10 shadow-[0_40px_120px_-80px_rgba(17,17,17,0.45)]">
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-gray-500">Live Setup</p>
+            <span className="text-xs px-3 py-1 rounded-full border border-[rgba(34,34,34,0.12)] text-gray-600">Production</span>
+          </div>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">Andys echtes OpenClaw-System</h3>
+          <p className="text-gray-600 leading-relaxed mb-6">
+            Kein Demo-Lab. Owen läuft seit Monaten auf einem Mac Mini M4 in Zypern – mit echten Aufgaben, echten Fehlern und echten Learnings.
+          </p>
+          <ul className="space-y-3 text-gray-700 text-sm">
+            {[
+              'Live-Workflows: Mails, Kalender, Code, Messaging',
+              'Ehrliche Grenzen & Risiken',
+              'Setup-Insights für deinen eigenen Agenten',
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-gray-700" strokeWidth={1.5} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="rounded-2xl border border-[rgba(34,34,34,0.12)] px-4 py-3">
+              <div className="text-xl font-semibold text-gray-900">90 Min</div>
+              <div className="text-xs text-gray-500">Deep Dive</div>
             </div>
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.hours}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Std</div>
-            </div>
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.minutes}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Min</div>
-            </div>
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.seconds}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Sek</div>
+            <div className="rounded-2xl border border-[rgba(34,34,34,0.12)] px-4 py-3">
+              <div className="text-xl font-semibold text-gray-900">15 Feb</div>
+              <div className="text-xs text-gray-500">Live Session</div>
             </div>
           </div>
-        )}
-
-        {/* Main Headline */}
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 mb-12 leading-[1.1] tracking-tight">
-          Ein AI-Agent, der wirklich arbeitet – nicht nur chattet.
-        </h1>
-
-        {/* Subheadline */}
-        <h2 className="text-xl md:text-2xl lg:text-3xl text-slate-700 font-medium mb-14 max-w-4xl mx-auto leading-relaxed">
-          Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt.
-        </h2>
-
-        {/* CTA */}
-        <div className="flex flex-col gap-3 justify-center items-center">
-          <button
-            onClick={scrollToPricing}
-            className="bg-navy-600 hover:bg-navy-700 text-white font-bold text-xl py-5 px-12 rounded-xl shadow-lg hover:shadow-xl transition-all"
-          >
-            {getCtaText(tier, ticketsLoading)}
-          </button>
-          <p className="text-slate-700 text-base">
-            {ticketsLoading ? (
-              <span className="text-slate-500">Lade Verfügbarkeit...</span>
-            ) : (
-              <>
-                Noch <strong className="text-orange-600">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€ inkl. MwSt)
-                {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€ inkl. MwSt</>}
-              </>
-            )}
-          </p>
         </div>
       </div>
     </section>
