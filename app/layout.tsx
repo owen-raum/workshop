@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Databuddy } from "@databuddy/sdk/react";
 import { Analytics } from "./analytics";
@@ -60,7 +59,7 @@ export default function RootLayout({
           trackAttributes
         />
         <MetaPixel />
-        <LoadingScreen>{children}</LoadingScreen>
+        {children}
         <ScrollReveal />
         <Suspense fallback={null}>
           <Analytics />
