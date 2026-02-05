@@ -1,153 +1,111 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Calendar, Clock, Zap } from 'lucide-react';
-import { getNextTiers } from '@/lib/tiers';
 import { useTickets, getCtaText } from '@/lib/useTickets';
+import { BadgeCheck } from 'lucide-react';
 
 export function Hero() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Ticket data
   const { tier, loading: ticketsLoading } = useTickets();
-  const nextTiers = getNextTiers(tier.name);
-
-  // Countdown Timer
-  const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
-  const calcTimeLeft = () => {
-    const distance = eventDate - Date.now();
-    if (distance < 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    return {
-      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((distance % (1000 * 60)) / 1000),
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
-
-  useEffect(() => {
-    setTimeLeft(calcTimeLeft());
-    const interval = setInterval(() => {
-      setTimeLeft(calcTimeLeft());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [eventDate]);
-
-  const eventStarted = timeLeft && timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now();
 
   return (
     <section className="relative bg-[#F1EFEB]">
-      <div className="relative z-10 w-full min-h-[90vh] flex flex-col justify-center">
-        <div className="w-full max-w-[1100px] mx-auto px-6 md:px-12 lg:px-16 pt-20 lg:pt-28 pb-20">
+      <div className="relative z-10 w-full min-h-[85vh] flex items-center">
+        <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 py-20 lg:py-28">
           
-          {/* Tagline */}
-          <p className="reveal text-sm uppercase tracking-[0.15em] text-gray-500 mb-6">
-            OpenClaw Production Deep Dive
-          </p>
-
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-[1fr,1fr] gap-12 lg:gap-20 items-center">
             
-            {/* Left: Headline + CTA */}
+            {/* Left Content */}
             <div>
-              <h1 className="reveal font-display text-[42px] md:text-[56px] lg:text-[64px] font-bold leading-[1.08] tracking-tight text-gray-900 mb-6">
-                Ein AI-Agent, der{' '}
+              {/* Tagline */}
+              <p className="reveal text-base text-gray-500 mb-5">
+                Der OpenClaw Production Deep Dive
+              </p>
+
+              {/* Headline */}
+              <h1 className="reveal font-display text-[40px] md:text-[52px] lg:text-[58px] font-bold leading-[1.1] tracking-tight text-gray-900 mb-6">
+                Ein AI-Agent, der wirklich{' '}
                 <span className="relative inline-block">
-                  wirklich arbeitet
-                  <span className="absolute -bottom-1 left-0 right-0 h-[5px] bg-[#85c4ff] opacity-50 -rotate-1 rounded-full" />
+                  <span className="relative z-10">arbeitet</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-[0.35em] bg-[#bde0fe] -z-0" />
                 </span>
                 .
               </h1>
 
-              <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed mb-8 max-w-xl">
+              {/* Subline */}
+              <p className="reveal text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
                 Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt. Kein Hype, nur ein echtes Production-Setup.
               </p>
 
-              {/* CTA + Price Row */}
-              <div className="reveal flex flex-wrap items-center gap-4 mb-8">
+              {/* CTA + Made by Badge Row */}
+              <div className="reveal flex flex-wrap items-center gap-4 mb-5">
                 <button
                   onClick={scrollToPricing}
-                  className="bg-[#111111] hover:bg-[#222222] text-white font-semibold text-base py-4 px-8 rounded-xl transition-all hover:shadow-xl hover:-translate-y-0.5"
+                  className="bg-[#1a1a2e] hover:bg-[#16162a] text-white font-medium text-base py-3.5 px-7 rounded-lg transition-all"
                 >
                   {getCtaText(tier, ticketsLoading)}
                 </button>
                 
-                <div className="flex flex-col">
-                  {ticketsLoading ? (
-                    <span className="text-gray-400 text-sm">Lädt...</span>
-                  ) : (
-                    <>
-                      <span className="text-2xl font-bold text-gray-900">{tier.price}€</span>
-                      <span className="text-xs text-gray-500">inkl. MwSt · {tier.spotsLeft} {tier.label} Tickets</span>
-                    </>
-                  )}
+                {/* Made by Badge */}
+                <div className="flex items-center gap-2.5">
+                  <img 
+                    src="https://pbs.twimg.com/profile_images/1866609988105875456/HJm2D8qc_400x400.jpg" 
+                    alt="Andy Steinberger"
+                    className="w-9 h-9 rounded-full object-cover"
+                  />
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm text-gray-500">Made by</span>
+                    <span className="text-sm font-semibold text-gray-900">Andy</span>
+                    <BadgeCheck className="w-4 h-4 text-blue-500 fill-blue-500" />
+                  </div>
                 </div>
               </div>
 
-              {/* Made by Andy Badge */}
-              <div className="reveal flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white font-bold text-sm">
-                  AS
-                </div>
-                <div className="text-sm">
-                  <span className="text-gray-500">Hosted by</span>{' '}
-                  <span className="font-semibold text-gray-900">Andy Steinberger</span>
-                </div>
+              {/* Price */}
+              <div className="reveal flex items-baseline gap-2">
+                <span className="text-2xl font-bold text-gray-900">
+                  {ticketsLoading ? '...' : `${tier.price}€`}
+                </span>
+                <span className="text-sm text-gray-500">inkl. MwSt</span>
               </div>
             </div>
 
-            {/* Right: Event Info Card */}
-            <div className="reveal">
-              <div className="bg-white rounded-2xl border border-[rgba(34,34,34,0.08)] p-6 md:p-8 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)]">
+            {/* Right: Illustration Placeholder */}
+            <div className="reveal hidden lg:flex justify-center items-center">
+              <svg 
+                viewBox="0 0 400 300" 
+                className="w-full max-w-[420px] h-auto opacity-60"
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="1"
+              >
+                {/* Abstract tech/agent illustration */}
+                <rect x="40" y="60" width="80" height="50" rx="4" className="text-gray-400" />
+                <rect x="140" y="40" width="60" height="35" rx="4" className="text-gray-400" />
+                <rect x="140" y="85" width="60" height="35" rx="4" className="text-gray-400" />
+                <rect x="220" y="55" width="70" height="40" rx="4" className="text-gray-400" />
+                <rect x="310" y="45" width="50" height="30" rx="4" className="text-gray-400" />
+                <rect x="310" y="85" width="50" height="30" rx="4" className="text-gray-400" />
                 
-                {/* Countdown or Event Started */}
-                {eventStarted ? (
-                  <div className="text-center py-4">
-                    <p className="text-xl font-bold text-gray-900">🎉 Der Deep Dive hat begonnen!</p>
-                  </div>
-                ) : timeLeft && (
-                  <div className="flex justify-between mb-6">
-                    {[
-                      { value: timeLeft.days, label: 'Tage' },
-                      { value: timeLeft.hours, label: 'Std' },
-                      { value: timeLeft.minutes, label: 'Min' },
-                      { value: timeLeft.seconds, label: 'Sek' },
-                    ].map((item) => (
-                      <div key={item.label} className="text-center">
-                        <div className="text-3xl md:text-4xl font-bold text-gray-900 tabular-nums">{item.value}</div>
-                        <div className="text-[10px] uppercase tracking-wider text-gray-400 mt-1">{item.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className="border-t border-gray-100 pt-6 space-y-4">
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Calendar className="w-5 h-5 text-gray-400" />
-                    <span>Sonntag, 15. Februar 2026</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Clock className="w-5 h-5 text-gray-400" />
-                    <span>19:00 Uhr · 90 Minuten</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Zap className="w-5 h-5 text-gray-400" />
-                    <span>Live via Zoom · Aufzeichnung inklusive</span>
-                  </div>
-                </div>
-
-                {nextTiers.length > 0 && !ticketsLoading && (
-                  <div className="mt-6 pt-4 border-t border-gray-100">
-                    <p className="text-xs text-gray-500 text-center">
-                      Nach {tier.label}: {nextTiers[0].price}€
-                    </p>
-                  </div>
-                )}
-              </div>
+                {/* Connection lines */}
+                <path d="M120 85 L140 75" className="text-gray-300" />
+                <path d="M120 85 L140 100" className="text-gray-300" />
+                <path d="M200 57 L220 70" className="text-gray-300" />
+                <path d="M200 102 L220 85" className="text-gray-300" />
+                <path d="M290 75 L310 60" className="text-gray-300" />
+                <path d="M290 75 L310 100" className="text-gray-300" />
+                
+                {/* Circles */}
+                <circle cx="80" cy="180" r="28" className="text-gray-400" />
+                <circle cx="160" cy="190" r="24" className="text-gray-400" />
+                <circle cx="230" cy="185" r="26" className="text-gray-400" />
+                
+                {/* More abstract shapes */}
+                <rect x="280" y="160" width="70" height="45" rx="6" className="text-gray-400" />
+                <path d="M350 182 Q 380 160, 370 200" className="text-gray-300" />
+              </svg>
             </div>
           </div>
         </div>
