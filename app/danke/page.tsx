@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { PurchaseTracker } from "./PurchaseTracker";
 
 export default function Danke() {
   return (
     <div className="min-h-screen bg-[#F1EFEB] flex items-center justify-center px-4">
-      <PurchaseTracker />
+      <Suspense fallback={null}>
+        <PurchaseTracker />
+      </Suspense>
       <div className="max-w-2xl mx-auto text-center">
         {/* Success Icon */}
         <div className="mb-8">
