@@ -44,7 +44,7 @@ export function Hero() {
 
           {/* Subline */}
           <p className="text-[19px] leading-[1.6] text-[#525252] mb-10 max-w-[580px] mx-auto">
-            90 Minuten Deep Dive in Owen — mein echtes Agent-Setup. Du siehst den Code, die Prompts, die Fails. Am Ende weißt du genau, ob das für dein Business Sinn macht – oder nicht.
+            90 Minuten Deep Dive in OpenClaw – mein echtes Agent-Setup. Du siehst mein Setup, die Prompts, die Fails. Am Ende weißt du genau, ob das für dein Business & Privatleben Sinn macht – oder eben nicht.
           </p>
 
           {/* CTA + Badge Row */}
