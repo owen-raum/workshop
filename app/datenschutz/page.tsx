@@ -21,7 +21,7 @@ export default function Datenschutz() {
         <div className="prose prose-stone max-w-none">
           <p className="text-gray-700 leading-relaxed mb-4">
             Nachstehend informieren wir Sie über Art, Umfang und Zweck der Verarbeitung Ihrer
-            personenbezogenen Daten bei der Nutzung unserer Seite unter der Adresse „https://pulse.how/".
+            personenbezogenen Daten bei der Nutzung unserer Seite unter der Adresse „https://agents.andy.cy/".
             Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder
             identifizierbare natürliche Person beziehen.
           </p>
@@ -34,8 +34,8 @@ export default function Datenschutz() {
             personenbezogenen Daten ist Verantwortlicher im Sinne der DSGVO: steinberger Limited,
             Panagiotou Theofilou 1, House 19, 7040 Oroklini, Larnaca, Cyprus, Telefon +357 97 423 741,
             E-Mail{' '}
-            <a href="mailto:support@pulse.how" className="text-gray-900 hover:text-gray-700 underline">
-              support@pulse.how
+            <a href="mailto:andy@raum.so" className="text-gray-900 hover:text-gray-700 underline">
+              andy@raum.so
             </a>{' '}
             (im Folgenden „wir").
           </p>

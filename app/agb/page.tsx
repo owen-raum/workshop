@@ -23,11 +23,11 @@ export default function AGB() {
             § 1 – Anbieter, Einbeziehung der AGB
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            (1) Anbieter und Vertragspartner für die auf unserer Seite „https://pulse.how/" dargestellten
+            (1) Anbieter und Vertragspartner für die auf unserer Seite „https://agents.andy.cy/" dargestellten
             Leistungen ist steinberger Limited, Panagiotou Theofilou 1, House 19, 7040 Oroklini, Larnaca,
             Cyprus, Telefon +357 97 423 741, E-Mail{' '}
-            <a href="mailto:support@pulse.how" className="text-gray-900 hover:text-gray-700 underline">
-              support@pulse.how
+            <a href="mailto:andy@raum.so" className="text-gray-900 hover:text-gray-700 underline">
+              andy@raum.so
             </a>{' '}
             (im Folgenden kurz „Anbieter" oder „wir").
           </p>
