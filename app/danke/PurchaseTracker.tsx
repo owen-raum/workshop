@@ -24,7 +24,7 @@ export function PurchaseTracker() {
     async function verifyAndTrack() {
       try {
         const response = await fetch(
-          `/api/stripe/verify?session_id=${encodeURIComponent(sessionId)}`,
+          `/api/stripe/verify?session_id=${encodeURIComponent(sessionId!)}`,
           { signal: controller.signal }
         );
 
