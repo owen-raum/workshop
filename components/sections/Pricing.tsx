@@ -59,20 +59,20 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
-      <div className="max-w-4xl mx-auto">
+    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Was kostet das?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
             Ein Ticket. Der Preis steigt mit der Nachfrage.
           </p>
         </div>
 
         {/* Single Pricing Card */}
-        <div className="bg-white rounded-3xl p-8 md:p-12 mb-10 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
+        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-10 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           {/* Badge – dynamisch */}
           {ticketsLoading ? (
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 animate-pulse">
@@ -184,7 +184,7 @@ export function Pricing() {
         </div>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
+        <div className="reveal flex flex-wrap justify-center gap-8 text-sm text-gray-600">
           <div className="flex items-center gap-2">
             <svg
               className="w-5 h-5 text-gray-700"

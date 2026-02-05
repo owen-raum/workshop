@@ -30,13 +30,13 @@ export function SocialProof() {
   ];
 
   return (
-    <section className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14 md:mb-20">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <section className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">
             Stimmen aus The Circle
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="reveal text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Echte Mitglieder. Echtes Feedback.
           </p>
         </div>
@@ -45,7 +45,7 @@ export function SocialProof() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]"
+              className="reveal bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]"
             >
               <div className="text-gray-500 mb-4">
                 <Quote className="w-8 h-8" strokeWidth={1.5} />

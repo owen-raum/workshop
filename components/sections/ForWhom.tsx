@@ -26,19 +26,19 @@ export function ForWhom() {
   ];
 
   return (
-    <section id="whom" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14 md:mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 px-2">
+    <section id="whom" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">
             Ist das was für dich?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ehrliche Antwort: Kommt drauf an.
           </p>
         </div>
 
-        <div className="mb-14">
-          <h3 className="text-2xl font-medium text-gray-900 mb-8 text-center px-2">
+        <div className="mb-16">
+          <h3 className="reveal text-2xl font-medium text-gray-900 mb-8 text-center">
             ✅ Perfekt für dich, wenn du...
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -47,15 +47,17 @@ export function ForWhom() {
               return (
                 <div
                   key={index}
-                  className="bg-transparent rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
+                  className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
                 >
-                  <Icon className="w-8 h-8 text-zinc-700 mb-4" strokeWidth={1.5} />
-                  <h4 className="text-lg font-medium text-gray-900 mb-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-500 leading-relaxed text-sm md:text-base">
-                    {item.description}
-                  </p>
+                  <Icon className="w-8 h-8 text-zinc-700" strokeWidth={1.5} />
+                  <div className="flex flex-col gap-2">
+                    <h4 className="text-lg font-medium text-gray-900">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -63,10 +65,10 @@ export function ForWhom() {
         </div>
 
         <div>
-          <h3 className="text-2xl font-medium text-gray-900 mb-8 text-center px-2">
+          <h3 className="reveal text-2xl font-medium text-gray-900 mb-8 text-center">
             ❌ Nicht für dich, wenn du...
           </h3>
-          <div className="bg-white/70 rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+          <div className="reveal bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
             <ul className="space-y-4">
               {notFor.map((item, index) => (
                 <li key={index} className="flex items-start gap-3 md:gap-4">
@@ -80,7 +82,7 @@ export function ForWhom() {
           </div>
         </div>
 
-        <div className="mt-12 text-center bg-white/70 rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+        <div className="reveal mt-12 text-center bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
           <p className="text-base md:text-lg text-gray-700 font-medium px-2">
             💡 Kein technisches Vorwissen nötig – nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
           </p>

@@ -45,20 +45,20 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-14 md:mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+        <div className="text-center mb-16">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Noch Fragen?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Die häufigsten. Wenn deine nicht dabei ist – schreib mir.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="bg-white/70 rounded-2xl border border-[rgba(34,34,34,0.12)] overflow-hidden">
+        <div className="reveal bg-transparent rounded-2xl border border-[rgba(34,34,34,0.12)] overflow-hidden">
           <div className="px-6 md:px-10">
             {faqs.map((faq, index) => (
               <FAQItem key={index} question={faq.question} answer={faq.answer} />
@@ -67,7 +67,7 @@ export function FAQ() {
         </div>
 
         {/* Contact Box */}
-        <div className="mt-10 md:mt-14 bg-white/70 rounded-2xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)] text-center">
+        <div className="reveal mt-10 md:mt-14 bg-transparent rounded-2xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)] text-center">
           <h3 className="font-display text-2xl font-semibold text-gray-900 mb-3">
             Deine Frage war nicht dabei?
           </h3>

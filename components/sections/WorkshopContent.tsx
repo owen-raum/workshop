@@ -49,13 +49,13 @@ export function WorkshopContent() {
   ];
 
   return (
-    <section id="content" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14 md:mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 px-2">
+    <section id="content" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16 max-w-4xl">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold leading-tight text-gray-900 mb-6">
             90 Minuten. Kein Hype.
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
             Ich zeige dir was AI-Agents können, wo sie versagen, und ob das für dich relevant ist.
           </p>
         </div>
@@ -66,31 +66,33 @@ export function WorkshopContent() {
             return (
               <div
                 key={index}
-                className="bg-transparent rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
+                className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between">
                   <Icon className="w-8 h-8 text-zinc-700" strokeWidth={1.5} />
                   <span className="text-xs font-medium text-gray-500 border border-[rgba(34,34,34,0.12)] rounded-full px-3 py-1">
                     {module.duration}
                   </span>
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">
-                  {module.title}
-                </h3>
-                <ul className="space-y-2">
-                  {module.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2 text-gray-500 text-sm leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-gray-500 mt-0.5" strokeWidth={1.5} />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg font-medium text-gray-900">
+                    {module.title}
+                  </h3>
+                  <ul className="space-y-2">
+                    {module.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2 text-gray-500 text-sm leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-gray-500 mt-0.5" strokeWidth={1.5} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-12 bg-white/70 rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+        <div className="reveal mt-12 bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
           <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center text-center sm:text-left">
             <div className="flex items-center gap-2 text-gray-700">
               <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={1.5} />

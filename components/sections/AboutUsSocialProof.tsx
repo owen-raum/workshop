@@ -3,19 +3,19 @@ import { CheckCircle2 } from 'lucide-react';
 
 export function AboutUsSocialProof() {
   return (
-    <section id="about" className="py-24 md:py-32 px-4 bg-[#F1EFEB]">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-6">
             Wer bin ich?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Und warum solltest du mir 90 Minuten deiner Zeit geben?
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          <div className="bg-white/70 rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
+          <div className="reveal bg-transparent rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <div className="flex-shrink-0 mx-auto sm:mx-0">
                 <Image
@@ -67,7 +67,7 @@ export function AboutUsSocialProof() {
                 href="https://pulse.how"
                 target="_blank"
                 rel="noopener"
-                className="text-center py-3 px-4 bg-white rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-gray-900 transition-colors"
+                className="text-center py-3 px-4 bg-transparent rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-gray-300 transition-colors"
               >
                 <div className="font-display font-semibold text-gray-900 text-sm">The Circle</div>
                 <div className="text-gray-500 text-xs">AI Community</div>
@@ -76,7 +76,7 @@ export function AboutUsSocialProof() {
                 href="https://raum.so"
                 target="_blank"
                 rel="noopener"
-                className="text-center py-3 px-4 bg-white rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-gray-900 transition-colors"
+                className="text-center py-3 px-4 bg-transparent rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-gray-300 transition-colors"
               >
                 <div className="font-display font-semibold text-gray-900 text-sm">[ʁaʊ̯m̩]</div>
                 <div className="text-gray-500 text-xs">Consulting</div>
@@ -85,7 +85,7 @@ export function AboutUsSocialProof() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white/70 rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
+            <div className="reveal bg-transparent rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
               <h3 className="font-display text-2xl font-semibold text-gray-900 mb-6">
                 Warum ausgerechnet ich?
               </h3>
@@ -121,7 +121,7 @@ export function AboutUsSocialProof() {
                   text: 'Fragen? Schreib mir einfach. Ich bin kein großes Unternehmen mit Support-Ticket-System. Ich bin eine Person mit einer Email-Adresse.',
                 },
               ].map((item) => (
-                <div key={item.title} className="bg-transparent rounded-2xl p-6 border border-[rgba(34,34,34,0.12)]">
+                <div key={item.title} className="reveal bg-transparent rounded-2xl p-6 border border-[rgba(34,34,34,0.12)]">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-gray-700 mt-0.5" strokeWidth={1.5} />
                     <div>
@@ -133,7 +133,7 @@ export function AboutUsSocialProof() {
               ))}
             </div>
 
-            <div className="bg-[#1A1A1A] rounded-3xl p-8 text-white">
+            <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 text-white">
               <h4 className="text-xl font-semibold mb-3">Owen 🐸</h4>
               <p className="text-white/80 leading-relaxed">
                 Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz. Er beantwortet Mails,

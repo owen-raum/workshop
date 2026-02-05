@@ -12,10 +12,10 @@ export function Footer() {
   const { tier, loading: ticketsLoading } = useTickets();
 
   return (
-    <footer className="bg-[#F1EFEB] border-t border-[rgba(34,34,34,0.12)] py-24 md:py-32 px-4">
-      <div className="max-w-6xl mx-auto">
+    <footer className="bg-[#F1EFEB] border-t border-[rgba(34,34,34,0.12)] py-20 md:py-24 px-8 md:px-16 lg:px-24">
+      <div className="max-w-7xl mx-auto">
         {/* Final CTA Section */}
-        <div className="bg-[#1A1A1A] rounded-3xl p-8 md:p-12 text-center text-white mb-16">
+        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-14 text-center text-white mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             Zeit, dass AI für dich arbeitet.
           </h2>
@@ -24,14 +24,14 @@ export function Footer() {
           </p>
           <button
             onClick={scrollToPricing}
-            className="bg-white text-[#111111] hover:bg-[#f7f5f1] font-display font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
+            className="bg-white text-[#111111] hover:bg-[#f7f5f1] font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
             {getCtaText(tier, ticketsLoading)}
           </button>
         </div>
 
         {/* Footer Links & Info */}
-        <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-12">
+        <div className="reveal grid md:grid-cols-3 gap-10 md:gap-12 mb-12">
           {/* About */}
           <div>
             <h3 className="font-semibold text-lg text-gray-900 mb-4">Andy Steinberger × OpenClaw</h3>
@@ -121,7 +121,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[rgba(34,34,34,0.12)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+        <div className="reveal border-t border-[rgba(34,34,34,0.12)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
           <div>
             © {new Date().getFullYear()} steinberger Limited
           </div>
@@ -139,7 +139,7 @@ export function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 pt-6 border-t border-[rgba(34,34,34,0.12)] space-y-4">
+        <div className="reveal mt-8 pt-6 border-t border-[rgba(34,34,34,0.12)] space-y-4">
           <p className="text-gray-500 text-xs leading-relaxed max-w-3xl mx-auto text-center">
             <strong className="text-gray-600">⚠️ Wichtiger Hinweis:</strong> Andy ist unabhängiger Early Adopter – nicht affiliated mit OpenClaw.
             Kein Vendor-Pitch. Keine Sales-Agenda. Nur echte Erfahrung aus Monaten Production Use.
