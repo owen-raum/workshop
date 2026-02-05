@@ -39,96 +39,107 @@ export function Hero() {
   return (
     <section className="relative bg-[#F1EFEB]">
       <div className="relative z-10 w-full min-h-[88vh] flex items-center">
-        <div className="w-full max-w-[720px] mx-auto px-6 md:px-10 py-20 lg:py-24">
+        <div className="w-full max-w-[800px] mx-auto px-6 py-20 lg:py-24 text-center">
           
           {/* Countdown */}
           {!eventStarted && timeLeft && (
-            <div className="flex justify-center gap-6 mb-5">
-              {[
-                { value: timeLeft.days, label: 'Tage' },
-                { value: timeLeft.hours, label: 'Std' },
-                { value: timeLeft.minutes, label: 'Min' },
-                { value: timeLeft.seconds, label: 'Sek' },
-              ].map((item) => (
-                <div key={item.label} className="text-center">
-                  <div className="text-[32px] md:text-[40px] font-bold text-[#111] tabular-nums leading-none">{item.value}</div>
-                  <div className="text-[10px] uppercase tracking-[0.12em] text-[#888] mt-1.5">{item.label}</div>
-                </div>
-              ))}
+            <div className="mb-3">
+              <div className="flex justify-center gap-4 mb-2">
+                {[
+                  { value: timeLeft.days, label: 'Tage' },
+                  { value: timeLeft.hours, label: 'Std' },
+                  { value: timeLeft.minutes, label: 'Min' },
+                  { value: timeLeft.seconds, label: 'Sek' },
+                ].map((item) => (
+                  <div key={item.label} className="text-center min-w-[60px]">
+                    <div className="text-[48px] md:text-[64px] font-bold text-black tabular-nums leading-none tracking-[-0.03em]">
+                      {item.value}
+                    </div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.05em] text-[#737373] mt-1">
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {eventStarted && (
-            <div className="text-center mb-5">
-              <p className="text-xl font-bold text-[#111]">🎉 Der Deep Dive hat begonnen!</p>
+            <div className="mb-6">
+              <p className="text-xl font-bold text-black">🎉 Der Deep Dive hat begonnen!</p>
             </div>
           )}
 
           {/* Date & Time */}
-          <p className="text-center text-[15px] text-[#666] mb-4">
+          <p className="text-[14px] font-medium text-[#737373] mb-2">
             Sonntag, 15. Februar 2026 · 19:00 Uhr (CET)
           </p>
 
           {/* Tagline */}
-          <p className="text-center text-[15px] text-[#888] mb-6">
+          <p className="text-[12px] text-[#a3a3a3] mb-12">
             Der OpenClaw Production Deep Dive
           </p>
 
           {/* Headline */}
-          <h1 className="text-center text-[36px] sm:text-[44px] md:text-[52px] font-bold leading-[1.08] tracking-[-0.02em] text-[#111] mb-6">
+          <h1 className="text-[36px] sm:text-[44px] md:text-[56px] font-bold leading-[1.1] tracking-[-0.02em] text-black mb-6">
             Ein AI-Agent, der wirklich{' '}
-            <span className="relative whitespace-nowrap">
-              <span className="relative z-10">arbeitet</span>
-              <span 
-                className="absolute left-0 right-0 bottom-[0.08em] h-[0.3em] bg-[#a8d4f0] opacity-60 -z-10 rounded-sm"
-                style={{ transform: 'rotate(-0.5deg)' }}
-              />
+            <span 
+              className="relative inline-block font-extrabold"
+              style={{
+                background: 'linear-gradient(180deg, transparent 60%, #FFE066 60%, #FFE066 90%, transparent 90%)',
+                padding: '0 4px',
+              }}
+            >
+              arbeitet
             </span>
             .
           </h1>
 
           {/* Subline */}
-          <p className="text-center text-[17px] leading-[1.7] text-[#555] mb-8 max-w-[520px] mx-auto">
+          <p className="text-[18px] leading-[1.6] text-[#525252] mb-10 max-w-[560px] mx-auto">
             Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt. Kein Hype, nur ein echtes Production-Setup.
           </p>
 
           {/* CTA + Badge Row */}
-          <div className="flex flex-wrap justify-center items-center gap-4 mb-5">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mb-6">
             <button
               onClick={scrollToPricing}
-              className="bg-[#111] hover:bg-[#222] text-white text-[15px] font-medium py-3.5 px-7 rounded-lg transition-all hover:shadow-lg"
+              className="bg-black hover:bg-[#1a1a1a] text-white text-[16px] font-semibold py-4 px-8 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] shadow-[0_1px_3px_rgba(0,0,0,0.1)]"
             >
               {getCtaText(tier, ticketsLoading)}
             </button>
             
             {/* Made by Badge */}
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-[rgba(0,0,0,0.08)] shadow-sm">
-                <img 
-                  src="/andy.jpg" 
-                  alt="Andy Steinberger" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="flex items-center gap-2 bg-[#FAFAFA] border border-[#e5e5e5] rounded-full py-1.5 px-3">
+              <img 
+                src="/andy.jpg" 
+                alt="Andy Steinberger" 
+                className="w-5 h-5 rounded-full border border-[#e5e5e5] object-cover"
+              />
               <div className="flex items-center gap-1">
-                <span className="text-[14px] text-[#666]">Made by</span>
-                <span className="text-[14px] font-semibold text-[#111]">Andy</span>
-                <BadgeCheck className="w-4 h-4 text-[#1d9bf0]" strokeWidth={2.5} />
+                <span className="text-[13px] text-[#525252]">Made by</span>
+                <span className="text-[13px] font-semibold text-black">Andy</span>
+                <BadgeCheck className="w-3.5 h-3.5 text-[#1d9bf0]" strokeWidth={2.5} />
               </div>
             </div>
           </div>
 
           {/* Price + Ticket Info */}
-          <div className="flex flex-wrap justify-center items-baseline gap-x-3 gap-y-1">
-            <span className="text-[26px] font-bold text-[#111]">
+          <div className="flex flex-wrap justify-center items-baseline gap-x-2">
+            <span className="text-[16px] font-bold text-black">
               {ticketsLoading ? '...' : `${tier.price}€`}
             </span>
-            <span className="text-[14px] text-[#888]">inkl. MwSt</span>
+            <span className="text-[13px] text-[#a3a3a3]">inkl. MwSt</span>
             {!ticketsLoading && (
-              <span className="text-[13px] text-[#666]">
-                · Noch {tier.spotsLeft} {tier.label} Tickets
-                {nextTiers.length > 0 && <span className="text-[#999]"> – danach {nextTiers[0].price}€</span>}
-              </span>
+              <>
+                <span className="text-[13px] text-[#d4d4d4] mx-1">·</span>
+                <span className="text-[13px] font-semibold text-[#DC2626]">
+                  Noch {tier.spotsLeft} {tier.label} Tickets
+                </span>
+                {nextTiers.length > 0 && (
+                  <span className="text-[13px] text-[#a3a3a3]">– danach {nextTiers[0].price}€</span>
+                )}
+              </>
             )}
           </div>
         </div>
