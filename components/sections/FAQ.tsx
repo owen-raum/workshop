@@ -45,21 +45,21 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-32 lg:py-40 px-4 bg-slate-50">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+        <div className="text-center mb-16">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Noch Fragen?
           </h2>
-          <p className="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Die häufigsten. Wenn deine nicht dabei ist – schreib mir.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <div className="px-10">
+        <div className="reveal bg-transparent rounded-2xl border border-[rgba(34,34,34,0.12)] overflow-hidden">
+          <div className="px-6 md:px-10">
             {faqs.map((faq, index) => (
               <FAQItem key={index} question={faq.question} answer={faq.answer} />
             ))}
@@ -67,16 +67,22 @@ export function FAQ() {
         </div>
 
         {/* Contact Box */}
-        <div className="mt-14 bg-white rounded-2xl p-10 border border-slate-200 shadow-sm text-center">
-          <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">
+        <div className="reveal mt-8 md:mt-10 bg-transparent rounded-2xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)] text-center">
+          <h3 className="font-display text-2xl font-semibold text-gray-900 mb-3">
             Deine Frage war nicht dabei?
           </h3>
-          <p className="text-slate-700 text-lg mb-6">
-            Schreib mir: <a href="mailto:andy@raum.so" className="font-bold text-slate-900 hover:text-navy-600 underline">andy@raum.so</a>
+          <p className="text-gray-600 text-base md:text-lg mb-6">
+            Schreib mir:{' '}
+            <a
+              href="mailto:andy@raum.so"
+              className="font-semibold text-gray-900 hover:text-gray-700 underline"
+            >
+              andy@raum.so
+            </a>
           </p>
           <a
             href="mailto:andy@raum.so"
-            className="inline-flex items-center gap-3 text-slate-900 hover:text-navy-600 font-bold text-lg transition-all"
+            className="inline-flex items-center gap-3 text-gray-900 hover:text-gray-700 font-semibold text-base md:text-lg transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -5,42 +5,37 @@
   --font-sans: inter, "inter Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --font-display: spaceGrotesk, "spaceGrotesk Fallback", inter, "inter Fallback", sans-serif;
 
-  /* Colors - Orange als Hauptakzent */
-  --color-primary-50: #fff7ed;
-  --color-primary-100: #ffedd5;
-  --color-primary-200: #fed7aa;
-  --color-primary-300: #fdba74;
-  --color-primary-400: #fb923c;
-  --color-primary-500: #f97316;
-  --color-primary-600: #ea580c;
-  --color-primary-700: #c2410c;
-  --color-primary-800: #9a3412;
-  --color-primary-900: #7c2d12;
+  /* Colors - Zerotoshipped-inspired neutrals */
+  --color-primary-50: #f8f7f4;
+  --color-primary-100: #f1efeb;
+  --color-primary-200: #e7e3dc;
+  --color-primary-300: #d9d2c7;
+  --color-primary-400: #bfb6a7;
+  --color-primary-500: #a79884;
+  --color-primary-600: #8b7a65;
+  --color-primary-700: #6e5f4f;
+  --color-primary-800: #4f453b;
+  --color-primary-900: #2f2a24;
 
-  /* Colors - Navy Blue Theme */
-  --color-navy-50: #eef2f7;
-  --color-navy-100: #d4dce8;
-  --color-navy-200: #a9b9d1;
-  --color-navy-300: #7e96ba;
-  --color-navy-400: #5373a3;
-  --color-navy-500: #2d5486;
-  --color-navy-600: #1b3b5e;
-  --color-navy-700: #152f4b;
-  --color-navy-800: #102338;
-  --color-navy-900: #0a1725;
+  /* Accent + dark cards */
+  --color-dark-900: #111111;
+  --color-dark-800: #1c1c1c;
+  --color-dark-700: #1a1a1a;
 }
 
 @layer base {
   :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #fafaf9;
-    
-    --text-primary: #1c1917;
-    --text-secondary: #57534e;
-    --text-muted: #a8a29e;
+    --bg-primary: #f1efeb;
+    --bg-secondary: #f7f5f1;
 
-    --accent-primary: #b8836a;
-    --accent-hover: #a86f5e;
+    --text-primary: #111111;
+    --text-secondary: #525252;
+    --text-muted: #8a8a8a;
+
+    --accent-primary: #111111;
+    --accent-hover: #1a1a1a;
+    --border-subtle: rgba(34, 34, 34, 0.12);
+    --highlight-blue: rgba(133, 196, 255, 0.35);
   }
 
   body {
@@ -53,6 +48,46 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  }
+
+  .highlight-marker {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .highlight-marker::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 0.12em;
+    height: 0.55em;
+    background: #85c4ff;
+    opacity: 0.35;
+    border-radius: 6px;
+    transform: rotate(-2deg);
+    z-index: -1;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

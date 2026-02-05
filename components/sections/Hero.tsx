@@ -1,19 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getNextTiers } from '@/lib/tiers';
 import { useTickets, getCtaText } from '@/lib/useTickets';
+import { getNextTiers } from '@/lib/tiers';
+import { BadgeCheck } from 'lucide-react';
 
 export function Hero() {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Ticket data – zentralisiert
   const { tier, loading: ticketsLoading } = useTickets();
   const nextTiers = getNextTiers(tier.name);
 
-  // Countdown Timer
+  // Countdown
   const eventDate = new Date('2026-02-15T19:00:00+02:00').getTime();
   const calcTimeLeft = () => {
     const distance = eventDate - Date.now();
@@ -25,98 +25,123 @@ export function Hero() {
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
     };
   };
-  // Start with null to avoid SSR/client hydration mismatch
+
   const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
 
   useEffect(() => {
     setTimeLeft(calcTimeLeft());
-    const interval = setInterval(() => {
-      setTimeLeft(calcTimeLeft());
-    }, 1000);
-
+    const interval = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
     return () => clearInterval(interval);
   }, [eventDate]);
 
+  const eventStarted = timeLeft && timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now();
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 bg-gradient-to-br from-white via-navy-50/30 to-white">
-      {/* Subtle decorative pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `radial-gradient(circle at 20% 50%, var(--color-navy-600) 1px, transparent 1px),
-                         radial-gradient(circle at 80% 80%, var(--color-navy-600) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px',
-      }} />
-      
-      <div className="relative max-w-6xl mx-auto text-center">
-        {/* Eyebrow */}
-        <p className="text-orange-600 font-semibold text-sm md:text-base mb-6 tracking-wide uppercase">
-          OpenClaw Production Deep Dive · Mit Andy Steinberger · Sonntag, 15. Februar 2026
-        </p>
-
-        {/* Countdown Timer */}
-        {timeLeft === null ? (
-          <div className="flex justify-center gap-3 md:gap-4 mb-10">
-            {['Tage', 'Std', 'Min', 'Sek'].map((label) => (
-              <div key={label} className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-                <div className="text-2xl md:text-3xl font-bold text-slate-900">–</div>
-                <div className="text-xs text-slate-600 uppercase tracking-wide">{label}</div>
+    <section className="relative bg-[#F1EFEB]">
+      <div className="relative z-10 w-full min-h-[88vh] flex items-center">
+        <div className="w-full max-w-[800px] mx-auto px-6 py-20 lg:py-24 text-center">
+          
+          {/* Countdown */}
+          {!eventStarted && timeLeft && (
+            <div className="mb-3">
+              <div className="flex justify-center gap-4 mb-2">
+                {[
+                  { value: timeLeft.days, label: 'Tage' },
+                  { value: timeLeft.hours, label: 'Std' },
+                  { value: timeLeft.minutes, label: 'Min' },
+                  { value: timeLeft.seconds, label: 'Sek' },
+                ].map((item) => (
+                  <div key={item.label} className="text-center min-w-[60px]">
+                    <div className="text-[48px] md:text-[64px] font-bold text-black tabular-nums leading-none tracking-[-0.03em]">
+                      {item.value}
+                    </div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.05em] text-[#737373] mt-1">
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        ) : timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && eventDate < Date.now() ? (
-          <div className="mb-10">
-            <p className="text-3xl md:text-4xl font-bold text-orange-700 bg-orange-50 border-2 border-orange-300 rounded-xl px-8 py-6 inline-block">
-              🎉 Der Deep Dive hat begonnen!
-            </p>
-          </div>
-        ) : (
-          <div className="flex justify-center gap-3 md:gap-4 mb-10">
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.days}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Tage</div>
             </div>
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.hours}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Std</div>
-            </div>
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.minutes}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Min</div>
-            </div>
-            <div className="bg-white border-2 border-slate-200 rounded-xl px-4 py-3 min-w-[70px] shadow-sm">
-              <div className="text-2xl md:text-3xl font-bold text-slate-900">{timeLeft.seconds}</div>
-              <div className="text-xs text-slate-600 uppercase tracking-wide">Sek</div>
-            </div>
-          </div>
-        )}
+          )}
 
-        {/* Main Headline */}
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-slate-900 mb-12 leading-[1.1] tracking-tight">
-          Ein AI-Agent, der wirklich arbeitet – nicht nur chattet.
-        </h1>
+          {eventStarted && (
+            <div className="mb-6">
+              <p className="text-xl font-bold text-black">🎉 Der Deep Dive hat begonnen!</p>
+            </div>
+          )}
 
-        {/* Subheadline */}
-        <h2 className="text-xl md:text-2xl lg:text-3xl text-slate-700 font-medium mb-14 max-w-4xl mx-auto leading-relaxed">
-          Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt.
-        </h2>
+          {/* Date & Time */}
+          <p className="text-[14px] font-medium text-[#737373] mb-2">
+            Sonntag, 15. Februar 2026 · 19:00 Uhr (CET)
+          </p>
 
-        {/* CTA */}
-        <div className="flex flex-col gap-3 justify-center items-center">
-          <button
-            onClick={scrollToPricing}
-            className="bg-navy-600 hover:bg-navy-700 text-white font-bold text-xl py-5 px-12 rounded-xl shadow-lg hover:shadow-xl transition-all"
-          >
-            {getCtaText(tier, ticketsLoading)}
-          </button>
-          <p className="text-slate-700 text-base">
-            {ticketsLoading ? (
-              <span className="text-slate-500">Lade Verfügbarkeit...</span>
-            ) : (
+          {/* Tagline */}
+          <p className="text-[12px] text-[#a3a3a3] mb-12">
+            Der OpenClaw Production Deep Dive
+          </p>
+
+          {/* Headline */}
+          <h1 className="text-[40px] sm:text-[50px] md:text-[62px] font-bold leading-[1.1] tracking-[-0.02em] text-black mb-6">
+            Ein AI-Agent, der wirklich{' '}
+            <span 
+              className="relative inline-block font-extrabold"
+              style={{
+                background: 'linear-gradient(180deg, transparent 60%, #FFE066 60%, #FFE066 90%, transparent 90%)',
+                padding: '0 4px',
+              }}
+            >
+              arbeitet
+            </span>
+            .
+          </h1>
+
+          {/* Subline */}
+          <p className="text-[19px] leading-[1.6] text-[#525252] mb-10 max-w-[580px] mx-auto">
+            Was passiert, wenn dein Agent nicht nur antwortet – sondern handelt. Kein Hype, nur ein echtes Production-Setup.
+          </p>
+
+          {/* CTA + Badge Row */}
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mb-6">
+            <button
+              onClick={scrollToPricing}
+              className="bg-black hover:bg-[#1a1a1a] text-white text-[16px] font-semibold py-4 px-8 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] shadow-[0_1px_3px_rgba(0,0,0,0.1)]"
+            >
+              {getCtaText(tier, ticketsLoading)}
+            </button>
+            
+            {/* Made by Badge */}
+            <div className="flex items-center gap-2 bg-[#FAFAFA] border border-[#e5e5e5] rounded-full py-1.5 px-3">
+              <img 
+                src="/andy.jpg" 
+                alt="Andy Steinberger" 
+                className="w-5 h-5 rounded-full border border-[#e5e5e5] object-cover"
+              />
+              <div className="flex items-center gap-1">
+                <span className="text-[13px] text-[#525252]">Hosted by</span>
+                <span className="text-[13px] font-semibold text-black">Andy</span>
+                <BadgeCheck className="w-3.5 h-3.5 text-[#1d9bf0]" strokeWidth={2.5} />
+              </div>
+            </div>
+          </div>
+
+          {/* Price + Ticket Info */}
+          <div className="flex flex-wrap justify-center items-baseline gap-x-2">
+            <span className="text-[16px] font-bold text-black">
+              {ticketsLoading ? '...' : `${tier.price}€`}
+            </span>
+            <span className="text-[13px] text-[#a3a3a3]">inkl. MwSt</span>
+            {!ticketsLoading && (
               <>
-                Noch <strong className="text-orange-600">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€ inkl. MwSt)
-                {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€ inkl. MwSt</>}
+                <span className="text-[13px] text-[#d4d4d4] mx-1">·</span>
+                <span className="text-[13px] font-semibold text-[#DC2626]">
+                  Noch {tier.spotsLeft} {tier.label} Tickets
+                </span>
+                {nextTiers.length > 0 && (
+                  <span className="text-[13px] text-[#a3a3a3]">– danach {nextTiers[0].price}€</span>
+                )}
               </>
             )}
-          </p>
+          </div>
         </div>
       </div>
     </section>
