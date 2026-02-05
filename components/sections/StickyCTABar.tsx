@@ -55,7 +55,7 @@ export function StickyCTABar() {
               <span className="text-navy-300">Lade...</span>
             ) : (
               <>
-                Noch <strong className="text-orange-400">{tier.spotsLeft} {tier.label}-Tickets</strong> ({tier.price}€)
+                Noch <strong className="text-orange-400">{tier.spotsLeft} {tier.label}-Tickets</strong> ({tier.price}€ inkl. MwSt)
               </>
             )}
           </p>

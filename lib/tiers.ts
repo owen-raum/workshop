@@ -55,6 +55,6 @@ export function formatLaterPrices(currentTierName: TierName): string {
   if (next.length === 0) return '';
   
   return next
-    .map((t) => `${t.price}€ (Platz ${t.start + 1}–${t.end})`)
+    .map((t) => `${t.price}€ inkl. MwSt (Platz ${t.start + 1}–${t.end})`)
     .join(' / ');
 }

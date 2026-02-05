@@ -112,8 +112,8 @@ export function Hero() {
               <span className="text-slate-500">Lade Verfügbarkeit...</span>
             ) : (
               <>
-                Noch <strong className="text-orange-600">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€)
-                {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€</>}
+                Noch <strong className="text-orange-600">{tier.spotsLeft} {tier.label} Tickets</strong> ({tier.price}€ inkl. MwSt)
+                {nextTiers.length > 0 && <> – danach {nextTiers[0].price}€ inkl. MwSt</>}
               </>
             )}
           </p>
