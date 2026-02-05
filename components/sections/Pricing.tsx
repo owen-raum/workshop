@@ -75,43 +75,8 @@ export function Pricing() {
             </div>
           )}
 
-          {/* Progress Indicator */}
-          <div className="mb-10 mt-4">
-            <div className="flex justify-between items-center mb-3">
-              <span className="text-sm font-semibold text-orange-700">
-                {ticketsLoading ? (
-                  <span className="inline-block w-20 h-4 bg-navy-200 rounded animate-pulse" />
-                ) : (
-                  `${Math.round(tier.progressPercent)}% dieser Stufe vergeben`
-                )}
-              </span>
-              <span className="text-sm text-navy-600">
-                {ticketsLoading ? (
-                  <span className="inline-block w-32 h-4 bg-navy-200 rounded animate-pulse" />
-                ) : (
-                  `Noch ${tier.spotsLeft} von ${tier.spotsInTier} verfügbar`
-                )}
-              </span>
-            </div>
-            <div className="w-full bg-navy-200 rounded-full h-4 shadow-inner">
-              <div
-                className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 h-4 rounded-full transition-all duration-500 shadow-lg"
-                style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
-              />
-            </div>
-            <p className="text-center text-base font-medium text-navy-700 mt-3">
-              {ticketsLoading ? (
-                <span className="text-navy-500">Lade Verkaufszahlen...</span>
-              ) : (
-                <strong className="text-navy-900">
-                  {tier.soldInTier} von {tier.spotsInTier} {tier.label}-Tickets verkauft
-                </strong>
-              )}
-            </p>
-          </div>
-
           {/* Current Price – PROMINENT */}
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 mt-4">
             <p className="text-orange-600 font-bold text-lg mb-4 flex items-center justify-center gap-2">
               🔥 Anmeldung endet am 10. Februar
             </p>
