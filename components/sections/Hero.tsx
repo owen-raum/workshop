@@ -82,7 +82,7 @@ export function Hero() {
 
           {/* Headline */}
           <h1 className="text-[40px] sm:text-[50px] md:text-[62px] font-bold leading-[1.1] tracking-[-0.02em] text-black mb-6">
-            Mein AI-Agent hat letzte Woche{' '}
+            Mein AI-Agent Owen hat letzte Woche{' '}
             <span 
               className="relative inline-block font-extrabold"
               style={{
