@@ -143,12 +143,12 @@ export function AboutUsSocialProof() {
                 <div>
                   <h4 className="text-xl font-semibold mb-3">Owen 🐸</h4>
                   <p className="text-white/80 leading-relaxed">
-                    Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz. Er beantwortet Mails,
+                    Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz – gebaut mit OpenClaw. Er beantwortet Mails,
                     koordiniert Termine, schreibt und deployt Code, managed WhatsApp-Gruppen und überwacht Systeme.
-                    Läuft auf einem Mac Mini M4 in Zypern – powered by OpenClaw.
+                    Läuft auf einem Mac Mini M4 in Zypern, gesteuert über OpenClaw als Agent-Framework.
                   </p>
                   <p className="text-white/80 leading-relaxed mt-4">
-                    Im Deep Dive siehst du Owen live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System.
+                    Im Deep Dive siehst du Owen und OpenClaw live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System das jeden Tag läuft.
                   </p>
                 </div>
               </div>
