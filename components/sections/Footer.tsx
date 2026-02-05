@@ -129,12 +129,12 @@ export function Footer() {
             <Link href="/impressum" className="hover:text-gray-900 transition-colors">
               Impressum
             </Link>
-            <a href="https://pulse.how/datenschutz" target="_blank" rel="noopener" className="hover:text-gray-900 transition-colors">
+            <Link href="/datenschutz" className="hover:text-gray-900 transition-colors">
               Datenschutz
-            </a>
-            <a href="https://pulse.how/agb" target="_blank" rel="noopener" className="hover:text-gray-900 transition-colors">
+            </Link>
+            <Link href="/agb" className="hover:text-gray-900 transition-colors">
               AGB
-            </a>
+            </Link>
           </div>
         </div>
 
