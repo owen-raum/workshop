@@ -12,7 +12,7 @@ import { StickyCTABar } from '@/components/sections/StickyCTABar';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#F1EFEB]">
       <Header />
       <Hero />
       <WorkshopContent />
