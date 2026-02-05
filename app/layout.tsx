@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const inter = localFont({
   src: './fonts/Inter-Variable.woff2',
@@ -47,7 +48,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        {children}
+        <LoadingScreen>{children}</LoadingScreen>
       </body>
     </html>
   );
