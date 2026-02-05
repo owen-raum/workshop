@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
+import { Databuddy } from "@databuddy/sdk/react";
+import { Analytics } from "./analytics";
+import { Suspense } from "react";
 
 const inter = localFont({
   src: './fonts/Inter-Variable.woff2',
@@ -48,7 +51,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
+        <Databuddy
+          clientId={process.env.NEXT_PUBLIC_DATABUDDY_CLIENT_ID!}
+          trackHashChanges
+          trackAttributes
+        />
         <LoadingScreen>{children}</LoadingScreen>
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );

@@ -24,10 +24,19 @@ export function Pricing() {
     setError(null);
 
     try {
+      // UTM-Parameter aus URL lesen
+      const params = new URLSearchParams(window.location.search);
+      const utmParams = {
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || '',
+      };
+
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}),
+        body: JSON.stringify(utmParams),
       });
 
       const data = await res.json();

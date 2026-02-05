@@ -51,6 +51,10 @@ export async function POST(request: Request) {
         tier: tier.name,
         price: String(tier.priceCents),
         sold_at_checkout: String(sold),
+        utm_source: body.utm_source || '',
+        utm_medium: body.utm_medium || '',
+        utm_campaign: body.utm_campaign || '',
+        utm_content: body.utm_content || '',
       },
     });
 
