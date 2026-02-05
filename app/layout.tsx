@@ -5,6 +5,7 @@ import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Databuddy } from "@databuddy/sdk/react";
 import { Analytics } from "./analytics";
+import { MetaPixel } from "@/components/meta-pixel";
 import { Suspense } from "react";
 
 const inter = localFont({
@@ -57,6 +58,7 @@ export default function RootLayout({
           trackHashChanges
           trackAttributes
         />
+        <MetaPixel />
         <LoadingScreen>{children}</LoadingScreen>
         <ScrollReveal />
         <Suspense fallback={null}>
