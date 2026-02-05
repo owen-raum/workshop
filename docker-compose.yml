@@ -6,7 +6,6 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-      - build_output:/app/.next
     command: >
       /bin/sh -c "
         npm install --include=dev --legacy-peer-deps 2>&1 &&
@@ -21,7 +20,6 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-      - build_output:/app/.next
     ports:
       - "${WEBSERVER_PORT:-9019}:${WEBSERVER_PORT:-9019}"
     depends_on:
@@ -37,9 +35,6 @@ services:
     networks:
       pulse:
         ipv4_address: ${IPV4_ADDRESS:-10.0.10.19}
-
-volumes:
-  build_output:
 
 networks:
   pulse:
