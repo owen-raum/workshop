@@ -34,8 +34,8 @@ export default function Datenschutz() {
             personenbezogenen Daten ist Verantwortlicher im Sinne der DSGVO: steinberger Limited,
             Panagiotou Theofilou 1, House 19, 7040 Oroklini, Larnaca, Cyprus, Telefon +357 97 423 741,
             E-Mail{' '}
-            <a href="mailto:andy@raum.so" className="text-gray-900 hover:text-gray-700 underline">
-              andy@raum.so
+            <a href="mailto:andy@steinberger.cy" className="text-gray-900 hover:text-gray-700 underline">
+              andy@steinberger.cy
             </a>{' '}
             (im Folgenden „wir").
           </p>
