@@ -61,7 +61,10 @@ export function MetaPixel() {
         _fbq?: any;
       };
 
-      (function (f, b, e, v, n, t, s) {
+      // Meta Pixel base code
+      /* eslint-disable @typescript-eslint/no-explicit-any */
+      (function (f: any, b: Document, e: string, v: string) {
+        let n: any, t: any, s: any;
         if (f.fbq) return;
         n = f.fbq = function () {
           n.callMethod
@@ -73,7 +76,7 @@ export function MetaPixel() {
         n.loaded = true;
         n.version = "2.0";
         n.queue = [];
-        t = b.createElement(e);
+        t = b.createElement(e) as HTMLScriptElement;
         t.async = true;
         t.src = v;
         s = b.getElementsByTagName(e)[0];
@@ -84,6 +87,7 @@ export function MetaPixel() {
         "script",
         "https://connect.facebook.net/en_US/fbevents.js"
       );
+      /* eslint-enable @typescript-eslint/no-explicit-any */
     }
 
     if (!window.__metaPixelInitialized) {
