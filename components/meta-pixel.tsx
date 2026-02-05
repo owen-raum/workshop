@@ -1,7 +1,32 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+
+const STORAGE_KEY = "cookie-consent";
+
+type StoredConsent = {
+  value: "true" | "false";
+  expiresAt: number;
+};
+
+function hasConsent(): boolean {
+  if (typeof window === "undefined") return false;
+  const raw = window.localStorage.getItem(STORAGE_KEY);
+  if (!raw) return false;
+
+  try {
+    const parsed = JSON.parse(raw) as StoredConsent;
+    if (!parsed.expiresAt || Date.now() > parsed.expiresAt) {
+      window.localStorage.removeItem(STORAGE_KEY);
+      return false;
+    }
+    return parsed.value === "true";
+  } catch {
+    window.localStorage.removeItem(STORAGE_KEY);
+    return false;
+  }
+}
 
 declare global {
   interface Window {
@@ -12,11 +37,23 @@ declare global {
 }
 
 export function MetaPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "639641088589650";
   const pathname = usePathname();
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (!pixelId || typeof window === "undefined") return;
+    const updateConsent = () => setEnabled(hasConsent());
+    updateConsent();
+    window.addEventListener("cookie-consent-updated", updateConsent);
+    window.addEventListener("storage", updateConsent);
+    return () => {
+      window.removeEventListener("cookie-consent-updated", updateConsent);
+      window.removeEventListener("storage", updateConsent);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enabled || !pixelId || typeof window === "undefined") return;
 
     if (!window.fbq) {
       const w = window as typeof window & {
@@ -55,7 +92,7 @@ export function MetaPixel() {
     }
 
     window.fbq?.("track", "PageView");
-  }, [pixelId, pathname]);
+  }, [enabled, pixelId, pathname]);
 
   return null;
 }

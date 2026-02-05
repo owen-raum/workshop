@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Databuddy } from "@databuddy/sdk/react";
 import { Analytics } from "./analytics";
 import { MetaPixel } from "@/components/meta-pixel";
+import { CookieBanner } from "@/components/CookieBanner";
 import { Suspense } from "react";
 
 const inter = localFont({
@@ -64,6 +65,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
+        <CookieBanner />
       </body>
     </html>
   );
