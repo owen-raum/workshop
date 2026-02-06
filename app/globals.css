@@ -19,8 +19,8 @@
 
   /* Prism accents (sparingly) */
   --color-prism-violet: #7c3aed; /* Iris Violet */
-  --color-prism-cyan: #06b6d4;   /* Cyan Glass */
-  --color-prism-amber: #f59e0b;  /* Sunbeam Amber */
+  --color-prism-cyan: #06b6d4; /* Cyan Glass */
+  --color-prism-amber: #f59e0b; /* Sunbeam Amber */
 
   /* Ink */
   --color-ink: #111111;
@@ -53,6 +53,12 @@
       rgba(6, 182, 212, 0.75),
       rgba(124, 58, 237, 0.75)
     );
+
+    /* Section tint helpers */
+    --tint-neutral: rgba(255, 255, 255, 0.0);
+    --tint-amber: rgba(245, 158, 11, 0.10);
+    --tint-cyan: rgba(6, 182, 212, 0.09);
+    --tint-violet: rgba(124, 58, 237, 0.09);
   }
 
   html {
@@ -82,11 +88,11 @@
     pointer-events: none;
     z-index: -2;
     background:
-      radial-gradient(1200px 620px at 48% 8%, rgba(245, 158, 11, 0.09), transparent 60%),
-      radial-gradient(900px 520px at 56% 30%, rgba(6, 182, 212, 0.07), transparent 60%),
-      radial-gradient(980px 700px at 46% 58%, rgba(124, 58, 237, 0.06), transparent 64%);
-    filter: blur(32px);
-    opacity: 0.55;
+      radial-gradient(1200px 620px at 48% 8%, rgba(245, 158, 11, 0.12), transparent 60%),
+      radial-gradient(900px 520px at 56% 30%, rgba(6, 182, 212, 0.10), transparent 60%),
+      radial-gradient(980px 700px at 46% 58%, rgba(124, 58, 237, 0.09), transparent 64%);
+    filter: blur(34px);
+    opacity: 0.62;
   }
 
   body.daylight-prism::after {
@@ -96,11 +102,14 @@
     pointer-events: none;
     z-index: -1;
 
-    /* Fine SVG grain texture */
+    /* Grain texture (must be felt, not guessed). */
     background-image: url("/grain.svg");
     background-repeat: repeat;
-    opacity: 0.06;
+    background-size: 160px 160px;
+    opacity: 0.085;
     mix-blend-mode: multiply;
+    filter: contrast(140%) brightness(102%);
+    transform: translateZ(0);
   }
 
   h1,
@@ -110,7 +119,7 @@
   h5,
   h6 {
     font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
   }
 
   /* Focus states (quiet but crisp) */
@@ -143,6 +152,34 @@
     width: 100%;
   }
 
+  /* Buttons: prismatic underline that animates in */
+  .prism-button {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .prism-button::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.45), rgba(6, 182, 212, 0.38), rgba(124, 58, 237, 0.40));
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.0;
+    filter: blur(0.2px);
+    transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 260ms ease;
+    z-index: -1;
+  }
+
+  .prism-button:hover::after {
+    transform: scaleX(1);
+    opacity: 0.95;
+  }
+
   /* Prism underline (signature) */
   .prism-underline {
     position: relative;
@@ -155,79 +192,187 @@
     position: absolute;
     left: -0.06em;
     right: -0.06em;
-    bottom: 0.14em;
-    height: 0.52em;
+    bottom: 0.12em;
+    height: 0.56em;
     border-radius: 999px;
     background: linear-gradient(90deg, var(--prism-amber), var(--prism-cyan), var(--prism-violet));
-    opacity: 0.22;
+    opacity: 0.26;
     transform: rotate(-1.2deg);
     z-index: -1;
   }
 
-  /* Section divider hairline (so the beam feels connected) */
-  .section-shell {
-    position: relative;
+  /* Hero: make the underline loud */
+  .prism-underline--hero::after {
+    bottom: 0.06em;
+    height: 0.72em;
+    opacity: 0.42;
+    filter: blur(0.2px);
   }
 
-  .section-shell::after {
+  /* Section tints so sections actually differ */
+  .section-tint {
+    position: relative;
+    overflow: clip;
+    background: var(--bg-primary);
+  }
+
+  .section-tint::before {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(17, 17, 17, 0.06),
-      rgba(17, 17, 17, 0.10),
-      rgba(17, 17, 17, 0.06),
-      transparent
-    );
+    inset: -2px;
     pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(1100px 500px at 12% 10%, var(--section-tint-a, var(--tint-neutral)), transparent 60%),
+      radial-gradient(980px 540px at 88% 30%, var(--section-tint-b, var(--tint-neutral)), transparent 62%),
+      radial-gradient(900px 640px at 52% 90%, var(--section-tint-c, var(--tint-neutral)), transparent 62%);
+    filter: blur(10px);
+    opacity: 1;
+  }
+
+  .section-tint > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tint-amber {
+    --section-tint-a: rgba(245, 158, 11, 0.18);
+    --section-tint-b: rgba(6, 182, 212, 0.08);
+    --section-tint-c: rgba(124, 58, 237, 0.06);
+  }
+
+  .tint-cyan {
+    --section-tint-a: rgba(6, 182, 212, 0.16);
+    --section-tint-b: rgba(124, 58, 237, 0.08);
+    --section-tint-c: rgba(245, 158, 11, 0.06);
+  }
+
+  .tint-violet {
+    --section-tint-a: rgba(124, 58, 237, 0.16);
+    --section-tint-b: rgba(245, 158, 11, 0.08);
+    --section-tint-c: rgba(6, 182, 212, 0.06);
   }
 
   /* Premium light card */
   .prism-card {
-    background: rgba(255, 255, 255, 0.50);
+    background: rgba(255, 255, 255, 0.62);
     border: 1px solid var(--border-default);
     box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.72) inset,
-      0 24px 70px -58px rgba(17, 17, 17, 0.55);
-    backdrop-filter: blur(12px);
+      0 1px 0 rgba(255, 255, 255, 0.78) inset,
+      0 28px 86px -70px rgba(17, 17, 17, 0.55);
+    backdrop-filter: blur(14px);
   }
 
   .prism-card-hover {
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    transition: transform 240ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 240ms ease, border-color 240ms ease;
   }
 
   .prism-card-hover:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     border-color: var(--border-strong);
     box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.75) inset,
-      0 40px 110px -85px rgba(17, 17, 17, 0.65);
+      0 1px 0 rgba(255, 255, 255, 0.8) inset,
+      0 56px 160px -120px rgba(17, 17, 17, 0.72);
+  }
+
+  /* Animated prismatic border-glow (pricing WOW). */
+  .prism-border-animated {
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+  }
+
+  .prism-border-animated::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      rgba(245, 158, 11, 0.85),
+      rgba(6, 182, 212, 0.75),
+      rgba(124, 58, 237, 0.78),
+      rgba(245, 158, 11, 0.85)
+    );
+    filter: blur(12px);
+    opacity: 0.28;
+    transition: opacity 280ms ease, filter 280ms ease, transform 280ms ease;
+    transform: scale(0.99);
+    z-index: -2;
+    animation: prism-rotate 8s linear infinite;
+  }
+
+  .prism-border-animated::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+      from 0deg,
+      rgba(245, 158, 11, 0.95),
+      rgba(6, 182, 212, 0.85),
+      rgba(124, 58, 237, 0.88),
+      rgba(245, 158, 11, 0.95)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.55;
+    transition: opacity 280ms ease;
+    z-index: -1;
+    animation: prism-rotate 8s linear infinite;
+  }
+
+  .prism-border-animated:hover::before {
+    opacity: 0.52;
+    filter: blur(16px);
+    transform: scale(1.01);
+  }
+
+  .prism-border-animated:hover::after {
+    opacity: 0.95;
+  }
+
+  @keyframes prism-rotate {
+    0% {
+      transform: rotate(0deg) scale(0.99);
+    }
+    100% {
+      transform: rotate(360deg) scale(0.99);
+    }
   }
 }
 
-/* Scroll reveal */
+/* Scroll reveal (more character than a simple fade) */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  will-change: opacity, transform;
+  transform: translateY(34px) rotate(0.35deg);
+  filter: blur(10px);
+  transition:
+    opacity 0.75s cubic-bezier(0.2, 0.9, 0.2, 1),
+    transform 0.75s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.75s cubic-bezier(0.2, 0.9, 0.2, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) rotate(0deg);
+  filter: blur(0px);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
+  }
+
+  .prism-border-animated::before,
+  .prism-border-animated::after {
+    animation: none;
   }
 }
 
@@ -257,7 +402,7 @@
 
 @layer utilities {
   .section-padding {
-    @apply py-20 md:py-24 lg:py-28;
+    @apply py-32 md:py-40 lg:py-48;
   }
 
   .page-x {

@@ -59,30 +59,31 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]">
+    <section id="pricing" className="w-full section-padding page-x section-tint tint-cyan">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
-            Was kostet das?
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="reveal font-display text-5xl md:text-6xl lg:text-[76px] font-extrabold leading-[0.95] tracking-[-0.05em] text-gray-900 mb-6">
+            <span className="font-extrabold">Was</span>
+            <span className="font-light"> kostet das?</span>
           </h2>
-          <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-700 leading-relaxed">
             Ein Ticket. Der Preis steigt mit der Nachfrage.
           </p>
         </div>
 
         {/* Single Pricing Card */}
-        <div className="reveal group bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-8 relative overflow-hidden border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.40)] transition-transform duration-300 lg:-translate-x-8 hover:-translate-y-0.5">
-          {/* Prismatic glow (right side) */}
+        <div className="reveal group prism-card prism-border-animated rounded-[32px] p-8 md:p-12 mb-8 relative overflow-hidden shadow-[0_90px_220px_-180px_rgba(17,17,17,0.90)] transition-transform duration-300 lg:-translate-x-10 hover:-translate-y-1">
+          {/* Internal prismatic flood */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-28 top-1/2 h-[460px] w-[460px] -translate-y-1/2 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-prism-glow"
+            className="pointer-events-none absolute -right-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full blur-3xl opacity-70"
             style={{
               background:
-                'linear-gradient(135deg, rgba(167,139,250,0.55), rgba(103,232,249,0.45), rgba(251,191,36,0.45))',
-              backgroundSize: '200% 200%',
+                'radial-gradient(circle at 30% 30%, rgba(167,139,250,0.40), transparent 62%), radial-gradient(circle at 62% 42%, rgba(103,232,249,0.30), transparent 62%), radial-gradient(circle at 52% 72%, rgba(251,191,36,0.28), transparent 64%)',
             }}
           />
+
           {/* Badge – dynamisch */}
           {ticketsLoading ? (
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 shimmer">
@@ -96,8 +97,8 @@ export function Pricing() {
 
           {/* Progress Indicator */}
           <div className="mb-10 mt-6">
-            <div className="flex flex-wrap justify-between items-center gap-2 mb-3 text-sm text-gray-600">
-              <span className="font-medium">
+            <div className="flex flex-wrap justify-between items-center gap-2 mb-3 text-sm text-gray-700">
+              <span className="font-semibold">
                 {ticketsLoading ? (
                   <span className="inline-block w-32 h-4 rounded shimmer" />
                 ) : (
@@ -114,13 +115,13 @@ export function Pricing() {
             </div>
             <div className="w-full bg-black/10 rounded-full h-3 overflow-hidden">
               <div
-                className="h-3 rounded-full bg-[linear-gradient(90deg,rgba(167,139,250,0.70),rgba(103,232,249,0.60),rgba(251,191,36,0.65))] transition-all duration-500"
+                className="h-3 rounded-full bg-[linear-gradient(90deg,rgba(167,139,250,0.82),rgba(103,232,249,0.70),rgba(251,191,36,0.78))] transition-all duration-500"
                 style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
               />
             </div>
-            <p className="text-center text-sm text-gray-600 mt-3">
+            <p className="text-center text-sm text-gray-700 mt-3">
               {ticketsLoading ? (
-                <span className="text-gray-500">Lade Verkaufszahlen...</span>
+                <span className="text-gray-600">Lade Verkaufszahlen...</span>
               ) : (
                 <strong className="text-gray-900">
                   {tier.soldInTier} von {tier.spotsInTier} {tier.label}-Tickets verkauft
@@ -131,7 +132,7 @@ export function Pricing() {
 
           {/* Current Price – PROMINENT */}
           <div className="text-center mb-6">
-            <p className="text-gray-700 font-semibold text-sm md:text-base mb-4">
+            <p className="text-gray-800 font-semibold text-sm md:text-base mb-4">
               🔥 Anmeldung endet am 10. Februar
             </p>
             {ticketsLoading ? (
@@ -139,15 +140,15 @@ export function Pricing() {
                 <span className="inline-block w-44 h-20 rounded shimmer" />
               </div>
             ) : (
-              <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900">
+              <div className="font-display text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-[-0.05em] text-gray-900">
                 {tier.price}€
               </div>
             )}
-            <div className="text-gray-500 mt-2 mb-4">einmalig, inkl. MwSt.</div>
+            <div className="text-gray-700 mt-2 mb-4">einmalig, inkl. MwSt.</div>
             {/* Later prices – dynamisch */}
             {!ticketsLoading && laterPrices && (
               <div className="mt-3 pt-3 border-t border-[rgba(34,34,34,0.08)]">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-700">
                   Ab Stufe 2: <span className="font-semibold text-gray-900">{laterPrices}</span>
                 </p>
               </div>
@@ -157,9 +158,9 @@ export function Pricing() {
           {/* Features */}
           <ul className="space-y-4 mb-10">
             {features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-3 text-gray-700">
+              <li key={index} className="flex items-start gap-3 text-gray-800">
                 <svg
-                  className="w-5 h-5 text-gray-800 mt-0.5 flex-shrink-0"
+                  className="w-5 h-5 text-gray-900 mt-0.5 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -187,10 +188,10 @@ export function Pricing() {
           <button
             onClick={handleBook}
             disabled={loading || ticketsLoading}
-            className={`prism-button w-full font-semibold text-lg py-4 px-8 rounded-xl transition-all ${
+            className={`prism-button w-full font-semibold text-lg py-4 px-8 rounded-2xl transition-all ${
               loading || ticketsLoading
                 ? 'bg-gray-400 text-white cursor-wait'
-                : 'bg-[#111111] hover:bg-[#1a1a1a] text-white'
+                : 'bg-[#111111] hover:bg-[#1a1a1a] text-white hover:-translate-y-0.5'
             }`}
           >
             {ticketsLoading ? 'Lade Preise...' : getButtonText()}
@@ -198,10 +199,10 @@ export function Pricing() {
         </div>
 
         {/* Trust Badges */}
-        <div className="reveal flex flex-wrap justify-center gap-12 text-sm text-gray-600">
+        <div className="reveal flex flex-wrap justify-center gap-12 text-sm text-gray-700">
           <div className="flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-gray-700"
+              className="w-5 h-5 text-gray-800"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -217,7 +218,7 @@ export function Pricing() {
           </div>
           <div className="flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-gray-700"
+              className="w-5 h-5 text-gray-800"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

@@ -3,19 +3,20 @@ import { CheckCircle2 } from 'lucide-react';
 
 export function AboutUsSocialProof() {
   return (
-    <section id="about" className="w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]">
+    <section id="about" className="w-full section-padding page-x section-tint tint-cyan">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-6">
-            Wer bin ich?
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="reveal font-display text-5xl md:text-6xl lg:text-[76px] font-extrabold leading-[0.95] tracking-[-0.05em] text-gray-900 mb-6">
+            <span className="font-extrabold">Wer</span>
+            <span className="font-light"> bin ich?</span>
           </h2>
-          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Und warum solltest du mir 90 Minuten deiner Zeit geben?
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="reveal bg-transparent rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
+        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-16 items-start">
+          <div className="reveal prism-card rounded-3xl p-8 md:p-10">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <div className="flex-shrink-0 mx-auto sm:mx-0">
                 <Image
@@ -28,13 +29,11 @@ export function AboutUsSocialProof() {
               </div>
 
               <div className="flex-1">
-                <h3 className="font-display text-2xl font-semibold text-gray-900 mb-1">
+                <h3 className="font-display text-2xl md:text-3xl font-extrabold tracking-[-0.04em] text-gray-900 mb-1">
                   Andy Steinberger
                 </h3>
-                <p className="text-gray-600 font-medium mb-4">
-                  Early Adopter. Kein Vendor.
-                </p>
-                <div className="space-y-3 text-gray-600 leading-relaxed">
+                <p className="text-gray-700 font-semibold mb-4">Early Adopter. Kein Vendor.</p>
+                <div className="space-y-3 text-gray-700 leading-relaxed">
                   <p>
                     Owen gibt&apos;s seit 2021. Erst auf OpenAI-Tools experimentiert, dann auf Make und Fireflies
                     produktiv gebracht. Hat funktioniert – aber mit Einschränkungen.
@@ -52,13 +51,13 @@ export function AboutUsSocialProof() {
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-[rgba(34,34,34,0.12)] p-4 text-center">
-                <div className="font-display font-semibold text-gray-900 text-xl">50k+</div>
-                <div className="text-gray-500 text-sm">Tasks von Owen</div>
+              <div className="rounded-2xl border border-[rgba(34,34,34,0.12)] bg-white/45 p-4 text-center">
+                <div className="font-display font-extrabold tracking-[-0.04em] text-gray-900 text-xl">50k+</div>
+                <div className="text-gray-600 text-sm">Tasks von Owen</div>
               </div>
-              <div className="rounded-2xl border border-[rgba(34,34,34,0.12)] p-4 text-center">
-                <div className="font-display font-semibold text-gray-900 text-xl">Seit 2021</div>
-                <div className="text-gray-500 text-sm">Owen im Einsatz</div>
+              <div className="rounded-2xl border border-[rgba(34,34,34,0.12)] bg-white/45 p-4 text-center">
+                <div className="font-display font-extrabold tracking-[-0.04em] text-gray-900 text-xl">Seit 2021</div>
+                <div className="text-gray-600 text-sm">Owen im Einsatz</div>
               </div>
             </div>
 
@@ -67,29 +66,29 @@ export function AboutUsSocialProof() {
                 href="https://pulse.how"
                 target="_blank"
                 rel="noopener"
-                className="text-center py-3 px-4 bg-transparent rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-gray-300 transition-colors"
+                className="text-center py-3 px-4 bg-white/40 rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-[rgba(34,34,34,0.20)] transition-colors"
               >
-                <div className="font-display font-semibold text-gray-900 text-sm">The Circle</div>
-                <div className="text-gray-500 text-xs">AI Community</div>
+                <div className="font-display font-extrabold text-gray-900 text-sm">The Circle</div>
+                <div className="text-gray-600 text-xs">AI Community</div>
               </a>
               <a
                 href="https://raum.so"
                 target="_blank"
                 rel="noopener"
-                className="text-center py-3 px-4 bg-transparent rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-gray-300 transition-colors"
+                className="text-center py-3 px-4 bg-white/40 rounded-lg border border-[rgba(34,34,34,0.12)] hover:border-[rgba(34,34,34,0.20)] transition-colors"
               >
-                <div className="font-display font-semibold text-gray-900 text-sm">[ʁaʊ̯m̩]</div>
-                <div className="text-gray-500 text-xs">Consulting</div>
+                <div className="font-display font-extrabold text-gray-900 text-sm">[ʁaʊ̯m̩]</div>
+                <div className="text-gray-600 text-xs">Consulting</div>
               </a>
             </div>
           </div>
 
-          <div className="space-y-5">
-            <div className="reveal bg-transparent rounded-3xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)]">
-              <h3 className="font-display text-2xl font-semibold text-gray-900 mb-6">
+          <div className="space-y-5 lg:translate-y-10">
+            <div className="reveal prism-card rounded-3xl p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl font-extrabold tracking-[-0.04em] text-gray-900 mb-6">
                 Warum ausgerechnet ich?
               </h3>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   Ich verkaufe keine Theorie. Owen ist mein <em>echtes</em> System – er läuft
                   jeden Tag, managed mein Business, und ich wäre aufgeschmissen ohne ihn.
@@ -121,23 +120,23 @@ export function AboutUsSocialProof() {
                   text: 'Fragen? Schreib mir einfach. Ich bin kein großes Unternehmen mit Support-Ticket-System. Ich bin eine Person mit einer Email-Adresse.',
                 },
               ].map((item) => (
-                <div key={item.title} className="reveal bg-transparent rounded-2xl p-6 border border-[rgba(34,34,34,0.12)]">
+                <div key={item.title} className="reveal prism-card prism-card-hover rounded-2xl p-6">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-gray-700 mt-0.5" strokeWidth={1.5} />
+                    <CheckCircle2 className="w-5 h-5 text-gray-800 mt-0.5" strokeWidth={1.5} />
                     <div>
-                      <h4 className="font-display font-semibold text-gray-900 mb-2">{item.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+                      <h4 className="font-display font-extrabold tracking-[-0.03em] text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-gray-700 text-sm leading-relaxed">{item.text}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 text-white">
+            <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 text-white shadow-[0_40px_120px_-100px_rgba(0,0,0,0.95)]">
               <div className="flex items-start gap-6">
-                <img 
-                  src="/owen.jpg" 
-                  alt="Owen der Plüschfrosch" 
+                <img
+                  src="/owen.jpg"
+                  alt="Owen der Plüschfrosch"
                   className="w-24 h-24 rounded-2xl object-cover flex-shrink-0"
                 />
                 <div>
