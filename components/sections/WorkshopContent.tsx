@@ -1,4 +1,4 @@
-import { CheckCircle2, Sparkles, MonitorPlay, ShieldAlert, Compass, Clock, CheckCheck } from 'lucide-react';
+import { CheckCircle2, Sparkles, MonitorPlay, ShieldAlert, Compass } from 'lucide-react';
 
 export function WorkshopContent() {
   const modules = [
@@ -6,7 +6,6 @@ export function WorkshopContent() {
       title: 'Was kann OpenClaw wirklich?',
       duration: '25 Min',
       icon: Sparkles,
-      gradient: 'from-blue-500 to-cyan-500',
       points: [
         'Der Unterschied zwischen Chatbot und Agent',
         'Echte Use Cases: Mails, Kalender, Code, Messaging',
@@ -18,7 +17,6 @@ export function WorkshopContent() {
       title: 'Live-Demo: Andys Production Setup',
       duration: '25 Min',
       icon: MonitorPlay,
-      gradient: 'from-purple-500 to-pink-500',
       points: [
         'Andys Production Setup – läuft seit Monaten, kein Demo',
         'Wie Owen meinen Tag strukturiert',
@@ -30,7 +28,6 @@ export function WorkshopContent() {
       title: 'Risiken & Grenzen',
       duration: '20 Min',
       icon: ShieldAlert,
-      gradient: 'from-orange-500 to-red-500',
       points: [
         'Was kann schief gehen? (Spoiler: einiges)',
         'Datenschutz: Wo landen deine Daten?',
@@ -42,10 +39,9 @@ export function WorkshopContent() {
       title: 'Ist das was für dich?',
       duration: '20 Min',
       icon: Compass,
-      gradient: 'from-green-500 to-emerald-500',
       points: [
         'Für wen sich das lohnt – und für wen nicht',
-        'Der realistische Aufwand zum Einsieg',
+        'Der realistische Aufwand zum Einstieg',
         'Deine Fragen, meine ehrlichen Antworten',
         'Nächste Schritte wenn du weitermachen willst',
       ],
@@ -53,57 +49,39 @@ export function WorkshopContent() {
   ];
 
   return (
-    <section id="content" className="relative w-full section-padding bg-[#0a0a0a] overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-transparent to-blue-500/5 pointer-events-none" />
-      
-      <div className="relative z-10 container-custom">
-        {/* Header */}
-        <div className="reveal mb-20 text-center max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-            <span className="gradient-text">90 Minuten.</span>
-            <span className="text-white"> Kein Hype.</span>
+    <section id="content" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16 max-w-4xl">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold leading-tight text-gray-900 mb-6">
+            90 Minuten. Kein Hype.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 leading-relaxed">
+          <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
             Ich zeige dir was AI-Agents können, wo sie versagen, und ob das für dich relevant ist.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {modules.map((module, index) => {
             const Icon = module.icon;
             return (
               <div
                 key={index}
-                className="reveal card-hover glass-strong rounded-3xl p-8 flex flex-col gap-6 group relative overflow-hidden"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
               >
-                {/* Gradient Glow on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${module.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`} />
-                
-                <div className="relative z-10 flex flex-col gap-6">
-                  {/* Icon + Duration */}
-                  <div className="flex items-center justify-between">
-                    <div className={`p-4 rounded-2xl bg-gradient-to-br ${module.gradient} shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" strokeWidth={2} />
-                    </div>
-                    <div className="flex items-center gap-2 glass px-4 py-2 rounded-full">
-                      <Clock className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm font-bold text-white">{module.duration}</span>
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-white leading-tight">
+                <div className="flex items-center justify-between mb-4">
+                  <Icon className="w-10 h-10 text-gray-700" strokeWidth={2} />
+                  <span className="text-sm font-semibold text-gray-900 bg-gray-100 rounded-full px-4 py-1.5">
+                    {module.duration}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg font-medium text-gray-900">
                     {module.title}
                   </h3>
-
-                  {/* Points */}
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {module.points.map((point) => (
-                      <li key={point} className="flex items-start gap-3 text-gray-400 text-sm leading-relaxed">
-                        <CheckCircle2 className="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" strokeWidth={2} />
+                      <li key={point} className="flex items-start gap-2 text-gray-500 text-sm leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-gray-500 mt-0.5" strokeWidth={2} />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -114,18 +92,15 @@ export function WorkshopContent() {
           })}
         </div>
 
-        {/* Recording Badge */}
-        <div className="reveal glass-strong rounded-3xl p-8 max-w-3xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center text-center sm:text-left">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-green-500/20">
-                <CheckCheck className="w-6 h-6 text-green-400" strokeWidth={2.5} />
-              </div>
-              <span className="font-bold text-white text-lg">Workshop wird aufgezeichnet</span>
+        <div className="reveal mt-10 bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+          <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center text-center sm:text-left">
+            <div className="flex items-center gap-2 text-gray-700">
+              <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={2} />
+              <span className="font-medium text-sm md:text-base">Workshop wird aufgezeichnet</span>
             </div>
-            <span className="text-gray-400">
+            <div className="text-gray-600 text-sm md:text-base">
               Du bekommst Zugriff auf die Aufnahme + Slides
-            </span>
+            </div>
           </div>
         </div>
       </div>

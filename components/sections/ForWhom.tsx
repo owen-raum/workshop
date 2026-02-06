@@ -1,19 +1,19 @@
-import { CheckCircle, XCircle, Lightbulb } from 'lucide-react';
+import { CheckCircle2, HelpCircle, AlertTriangle, Target, X } from 'lucide-react';
 
 export function ForWhom() {
-  const goodFor = [
+  const perfectFor = [
     {
-      icon: '🎯',
+      icon: HelpCircle,
       title: 'Du willst verstehen, nicht nur glauben',
       description: 'Du hörst überall "AI-Agents" aber niemand zeigt dir ein echtes System im Einsatz.',
     },
     {
-      icon: '⚠️',
+      icon: AlertTriangle,
       title: 'Du willst die Risiken kennen',
       description: 'Bevor du Zeit investierst, willst du wissen was schief gehen kann und was es wirklich kostet.',
     },
     {
-      icon: '💡',
+      icon: Target,
       title: 'Du willst eine ehrliche Einschätzung',
       description: 'Macht das für mein Business überhaupt Sinn? Keine Verkaufs-Pitch, sondern echte Antwort.',
     },
@@ -26,75 +26,66 @@ export function ForWhom() {
   ];
 
   return (
-    <section className="relative w-full section-padding bg-[#0a0a0a] overflow-hidden">
-      <div className="relative z-10 container-custom">
-        {/* Header */}
-        <div className="reveal text-center mb-20 max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-            <span className="text-white">Ist das was für </span>
-            <span className="gradient-text">dich?</span>
+    <section id="whom" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">
+            Ist das was für dich?
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 italic">
-            "Ehrliche Antwort: Kommt drauf an."
+          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ehrliche Antwort: Kommt drauf an.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Perfect For */}
-          <div className="reveal">
-            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-green-400" />
-              Perfekt für dich, wenn du...
-            </h3>
-            <div className="space-y-6">
-              {goodFor.map((item, index) => (
+        <div className="mb-16">
+          <h3 className="reveal text-2xl font-medium text-gray-900 mb-6 text-center">
+            ✅ Perfekt für dich, wenn du...
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {perfectFor.map((item, index) => {
+              const Icon = item.icon;
+              return (
                 <div
                   key={index}
-                  className="glass-strong rounded-2xl p-6 card-hover group"
+                  className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-4">
-                    <span className="text-4xl">{item.icon}</span>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-400 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
+                  <Icon className="w-8 h-8 text-zinc-700" strokeWidth={2} />
+                  <div className="flex flex-col gap-2">
+                    <h4 className="text-lg font-medium text-gray-900">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="reveal text-2xl font-medium text-gray-900 mb-6 text-center">
+            ❌ Nicht für dich, wenn du...
+          </h3>
+          <div className="reveal bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+            <ul className="space-y-4">
+              {notFor.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 md:gap-4">
+                  <X className="w-5 h-5 text-gray-500 mt-0.5" strokeWidth={2} />
+                  <span className="text-gray-700 text-base md:text-lg">
+                    {item}
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
+        </div>
 
-          {/* Not For */}
-          <div className="reveal" style={{ animationDelay: '200ms' }}>
-            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <XCircle className="w-8 h-8 text-red-400" />
-              Nicht für dich, wenn du...
-            </h3>
-            <div className="glass-strong rounded-2xl p-8">
-              <ul className="space-y-5">
-                {notFor.map((item, index) => (
-                  <li key={index} className="flex items-start gap-4 text-gray-300">
-                    <XCircle className="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0" />
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Info Box */}
-            <div className="mt-8 glass rounded-2xl p-6 border-l-4 border-blue-500">
-              <div className="flex items-start gap-3">
-                <Lightbulb className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
-                <p className="text-gray-300 leading-relaxed">
-                  <strong className="text-white">Kein technisches Vorwissen nötig</strong> – nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="reveal mt-10 text-center bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+          <p className="text-base md:text-lg text-gray-700 font-medium px-2">
+            💡 Kein technisches Vorwissen nötig – nur echtes Interesse daran zu verstehen, was AI-Agents können und was nicht.
+          </p>
         </div>
       </div>
     </section>
