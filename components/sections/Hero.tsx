@@ -52,7 +52,7 @@ export function Hero() {
             </button>
             
             {/* Made by Badge */}
-            <div className="flex items-center gap-2 bg-[#FAFAFA] border border-[#e5e5e5] rounded-full py-1.5 px-3">
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full py-2 px-4 shadow-sm hover:shadow-md transition-shadow">
               <img 
                 src="/andy.jpg" 
                 alt="Andy Steinberger" 

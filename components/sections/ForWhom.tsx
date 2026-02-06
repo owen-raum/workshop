@@ -47,7 +47,7 @@ export function ForWhom() {
               return (
                 <div
                   key={index}
-                  className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
+                  className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
                 >
                   <Icon className="w-8 h-8 text-zinc-700" strokeWidth={2} />
                   <div className="flex flex-col gap-2">

@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="bg-[#F1EFEB] border-t border-[rgba(34,34,34,0.12)] py-20 md:py-24 px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Final CTA Section */}
-        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 text-center text-white mb-16">
+        <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 text-center text-white mb-16 shadow-[0_0_80px_-20px_rgba(255,255,255,0.1)]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             Zeit, dass AI für dich arbeitet.
           </h2>

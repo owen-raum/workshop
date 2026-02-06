@@ -66,7 +66,7 @@ export function WorkshopContent() {
             return (
               <div
                 key={index}
-                className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
+                className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between mb-4">
                   <Icon className="w-10 h-10 text-gray-700" strokeWidth={2} />

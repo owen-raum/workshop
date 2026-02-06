@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { BackToTop } from "@/components/ui/BackToTop";
 import { Databuddy } from "@databuddy/sdk/react";
 import { Analytics } from "./analytics";
 import { MetaPixel } from "@/components/meta-pixel";
@@ -61,6 +62,7 @@ export default function RootLayout({
         <MetaPixel />
         {children}
         <ScrollReveal />
+        <BackToTop />
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>

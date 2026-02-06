@@ -55,6 +55,35 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
   }
+  
+  /* Focus states for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-gray-900;
+  }
+  
+  button:focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-[#111111];
+  }
+  
+  /* Link hover underline animation */
+  a:not(.no-underline):not([class*="button"]):not([class*="btn"]) {
+    @apply relative;
+  }
+  
+  a:not(.no-underline):not([class*="button"]):not([class*="btn"])::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.3s ease-out;
+  }
+  
+  a:not(.no-underline):not([class*="button"]):not([class*="btn"]):hover::after {
+    width: 100%;
+  }
 
   .highlight-marker {
     position: relative;
@@ -127,4 +156,22 @@
   .card-padding-lg {
     @apply p-10 md:p-14;
   }
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #e5e5e5 0%,
+    #f0f0f0 20%,
+    #e5e5e5 40%,
+    #e5e5e5 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
