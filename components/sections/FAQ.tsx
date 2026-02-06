@@ -1,4 +1,5 @@
 import { FAQItem } from '../ui/FAQItem';
+import { Mail } from 'lucide-react';
 
 export function FAQ() {
   const faqs = [
@@ -45,48 +46,44 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
-      <div className="max-w-5xl mx-auto">
+    <section id="faq" className="relative w-full section-padding bg-[#0a0a0a] overflow-hidden">
+      <div className="relative z-10 container-custom">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
-            Noch Fragen?
+        <div className="reveal text-center mb-20">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6">
+            <span className="text-white">Noch </span>
+            <span className="gradient-text-2">Fragen?</span>
           </h2>
-          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Die häufigsten. Wenn deine nicht dabei ist – schreib mir.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="reveal bg-transparent rounded-2xl border border-[rgba(34,34,34,0.12)] overflow-hidden">
-          <div className="px-6 md:px-10">
+        <div className="reveal glass-strong rounded-3xl overflow-hidden max-w-4xl mx-auto mb-12">
+          <div className="p-8 md:p-10">
             {faqs.map((faq, index) => (
               <FAQItem key={index} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </div>
 
-        {/* Contact Box */}
-        <div className="reveal mt-8 md:mt-10 bg-transparent rounded-2xl p-8 md:p-10 border border-[rgba(34,34,34,0.12)] text-center">
-          <h3 className="font-display text-2xl font-semibold text-gray-900 mb-3">
+        {/* Contact Card */}
+        <div className="reveal glass-strong rounded-3xl p-10 md:p-14 max-w-2xl mx-auto text-center border-2 border-blue-500/20">
+          <h3 className="text-3xl font-bold text-white mb-4">
             Deine Frage war nicht dabei?
           </h3>
-          <p className="text-gray-600 text-base md:text-lg mb-6">
-            Schreib mir:{' '}
-            <a
-              href="mailto:andy@raum.so"
-              className="font-semibold text-gray-900 hover:text-gray-700 underline"
-            >
-              andy@raum.so
-            </a>
+          <p className="text-gray-400 text-lg mb-8">
+            Schreib mir einfach eine E-Mail
           </p>
           <a
             href="mailto:andy@raum.so"
-            className="inline-flex items-center gap-3 text-gray-900 hover:text-gray-700 font-semibold text-base md:text-lg transition-colors"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            style={{
+              background: 'linear-gradient(135deg, #3b82f6 0%, #a855f7 100%)'
+            }}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+            <Mail className="w-5 h-5" />
             andy@raum.so
           </a>
         </div>
