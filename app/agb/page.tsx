@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function AGB() {
   return (
-    <div className="min-h-screen bg-[#F1EFEB] py-20 px-4">
+    <div className="min-h-screen bg-[var(--bg-primary)] py-20 px-4">
       <div className="max-w-3xl mx-auto">
         <Link
           href="/"

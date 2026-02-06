@@ -13,9 +13,24 @@ export function Hero() {
   const nextTiers = getNextTiers(tier.name);
 
   return (
-    <section className="relative bg-[#F1EFEB]">
+    <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+      {/* Prism wash */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.65]"
+        style={{ backgroundImage: 'var(--prism-gradient)' }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-3xl"
+        style={{
+          background:
+            'radial-gradient(circle at 30% 30%, rgba(167,139,250,0.22), transparent 55%), radial-gradient(circle at 70% 40%, rgba(103,232,249,0.18), transparent 60%), radial-gradient(circle at 55% 70%, rgba(251,191,36,0.18), transparent 62%)',
+        }}
+      />
+
       <div className="relative z-10 w-full min-h-[88vh] flex items-center">
-        <div className="w-full max-w-[800px] mx-auto px-6 py-20 lg:py-24 text-center">
+        <div className="w-full max-w-[860px] mx-auto px-6 pt-28 pb-20 md:pt-32 lg:pt-36 lg:pb-24 text-center">
           
           {/* Date & Time */}
           <p className="text-sm font-medium text-gray-600 mb-8">
@@ -23,17 +38,9 @@ export function Hero() {
           </p>
 
           {/* Headline */}
-          <h1 className="text-[44px] sm:text-[52px] md:text-[62px] lg:text-[68px] font-bold leading-[1.1] tracking-[-0.02em] text-black mb-6">
+          <h1 className="font-display text-[44px] sm:text-[52px] md:text-[62px] lg:text-[68px] font-bold leading-[1.05] tracking-[-0.04em] text-black mb-6">
             Mein AI-Agent Owen hat letzte Woche{' '}
-            <span 
-              className="relative inline-block font-extrabold"
-              style={{
-                background: 'linear-gradient(180deg, transparent 60%, #FFE066 60%, #FFE066 90%, transparent 90%)',
-                padding: '0 4px',
-              }}
-            >
-              14 Stunden
-            </span>
+            <span className="prism-underline font-extrabold">14 Stunden</span>
             {' '}Arbeit übernommen. Ich zeige dir wie.
           </h1>
 
@@ -46,7 +53,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mb-6">
             <button
               onClick={scrollToPricing}
-              className="bg-black hover:bg-[#1a1a1a] text-white text-base font-semibold py-4 px-8 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] shadow-[0_1px_3px_rgba(0,0,0,0.1)]"
+              className="prism-button bg-black hover:bg-[#1a1a1a] text-white text-base font-semibold py-4 px-8 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-18px_rgba(17,17,17,0.55)] shadow-[0_1px_3px_rgba(0,0,0,0.1)]"
             >
               {getCtaText(tier, ticketsLoading)}
             </button>

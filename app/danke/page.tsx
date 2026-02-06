@@ -4,7 +4,7 @@ import { PurchaseTracker } from "./PurchaseTracker";
 
 export default function Danke() {
   return (
-    <div className="min-h-screen bg-[#F1EFEB] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center px-4">
       <Suspense fallback={null}>
         <PurchaseTracker />
       </Suspense>

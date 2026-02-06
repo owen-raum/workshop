@@ -21,7 +21,7 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
     <>
       {loading && (
         <div
-          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#F1EFEB] transition-opacity duration-500 ${
+          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[var(--bg-primary)] transition-opacity duration-500 ${
             fadeOut ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -33,6 +33,13 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
                 'linear-gradient(rgba(17,17,17,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,0.06) 1px, transparent 1px)',
               backgroundSize: '40px 40px',
             }}
+          />
+
+          {/* Prism wash */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none opacity-[0.55]"
+            style={{ backgroundImage: 'var(--prism-gradient)' }}
           />
 
           <div className="relative flex flex-col items-center animate-fade-in">
@@ -56,7 +63,7 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
             {/* Loading bar */}
             <div className="mt-8 h-[2px] w-32 bg-black/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#111111]/70 rounded-full"
+                className="h-full rounded-full shimmer"
                 style={{
                   animation: 'loading-bar 1.5s ease-in-out',
                   animationFillMode: 'forwards',

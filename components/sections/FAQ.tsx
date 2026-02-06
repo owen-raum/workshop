@@ -45,7 +45,7 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="faq" className="w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

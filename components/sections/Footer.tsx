@@ -12,7 +12,7 @@ export function Footer() {
   const { tier, loading: ticketsLoading } = useTickets();
 
   return (
-    <footer className="bg-[#F1EFEB] border-t border-[rgba(34,34,34,0.12)] py-20 md:py-24 px-8 md:px-16 lg:px-24">
+    <footer className="bg-[var(--bg-primary)] border-t border-[rgba(34,34,34,0.12)] section-padding px-6 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Final CTA Section */}
         <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 text-center text-white mb-16 shadow-[0_0_80px_-20px_rgba(255,255,255,0.1)]">
@@ -24,7 +24,7 @@ export function Footer() {
           </p>
           <button
             onClick={scrollToPricing}
-            className="bg-white text-[#111111] hover:bg-[#f7f5f1] font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
+            className="prism-button bg-white text-[#111111] hover:bg-[var(--bg-secondary)] font-semibold rounded-xl px-10 py-5 text-lg transition-colors"
           >
             {getCtaText(tier, ticketsLoading)}
           </button>

@@ -51,7 +51,7 @@ export function CookieBanner() {
 
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="mx-4 w-full max-w-md rounded-2xl border border-[rgba(34,34,34,0.12)] bg-[#F1EFEB] p-8 shadow-2xl">
+      <div className="mx-4 w-full max-w-md rounded-2xl border border-[rgba(34,34,34,0.12)] bg-[var(--bg-primary)] p-8 shadow-2xl">
         <div className="mb-6 flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]">
             <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

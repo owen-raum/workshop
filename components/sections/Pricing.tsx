@@ -59,7 +59,7 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="pricing" className="w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -72,7 +72,17 @@ export function Pricing() {
         </div>
 
         {/* Single Pricing Card */}
-        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
+        <div className="reveal group bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-8 relative overflow-hidden border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.40)] transition-transform duration-300 lg:-translate-x-8 hover:-translate-y-0.5">
+          {/* Prismatic glow (right side) */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-28 top-1/2 h-[460px] w-[460px] -translate-y-1/2 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-prism-glow"
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(167,139,250,0.55), rgba(103,232,249,0.45), rgba(251,191,36,0.45))',
+              backgroundSize: '200% 200%',
+            }}
+          />
           {/* Badge – dynamisch */}
           {ticketsLoading ? (
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 shimmer">
@@ -102,9 +112,9 @@ export function Pricing() {
                 )}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-black/10 rounded-full h-3 overflow-hidden">
               <div
-                className="h-3 rounded-full bg-gradient-to-r from-gray-800 via-gray-900 to-black transition-all duration-500"
+                className="h-3 rounded-full bg-[linear-gradient(90deg,rgba(167,139,250,0.70),rgba(103,232,249,0.60),rgba(251,191,36,0.65))] transition-all duration-500"
                 style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
               />
             </div>
@@ -177,7 +187,7 @@ export function Pricing() {
           <button
             onClick={handleBook}
             disabled={loading || ticketsLoading}
-            className={`w-full font-semibold text-lg py-4 px-8 rounded-xl transition-all ${
+            className={`prism-button w-full font-semibold text-lg py-4 px-8 rounded-xl transition-all ${
               loading || ticketsLoading
                 ? 'bg-gray-400 text-white cursor-wait'
                 : 'bg-[#111111] hover:bg-[#1a1a1a] text-white'
