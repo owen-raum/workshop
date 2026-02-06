@@ -14,7 +14,7 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-display font-semibold rounded-xl transition-colors inline-flex items-center justify-center';
+  const baseStyles = 'font-display font-semibold rounded-lg transition-colors inline-flex items-center justify-center';
 
   const variantStyles = {
     primary: 'bg-[#111111] hover:bg-[#1a1a1a] text-white disabled:opacity-50 disabled:cursor-not-allowed',

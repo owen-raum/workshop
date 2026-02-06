@@ -68,9 +68,9 @@ export function WorkshopContent() {
                 key={index}
                 className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
               >
-                <div className="flex items-center justify-between">
-                  <Icon className="w-8 h-8 text-zinc-700" strokeWidth={1.5} />
-                  <span className="text-xs font-medium text-gray-500 border border-[rgba(34,34,34,0.12)] rounded-full px-3 py-1">
+                <div className="flex items-center justify-between mb-4">
+                  <Icon className="w-10 h-10 text-gray-700" strokeWidth={2} />
+                  <span className="text-sm font-semibold text-gray-900 bg-gray-100 rounded-full px-4 py-1.5">
                     {module.duration}
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export function WorkshopContent() {
                   <ul className="space-y-2">
                     {module.points.map((point) => (
                       <li key={point} className="flex items-start gap-2 text-gray-500 text-sm leading-relaxed">
-                        <CheckCircle2 className="w-4 h-4 text-gray-500 mt-0.5" strokeWidth={1.5} />
+                        <CheckCircle2 className="w-4 h-4 text-gray-500 mt-0.5" strokeWidth={2} />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -95,7 +95,7 @@ export function WorkshopContent() {
         <div className="reveal mt-10 bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
           <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center text-center sm:text-left">
             <div className="flex items-center gap-2 text-gray-700">
-              <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={1.5} />
+              <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={2} />
               <span className="font-medium text-sm md:text-base">Workshop wird aufgezeichnet</span>
             </div>
             <div className="text-gray-600 text-sm md:text-base">

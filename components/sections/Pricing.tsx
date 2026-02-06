@@ -136,7 +136,11 @@ export function Pricing() {
             <div className="text-gray-500 mt-2 mb-4">einmalig, inkl. MwSt.</div>
             {/* Later prices – dynamisch */}
             {!ticketsLoading && laterPrices && (
-              <div className="text-sm text-gray-500">Später: {laterPrices}</div>
+              <div className="mt-3 pt-3 border-t border-[rgba(34,34,34,0.08)]">
+                <p className="text-sm text-gray-600">
+                  Ab Stufe 2: <span className="font-semibold text-gray-900">{laterPrices}</span>
+                </p>
+              </div>
             )}
           </div>
 
