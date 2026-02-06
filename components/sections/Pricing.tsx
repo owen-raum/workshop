@@ -102,9 +102,9 @@ export function Pricing() {
                 )}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-gray-200 rounded-full h-3">
               <div
-                className="bg-[#111111] h-2 rounded-full transition-all duration-500"
+                className="bg-[#111111] h-3 rounded-full transition-all duration-500"
                 style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
               />
             </div>
@@ -129,7 +129,7 @@ export function Pricing() {
                 <span className="inline-block w-44 h-20 bg-gray-200 rounded animate-pulse" />
               </div>
             ) : (
-              <div className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900">
+              <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900">
                 {tier.price}€
               </div>
             )}

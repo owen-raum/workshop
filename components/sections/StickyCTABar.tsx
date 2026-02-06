@@ -50,19 +50,20 @@ export function StickyCTABar() {
     >
       <div className="bg-[#F1EFEB]/95 border-t border-[rgba(34,34,34,0.12)] backdrop-blur-md shadow-[0_-12px_40px_-20px_rgba(17,17,17,0.4)]">
         <div className="max-w-[1300px] mx-auto px-4 md:px-16 lg:px-24 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-700 text-base sm:text-lg font-medium">
+          <div className="text-center sm:text-left">
             {ticketsLoading ? (
-              <span className="text-gray-500">Lade...</span>
+              <p className="text-sm text-gray-500">Lade...</p>
             ) : (
               <>
-                Noch{' '}
-                <strong className="text-gray-900">
-                  {tier.spotsLeft} {tier.label}-Tickets
-                </strong>{' '}
-                ({tier.price}€ inkl. MwSt)
+                <p className="text-sm sm:text-base font-semibold text-gray-900">
+                  Noch {tier.spotsLeft} {tier.label}-Tickets
+                </p>
+                <p className="text-xs sm:text-sm text-gray-600">
+                  {tier.price}€ inkl. MwSt
+                </p>
               </>
             )}
-          </p>
+          </div>
           <Button variant="primary" size="medium" onClick={scrollToPricing}>
             Jetzt sichern
           </Button>
