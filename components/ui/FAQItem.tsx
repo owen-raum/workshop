@@ -15,7 +15,7 @@ export function FAQItem({ question, answer }: FAQItemProps) {
     <div className="border-b border-[rgba(34,34,34,0.12)] last:border-b-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-7 flex items-center justify-between text-left group transition-all duration-300"
+        className="w-full py-6 -mx-2 px-2 flex items-center justify-between text-left rounded-lg hover:bg-gray-50 group transition-colors duration-200"
       >
         <span className="font-display text-xl md:text-2xl font-semibold text-gray-900 pr-8 group-hover:text-gray-700 transition-colors">
           {question}
@@ -24,7 +24,7 @@ export function FAQItem({ question, answer }: FAQItemProps) {
           className={`w-6 h-6 text-gray-600 flex-shrink-0 transition-all duration-300 ${
             isOpen ? 'rotate-180' : ''
           }`}
-          strokeWidth={1.5}
+          strokeWidth={2}
         />
       </button>
       <div

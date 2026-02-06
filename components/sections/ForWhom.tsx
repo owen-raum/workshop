@@ -1,4 +1,4 @@
-import { CheckCircle2, HelpCircle, AlertTriangle, Target } from 'lucide-react';
+import { CheckCircle2, HelpCircle, AlertTriangle, Target, X } from 'lucide-react';
 
 export function ForWhom() {
   const perfectFor = [
@@ -47,9 +47,9 @@ export function ForWhom() {
               return (
                 <div
                   key={index}
-                  className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)]"
+                  className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
                 >
-                  <Icon className="w-8 h-8 text-zinc-700" strokeWidth={1.5} />
+                  <Icon className="w-8 h-8 text-zinc-700" strokeWidth={2} />
                   <div className="flex flex-col gap-2">
                     <h4 className="text-lg font-medium text-gray-900">
                       {item.title}
@@ -72,7 +72,7 @@ export function ForWhom() {
             <ul className="space-y-4">
               {notFor.map((item, index) => (
                 <li key={index} className="flex items-start gap-3 md:gap-4">
-                  <CheckCircle2 className="w-5 h-5 text-gray-500 mt-0.5" strokeWidth={1.5} />
+                  <X className="w-5 h-5 text-gray-500 mt-0.5" strokeWidth={2} />
                   <span className="text-gray-700 text-base md:text-lg">
                     {item}
                   </span>

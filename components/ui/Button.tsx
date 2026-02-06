@@ -14,12 +14,12 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-display font-semibold rounded-xl transition-colors inline-flex items-center justify-center';
+  const baseStyles = 'font-display font-semibold rounded-lg transition-all duration-200 ease-out inline-flex items-center justify-center';
 
   const variantStyles = {
-    primary: 'bg-[#111111] hover:bg-[#1a1a1a] text-white disabled:opacity-50 disabled:cursor-not-allowed',
-    secondary: 'bg-white hover:bg-[#f7f5f1] text-gray-900 border border-[rgba(34,34,34,0.12)] disabled:opacity-50 disabled:cursor-not-allowed',
-    outline: 'border border-[rgba(34,34,34,0.12)] hover:border-[#111111] hover:bg-[#f7f5f1] text-gray-700 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed',
+    primary: 'bg-[#111111] hover:bg-[#1a1a1a] text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none',
+    secondary: 'bg-white hover:bg-[#f7f5f1] text-gray-900 border border-[rgba(34,34,34,0.12)] hover:shadow-md hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none',
+    outline: 'border border-[rgba(34,34,34,0.12)] hover:border-[#111111] hover:bg-[#f7f5f1] text-gray-700 hover:text-gray-900 hover:shadow-md hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none',
   };
 
   const sizeStyles = {

@@ -38,7 +38,7 @@ export function Header() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <span className="font-display text-lg font-medium text-gray-900">Andy Steinberger</span>
+          <span className="font-display text-xl md:text-2xl font-semibold text-gray-900">Andy Steinberger</span>
           <span className="text-gray-600 text-sm font-medium hidden sm:inline">× OpenClaw Deep Dive</span>
         </a>
 

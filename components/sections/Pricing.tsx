@@ -75,7 +75,7 @@ export function Pricing() {
         <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           {/* Badge – dynamisch */}
           {ticketsLoading ? (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 animate-pulse">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 shimmer">
               Lädt...
             </div>
           ) : (
@@ -89,22 +89,22 @@ export function Pricing() {
             <div className="flex flex-wrap justify-between items-center gap-2 mb-3 text-sm text-gray-600">
               <span className="font-medium">
                 {ticketsLoading ? (
-                  <span className="inline-block w-32 h-4 bg-gray-200 rounded animate-pulse" />
+                  <span className="inline-block w-32 h-4 rounded shimmer" />
                 ) : (
                   `${Math.round(tier.progressPercent)}% dieser Stufe vergeben`
                 )}
               </span>
               <span>
                 {ticketsLoading ? (
-                  <span className="inline-block w-40 h-4 bg-gray-200 rounded animate-pulse" />
+                  <span className="inline-block w-40 h-4 rounded shimmer" />
                 ) : (
                   `Noch ${tier.spotsLeft} von ${tier.spotsInTier} verfügbar`
                 )}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-gray-200 rounded-full h-3">
               <div
-                className="bg-[#111111] h-2 rounded-full transition-all duration-500"
+                className="h-3 rounded-full bg-gradient-to-r from-gray-800 via-gray-900 to-black transition-all duration-500"
                 style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
               />
             </div>
@@ -126,17 +126,21 @@ export function Pricing() {
             </p>
             {ticketsLoading ? (
               <div className="h-24 flex items-center justify-center">
-                <span className="inline-block w-44 h-20 bg-gray-200 rounded animate-pulse" />
+                <span className="inline-block w-44 h-20 rounded shimmer" />
               </div>
             ) : (
-              <div className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900">
+              <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900">
                 {tier.price}€
               </div>
             )}
             <div className="text-gray-500 mt-2 mb-4">einmalig, inkl. MwSt.</div>
             {/* Later prices – dynamisch */}
             {!ticketsLoading && laterPrices && (
-              <div className="text-sm text-gray-500">Später: {laterPrices}</div>
+              <div className="mt-3 pt-3 border-t border-[rgba(34,34,34,0.08)]">
+                <p className="text-sm text-gray-600">
+                  Ab Stufe 2: <span className="font-semibold text-gray-900">{laterPrices}</span>
+                </p>
+              </div>
             )}
           </div>
 
