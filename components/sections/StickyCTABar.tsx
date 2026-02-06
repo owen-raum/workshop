@@ -1,13 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '../ui/Button';
 import { useTickets } from '@/lib/useTickets';
+import { Sparkles } from 'lucide-react';
 
 export function StickyCTABar() {
   const [isVisible, setIsVisible] = useState(false);
-
-  // Ticket data – zentralisiert
   const { tier, loading: ticketsLoading } = useTickets();
 
   useEffect(() => {
@@ -44,29 +42,39 @@ export function StickyCTABar() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
       }`}
     >
-      <div className="bg-[#F1EFEB]/95 border-t border-[rgba(34,34,34,0.12)] backdrop-blur-md shadow-[0_-12px_40px_-20px_rgba(17,17,17,0.4)]">
-        <div className="max-w-[1300px] mx-auto px-4 md:px-16 lg:px-24 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="glass-strong border-t border-white/10 backdrop-blur-2xl shadow-[0_-20px_60px_-20px_rgba(59,130,246,0.4)]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
             {ticketsLoading ? (
-              <p className="text-sm text-gray-500">Lade...</p>
+              <p className="text-sm text-gray-500 shimmer">Lade...</p>
             ) : (
               <>
-                <p className="text-sm sm:text-base font-semibold text-gray-900">
-                  Noch {tier.spotsLeft} {tier.label}-Tickets
-                </p>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  {tier.price}€ inkl. MwSt
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                  <p className="text-sm font-bold text-white">
+                    Noch {tier.spotsLeft} {tier.label}-Tickets verfügbar
+                  </p>
+                </div>
+                <p className="text-sm text-gray-400">
+                  <span className="text-white font-bold">{tier.price}€</span> inkl. MwSt
                 </p>
               </>
             )}
           </div>
-          <Button variant="primary" size="medium" onClick={scrollToPricing}>
+          <button
+            onClick={scrollToPricing}
+            className="px-8 py-3 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center gap-2"
+            style={{
+              background: 'linear-gradient(135deg, #3b82f6 0%, #a855f7 100%)'
+            }}
+          >
+            <Sparkles className="w-4 h-4" />
             Jetzt sichern
-          </Button>
+          </button>
         </div>
       </div>
     </div>
