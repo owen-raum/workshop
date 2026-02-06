@@ -14,7 +14,7 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-display font-semibold rounded-lg transition-all duration-200 ease-out inline-flex items-center justify-center';
+  const baseStyles = 'prism-button font-display font-semibold rounded-lg transition-all duration-200 ease-out inline-flex items-center justify-center';
 
   const variantStyles = {
     primary: 'bg-[#111111] hover:bg-[#1a1a1a] text-white hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none',

@@ -49,28 +49,48 @@ export function WorkshopContent() {
   ];
 
   return (
-    <section id="content" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 max-w-4xl">
-          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold leading-tight text-gray-900 mb-6">
-            90 Minuten. Kein Hype.
-          </h2>
-          <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
-            Ich zeige dir was AI-Agents können, wo sie versagen, und ob das für dich relevant ist.
-          </p>
+    <section
+      id="content"
+      className="relative w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]"
+    >
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 items-start">
+        <div className="max-w-xl">
+          <div className="mb-10 md:mb-14">
+            <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold leading-tight text-gray-900 mb-6">
+              90 Minuten. Kein Hype.
+            </h2>
+            <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
+              Ich zeige dir was AI-Agents können, wo sie versagen, und ob das für dich relevant ist.
+            </p>
+          </div>
+
+          <div className="reveal bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
+            <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center text-center sm:text-left">
+              <div className="flex items-center gap-2 text-gray-700">
+                <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={2} />
+                <span className="font-medium text-sm md:text-base">Workshop wird aufgezeichnet</span>
+              </div>
+              <div className="text-gray-600 text-sm md:text-base">
+                Du bekommst Zugriff auf die Aufnahme + Slides
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {modules.map((module, index) => {
             const Icon = module.icon;
             return (
               <div
                 key={index}
-                className="reveal bg-transparent flex flex-col gap-4 rounded-xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+                className="reveal group bg-transparent flex flex-col gap-4 rounded-2xl p-6 border border-[rgba(34,34,34,0.12)] transition-all duration-300 hover:shadow-[0_22px_60px_-46px_rgba(17,17,17,0.45)] hover:-translate-y-1"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <Icon className="w-10 h-10 text-gray-700" strokeWidth={2} />
-                  <span className="text-sm font-semibold text-gray-900 bg-gray-100 rounded-full px-4 py-1.5">
+                <div className="flex items-center justify-between mb-1">
+                  <Icon
+                    className="w-10 h-10 text-zinc-700 transition-colors duration-300 group-hover:text-[color:var(--prism-violet)]"
+                    strokeWidth={2}
+                  />
+                  <span className="text-sm font-semibold text-gray-900 bg-white/70 backdrop-blur-sm rounded-full px-4 py-1.5 border border-[rgba(34,34,34,0.10)]">
                     {module.duration}
                   </span>
                 </div>
@@ -90,18 +110,6 @@ export function WorkshopContent() {
               </div>
             );
           })}
-        </div>
-
-        <div className="reveal mt-10 bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]">
-          <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center text-center sm:text-left">
-            <div className="flex items-center gap-2 text-gray-700">
-              <CheckCircle2 className="w-5 h-5 text-gray-700" strokeWidth={2} />
-              <span className="font-medium text-sm md:text-base">Workshop wird aufgezeichnet</span>
-            </div>
-            <div className="text-gray-600 text-sm md:text-base">
-              Du bekommst Zugriff auf die Aufnahme + Slides
-            </div>
-          </div>
         </div>
       </div>
     </section>

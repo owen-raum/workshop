@@ -48,7 +48,7 @@ export function StickyCTABar() {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
       }`}
     >
-      <div className="bg-[#F1EFEB]/95 border-t border-[rgba(34,34,34,0.12)] backdrop-blur-md shadow-[0_-12px_40px_-20px_rgba(17,17,17,0.4)]">
+      <div className="bg-[color:var(--bg-primary)] bg-opacity-95 border-t border-[rgba(34,34,34,0.12)] backdrop-blur-md shadow-[0_-12px_40px_-20px_rgba(17,17,17,0.4)]">
         <div className="max-w-[1300px] mx-auto px-4 md:px-16 lg:px-24 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
             {ticketsLoading ? (

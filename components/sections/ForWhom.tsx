@@ -26,7 +26,7 @@ export function ForWhom() {
   ];
 
   return (
-    <section id="whom" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="whom" className="w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">

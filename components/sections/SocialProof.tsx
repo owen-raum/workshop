@@ -30,7 +30,7 @@ export function SocialProof() {
   ];
 
   return (
-    <section className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section className="w-full section-padding px-6 sm:px-8 md:px-16 lg:px-24 bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4">
@@ -45,8 +45,16 @@ export function SocialProof() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="reveal bg-transparent rounded-2xl p-6 md:p-8 border border-[rgba(34,34,34,0.12)]"
+              className="reveal relative overflow-hidden bg-transparent rounded-2xl p-6 md:p-8 pl-7 md:pl-9 border border-[rgba(34,34,34,0.12)]"
             >
+              <div
+                aria-hidden
+                className="absolute left-0 top-0 bottom-0 w-[5px] opacity-70"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(167,139,250,0.65), rgba(103,232,249,0.55), rgba(251,191,36,0.60))',
+                }}
+              />
               <div className="text-gray-500 mb-4">
                 <Quote className="w-8 h-8" strokeWidth={1.5} />
               </div>

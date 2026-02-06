@@ -9,19 +9,28 @@ import { Pricing } from '@/components/sections/Pricing';
 import { FAQ } from '@/components/sections/FAQ';
 import { Footer } from '@/components/sections/Footer';
 import { StickyCTABar } from '@/components/sections/StickyCTABar';
+import { PrismBeam } from '@/components/ui/PrismBeam';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#F1EFEB]">
+    <main className="min-h-screen bg-[var(--bg-primary)]">
       <Header />
       <Hero />
+      <PrismBeam />
       <WorkshopContent />
+      <PrismBeam />
       <ForWhom />
+      <PrismBeam />
       <AboutUsSocialProof />
+      <PrismBeam />
       <SocialProof />
+      <PrismBeam />
       <WhatIsOpenClaw />
+      <PrismBeam />
       <Pricing />
+      <PrismBeam />
       <FAQ />
+      <PrismBeam />
       <Footer />
       <StickyCTABar />
     </main>

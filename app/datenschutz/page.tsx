@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Datenschutz() {
   return (
-    <div className="min-h-screen bg-[#F1EFEB] py-20 px-4">
+    <div className="min-h-screen bg-[var(--bg-primary)] py-20 px-4">
       <div className="mx-auto max-w-3xl">
         <Link
           href="/"

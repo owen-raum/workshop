@@ -24,8 +24,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#F1EFEB]/95 backdrop-blur-xl border-b border-[rgba(34,34,34,0.12)]'
-          : 'bg-[#F1EFEB]/80 backdrop-blur-md'
+          ? 'bg-[color:var(--bg-primary)] bg-opacity-95 backdrop-blur-xl border-b border-[rgba(34,34,34,0.12)]'
+          : 'bg-[color:var(--bg-primary)] bg-opacity-80 backdrop-blur-md'
       }`}
     >
       <div className="h-[70px] max-w-[1300px] mx-auto px-4 md:px-16 lg:px-24 flex items-center justify-between">
@@ -45,7 +45,7 @@ export function Header() {
         {/* CTA Button */}
         <button
           onClick={scrollToPricing}
-          className="px-5 py-2.5 text-sm font-medium bg-[#111111] hover:bg-[#1a1a1a] text-white rounded-md transition-colors"
+          className="prism-button px-5 py-2.5 text-sm font-medium bg-[#111111] hover:bg-[#1a1a1a] text-white rounded-md transition-colors"
         >
           {getCtaText(tier, ticketsLoading)}
         </button>

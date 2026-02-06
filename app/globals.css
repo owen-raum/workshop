@@ -2,114 +2,219 @@
 
 @theme {
   /* Fonts */
-  --font-sans: inter, "inter Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-sans: inter, "inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   --font-display: spaceGrotesk, "spaceGrotesk Fallback", inter, "inter Fallback", sans-serif;
 
-  /* Colors - Zerotoshipped-inspired neutrals */
-  --color-primary-50: #f8f7f4;
-  --color-primary-100: #f1efeb;
-  --color-primary-200: #e7e3dc;
-  --color-primary-300: #d9d2c7;
-  --color-primary-400: #bfb6a7;
-  --color-primary-500: #a79884;
-  --color-primary-600: #8b7a65;
-  --color-primary-700: #6e5f4f;
-  --color-primary-800: #4f453b;
+  /* Warm neutrals (Porcelain base) */
+  --color-primary-50: #fffdf8;
+  --color-primary-100: #fbf8f1; /* Porcelain */
+  --color-primary-200: #f1eee7;
+  --color-primary-300: #e5ded2;
+  --color-primary-400: #c9bead;
+  --color-primary-500: #ad9e89;
+  --color-primary-600: #8f7e67;
+  --color-primary-700: #6f604e;
+  --color-primary-800: #4e4438;
   --color-primary-900: #2f2a24;
 
-  /* Accent + dark cards */
-  --color-dark-900: #111111;
-  --color-dark-800: #1c1c1c;
-  --color-dark-700: #1a1a1a;
+  /* Prism accents (sparingly) */
+  --color-prism-violet: #7c3aed; /* Iris Violet */
+  --color-prism-cyan: #06b6d4;   /* Cyan Glass */
+  --color-prism-amber: #f59e0b;  /* Sunbeam Amber */
+
+  /* Ink */
+  --color-ink: #111111;
 }
 
 @layer base {
   :root {
-    --bg-primary: #f1efeb;
-    --bg-secondary: #f7f5f1;
+    /* Surfaces */
+    --bg-primary: var(--color-primary-100);
+    --bg-secondary: var(--color-primary-50);
 
-    --text-primary: #111111;
-    --text-secondary: #525252;
-    --text-tertiary: #737373;
-    --text-subtle: #a3a3a3;
-    --text-muted: #8a8a8a;
+    /* Text */
+    --text-primary: #131313;
+    --text-secondary: #514f4b;
+    --text-tertiary: #6f6a62;
 
-    --accent-primary: #111111;
-    --accent-hover: #1a1a1a;
-    
-    --border-subtle: rgba(34, 34, 34, 0.08);
-    --border-default: rgba(34, 34, 34, 0.12);
-    --border-strong: rgba(34, 34, 34, 0.20);
-    
-    --highlight-blue: rgba(133, 196, 255, 0.35);
+    /* Borders */
+    --border-subtle: rgba(17, 17, 17, 0.08);
+    --border-default: rgba(17, 17, 17, 0.12);
+    --border-strong: rgba(17, 17, 17, 0.18);
+
+    /* Prism */
+    --prism-violet: var(--color-prism-violet);
+    --prism-cyan: var(--color-prism-cyan);
+    --prism-amber: var(--color-prism-amber);
+
+    --prism-gradient: linear-gradient(
+      90deg,
+      rgba(245, 158, 11, 0.85),
+      rgba(6, 182, 212, 0.75),
+      rgba(124, 58, 237, 0.75)
+    );
+  }
+
+  html {
+    background: var(--bg-primary);
   }
 
   body {
-    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--bg-primary);
+    background: var(--bg-primary);
     color: var(--text-primary);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Daylight Prism surface (beam + grain). */
+  body.daylight-prism {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+    overflow-x: hidden;
+  }
+
+  body.daylight-prism::before {
+    content: "";
+    position: fixed;
+    inset: -20vh -20vw;
+    pointer-events: none;
+    z-index: -2;
+    background:
+      radial-gradient(1200px 620px at 48% 8%, rgba(245, 158, 11, 0.09), transparent 60%),
+      radial-gradient(900px 520px at 56% 30%, rgba(6, 182, 212, 0.07), transparent 60%),
+      radial-gradient(980px 700px at 46% 58%, rgba(124, 58, 237, 0.06), transparent 64%);
+    filter: blur(32px);
+    opacity: 0.55;
+  }
+
+  body.daylight-prism::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    /* Fine SVG grain texture */
+    background-image: url("/grain.svg");
+    background-repeat: repeat;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+    letter-spacing: -0.02em;
   }
-  
-  /* Focus states for accessibility */
+
+  /* Focus states (quiet but crisp) */
   *:focus-visible {
-    @apply outline-none ring-2 ring-offset-2 ring-gray-900;
+    outline: none;
+    box-shadow:
+      0 0 0 2px rgba(6, 182, 212, 0.55),
+      0 0 0 6px rgba(251, 248, 241, 0.95);
+    border-radius: 12px;
   }
-  
-  button:focus-visible {
-    @apply outline-none ring-2 ring-offset-2 ring-[#111111];
-  }
-  
-  /* Link hover underline animation */
+
+  /* Link underline animation */
   a:not(.no-underline):not([class*="button"]):not([class*="btn"]) {
-    @apply relative;
+    position: relative;
   }
-  
+
   a:not(.no-underline):not([class*="button"]):not([class*="btn"])::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 0;
     height: 1px;
     background: currentColor;
-    transition: width 0.3s ease-out;
+    transition: width 0.28s ease-out;
+    opacity: 0.65;
   }
-  
+
   a:not(.no-underline):not([class*="button"]):not([class*="btn"]):hover::after {
     width: 100%;
   }
 
-  .highlight-marker {
+  /* Prism underline (signature) */
+  .prism-underline {
     position: relative;
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
+    isolation: isolate;
   }
 
-  .highlight-marker::after {
-    content: '';
+  .prism-underline::after {
+    content: "";
     position: absolute;
-    left: -4px;
-    right: -4px;
-    bottom: 0.12em;
-    height: 0.55em;
-    background: #85c4ff;
-    opacity: 0.35;
-    border-radius: 6px;
-    transform: rotate(-2deg);
+    left: -0.06em;
+    right: -0.06em;
+    bottom: 0.14em;
+    height: 0.52em;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--prism-amber), var(--prism-cyan), var(--prism-violet));
+    opacity: 0.22;
+    transform: rotate(-1.2deg);
     z-index: -1;
+  }
+
+  /* Section divider hairline (so the beam feels connected) */
+  .section-shell {
+    position: relative;
+  }
+
+  .section-shell::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(17, 17, 17, 0.06),
+      rgba(17, 17, 17, 0.10),
+      rgba(17, 17, 17, 0.06),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  /* Premium light card */
+  .prism-card {
+    background: rgba(255, 255, 255, 0.50);
+    border: 1px solid var(--border-default);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.72) inset,
+      0 24px 70px -58px rgba(17, 17, 17, 0.55);
+    backdrop-filter: blur(12px);
+  }
+
+  .prism-card-hover {
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  .prism-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.75) inset,
+      0 40px 110px -85px rgba(17, 17, 17, 0.65);
   }
 }
 
+/* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   will-change: opacity, transform;
 }
 
@@ -127,13 +232,23 @@
 }
 
 @keyframes loading-bar {
-  0% { width: 0%; }
-  100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
@@ -142,35 +257,43 @@
 
 @layer utilities {
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-20 md:py-24 lg:py-28;
   }
-  
+
+  .page-x {
+    @apply px-6 sm:px-8 md:px-16 lg:px-24;
+  }
+
   .card-padding-sm {
     @apply p-6 md:p-8;
   }
-  
+
   .card-padding-md {
     @apply p-8 md:p-10;
   }
-  
+
   .card-padding-lg {
     @apply p-10 md:p-14;
   }
 }
 
-/* Shimmer animation for loading states */
+/* Shimmer */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .shimmer {
   background: linear-gradient(
     90deg,
-    #e5e5e5 0%,
-    #f0f0f0 20%,
-    #e5e5e5 40%,
-    #e5e5e5 100%
+    rgba(17, 17, 17, 0.08) 0%,
+    rgba(17, 17, 17, 0.03) 20%,
+    rgba(17, 17, 17, 0.08) 40%,
+    rgba(17, 17, 17, 0.08) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
