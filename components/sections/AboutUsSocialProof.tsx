@@ -3,13 +3,13 @@ import { CheckCircle2 } from 'lucide-react';
 
 export function AboutUsSocialProof() {
   return (
-    <section id="about" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="about" className="w-full py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="reveal font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-gray-900 mb-4 md:mb-6">
             Wer bin ich?
           </h2>
-          <p className="reveal text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="reveal text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Und warum solltest du mir 90 Minuten deiner Zeit geben?
           </p>
         </div>

@@ -54,6 +54,16 @@ export function Pricing() {
         utm_content: params.get('utm_content') || '',
       };
 
+      if (typeof window !== 'undefined') {
+        const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
+        w.fbq?.('track', 'InitiateCheckout', {
+          value: tier.price,
+          currency: 'EUR',
+          content_name: tier.label,
+          content_category: 'ticket',
+        });
+      }
+
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -79,18 +89,18 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
+    <section id="pricing" className="w-full py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-black mb-4 md:mb-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="reveal font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-black mb-3 md:mb-6">
             Dein Platz im Deep Dive
           </h2>
-          <p className="reveal text-lg md:text-xl text-gray-600 leading-relaxed">
+          <p className="reveal text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
             Live am 15. Feb · 90 Minuten · Ein Ticket.
           </p>
         </div>
 
-        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
+        <div className="reveal bg-[#FDFCFA] rounded-3xl p-6 sm:p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-semibold text-xs px-4 py-2 rounded-full shadow-md whitespace-nowrap z-10">
             {badgeText}
           </div>

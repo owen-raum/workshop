@@ -36,8 +36,15 @@ declare global {
   }
 }
 
+const INTERNAL_TRAFFIC_KEY = "internal-traffic";
+
+function isInternalTraffic(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.localStorage.getItem(INTERNAL_TRAFFIC_KEY) === "true";
+}
+
 export function MetaPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "639641088589650";
+  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "639641888589650";
   const pathname = usePathname();
   const [enabled, setEnabled] = useState(false);
 
@@ -54,6 +61,7 @@ export function MetaPixel() {
 
   useEffect(() => {
     if (!enabled || !pixelId || typeof window === "undefined") return;
+    if (isInternalTraffic()) return;
 
     if (!window.fbq) {
       const w = window as typeof window & {

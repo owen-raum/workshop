@@ -49,25 +49,27 @@ export function StickyCTABar() {
       }`}
     >
       <div className="bg-[#F1EFEB]/95 border-t border-[rgba(34,34,34,0.12)] backdrop-blur-md shadow-[0_-12px_40px_-20px_rgba(17,17,17,0.4)]">
-        <div className="max-w-[1300px] mx-auto px-4 md:px-16 lg:px-24 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-center sm:text-left">
+        <div className="max-w-[1300px] mx-auto px-4 md:px-16 lg:px-24 py-3 sm:py-4 flex items-center justify-between gap-3">
+          <div className="min-w-0">
             {ticketsLoading ? (
               <p className="text-sm text-gray-500">Lade...</p>
             ) : (
-              <>
-                <p className="text-sm sm:text-base font-semibold text-gray-900">
-                  Noch {tier.spotsLeft} {tier.label}-Tickets
-                </p>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  {tier.price}€ inkl. MwSt
-                </p>
-              </>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="text-sm sm:text-base font-semibold text-gray-900 whitespace-nowrap">
+                  {tier.price}€
+                </span>
+                <span className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
+                  · Noch {tier.spotsLeft} {tier.label}-Tickets
+                </span>
+              </div>
             )}
           </div>
-          <Button variant="primary" size="medium" onClick={scrollToPricing}>
+          <Button variant="primary" size="medium" onClick={scrollToPricing} className="flex-shrink-0 !px-5 sm:!px-7 !py-3">
             Jetzt sichern
           </Button>
         </div>
+        {/* Safe area padding for notched devices */}
+        <div className="pb-[env(safe-area-inset-bottom)]" />
       </div>
     </div>
   );

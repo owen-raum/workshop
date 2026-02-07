@@ -41,12 +41,13 @@ export function PurchaseTracker() {
         const value = typeof data.amount_total === "number"
           ? data.amount_total / 100
           : undefined;
+        const currency = data.currency?.toUpperCase();
 
-        if (typeof window !== "undefined" && window.fbq && value !== undefined && data.currency) {
+        if (typeof window !== "undefined" && window.fbq && value !== undefined && currency) {
           window.fbq(
             "track",
             "Purchase",
-            { value, currency: data.currency },
+            { value, currency },
             { eventID: sessionId }
           );
         }
