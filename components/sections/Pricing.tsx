@@ -207,7 +207,7 @@ export function Pricing() {
               {ticketsLoading ? (
                 <span className="inline-block w-48 h-4 rounded shimmer" />
               ) : (
-                `Bereits ${soldCount} Unternehmer:innen dabei`
+                `Bereits ${soldCount} Teilnehmer:innen dabei`
               )}
             </div>
             <div className="w-full bg-black/10 rounded-full h-3">
