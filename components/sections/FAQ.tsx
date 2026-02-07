@@ -32,7 +32,7 @@ export function FAQ() {
     },
     {
       question: 'Warum kostet der Deep Dive etwas? Andere Workshops sind kostenlos.',
-      answer: 'Weil kostenlose Workshops meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmal 149€ und bekommst alles – mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
+      answer: 'Weil kostenlose Workshops meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmalig und bekommst alles – mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
     },
     {
       question: 'Bekomme ich eine Aufzeichnung?',

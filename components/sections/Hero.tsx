@@ -45,7 +45,7 @@ export function Hero() {
 
           {/* Subline */}
           <p className="text-base sm:text-lg leading-[1.6] text-[#525252] mb-6 sm:mb-10 max-w-[580px] mx-auto">
-            90 Minuten Deep Dive in OpenClaw – mein echtes Agent-Setup. Du siehst mein Setup, die Prompts, die Fails. Am Ende weißt du genau, ob das für dein Business & Privatleben Sinn macht – oder eben nicht.
+            90 Minuten Deep Dive – ich zeige dir mein echtes AI-Agent-Setup. Die Prompts, die Fails, die Wahrheit. Am Ende weißt du, ob das für dein Business Sinn macht.
           </p>
 
           {/* CTA */}
@@ -71,6 +71,10 @@ export function Hero() {
               </div>
             </div>
           </div>
+
+          <p className="text-sm text-gray-500 mb-4 sm:mb-6">
+            Regular-Preis nur bis 13. Februar — danach 249€
+          </p>
 
           {/* Ticket urgency */}
           {!ticketsLoading && (
