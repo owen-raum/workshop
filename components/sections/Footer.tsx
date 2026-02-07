@@ -12,11 +12,11 @@ export function Footer() {
   const { tier, loading: ticketsLoading } = useTickets();
 
   return (
-    <footer className="bg-[#F1EFEB] border-t border-[rgba(34,34,34,0.12)] py-20 md:py-24 px-8 md:px-16 lg:px-24">
+    <footer className="bg-[#F1EFEB] border-t border-[rgba(34,34,34,0.12)] py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Final CTA Section */}
         <div className="reveal bg-[#1A1A1A] rounded-3xl p-8 md:p-12 text-center text-white mb-16 shadow-[0_0_80px_-20px_rgba(255,255,255,0.1)]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             Zeit, dass AI für dich arbeitet.
           </h2>
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -137,6 +137,9 @@ export function Footer() {
             </Link>
           </div>
         </div>
+
+        {/* Spacer for sticky CTA bar on mobile */}
+        <div className="h-16 sm:h-0" />
 
         {/* Disclaimer */}
         <div className="reveal mt-8 pt-6 border-t border-[rgba(34,34,34,0.12)] space-y-4">
