@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { TIERS, type TierName } from '@/lib/tiers';
 import { useTickets, getCtaText } from '@/lib/useTickets';
-import { TOTAL_TICKETS } from '@/lib/stripe';
+
+const TOTAL_TICKETS = 100;
 
 const TIER_ICONS: Record<TierName, string> = {
   early_frog: '🐸',
