@@ -1,6 +1,6 @@
 // Tier-Konfiguration – einzige Quelle der Wahrheit
 export const TIERS = [
-  { name: 'early_bird', label: 'Early Bird', badge: '🔥 EARLY BIRD', price: 149, priceCents: 14900, start: 0, end: 10 },
+  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 149, priceCents: 14900, start: 0, end: 10 },
   { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 199, priceCents: 19900, start: 10, end: 50 },
   { name: 'final', label: 'Final', badge: '🎯 FINAL TICKETS', price: 249, priceCents: 24900, start: 50, end: 100 },
 ] as const;

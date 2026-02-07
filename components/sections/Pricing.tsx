@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { formatLaterPrices } from '@/lib/tiers';
+import { TIERS, getNextTiers } from '@/lib/tiers';
 import { useTickets, getCtaText } from '@/lib/useTickets';
 
 export function Pricing() {
@@ -9,8 +9,15 @@ export function Pricing() {
   const [error, setError] = useState<string | null>(null);
 
   // Ticket data – zentralisiert
-  const { tier, loading: ticketsLoading } = useTickets();
-  const laterPrices = formatLaterPrices(tier.name);
+  const { tier, soldCount, loading: ticketsLoading } = useTickets();
+
+  const earlyFrogTier = TIERS.find((t) => t.name === 'early_frog');
+  const finalTier = TIERS.find((t) => t.name === 'final') ?? TIERS[TIERS.length - 1];
+  const nextTier = getNextTiers(tier.name)[0];
+
+  const earlyFrogSoldOut = Boolean(!ticketsLoading && earlyFrogTier && soldCount >= earlyFrogTier.end);
+  const badgeText = ticketsLoading ? 'Lädt...' : `${tier.badge} – Noch ${tier.spotsLeft} Plätze`;
+  const savings = !ticketsLoading && finalTier ? Math.max(finalTier.price - tier.price, 0) : 0;
 
   const features = [
     'Live-Teilnahme am Deep Dive (90 Min)',
@@ -74,31 +81,33 @@ export function Pricing() {
         {/* Single Pricing Card */}
         <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           {/* Badge – dynamisch */}
-          {ticketsLoading ? (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10 shimmer">
-              Lädt...
-            </div>
-          ) : (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
-              {tier.badge}
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#111111] text-white font-semibold text-xs px-4 py-2 rounded-full shadow-lg whitespace-nowrap z-10">
+            {badgeText}
+          </div>
+
+          {/* Early Frog Sold Out */}
+          {earlyFrogSoldOut && earlyFrogTier && (
+            <div className="text-center text-xs text-gray-500 mt-6 mb-6">
+              <span className="mr-2">🐸 Early Frog – AUSVERKAUFT</span>
+              <span className="line-through">{earlyFrogTier.price}€</span>
             </div>
           )}
 
           {/* Progress Indicator */}
-          <div className="mb-10 mt-6">
+          <div className="mb-10">
             <div className="flex flex-wrap justify-between items-center gap-2 mb-3 text-sm text-gray-600">
               <span className="font-medium">
                 {ticketsLoading ? (
-                  <span className="inline-block w-32 h-4 rounded shimmer" />
+                  <span className="inline-block w-40 h-4 rounded shimmer" />
                 ) : (
-                  `${Math.round(tier.progressPercent)}% dieser Stufe vergeben`
+                  `Aktuell ${tier.soldInTier} von ${tier.spotsInTier} ${tier.label}-Tickets`
                 )}
               </span>
               <span>
                 {ticketsLoading ? (
-                  <span className="inline-block w-40 h-4 rounded shimmer" />
+                  <span className="inline-block w-24 h-4 rounded shimmer" />
                 ) : (
-                  `Noch ${tier.spotsLeft} von ${tier.spotsInTier} verfügbar`
+                  `Noch ${tier.spotsLeft} Plätze`
                 )}
               </span>
             </div>
@@ -108,15 +117,6 @@ export function Pricing() {
                 style={{ width: ticketsLoading ? '0%' : `${tier.progressPercent}%` }}
               />
             </div>
-            <p className="text-center text-sm text-gray-600 mt-3">
-              {ticketsLoading ? (
-                <span className="text-gray-500">Lade Verkaufszahlen...</span>
-              ) : (
-                <strong className="text-gray-900">
-                  {tier.soldInTier} von {tier.spotsInTier} {tier.label}-Tickets verkauft
-                </strong>
-              )}
-            </p>
           </div>
 
           {/* Current Price – PROMINENT */}
@@ -134,13 +134,17 @@ export function Pricing() {
               </div>
             )}
             <div className="text-gray-500 mt-2 mb-4">einmalig, inkl. MwSt.</div>
-            {/* Later prices – dynamisch */}
-            {!ticketsLoading && laterPrices && (
-              <div className="mt-3 pt-3 border-t border-[rgba(34,34,34,0.08)]">
-                <p className="text-sm text-gray-600">
-                  Ab Stufe 2: <span className="font-semibold text-gray-900">{laterPrices}</span>
-                </p>
-              </div>
+
+            {!ticketsLoading && savings > 0 && (
+              <p className="text-sm text-gray-700">
+                Du sparst noch {savings}€ gegenüber dem Final-Preis von {finalTier.price}€
+              </p>
+            )}
+
+            {!ticketsLoading && nextTier && (
+              <p className="text-sm text-gray-600 mt-2">
+                Nächste Stufe: {nextTier.price}€ (ab Platz {nextTier.start + 1})
+              </p>
             )}
           </div>
 

@@ -88,7 +88,7 @@ export function useTickets(): TicketsState {
 // Helper für CTA Button Text
 export function getCtaText(tier: TierInfo, loading: boolean): string {
   if (loading) return 'Ticket sichern';
-  if (tier.name === 'early_bird') return `Early Bird für ${tier.price}€ sichern`;
+  if (tier.name === 'early_frog') return `Early Frog für ${tier.price}€ sichern`;
   if (tier.name === 'regular') return `Jetzt für ${tier.price}€ sichern`;
   return `Letzten Platz für ${tier.price}€ sichern`;
 }
