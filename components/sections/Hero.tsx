@@ -72,19 +72,17 @@ export function Hero() {
             </div>
           </div>
 
-          <p className="text-sm text-gray-500 mb-4 sm:mb-6">
-            Regular-Preis nur bis 13. Februar — danach 249€
-          </p>
-
-          {/* Ticket urgency */}
-          {!ticketsLoading && (
-            <div className="text-sm">
-              <span className="font-semibold text-red-600">Noch {tier.spotsLeft} {tier.label} Tickets</span>
-              {nextTiers.length > 0 && (
-                <span className="text-gray-500"> – danach {nextTiers[0].price}€</span>
-              )}
-            </div>
-          )}
+          {/* Info Badges — Tickets + Deadline */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+            {!ticketsLoading && (
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 bg-white/80 border border-gray-200 rounded-full px-4 py-1.5">
+                🎟️ Noch {tier.spotsLeft} {tier.label}-Tickets{nextTiers.length > 0 && ` — danach ${nextTiers[0].price} €`}
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1.5 text-sm text-gray-500 bg-white/60 border border-gray-200/80 rounded-full px-4 py-1.5">
+              📅 Anmeldeschluss: 13. Februar
+            </span>
+          </div>
         </div>
       </div>
     </section>
