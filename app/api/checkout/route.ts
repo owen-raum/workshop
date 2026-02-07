@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { cookies, headers } from 'next/headers';
 import { getStripe, getSoldTicketsCount, TOTAL_TICKETS } from '@/lib/stripe';
 import { getTierInfo } from '@/lib/tiers';
 
@@ -7,6 +8,13 @@ export async function POST(request: Request) {
     const stripe = getStripe();
     const body = await request.json().catch(() => ({}));
     const origin = request.headers.get('origin') || 'https://agents.andy.cy';
+
+    const headerList = await headers();
+    const cookieStore = await cookies();
+    const fbp = cookieStore.get('_fbp')?.value;
+    const fbc = cookieStore.get('_fbc')?.value;
+    const clientIp = headerList.get('x-forwarded-for')?.split(',')[0]?.trim();
+    const clientUa = headerList.get('user-agent') || undefined;
 
     // Dynamischer Preis basierend auf aktuellem Verkaufsstand
     const sold = await getSoldTicketsCount(stripe);
@@ -19,6 +27,21 @@ export async function POST(request: Request) {
     }
 
     const tier = getTierInfo(sold);
+
+    const metadata: Record<string, string> = {
+      tier: tier.name,
+      price: String(tier.priceCents),
+      sold_at_checkout: String(sold),
+      utm_source: body.utm_source || '',
+      utm_medium: body.utm_medium || '',
+      utm_campaign: body.utm_campaign || '',
+      utm_content: body.utm_content || '',
+    };
+
+    if (fbp) metadata.fbp = fbp;
+    if (fbc) metadata.fbc = fbc;
+    if (clientIp) metadata.client_ip = clientIp;
+    if (clientUa) metadata.client_ua = clientUa;
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
@@ -47,25 +70,9 @@ export async function POST(request: Request) {
       },
       success_url: `${origin}/danke?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/#pricing`,
-      metadata: {
-        tier: tier.name,
-        price: String(tier.priceCents),
-        sold_at_checkout: String(sold),
-        utm_source: body.utm_source || '',
-        utm_medium: body.utm_medium || '',
-        utm_campaign: body.utm_campaign || '',
-        utm_content: body.utm_content || '',
-      },
+      metadata,
       payment_intent_data: {
-        metadata: {
-          tier: tier.name,
-          price: String(tier.priceCents),
-          sold_at_checkout: String(sold),
-          utm_source: body.utm_source || '',
-          utm_medium: body.utm_medium || '',
-          utm_campaign: body.utm_campaign || '',
-          utm_content: body.utm_content || '',
-        },
+        metadata,
       },
     });
 
