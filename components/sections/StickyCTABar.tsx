@@ -56,16 +56,13 @@ export function StickyCTABar() {
             ) : (
               <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="text-sm sm:text-base font-semibold text-gray-900 whitespace-nowrap">
-                  {tier.price}€
-                </span>
-                <span className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
-                  · Noch {tier.spotsLeft} {tier.label}-Tickets
+                  199€ · Nur bis 13. Feb — danach 249€
                 </span>
               </div>
             )}
           </div>
           <Button variant="primary" size="medium" onClick={scrollToPricing} className="flex-shrink-0 !px-5 sm:!px-7 !py-3">
-            Jetzt sichern
+            Platz sichern — 199€
           </Button>
         </div>
         {/* Safe area padding for notched devices */}

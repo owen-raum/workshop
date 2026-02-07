@@ -89,6 +89,6 @@ export function useTickets(): TicketsState {
 export function getCtaText(tier: TierInfo, loading: boolean): string {
   if (loading) return 'Ticket sichern';
   if (tier.name === 'early_frog') return 'Early Frog Ticket sichern';
-  if (tier.name === 'regular') return 'Regular Ticket sichern';
+  if (tier.name === 'regular') return 'Platz sichern — 199€';
   return 'Letzten Platz sichern';
 }
