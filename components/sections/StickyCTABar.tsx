@@ -56,7 +56,7 @@ export function StickyCTABar() {
             ) : (
               <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="text-sm sm:text-base font-semibold text-gray-900 whitespace-nowrap">
-                  {tier.price} € · Noch {tier.spotsLeft} Tickets
+                  {tier.price} € · Nur noch wenige Plätze
                 </span>
               </div>
             )}

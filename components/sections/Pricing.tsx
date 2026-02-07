@@ -227,7 +227,7 @@ export function Pricing() {
               {ticketsLoading ? (
                 <span className="inline-block w-48 h-4 rounded shimmer" />
               ) : (
-                `Bereits ${soldCount} Teilnehmer:innen dabei`
+                'Nur noch wenige Plätze in dieser Stufe'
               )}
             </div>
             <div className="w-full bg-black/10 rounded-full h-3">
@@ -236,7 +236,7 @@ export function Pricing() {
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
-            <div className="text-xs text-gray-500 mt-2">{TOTAL_TICKETS} Plätze insgesamt</div>
+            <div className="text-xs text-gray-500 mt-2">Limitierte Teilnehmerzahl</div>
           </div>
 
           <ul className="space-y-4 mb-10">
