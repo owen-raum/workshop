@@ -30,7 +30,7 @@ export function Hero() {
 
           {/* Headline */}
           <h1 className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[68px] font-bold leading-[1.1] tracking-[-0.02em] text-black mb-4 sm:mb-6">
-            Mein AI-Agent Owen hat letzte Woche{' '}
+            AI-Agents:{' '}
             <span 
               className="relative inline-block font-extrabold"
               style={{
@@ -38,14 +38,14 @@ export function Hero() {
                 padding: '0 4px',
               }}
             >
-              14 Stunden
+              Hype oder echtes Business-Tool?
             </span>
-            {' '}Arbeit übernommen. Ich zeige dir wie.
+            {' '}Ich zeige dir die Wahrheit.
           </h1>
 
           {/* Subline */}
           <p className="text-base sm:text-lg leading-[1.6] text-[#525252] mb-6 sm:mb-10 max-w-[580px] mx-auto">
-            90 Minuten Deep Dive – ich zeige dir mein echtes AI-Agent-Setup. Die Prompts, die Fails, die Wahrheit. Am Ende weißt du, ob das für dein Business Sinn macht.
+            90 Minuten, live. Mein echtes Setup, echte Zahlen, echte Fails. Kein Kurs — Klarheit.
           </p>
 
           {/* CTA */}
