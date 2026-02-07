@@ -181,6 +181,16 @@ export function Pricing() {
                               {isCurrent && <span>(aktuell)</span>}
                             </div>
                           )}
+                          {stepTier.name === 'regular' && (
+                            <div className="mt-1.5 text-xs text-gray-500 max-w-[200px] mx-auto leading-snug">
+                              Solange verfügbar — bei Ausverkauf gilt der Final-Preis.
+                            </div>
+                          )}
+                          {stepTier.name === 'final' && (
+                            <div className="mt-1.5 text-xs text-gray-400 max-w-[220px] mx-auto leading-snug">
+                              Greift automatisch, sobald die Regular-Tickets vergriffen sind.
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -191,8 +201,8 @@ export function Pricing() {
           </div>
 
           <div className="text-center mb-10">
-            <p className="text-gray-600 font-semibold text-sm md:text-base mb-3">
-              🔥 Anmeldung endet am 10. Februar
+            <p className="text-gray-500 text-sm mb-3">
+              Anmeldeschluss: 13. Februar 2026
             </p>
             {ticketsLoading ? (
               <div className="h-20 flex items-center justify-center">
