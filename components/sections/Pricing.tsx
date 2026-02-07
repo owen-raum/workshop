@@ -222,21 +222,8 @@ export function Pricing() {
             )}
           </div>
 
-          <div className="mb-10">
-            <div className="text-sm text-gray-600 mb-3">
-              {ticketsLoading ? (
-                <span className="inline-block w-48 h-4 rounded shimmer" />
-              ) : (
-                'Nur noch wenige Plätze in dieser Stufe'
-              )}
-            </div>
-            <div className="w-full bg-black/10 rounded-full h-3">
-              <div
-                className="h-3 rounded-full bg-gradient-to-r from-gray-800 via-gray-900 to-black transition-all duration-500"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
-            <div className="text-xs text-gray-500 mt-2">Limitierte Teilnehmerzahl</div>
+          <div className="mb-10 text-center">
+            <p className="text-sm text-gray-600 font-medium">Nur noch wenige Plätze in dieser Stufe</p>
           </div>
 
           <ul className="space-y-4 mb-10">
