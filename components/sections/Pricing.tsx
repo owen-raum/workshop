@@ -79,7 +79,7 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-white">
+    <section id="pricing" className="w-full py-20 md:py-24 px-8 md:px-16 lg:px-24 bg-[#F1EFEB]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="reveal font-display text-4xl md:text-5xl lg:text-[52px] font-bold text-black mb-4 md:mb-6">
@@ -90,32 +90,93 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-black/10 shadow-[0_30px_90px_-70px_rgba(0,0,0,0.35)]">
+        <div className="reveal bg-white rounded-3xl p-8 md:p-12 mb-8 relative border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-semibold text-xs px-4 py-2 rounded-full shadow-md whitespace-nowrap z-10">
             {badgeText}
           </div>
 
-          <div className="mt-6 mb-10">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
-              {TIERS.map((stepTier, index) => {
-                const isPast = index < currentTierIndex;
-                const isCurrent = index === currentTierIndex;
+          <div className="mt-8 mb-10">
+            <div className="relative">
+              <div
+                className="hidden sm:block absolute left-6 right-6 top-5 h-px bg-black/10"
+                aria-hidden="true"
+              />
 
-                return (
-                  <div
-                    key={stepTier.name}
-                    className={`flex items-center gap-2 ${
-                      isCurrent ? 'text-black font-semibold' : 'text-gray-400'
-                    }`}
-                  >
-                    <span className="text-base">{TIER_ICONS[stepTier.name]}</span>
-                    <span>{stepTier.label}</span>
-                    <span className={isPast ? 'line-through' : ''}>{stepTier.price}€</span>
-                    {isPast && <span className="text-xs">(ausgebucht)</span>}
-                    {isCurrent && <span className="text-xs">(aktuell)</span>}
-                  </div>
-                );
-              })}
+              <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-0">
+                {TIERS.map((stepTier, index) => {
+                  const isPast = index < currentTierIndex;
+                  const isCurrent = index === currentTierIndex;
+
+                  const labelClass = isCurrent
+                    ? 'text-black font-semibold'
+                    : isPast
+                      ? 'text-gray-500 font-medium'
+                      : 'text-gray-400 font-medium';
+
+                  return (
+                    <div
+                      key={stepTier.name}
+                      className={`relative sm:flex-1 sm:px-3 transition-transform ${
+                        isCurrent ? 'sm:scale-[1.02]' : ''
+                      }`}
+                    >
+                      <div className="flex items-start gap-4 sm:flex-col sm:items-center sm:gap-3">
+                        <div className="flex flex-col items-center">
+                          <span
+                            className={`flex h-10 w-10 items-center justify-center rounded-full border shadow-sm transition-colors ${
+                              isCurrent
+                                ? 'border-black/30 bg-black/5'
+                                : isPast
+                                  ? 'border-black/10 bg-white'
+                                  : 'border-black/10 bg-white'
+                            }`}
+                          >
+                            <span
+                              className={`h-2.5 w-2.5 rounded-full ${
+                                isCurrent ? 'bg-black' : isPast ? 'bg-gray-400' : 'bg-gray-300'
+                              }`}
+                            />
+                          </span>
+
+                          {index !== TIERS.length - 1 && (
+                            <span className="mt-2 h-10 w-px bg-black/10 sm:hidden" aria-hidden="true" />
+                          )}
+                        </div>
+
+                        <div className="flex-1 sm:flex-none sm:text-center">
+                          <div className={`flex items-baseline justify-between gap-4 sm:justify-center ${labelClass}`}>
+                            <div className="flex items-center gap-2">
+                              <span className={`text-sm ${isCurrent ? 'text-black' : 'text-gray-500'}`}>
+                                {TIER_ICONS[stepTier.name]}
+                              </span>
+                              <span className="text-sm sm:text-[15px]">{stepTier.label}</span>
+                            </div>
+
+                            <span
+                              className={`text-sm sm:text-[15px] tabular-nums ${
+                                isPast
+                                  ? 'text-gray-400 line-through'
+                                  : isCurrent
+                                    ? 'text-black'
+                                    : 'text-gray-400'
+                              }`}
+                            >
+                              {stepTier.price}€
+                            </span>
+                          </div>
+
+                          {(isPast || isCurrent) && (
+                            <div className={`mt-1 text-xs ${isCurrent ? 'text-gray-600' : 'text-gray-500'}`}>
+                              {isPast && <span>(ausgebucht)</span>}
+                              {isCurrent && <span>(aktuell)</span>}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
@@ -149,9 +210,9 @@ export function Pricing() {
                 `Bereits ${soldCount} Unternehmer:innen dabei`
               )}
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-black/10 rounded-full h-3">
               <div
-                className="h-2 rounded-full bg-black transition-all duration-500"
+                className="h-3 rounded-full bg-gradient-to-r from-gray-800 via-gray-900 to-black transition-all duration-500"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
