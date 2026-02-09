@@ -54,15 +54,36 @@ export function Pricing() {
         utm_content: params.get('utm_content') || '',
       };
 
+      const eventId = typeof crypto !== 'undefined' && 'randomUUID' in crypto
+        ? crypto.randomUUID()
+        : `evt_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+
       if (typeof window !== 'undefined') {
         const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
-        w.fbq?.('track', 'InitiateCheckout', {
+        w.fbq?.(
+          'track',
+          'InitiateCheckout',
+          {
+            value: tier.price,
+            currency: 'EUR',
+            content_name: tier.label,
+            content_category: 'ticket',
+          },
+          { eventID: eventId }
+        );
+      }
+
+      void fetch('/api/track/initiate-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          eventId,
           value: tier.price,
           currency: 'EUR',
           content_name: tier.label,
           content_category: 'ticket',
-        });
-      }
+        }),
+      }).catch(() => null);
 
       const res = await fetch('/api/checkout', {
         method: 'POST',
