@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "cookie-consent";
+const INTERNAL_TRAFFIC_KEY = "internal-traffic";
 
 type StoredConsent = {
   value: "true" | "false";
@@ -28,95 +29,98 @@ function hasConsent(): boolean {
   }
 }
 
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-    _fbq?: (...args: unknown[]) => void;
-    __metaPixelInitialized?: boolean;
-  }
-}
-
-const INTERNAL_TRAFFIC_KEY = "internal-traffic";
-
 function isInternalTraffic(): boolean {
   if (typeof window === "undefined") return false;
   return window.localStorage.getItem(INTERNAL_TRAFFIC_KEY) === "true";
 }
 
-export function MetaPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "639641888589650";
-  const pathname = usePathname();
-  const [enabled, setEnabled] = useState(false);
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: (...args: unknown[]) => void;
+  }
+}
 
-  useEffect(() => {
-    const updateConsent = () => {
-      const consent = hasConsent();
-      console.log("[MetaPixel] consent check:", consent);
-      setEnabled(consent);
+const PIXEL_ID = "639641888589650";
+
+function loadPixel() {
+  if (typeof window === "undefined") return;
+  if (!hasConsent()) return;
+  if (isInternalTraffic()) return;
+
+  // Already loaded
+  if (window.fbq) {
+    window.fbq("track", "PageView");
+    return;
+  }
+
+  // Meta Pixel base code
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  (function (f: any, b: Document, e: string, v: string, pixelId: string) {
+    let n: any, t: any, s: any;
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod
+        ? n.callMethod.apply(n, arguments)
+        : n.queue.push(arguments);
     };
-    updateConsent();
-    window.addEventListener("cookie-consent-updated", updateConsent);
-    window.addEventListener("storage", updateConsent);
-    return () => {
-      window.removeEventListener("cookie-consent-updated", updateConsent);
-      window.removeEventListener("storage", updateConsent);
-    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = true;
+    n.version = "2.0";
+    n.queue = [];
+    t = b.createElement(e) as HTMLScriptElement;
+    t.async = true;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode?.insertBefore(t, s);
+    
+    // Init and track after script setup
+    f.fbq("init", pixelId);
+    f.fbq("track", "PageView");
+  })(
+    window,
+    document,
+    "script",
+    "https://connect.facebook.net/en_US/fbevents.js",
+    PIXEL_ID
+  );
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+}
+
+export function MetaPixel() {
+  const pathname = usePathname();
+
+  const tryLoadPixel = useCallback(() => {
+    loadPixel();
   }, []);
 
+  // Try on mount
   useEffect(() => {
-    console.log("[MetaPixel] effect triggered, enabled:", enabled, "pixelId:", pixelId);
-    if (!enabled || !pixelId || typeof window === "undefined") {
-      console.log("[MetaPixel] early return - enabled:", enabled);
-      return;
-    }
-    if (isInternalTraffic()) {
-      console.log("[MetaPixel] blocked - internal traffic");
-      return;
-    }
-    console.log("[MetaPixel] loading pixel...");
+    tryLoadPixel();
+  }, [tryLoadPixel]);
 
-    if (!window.fbq) {
-      const w = window as typeof window & {
-        fbq?: any;
-        _fbq?: any;
-      };
-
-      // Meta Pixel base code
-      /* eslint-disable @typescript-eslint/no-explicit-any */
-      (function (f: any, b: Document, e: string, v: string) {
-        let n: any, t: any, s: any;
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = true;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e) as HTMLScriptElement;
-        t.async = true;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode?.insertBefore(t, s);
-      })(
-        w,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      /* eslint-enable @typescript-eslint/no-explicit-any */
+  // Try on route change
+  useEffect(() => {
+    if (window.fbq && hasConsent() && !isInternalTraffic()) {
+      window.fbq("track", "PageView");
     }
+  }, [pathname]);
 
-    if (!window.__metaPixelInitialized) {
-      window.fbq?.("init", pixelId);
-      window.__metaPixelInitialized = true;
-    }
+  // Listen for consent changes
+  useEffect(() => {
+    const handleConsent = () => {
+      tryLoadPixel();
+    };
 
-    window.fbq?.("track", "PageView");
-  }, [enabled, pixelId, pathname]);
+    window.addEventListener("cookie-consent-updated", handleConsent);
+    window.addEventListener("storage", handleConsent);
+
+    return () => {
+      window.removeEventListener("cookie-consent-updated", handleConsent);
+      window.removeEventListener("storage", handleConsent);
+    };
+  }, [tryLoadPixel]);
 
   return null;
 }
