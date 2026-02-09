@@ -62,21 +62,16 @@ export function WhatIsOpenClaw() {
                 Ein AI-Agent, der wirklich handelt.
               </h3>
               <p className="text-white/70 leading-relaxed">
-                Du siehst Owen live bei der Arbeit – kein vorbereitetes Demo-Setup, sondern das echte System.
+                Du siehst wie Owen in Echtzeit Mails beantwortet, Code deployed und WhatsApp managed.
               </p>
             </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
               <Image
                 src="/owen-demo.jpg"
                 alt="Owen AI Agent Live Demo"
                 fill
                 className="object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <p className="font-display text-lg font-semibold text-white">
-                  Live-Demo im Deep Dive
-                </p>
-              </div>
             </div>
           </div>
         </div>
