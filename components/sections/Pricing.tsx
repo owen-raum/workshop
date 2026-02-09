@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { TIERS, type TierName } from '@/lib/tiers';
-import { useTickets, getCtaText } from '@/lib/useTickets';
+import { useTickets } from '@/lib/useTickets';
 
 const TOTAL_TICKETS = 100;
 
@@ -109,7 +109,7 @@ export function Pricing() {
 
   const getButtonText = () => {
     if (loading) return 'Wird geladen...';
-    return getCtaText(tier, false);
+    return `Platz sichern — ${tier.price}€`;
   };
 
   return (

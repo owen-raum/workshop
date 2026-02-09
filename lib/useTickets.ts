@@ -85,10 +85,8 @@ export function useTickets(): TicketsState {
   return { soldCount, tier, loading, error };
 }
 
-// Helper für CTA Button Text
+// Helper für CTA Button Text (ohne Preis — nur Pricing.tsx zeigt Preis)
 export function getCtaText(tier: TierInfo, loading: boolean): string {
-  if (loading) return 'Ticket sichern';
-  if (tier.name === 'early_frog') return 'Early Frog Ticket sichern';
-  if (tier.name === 'regular') return 'Platz sichern — 199€';
-  return 'Letzten Platz sichern';
+  if (loading) return 'Jetzt Platz sichern';
+  return 'Jetzt Platz sichern';
 }
