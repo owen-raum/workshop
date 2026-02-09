@@ -49,7 +49,11 @@ export function MetaPixel() {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const updateConsent = () => setEnabled(hasConsent());
+    const updateConsent = () => {
+      const consent = hasConsent();
+      console.log("[MetaPixel] consent check:", consent);
+      setEnabled(consent);
+    };
     updateConsent();
     window.addEventListener("cookie-consent-updated", updateConsent);
     window.addEventListener("storage", updateConsent);
@@ -60,8 +64,16 @@ export function MetaPixel() {
   }, []);
 
   useEffect(() => {
-    if (!enabled || !pixelId || typeof window === "undefined") return;
-    if (isInternalTraffic()) return;
+    console.log("[MetaPixel] effect triggered, enabled:", enabled, "pixelId:", pixelId);
+    if (!enabled || !pixelId || typeof window === "undefined") {
+      console.log("[MetaPixel] early return - enabled:", enabled);
+      return;
+    }
+    if (isInternalTraffic()) {
+      console.log("[MetaPixel] blocked - internal traffic");
+      return;
+    }
+    console.log("[MetaPixel] loading pixel...");
 
     if (!window.fbq) {
       const w = window as typeof window & {
