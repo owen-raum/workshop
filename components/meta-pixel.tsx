@@ -41,7 +41,7 @@ declare global {
   }
 }
 
-const PIXEL_ID = "639641888589650";
+const PIXEL_ID = "639641088589650";
 
 function loadPixel() {
   if (typeof window === "undefined") return;
