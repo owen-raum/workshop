@@ -11,7 +11,7 @@ if [ -f ~/.clawdbot/.env ]; then
   set -a; source ~/.clawdbot/.env; set +a
 fi
 
-STACK_ID=52
+STACK_ID=56
 ENDPOINT_ID=4
 VOLUME_NAME="workshop_app"  # matches compose: volumes.app → prefixed with stack name
 
