@@ -32,11 +32,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://agents.andy.cy",
+    images: [
+      {
+        url: "https://agents.andy.cy/owen-demo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Owen der AI-Agent am Mac Mini",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "OpenClaw Deep Dive – Live-Webinar",
     description: "Lerne in 90 Minuten, wie du mit OpenClaw deinen eigenen AI-Agenten baust.",
+    images: ["https://agents.andy.cy/owen-demo.jpg"],
   },
   robots: {
     index: true,
