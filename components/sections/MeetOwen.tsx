@@ -22,15 +22,19 @@ export function MeetOwen() {
             </h2>
             <div className="space-y-4 text-white/80 leading-relaxed text-lg">
               <p>
-                Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz – gebaut mit OpenClaw.
+                Owen ist kein Chatbot. Owen ist ein AI-Agent im Produktiveinsatz – 
+                und er existiert seit 2021.
               </p>
               <p>
-                Er beantwortet Mails, koordiniert Termine, schreibt und deployt Code, 
-                managed WhatsApp-Gruppen und überwacht Systeme. 24/7.
+                Erst lief er auf zusammengebastelten Lösungen: Make, Zapier, Custom Scripts, 
+                viel Duct Tape. Hat funktioniert – aber mit Grenzen.
               </p>
               <p>
-                Läuft auf einem Mac Mini M4 in Zypern. Das Bild ist echt – 
-                kein Stock-Foto, kein Mockup.
+                Seit OpenClaw läuft alles auf einem System. Lokal. Unter meiner Kontrolle.
+                Er beantwortet Mails, koordiniert Termine, deployt Code, managed WhatsApp-Gruppen.
+              </p>
+              <p>
+                Mac Mini M4 in Zypern. Das Bild ist echt – kein Stock-Foto, kein Mockup.
               </p>
             </div>
             
