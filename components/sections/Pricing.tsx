@@ -73,6 +73,9 @@ export function Pricing() {
         );
       }
 
+      // Give pixel time to fire before navigation
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
       void fetch('/api/track/initiate-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
