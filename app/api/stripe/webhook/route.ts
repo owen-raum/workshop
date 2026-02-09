@@ -52,8 +52,8 @@ async function sendMetaPurchase(params: {
         custom_data: {
           value: params.value,
           currency: params.currency,
-          content_name: 'Deep Dive Workshop',
-          content_ids: ['deep-dive-workshop'],
+          content_name: 'OpenClaw Deep Dive',
+          content_ids: ['openclaw-deep-dive'],
           content_type: 'product',
         },
       },

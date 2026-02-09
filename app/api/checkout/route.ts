@@ -54,7 +54,7 @@ export async function POST(request: Request) {
             unit_amount: tier.priceCents,
             tax_behavior: 'inclusive',
             product_data: {
-              name: 'OpenClaw Deep Dive – Live-Webinar',
+              name: 'OpenClaw Deep Dive',
               description: `${tier.label}-Ticket: Live-Teilnahme am 15. Februar 2026 + Aufzeichung + Alle Materialien`,
             },
           },

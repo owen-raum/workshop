@@ -27,7 +27,7 @@ export default function Danke() {
         </p>
 
         <p className="text-lg text-gray-500 leading-relaxed mb-10">
-          Du bekommst eine Bestätigung per E-Mail mit allen Details zum Webinar.
+          Du bekommst eine Bestätigung per E-Mail mit allen Details zum Deep Dive.
           Schau auch im Spam-Ordner nach, falls nichts ankommt.
         </p>
 
@@ -42,7 +42,7 @@ export default function Danke() {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-gray-900 font-bold mt-0.5">2.</span>
-              <span>Einladungslink zum Webinar folgt ein paar Tage vorher</span>
+              <span>Einladungslink zum Deep Dive folgt ein paar Tage vorher</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-gray-900 font-bold mt-0.5">3.</span>

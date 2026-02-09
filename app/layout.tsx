@@ -22,12 +22,12 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OpenClaw Deep Dive – Live-Webinar mit Andy Steinberger",
+  title: "OpenClaw Deep Dive mit Andy Steinberger",
   description: "Lerne in 90 Minuten, wie du mit OpenClaw deinen eigenen AI-Agenten baust. Live am 15. Februar 2026.",
-  keywords: ["OpenClaw", "AI Agent", "Workshop", "Andy Steinberger", "KI", "Automatisierung"],
+  keywords: ["OpenClaw", "AI Agent", "Deep Dive", "Andy Steinberger", "KI", "Automatisierung"],
   authors: [{ name: "Andy Steinberger" }],
   openGraph: {
-    title: "OpenClaw Deep Dive – Live-Webinar",
+    title: "OpenClaw Deep Dive",
     description: "Lerne in 90 Minuten, wie du mit OpenClaw deinen eigenen AI-Agenten baust.",
     type: "website",
     locale: "de_DE",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenClaw Deep Dive – Live-Webinar",
+    title: "OpenClaw Deep Dive",
     description: "Lerne in 90 Minuten, wie du mit OpenClaw deinen eigenen AI-Agenten baust.",
     images: ["https://agents.andy.cy/owen-demo.jpg"],
   },

@@ -8,7 +8,7 @@ export function FAQ() {
     },
     {
       question: 'Brauche ich Coding-Skills?',
-      answer: 'Nein. Im Workshop schaust du zu – ich zeige, was Owen kann. Danach bekommst du einen Leitfaden fürs eigene Setup. Copy & Paste reicht, kein Terminal-Voodoo.',
+      answer: 'Nein. Im Deep Dive schaust du zu – ich zeige, was Owen kann. Danach bekommst du einen Leitfaden fürs eigene Setup. Copy & Paste reicht, kein Terminal-Voodoo.',
     },
     {
       question: 'Was kostet OpenClaw?',
@@ -16,7 +16,7 @@ export function FAQ() {
     },
     {
       question: 'Wie lange dauert das Setup?',
-      answer: 'Ein Sonntag Vormittag reicht. Im Workshop siehst du Owen live – das Setup machst du danach mit dem Leitfaden, den du bekommst. Schritt für Schritt, kein Rätselraten.',
+      answer: 'Ein Sonntag Vormittag reicht. Im Deep Dive siehst du Owen live – das Setup machst du danach mit dem Leitfaden, den du bekommst. Schritt für Schritt, kein Rätselraten.',
     },
     {
       question: 'Was, wenn etwas kaputt geht?',
@@ -31,8 +31,8 @@ export function FAQ() {
       answer: 'Live-Session am 15. Februar um 19:00 Uhr (90 Minuten). Ich zeige dir Owen in Action – echte Demos, was alles möglich ist, wo es hakt. Keine Installation, keine Anleitung. Q&A am Ende. Kein Verkaufs-Pitch.',
     },
     {
-      question: 'Warum kostet der Deep Dive etwas? Andere Workshops sind kostenlos.',
-      answer: 'Weil kostenlose Workshops meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmalig und bekommst alles – mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
+      question: 'Warum kostet der Deep Dive etwas? Andere Sessions sind kostenlos.',
+      answer: 'Weil kostenlose Sessions meistens Verkaufsveranstaltungen sind. Du sitzt 2 Stunden da und am Ende kommt der Pitch für ein 3.000€ Coaching. Hier nicht. Kein Upsell, kein Funnel. Du zahlst einmalig und bekommst alles – mein komplettes Production Setup, ehrliche Erfahrungen, Live Q&A, Aufzeichnung. Der Preis ist der Filter für Leute die es ernst meinen.',
     },
     {
       question: 'Bekomme ich eine Aufzeichnung?',
