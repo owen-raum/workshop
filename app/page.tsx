@@ -5,6 +5,7 @@ import { ForWhom } from '@/components/sections/ForWhom';
 import { AboutUsSocialProof } from '@/components/sections/AboutUsSocialProof';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { WhatIsOpenClaw } from '@/components/sections/WhatIsOpenClaw';
+import { MeetOwen } from '@/components/sections/MeetOwen';
 import { Pricing } from '@/components/sections/Pricing';
 import { FAQ } from '@/components/sections/FAQ';
 import { Footer } from '@/components/sections/Footer';
@@ -20,6 +21,7 @@ export default function HomePage() {
       <AboutUsSocialProof />
       <SocialProof />
       <WhatIsOpenClaw />
+      <MeetOwen />
       <Pricing />
       <FAQ />
       <Footer />
