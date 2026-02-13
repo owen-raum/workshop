@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { TIERS, type TierName } from '@/lib/tiers';
 import { useTickets } from '@/lib/useTickets';
+import { isRegistrationClosed } from '@/lib/deadline';
 
 const TOTAL_TICKETS = 100;
 
@@ -17,6 +18,7 @@ export function Pricing() {
   const [error, setError] = useState<string | null>(null);
 
   const { tier, soldCount, loading: ticketsLoading } = useTickets();
+  const closed = isRegistrationClosed();
 
   const finalTier = TIERS.find((t) => t.name === 'final') ?? TIERS[TIERS.length - 1];
   const savings = !ticketsLoading && finalTier ? Math.max(finalTier.price - tier.price, 0) : 0;
@@ -108,6 +110,7 @@ export function Pricing() {
   };
 
   const getButtonText = () => {
+    if (closed) return 'Anmeldeschluss vorbei';
     if (loading) return 'Wird geladen...';
     return `Platz sichern — ${tier.price}€`;
   };
@@ -225,8 +228,8 @@ export function Pricing() {
           </div>
 
           <div className="text-center mb-10">
-            <p className="text-gray-500 text-sm mb-3">
-              Anmeldeschluss: 13. Februar 2026
+            <p className={`text-sm mb-3 ${closed ? 'text-gray-400' : 'text-gray-500'}`}>
+              {closed ? 'Anmeldeschluss war am 13. Februar 2026' : 'Anmeldeschluss: 13. Februar 2026'}
             </p>
             {ticketsLoading ? (
               <div className="h-20 flex items-center justify-center">
@@ -279,11 +282,13 @@ export function Pricing() {
 
           <button
             onClick={handleBook}
-            disabled={loading || ticketsLoading}
+            disabled={loading || ticketsLoading || closed}
             className={`w-full font-semibold text-lg py-4 px-8 rounded-xl transition-all ${
-              loading || ticketsLoading
-                ? 'bg-gray-400 text-white cursor-wait'
-                : 'bg-black hover:bg-neutral-800 text-white'
+              closed
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : loading || ticketsLoading
+                  ? 'bg-gray-400 text-white cursor-wait'
+                  : 'bg-black hover:bg-neutral-800 text-white'
             }`}
           >
             {ticketsLoading ? 'Lade Preise...' : getButtonText()}

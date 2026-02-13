@@ -3,6 +3,7 @@
 import { useTickets, getCtaText } from '@/lib/useTickets';
 import { getNextTiers } from '@/lib/tiers';
 import { BadgeCheck } from 'lucide-react';
+import { isRegistrationClosed } from '@/lib/deadline';
 
 export function Hero() {
   const scrollToPricing = () => {
@@ -11,6 +12,7 @@ export function Hero() {
 
   const { tier, loading: ticketsLoading } = useTickets();
   const nextTiers = getNextTiers(tier.name);
+  const closed = isRegistrationClosed();
 
   return (
     <section className="relative bg-[#F1EFEB]">
@@ -76,13 +78,17 @@ export function Hero() {
 
           {/* Info Badges — Tickets + Deadline */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-            {!ticketsLoading && (
+            {!ticketsLoading && !closed && (
               <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 bg-white/80 border border-gray-200 rounded-full px-4 py-1.5">
                 🎟️ Nur noch wenige {tier.label}-Tickets{nextTiers.length > 0 && ` — danach ${nextTiers[0].price} €`}
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 text-sm text-gray-500 bg-white/60 border border-gray-200/80 rounded-full px-4 py-1.5">
-              📅 Anmeldeschluss: 13. Februar
+            <span className={`inline-flex items-center gap-1.5 text-sm rounded-full px-4 py-1.5 ${
+              closed
+                ? 'text-gray-400 bg-gray-100 border border-gray-200'
+                : 'text-gray-500 bg-white/60 border border-gray-200/80'
+            }`}>
+              {closed ? '🔒 Anmeldeschluss vorbei' : '📅 Anmeldeschluss: 13. Februar'}
             </span>
           </div>
         </div>
