@@ -2,9 +2,17 @@ import { NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
 import { getStripe, getSoldTicketsCount, TOTAL_TICKETS } from '@/lib/stripe';
 import { getTierInfo } from '@/lib/tiers';
+import { isRegistrationClosed } from '@/lib/deadline';
 
 export async function POST(request: Request) {
   try {
+    if (isRegistrationClosed()) {
+      return NextResponse.json(
+        { error: 'Anmeldeschluss vorbei – Buchung ist nicht mehr möglich' },
+        { status: 400 }
+      );
+    }
+
     const stripe = getStripe();
     const body = await request.json().catch(() => ({}));
     const origin = request.headers.get('origin') || 'https://agents.andy.cy';
