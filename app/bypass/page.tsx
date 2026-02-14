@@ -1,8 +1,20 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const CORRECT_PIN = '1337';
+
+const KEYPAD_KEYS = [
+  { digit: '1', letters: '' },
+  { digit: '2', letters: 'ABC' },
+  { digit: '3', letters: 'DEF' },
+  { digit: '4', letters: 'GHI' },
+  { digit: '5', letters: 'JKL' },
+  { digit: '6', letters: 'MNO' },
+  { digit: '7', letters: 'PQRS' },
+  { digit: '8', letters: 'TUV' },
+  { digit: '9', letters: 'WXYZ' },
+];
 
 export default function BypassPage() {
   const [pin, setPin] = useState('');
@@ -12,12 +24,7 @@ export default function BypassPage() {
   const [error, setError] = useState<string | null>(null);
   const [tierData, setTierData] = useState<{ price: number; label: string } | null>(null);
   const [ticketsLoading, setTicketsLoading] = useState(true);
-  const hiddenInputRef = useRef<HTMLInputElement>(null);
-
-  // Focus hidden input on mount
-  useEffect(() => {
-    hiddenInputRef.current?.focus();
-  }, []);
+  const [pressedKey, setPressedKey] = useState<string | null>(null);
 
   // Load ticket data once unlocked
   useEffect(() => {
@@ -31,22 +38,45 @@ export default function BypassPage() {
       .catch(() => setTicketsLoading(false));
   }, [unlocked]);
 
-  const handleInput = (value: string) => {
-    const digits = value.replace(/\D/g, '').slice(0, 4);
-    setPin(digits);
-
-    if (digits.length === 4) {
-      if (digits === CORRECT_PIN) {
-        setUnlocked(true);
-      } else {
-        setShake(true);
+  const addDigit = useCallback((digit: string) => {
+    if (shake) return;
+    setPin((prev) => {
+      if (prev.length >= 4) return prev;
+      const next = prev + digit;
+      if (next.length === 4) {
         setTimeout(() => {
-          setShake(false);
-          setPin('');
-        }, 500);
+          if (next === CORRECT_PIN) {
+            setUnlocked(true);
+          } else {
+            setShake(true);
+            setTimeout(() => {
+              setShake(false);
+              setPin('');
+            }, 500);
+          }
+        }, 100);
       }
-    }
-  };
+      return next;
+    });
+  }, [shake]);
+
+  const removeDigit = useCallback(() => {
+    setPin((prev) => prev.slice(0, -1));
+  }, []);
+
+  // Physical keyboard support
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (unlocked) return;
+      if (e.key >= '0' && e.key <= '9') {
+        addDigit(e.key);
+      } else if (e.key === 'Backspace') {
+        removeDigit();
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [unlocked, addDigit, removeDigit]);
 
   const handleCheckout = async () => {
     setLoading(true);
@@ -68,54 +98,102 @@ export default function BypassPage() {
     }
   };
 
+  const KeypadButton = ({ digit, letters, onPress }: { digit: string; letters: string; onPress: (d: string) => void }) => (
+    <button
+      onClick={() => onPress(digit)}
+      onTouchStart={() => setPressedKey(digit)}
+      onTouchEnd={() => setPressedKey(null)}
+      onMouseDown={() => setPressedKey(digit)}
+      onMouseUp={() => setPressedKey(null)}
+      onMouseLeave={() => setPressedKey(null)}
+      className={`
+        w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full
+        flex flex-col items-center justify-center
+        select-none cursor-pointer
+        transition-all duration-100
+        border border-white/20
+        ${pressedKey === digit
+          ? 'bg-white/30 scale-95'
+          : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'
+        }
+      `}
+    >
+      <span className="text-[28px] sm:text-[32px] font-light text-white leading-none">
+        {digit}
+      </span>
+      {letters && (
+        <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.16em] text-white/70 mt-0.5">
+          {letters}
+        </span>
+      )}
+    </button>
+  );
+
   if (!unlocked) {
     return (
-      <main
-        className="min-h-screen bg-[#F1EFEB] flex flex-col items-center justify-center px-5"
-        onClick={() => hiddenInputRef.current?.focus()}
-      >
-        <div className="max-w-md w-full text-center">
-          <div className="text-5xl mb-6">🐸</div>
-          <h1 className="font-display text-2xl sm:text-3xl font-bold text-black mb-3">
+      <main className="min-h-screen bg-gradient-to-b from-[#2a2a2a] via-[#1a1a1a] to-[#0a0a0a] flex flex-col items-center justify-center px-5 overflow-hidden relative">
+        {/* Subtle green ambient glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-md w-full text-center relative z-10">
+          <div className="text-4xl mb-4">🔒</div>
+          <h1 className="font-display text-xl sm:text-2xl font-semibold text-white/90 mb-2">
             Zu spät ist zu spät.
           </h1>
-          <p className="text-gray-500 text-base sm:text-lg mb-10 leading-relaxed">
+          <p className="text-white/40 text-sm sm:text-base mb-8">
             Es sei denn... du kennst den Code.
           </p>
 
-          {/* Hidden input for mobile keyboard */}
-          <input
-            ref={hiddenInputRef}
-            type="number"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            className="absolute opacity-0 w-0 h-0"
-            value={pin}
-            onChange={(e) => handleInput(e.target.value)}
-            autoFocus
-          />
-
           {/* PIN Dots */}
           <div
-            className={`flex items-center justify-center gap-5 mb-8 transition-transform ${
+            className={`flex items-center justify-center gap-4 mb-10 transition-transform ${
               shake ? 'animate-shake' : ''
             }`}
           >
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={i}
-                className={`w-4 h-4 rounded-full transition-all duration-150 ${
+                className={`w-3.5 h-3.5 rounded-full transition-all duration-150 ${
                   pin.length > i
-                    ? 'bg-black scale-110'
-                    : 'bg-transparent border-2 border-black/20'
+                    ? 'bg-white scale-110'
+                    : 'bg-transparent border-[1.5px] border-white/30'
                 }`}
               />
             ))}
           </div>
 
-          <p className="text-gray-400 text-sm">
-            Tippe den 4-stelligen Code ein
-          </p>
+          {/* Number Pad */}
+          <div className="flex flex-col items-center gap-4">
+            {/* Rows 1-3 */}
+            {[0, 1, 2].map((row) => (
+              <div key={row} className="flex gap-5 sm:gap-6">
+                {KEYPAD_KEYS.slice(row * 3, row * 3 + 3).map((key) => (
+                  <KeypadButton
+                    key={key.digit}
+                    digit={key.digit}
+                    letters={key.letters}
+                    onPress={addDigit}
+                  />
+                ))}
+              </div>
+            ))}
+            {/* Bottom row: empty — 0 — delete */}
+            <div className="flex gap-5 sm:gap-6">
+              <div className="w-[76px] h-[76px] sm:w-[85px] sm:h-[85px]" />
+              <KeypadButton digit="0" letters="" onPress={addDigit} />
+              <button
+                onClick={removeDigit}
+                className="w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full flex items-center justify-center text-white/50 hover:text-white/80 transition-colors"
+              >
+                {pin.length > 0 && (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 14l6-6M15 14l-6-6" />
+                    <path d="M5 7.5l3.5-3.5h10a2 2 0 012 2v12a2 2 0 01-2 2h-10L5 16.5V7.5z" />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
         </div>
 
         <style jsx>{`
