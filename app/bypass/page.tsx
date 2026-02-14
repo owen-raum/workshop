@@ -98,36 +98,11 @@ export default function BypassPage() {
     }
   };
 
-  const KeypadButton = ({ digit, letters, onPress }: { digit: string; letters: string; onPress: (d: string) => void }) => (
-    <button
-      onClick={() => onPress(digit)}
-      onTouchStart={() => setPressedKey(digit)}
-      onTouchEnd={() => setPressedKey(null)}
-      onMouseDown={() => setPressedKey(digit)}
-      onMouseUp={() => setPressedKey(null)}
-      onMouseLeave={() => setPressedKey(null)}
-      className={`
-        w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full
-        flex flex-col items-center justify-center
-        select-none cursor-pointer
-        transition-all duration-100
-        border border-white/20
-        ${pressedKey === digit
-          ? 'bg-white/30 scale-95'
-          : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'
-        }
-      `}
-    >
-      <span className="text-[28px] sm:text-[32px] font-light text-white leading-none">
-        {digit}
-      </span>
-      {letters && (
-        <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.16em] text-white/70 mt-0.5">
-          {letters}
-        </span>
-      )}
-    </button>
-  );
+  const handleKeyTap = useCallback((digit: string) => {
+    setPressedKey(digit);
+    addDigit(digit);
+    setTimeout(() => setPressedKey(null), 120);
+  }, [addDigit]);
 
   if (!unlocked) {
     return (
@@ -167,23 +142,52 @@ export default function BypassPage() {
             {/* Rows 1-3 */}
             {[0, 1, 2].map((row) => (
               <div key={row} className="flex gap-5 sm:gap-6">
-                {KEYPAD_KEYS.slice(row * 3, row * 3 + 3).map((key) => (
-                  <KeypadButton
-                    key={key.digit}
-                    digit={key.digit}
-                    letters={key.letters}
-                    onPress={addDigit}
-                  />
+                {KEYPAD_KEYS.slice(row * 3, row * 3 + 3).map(({ digit, letters }) => (
+                  <button
+                    key={digit}
+                    onPointerDown={() => handleKeyTap(digit)}
+                    className={`
+                      w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full
+                      flex flex-col items-center justify-center
+                      select-none cursor-pointer touch-manipulation
+                      transition-all duration-100
+                      border border-white/20
+                      ${pressedKey === digit
+                        ? 'bg-white/30 scale-95'
+                        : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'
+                      }
+                    `}
+                  >
+                    <span className="text-[28px] sm:text-[32px] font-light text-white leading-none">{digit}</span>
+                    {letters && (
+                      <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.16em] text-white/70 mt-0.5">{letters}</span>
+                    )}
+                  </button>
                 ))}
               </div>
             ))}
             {/* Bottom row: empty — 0 — delete */}
             <div className="flex gap-5 sm:gap-6">
               <div className="w-[76px] h-[76px] sm:w-[85px] sm:h-[85px]" />
-              <KeypadButton digit="0" letters="" onPress={addDigit} />
               <button
-                onClick={removeDigit}
-                className="w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full flex items-center justify-center text-white/50 hover:text-white/80 transition-colors"
+                onPointerDown={() => handleKeyTap('0')}
+                className={`
+                  w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full
+                  flex flex-col items-center justify-center
+                  select-none cursor-pointer touch-manipulation
+                  transition-all duration-100
+                  border border-white/20
+                  ${pressedKey === '0'
+                    ? 'bg-white/30 scale-95'
+                    : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'
+                  }
+                `}
+              >
+                <span className="text-[28px] sm:text-[32px] font-light text-white leading-none">0</span>
+              </button>
+              <button
+                onPointerDown={removeDigit}
+                className="w-[76px] h-[76px] sm:w-[85px] sm:h-[85px] rounded-full flex items-center justify-center text-white/50 hover:text-white/80 transition-colors touch-manipulation"
               >
                 {pin.length > 0 && (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
