@@ -6,15 +6,19 @@ import { isRegistrationClosed } from '@/lib/deadline';
 
 export async function POST(request: Request) {
   try {
-    if (isRegistrationClosed()) {
+    const stripe = getStripe();
+    const body = await request.json().catch(() => ({}));
+
+    // Bypass check: allow purchase after deadline with correct PIN
+    const BYPASS_PIN = '1337';
+    const hasBypass = body.bypass === BYPASS_PIN;
+
+    if (isRegistrationClosed() && !hasBypass) {
       return NextResponse.json(
         { error: 'Anmeldeschluss vorbei – Buchung ist nicht mehr möglich' },
         { status: 400 }
       );
     }
-
-    const stripe = getStripe();
-    const body = await request.json().catch(() => ({}));
     const origin = request.headers.get('origin') || 'https://agents.andy.cy';
 
     const headerList = await headers();
