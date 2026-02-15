@@ -4,7 +4,7 @@ export function FAQ() {
   const faqs = [
     {
       question: 'Ist das nicht unsicher? Ein AI-Agent mit Zugriff auf alles?',
-      answer: 'Owen läuft auf DEINEM Mac. Nicht in irgendeiner Cloud. Du kontrollierst, was er darf und was nicht. Jeder Zugriff ist geloggt.',
+      answer: 'Berechtigte Frage. Es gibt echte Risiken – Prompt Injection ist noch nicht gelöst, kein System ist 100% sicher. Deswegen: eigener Mac, eigene Accounts, eigene Kreditkarte mit Limit, separates Netzwerk. Im Deep Dive zeige ich dir genau, welche Vorkehrungen ich treffe und warum.',
     },
     {
       question: 'Brauche ich Coding-Skills?',
@@ -12,7 +12,7 @@ export function FAQ() {
     },
     {
       question: 'Was kostet OpenClaw?',
-      answer: 'OpenClaw selbst ist Open Source. Du zahlst nur für die AI-Modelle (OpenAI, Anthropic). In meinem Setup: ~50–100€ pro Monat.',
+      answer: 'OpenClaw ist Open Source und kostenlos. Du zahlst nur die AI-Modelle: ab ~30€/Monat, je nach Nutzung. Mein Production-Setup mit mehreren Agents liegt bei ~400€/Monat – weniger als ein Werkstudent.',
     },
     {
       question: 'Wie lange dauert das Setup?',
@@ -24,7 +24,7 @@ export function FAQ() {
     },
     {
       question: 'Brauche ich technisches Vorwissen?',
-      answer: 'Nein. Wenn du weißt was ChatGPT ist, reicht das. Es geht um Verständnis, nicht um Programmieren.',
+      answer: 'Für den Deep Dive: Nein. Fürs eigene Setup danach: Grundverständnis hilft, ist aber keine Voraussetzung – ich zeige dir, womit du anfängst.',
     },
     {
       question: 'Wie läuft der Deep Dive ab?',
