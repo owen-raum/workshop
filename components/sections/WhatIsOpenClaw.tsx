@@ -36,8 +36,8 @@ export function WhatIsOpenClaw() {
       icon: CreditCard,
     },
     {
-      title: 'Sub-Agents spawnen',
-      description: 'Parallele Tasks, die gleichzeitig laufen',
+      title: 'Aufgaben an sein Team delegieren',
+      description: 'Owen hat eigene Mitarbeiter, die parallel arbeiten',
       icon: Users,
     },
   ];

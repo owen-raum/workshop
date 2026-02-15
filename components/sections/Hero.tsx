@@ -49,7 +49,7 @@ export function Hero() {
 
           {/* Subline */}
           <p className="text-base sm:text-lg leading-[1.6] text-[#525252] mb-6 sm:mb-10 max-w-[580px] mx-auto">
-            90 Minuten, live. Mein echtes OpenClaw-Setup (vorm. Clawdbot), echte Zahlen, echte Fails. Klarheit statt Hype.
+            90 Minuten, live. Mein echtes OpenClaw-Setup, echte Zahlen, echte Fails. Klarheit statt Hype.
           </p>
 
           {/* CTA */}

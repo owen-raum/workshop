@@ -20,7 +20,7 @@ export function Footer() {
             Zeit, dass AI für dich arbeitet.
           </h2>
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-8 leading-relaxed">
-            90 Minuten. Ein Setup. Dein erster Agent.
+            90 Minuten. Ein echtes System. Deine Entscheidungsgrundlage.
           </p>
           <button
             onClick={scrollToPricing}

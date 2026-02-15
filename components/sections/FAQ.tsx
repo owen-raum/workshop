@@ -8,7 +8,7 @@ export function FAQ() {
     },
     {
       question: 'Brauche ich Coding-Skills?',
-      answer: 'Nein. Im Deep Dive schaust du zu – ich zeige, was Owen kann. Danach bekommst du einen Leitfaden fürs eigene Setup. Copy & Paste reicht, kein Terminal-Voodoo.',
+      answer: 'Für den Deep Dive nicht — du schaust zu und stellst Fragen. Fürs eigene Setup: Du musst kein Entwickler sein, aber bereit sein dich reinzuarbeiten. Ich zeige dir, was du brauchst und wo du anfängst.',
     },
     {
       question: 'Was kostet OpenClaw?',
@@ -16,11 +16,11 @@ export function FAQ() {
     },
     {
       question: 'Wie lange dauert das Setup?',
-      answer: 'Ein Sonntag Vormittag reicht. Im Deep Dive siehst du Owen live – das Setup machst du danach mit dem Leitfaden, den du bekommst. Schritt für Schritt, kein Rätselraten.',
+      answer: 'Kommt drauf an, wo du startest. Technisch Erfahrene haben das in ein paar Stunden. Als Anfänger solltest du dir ein Wochenende nehmen. Im Deep Dive siehst du, was auf dich zukommt — ohne böse Überraschungen.',
     },
     {
       question: 'Was, wenn etwas kaputt geht?',
-      answer: 'Owen macht keine irreversiblen Actions ohne Confirmation. Alles ist nachvollziehbar. Und: Du bist Teil von The Circle – wir helfen uns gegenseitig.',
+      answer: 'Kann passieren — und ist mir auch passiert. Owen hat mal Server-Dateien gelöscht und um 3 Uhr morgens in meine Familiengruppe gepostet. Deswegen zeige ich dir im Deep Dive, wie du das verhinderst: eigene Accounts, Limits, klare Regeln. Jeder Fehler wird zur neuen Regel.',
     },
     {
       question: 'Brauche ich technisches Vorwissen?',
