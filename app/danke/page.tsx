@@ -23,7 +23,7 @@ export default function Danke() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-4">
-          Du bist dabei – OpenClaw Deep Dive am 15. Februar 2026.
+          Du bist dabei – OpenClaw Deep Dive am 1. März 2026.
         </p>
 
         <p className="text-lg text-gray-500 leading-relaxed mb-10">
@@ -46,7 +46,7 @@ export default function Danke() {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-gray-900 font-bold mt-0.5">3.</span>
-              <span>Am 15. Februar um 19:00 Uhr geht&apos;s los – live und interaktiv</span>
+              <span>Am 1. März um 19:00 Uhr geht&apos;s los – live und interaktiv</span>
             </li>
           </ul>
         </div>

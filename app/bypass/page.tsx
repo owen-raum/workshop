@@ -241,7 +241,7 @@ export default function BypassPage() {
 
         <div className="bg-[#FDFCFA] rounded-3xl p-6 sm:p-8 border border-[rgba(34,34,34,0.12)] shadow-[0_35px_120px_-80px_rgba(17,17,17,0.4)]">
           <div className="text-center mb-8">
-            <p className="text-sm text-gray-500 mb-2">OpenClaw Deep Dive · 15. Feb 2026</p>
+            <p className="text-sm text-gray-500 mb-2">OpenClaw Deep Dive · 1. März 2026</p>
             {ticketsLoading ? (
               <div className="h-16 flex items-center justify-center">
                 <span className="text-gray-400">Lade Preis...</span>

@@ -23,7 +23,7 @@ const spaceGrotesk = localFont({
 
 export const metadata: Metadata = {
   title: "OpenClaw Deep Dive mit Andy Steinberger",
-  description: "Mein echtes AI-Agent-Setup live: Demos, echte Zahlen, echte Fails. Klarheit statt Hype. 15. Februar 2026.",
+  description: "Mein echtes AI-Agent-Setup live: Demos, echte Zahlen, echte Fails. Klarheit statt Hype. 1. März 2026.",
   keywords: ["OpenClaw", "AI Agent", "Deep Dive", "Andy Steinberger", "KI", "Automatisierung"],
   authors: [{ name: "Andy Steinberger" }],
   openGraph: {

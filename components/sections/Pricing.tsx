@@ -123,7 +123,7 @@ export function Pricing() {
             Dein Platz im Deep Dive
           </h2>
           <p className="reveal text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            Live am 15. Feb · 90 Minuten · Ein Ticket.
+            Live am 1. März · 90 Minuten · Ein Ticket.
           </p>
         </div>
 
@@ -229,7 +229,7 @@ export function Pricing() {
 
           <div className="text-center mb-10">
             <p className={`text-sm mb-3 ${closed ? 'text-gray-400' : 'text-gray-500'}`}>
-              {closed ? 'Anmeldeschluss war am 13. Februar 2026' : 'Anmeldeschluss: 13. Februar 2026'}
+              {closed ? 'Anmeldeschluss war am 28. Februar 2026' : 'Anmeldeschluss: 28. Februar 2026, 12:00 Uhr'}
             </p>
             {ticketsLoading ? (
               <div className="h-20 flex items-center justify-center">

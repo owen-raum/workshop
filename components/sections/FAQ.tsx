@@ -28,7 +28,7 @@ export function FAQ() {
     },
     {
       question: 'Wie läuft der Deep Dive ab?',
-      answer: 'Live-Session am 15. Februar um 19:00 Uhr (90 Minuten). Ich zeige dir Owen in Action – echte Demos, was alles möglich ist, wo es hakt. Keine Installation, keine Anleitung. Q&A am Ende. Kein Verkaufs-Pitch.',
+      answer: 'Live-Session am 1. März um 19:00 Uhr (90 Minuten). Ich zeige dir Owen in Action – echte Demos, was alles möglich ist, wo es hakt. Keine Installation, keine Anleitung. Q&A am Ende. Kein Verkaufs-Pitch.',
     },
     {
       question: 'Warum kostet der Deep Dive etwas? Andere Sessions sind kostenlos.',
