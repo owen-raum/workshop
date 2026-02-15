@@ -3,6 +3,7 @@ import { Hero } from '@/components/sections/Hero';
 import { WorkshopContent } from '@/components/sections/WorkshopContent';
 import { ForWhom } from '@/components/sections/ForWhom';
 import { AboutUsSocialProof } from '@/components/sections/AboutUsSocialProof';
+import { DeepDiveProof } from '@/components/sections/DeepDiveProof';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { WhatIsOpenClaw } from '@/components/sections/WhatIsOpenClaw';
 import { MeetOwen } from '@/components/sections/MeetOwen';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <WorkshopContent />
       <ForWhom />
       <AboutUsSocialProof />
+      <DeepDiveProof />
       <SocialProof />
       <WhatIsOpenClaw />
       <MeetOwen />
