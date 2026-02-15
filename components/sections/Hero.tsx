@@ -80,7 +80,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
             {!ticketsLoading && !closed && (
               <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 bg-white/80 border border-gray-200 rounded-full px-4 py-1.5">
-                🎟️ Nur noch wenige {tier.label}-Tickets{nextTiers.length > 0 && ` — danach ${nextTiers[0].price} €`}
+                🎟️ Nur noch wenige {tier.label}-Tickets{nextTiers.length > 0 && ` – danach ${nextTiers[0].price} €`}
               </span>
             )}
             <span className={`inline-flex items-center gap-1.5 text-sm rounded-full px-4 py-1.5 ${

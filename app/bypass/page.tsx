@@ -233,7 +233,7 @@ export default function BypassPage() {
             Na gut, du bist drin.
           </h1>
           <p className="text-gray-500 text-base leading-relaxed">
-            Pünktlichkeit ist eine Tugend — aber wir drücken mal ein Auge zu.
+            Pünktlichkeit ist eine Tugend – aber wir drücken mal ein Auge zu.
             <br />
             <span className="text-gray-400 text-sm">Sag&apos;s nicht weiter. 🤫</span>
           </p>
@@ -285,7 +285,7 @@ export default function BypassPage() {
                 : 'bg-black hover:bg-neutral-800 text-white'
             }`}
           >
-            {loading ? 'Wird geladen...' : ticketsLoading ? 'Lade...' : `Platz sichern — ${tierData?.price}€`}
+            {loading ? 'Wird geladen...' : ticketsLoading ? 'Lade...' : `Platz sichern – ${tierData?.price}€`}
           </button>
 
           <div className="mt-4 text-xs text-gray-500 text-center">

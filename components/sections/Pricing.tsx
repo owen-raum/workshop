@@ -112,7 +112,7 @@ export function Pricing() {
   const getButtonText = () => {
     if (closed) return 'Anmeldeschluss vorbei';
     if (loading) return 'Wird geladen...';
-    return `Platz sichern — ${tier.price}€`;
+    return `Platz sichern – ${tier.price}€`;
   };
 
   return (
@@ -210,7 +210,7 @@ export function Pricing() {
                           )}
                           {stepTier.name === 'regular' && (
                             <div className="mt-1.5 text-xs text-gray-500 max-w-[200px] mx-auto leading-snug">
-                              Solange verfügbar — bei Ausverkauf gilt der Final-Preis.
+                              Solange verfügbar – bei Ausverkauf gilt der Final-Preis.
                             </div>
                           )}
                           {stepTier.name === 'final' && (
