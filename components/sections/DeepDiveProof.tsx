@@ -1,5 +1,3 @@
-import { Star } from 'lucide-react';
-
 export function DeepDiveProof() {
   const quotes = [
     {
@@ -53,12 +51,8 @@ export function DeepDiveProof() {
               key={index}
               className="bg-transparent rounded-xl p-5 border border-[rgba(34,34,34,0.12)] flex flex-col justify-between"
             >
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                ))}
-              </div>
+              {/* Quote mark */}
+              <div className="text-2xl text-gray-300 mb-2">&ldquo;</div>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
                 &quot;{quote.text}&quot;
               </p>

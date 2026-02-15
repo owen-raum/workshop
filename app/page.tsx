@@ -21,7 +21,7 @@ export default function HomePage() {
       <ForWhom />
       <AboutUsSocialProof />
       <DeepDiveProof />
-      <SocialProof />
+      {/* <SocialProof /> */}
       <WhatIsOpenClaw />
       <MeetOwen />
       <Pricing />
