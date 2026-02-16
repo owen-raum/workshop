@@ -1,8 +1,8 @@
 // Tier-Konfiguration – einzige Quelle der Wahrheit
 export const TIERS = [
-  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 10 },
-  { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 249, priceCents: 24900, start: 10, end: 50 },
-  { name: 'final', label: 'Final', badge: '🎯 FINAL TICKETS', price: 299, priceCents: 29900, start: 50, end: 100 },
+  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 6 },
+  { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 249, priceCents: 24900, start: 6, end: 14 },
+  { name: 'final', label: 'Final', badge: '🎯 FINAL TICKETS', price: 299, priceCents: 29900, start: 14, end: 100 },
 ] as const;
 
 export type TierName = (typeof TIERS)[number]['name'];
