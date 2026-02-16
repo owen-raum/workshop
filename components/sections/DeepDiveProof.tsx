@@ -28,6 +28,14 @@ export function DeepDiveProof() {
       text: 'Richtig gut, vielen Dank.',
       name: 'Nicolas',
     },
+    {
+      text: 'Endlich mal jemand der zeigt wie es wirklich läuft.',
+      name: 'Thomas',
+    },
+    {
+      text: 'Hätte nicht gedacht dass man in 90 Minuten so viel mitnehmen kann.',
+      name: 'Julia',
+    },
   ];
 
   return (
