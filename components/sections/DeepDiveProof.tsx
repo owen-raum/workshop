@@ -4,6 +4,30 @@ export function DeepDiveProof() {
       text: 'Sehr geiles Webinar. Ich war buff.',
       name: 'David',
     },
+    {
+      text: 'Grandiose Übersicht in nur 90 Minuten.',
+      name: 'Micha',
+    },
+    {
+      text: 'Sehr genial.',
+      name: 'Maurice',
+    },
+    {
+      text: 'War mega interessant.',
+      name: 'Kerstin',
+    },
+    {
+      text: 'Super Überblick, danke.',
+      name: 'Felix',
+    },
+    {
+      text: 'Super spannend. Freue mich auf den Lernpfad.',
+      name: 'Sandra',
+    },
+    {
+      text: 'Richtig gut, vielen Dank.',
+      name: 'Nicolas',
+    },
   ];
 
   return (
