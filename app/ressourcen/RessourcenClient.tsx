@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const PASSWORD = 'deepdive2026';
+const PASSWORD = '53RHW8f53T7t';
 const STORAGE_KEY = 'ressourcen_auth';
 
 interface Doc {
