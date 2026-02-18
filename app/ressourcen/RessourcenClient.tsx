@@ -25,6 +25,7 @@ export function RessourcenClient({ docs }: Props) {
   const [activeSlug, setActiveSlug] = useState(docs[0]?.slug ?? '');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showRaw, setShowRaw] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -219,20 +220,56 @@ export function RessourcenClient({ docs }: Props) {
             <article className="max-w-3xl mx-auto">
               {/* Doc header */}
               <div className="mb-8 pb-8 border-b border-[rgba(34,34,34,0.08)]">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{activeDoc.emoji}</span>
-                  <span className="text-sm font-medium text-gray-400 bg-[rgba(34,34,34,0.06)] px-3 py-1 rounded-full">
-                    {activeDoc.title}
-                  </span>
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">{activeDoc.emoji}</span>
+                    <span className="text-sm font-medium text-gray-400 bg-[rgba(34,34,34,0.06)] px-3 py-1 rounded-full">
+                      {activeDoc.title}
+                    </span>
+                  </div>
+                  {/* Raw/Rendered Toggle */}
+                  <button
+                    onClick={() => setShowRaw(!showRaw)}
+                    className={`flex items-center gap-2 text-sm font-medium px-3 py-1.5 rounded-lg transition-all ${
+                      showRaw 
+                        ? 'bg-[#111111] text-white' 
+                        : 'bg-[rgba(34,34,34,0.06)] text-gray-600 hover:bg-[rgba(34,34,34,0.1)]'
+                    }`}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 4h10M2 7h10M2 10h6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                    </svg>
+                    {showRaw ? 'Markdown' : 'Markdown anzeigen'}
+                  </button>
                 </div>
               </div>
 
               {/* Markdown content */}
-              <div className="prose-ressourcen">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {activeDoc.content}
-                </ReactMarkdown>
-              </div>
+              {showRaw ? (
+                <div className="relative">
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(activeDoc.content);
+                    }}
+                    className="absolute top-3 right-3 flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-gray-600 bg-[rgba(255,255,255,0.9)] px-2.5 py-1.5 rounded-md transition-colors"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <rect x="4" y="4" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.2"/>
+                      <path d="M2 8V2.5A.5.5 0 012.5 2H8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                    </svg>
+                    Kopieren
+                  </button>
+                  <pre className="bg-[#1a1a1a] text-gray-300 text-sm p-5 pt-12 rounded-xl overflow-x-auto whitespace-pre-wrap break-words leading-relaxed">
+                    <code>{activeDoc.content}</code>
+                  </pre>
+                </div>
+              ) : (
+                <div className="prose-ressourcen">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {activeDoc.content}
+                  </ReactMarkdown>
+                </div>
+              )}
 
               {/* Bottom nav */}
               <div className="mt-16 pt-8 border-t border-[rgba(34,34,34,0.08)] flex items-center justify-between gap-4">
