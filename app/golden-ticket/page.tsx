@@ -63,12 +63,12 @@ export default function GoldenTicketPage() {
     <main className="min-h-screen bg-[#F1EFEB] flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-lg">
         <div className="text-center mb-10">
-          <div className="text-4xl mb-4">✨</div>
+          <div className="text-5xl mb-4">🎫</div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-            Golden Ticket Registrierung
+            Löse dein Golden Ticket ein
           </h1>
           <p className="text-gray-500 text-base">
-            Trag dich ein, damit wir dich offiziell für den Workshop registrieren können.
+            Du hast einen Code bekommen? Perfekt. Trag dich ein und sichere dir deinen Platz.
           </p>
         </div>
 
@@ -81,10 +81,10 @@ export default function GoldenTicketPage() {
                 </svg>
               </div>
               <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">
-                Danke! Du bist registriert.
+                Du bist dabei! 🎉
               </h2>
               <p className="text-gray-500">
-                Wir melden uns in Kürze mit den nächsten Schritten.
+                Check deine E-Mails – du bekommst alle Infos zum Deep Dive.
               </p>
             </div>
           ) : (
@@ -137,7 +137,7 @@ export default function GoldenTicketPage() {
 
               <div>
                 <label htmlFor="code" className="block text-sm font-medium text-gray-700 mb-2">
-                  Code
+                  Dein Code
                 </label>
                 <input
                   id="code"
@@ -162,14 +162,14 @@ export default function GoldenTicketPage() {
                   loading ? 'bg-gray-400 text-white cursor-wait' : 'bg-[#111111] hover:bg-[#1a1a1a] text-white'
                 }`}
               >
-                {loading ? 'Wird gesendet...' : 'Registrieren'}
+                {loading ? 'Wird eingelöst...' : 'Ticket einlösen'}
               </button>
             </form>
           )}
         </div>
 
         <p className="text-center text-sm text-gray-400 mt-6">
-          Dein Golden Ticket ist persönlich und nur einmal gültig.
+          Dein Code ist persönlich und nur einmal verwendbar. Kein Code? Dann hier entlang → <a href="/" className="underline hover:text-gray-600">agents.andy.cy</a>
         </p>
       </div>
     </main>
