@@ -30,39 +30,32 @@ const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
-const sendToTally = async (payload: {
+const sendToMake = async (payload: {
   firstName: string;
   lastName: string;
   email: string;
   code: string;
 }) => {
-  const formId = process.env.TALLY_GOLDEN_FORM_ID;
-  if (!formId) return;
-
-  const params = new URLSearchParams({
-    vorname: payload.firstName,
-    nachname: payload.lastName,
-    email: payload.email,
-    code: payload.code,
-    firstName: payload.firstName,
-    lastName: payload.lastName,
-    name: `${payload.firstName} ${payload.lastName}`,
-  });
+  const webhookUrl = process.env.GOLDEN_TICKET_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.warn('GOLDEN_TICKET_WEBHOOK_URL not set, skipping webhook');
+    return;
+  }
 
   try {
-    const response = await fetch(`https://tally.so/r/${formId}`, {
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: params.toString(),
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
-      console.error('Tally submission failed:', response.status, await response.text());
+      console.error('Make webhook failed:', response.status, await response.text());
     }
   } catch (error) {
-    console.error('Tally submission error:', error);
+    console.error('Make webhook error:', error);
   }
 };
 
@@ -105,7 +98,7 @@ export async function POST(request: Request) {
     codes[matchIndex] = updatedEntry;
     await saveCodes(codes);
 
-    await sendToTally({ firstName, lastName, email, code: entry.code });
+    await sendToMake({ firstName, lastName, email, code: entry.code });
 
     return NextResponse.json({ success: true });
   } catch (error) {

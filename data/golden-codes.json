@@ -1,9 +1,13 @@
 [
   {
     "code": "GT-XV52Q7ZZ",
-    "used": false,
-    "usedBy": null,
-    "usedAt": null
+    "used": true,
+    "usedBy": {
+      "firstName": "Andy",
+      "lastName": "Steinberger",
+      "email": "andy@steinberger.cy"
+    },
+    "usedAt": "2026-02-23T15:47:52.121Z"
   },
   {
     "code": "GT-PLYJGAZL",
