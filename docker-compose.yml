@@ -17,6 +17,7 @@ services:
         cp -r .next /output/.next &&
         cp -r public /output/public &&
         cp -r node_modules /output/node_modules &&
+        cp -r data /output/data 2>/dev/null || true &&
         cp package.json /output/package.json &&
         cp next.config.ts /output/next.config.ts 2>/dev/null || true &&
         echo 'BUILD DONE'"
@@ -35,6 +36,7 @@ services:
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
       - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
       - META_CAPI_TOKEN=${META_CAPI_TOKEN}
+      - GOLDEN_TICKET_WEBHOOK_URL=${GOLDEN_TICKET_WEBHOOK_URL}
       - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
       - NEXT_PUBLIC_DATABUDDY_CLIENT_ID=${NEXT_PUBLIC_DATABUDDY_CLIENT_ID}
       - NEXT_PUBLIC_META_PIXEL_ID=${NEXT_PUBLIC_META_PIXEL_ID}
