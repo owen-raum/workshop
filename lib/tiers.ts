@@ -1,8 +1,9 @@
 // Tier-Konfiguration – einzige Quelle der Wahrheit
+// Owen Sonderpreis: Regular bleibt bei 249€, Final ist "übersprungen" (299€ durchgestrichen)
 export const TIERS = [
-  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 4, originalPrice: null },
-  { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 249, priceCents: 24900, start: 4, end: 10, originalPrice: null },
-  { name: 'final', label: 'Final', badge: '🐸 OWEN SONDERPREIS', price: 249, priceCents: 24900, start: 10, end: 100, originalPrice: 299 },
+  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 4, originalPrice: null, skipped: false },
+  { name: 'regular', label: 'Regular', badge: '🐸 OWEN SONDERPREIS', price: 249, priceCents: 24900, start: 4, end: 100, originalPrice: null, skipped: false },
+  { name: 'final', label: 'Final', badge: '🎯 FINAL', price: 299, priceCents: 29900, start: 100, end: 101, originalPrice: null, skipped: true },
 ] as const;
 
 export type TierName = (typeof TIERS)[number]['name'];
@@ -14,6 +15,7 @@ export interface TierInfo {
   price: number;
   priceCents: number;
   originalPrice: number | null;
+  skipped: boolean;
   spotsInTier: number;
   spotsLeft: number;
   soldInTier: number;
@@ -38,6 +40,7 @@ export function getTierInfo(sold: number): TierInfo {
     price: tier.price,
     priceCents: tier.priceCents,
     originalPrice: tier.originalPrice,
+    skipped: tier.skipped,
     spotsInTier,
     spotsLeft,
     soldInTier,

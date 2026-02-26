@@ -33,7 +33,7 @@ export function Pricing() {
     : tier.name === 'early_frog'
       ? 'Early Frog ist live'
       : tier.name === 'regular'
-        ? 'Regular-Preis ist live'
+        ? '🐸 Owen Sonderpreis'
         : 'Letzte Phase';
 
   const features = [
@@ -143,10 +143,11 @@ export function Pricing() {
                 {TIERS.map((stepTier, index) => {
                   const isPast = index < currentTierIndex;
                   const isCurrent = index === currentTierIndex;
+                  const isSkipped = stepTier.skipped;
 
                   const labelClass = isCurrent
                     ? 'text-black font-semibold'
-                    : isPast
+                    : isPast || isSkipped
                       ? 'text-gray-500 font-medium'
                       : 'text-gray-400 font-medium';
 
@@ -163,14 +164,14 @@ export function Pricing() {
                             className={`flex h-10 w-10 items-center justify-center rounded-full border shadow-sm transition-colors ${
                               isCurrent
                                 ? 'border-black/30 bg-black/5'
-                                : isPast
+                                : isPast || isSkipped
                                   ? 'border-black/10 bg-white'
                                   : 'border-black/10 bg-white'
                             }`}
                           >
                             <span
                               className={`h-2.5 w-2.5 rounded-full ${
-                                isCurrent ? 'bg-black' : isPast ? 'bg-gray-400' : 'bg-gray-300'
+                                isCurrent ? 'bg-black' : isPast || isSkipped ? 'bg-gray-400' : 'bg-gray-300'
                               }`}
                             />
                           </span>
@@ -186,12 +187,12 @@ export function Pricing() {
                               <span className={`text-sm ${isCurrent ? 'text-black' : 'text-gray-500'}`}>
                                 {TIER_ICONS[stepTier.name]}
                               </span>
-                              <span className="text-sm sm:text-[15px]">{stepTier.label}</span>
+                              <span className={`text-sm sm:text-[15px] ${isSkipped ? 'line-through' : ''}`}>{stepTier.label}</span>
                             </div>
 
                             <span
                               className={`text-sm sm:text-[15px] tabular-nums ${
-                                isPast
+                                isPast || isSkipped
                                   ? 'text-gray-400 line-through'
                                   : isCurrent
                                     ? 'text-black'
@@ -202,18 +203,19 @@ export function Pricing() {
                             </span>
                           </div>
 
-                          {(isPast || isCurrent) && (
+                          {(isPast || isCurrent || isSkipped) && (
                             <div className={`mt-1 text-xs ${isCurrent ? 'text-gray-600' : 'text-gray-500'}`}>
-                              {isPast && <span>(ausgebucht)</span>}
+                              {isPast && !isSkipped && <span>(ausgebucht)</span>}
                               {isCurrent && <span>(aktuell)</span>}
+                              {isSkipped && <span>(dank Owen 🐸)</span>}
                             </div>
                           )}
-                          {stepTier.name === 'regular' && (
+                          {stepTier.name === 'regular' && !isSkipped && (
                             <div className="mt-1.5 text-xs text-gray-500 max-w-[200px] mx-auto leading-snug">
-                              Solange verfügbar – bei Ausverkauf gilt der Final-Preis.
+                              Owen Sonderpreis – solange Plätze verfügbar
                             </div>
                           )}
-                          {stepTier.name === 'final' && (
+                          {stepTier.name === 'final' && !isSkipped && (
                             <div className="mt-1.5 text-xs text-gray-400 max-w-[220px] mx-auto leading-snug">
                               Greift automatisch, sobald die Regular-Tickets vergriffen sind.
                             </div>
@@ -236,27 +238,15 @@ export function Pricing() {
                 <span className="inline-block w-44 h-16 rounded shimmer" />
               </div>
             ) : (
-              <div className="flex flex-col items-center gap-2">
-                {tier.originalPrice && (
-                  <div className="text-2xl md:text-3xl text-gray-400 line-through">
-                    {tier.originalPrice}€
-                  </div>
-                )}
-                <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-                  {tier.price}€
-                </div>
+              <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-black">
+                {tier.price}€
               </div>
             )}
             <div className="text-gray-500 mt-2">einmalig, inkl. MwSt.</div>
 
-            {!ticketsLoading && tier.originalPrice && (
+            {!ticketsLoading && TIERS.find(t => t.skipped) && (
               <p className="text-sm text-green-600 font-medium mt-3">
-                {tier.originalPrice - tier.price}€ gespart – Owen hat entschieden 🐸
-              </p>
-            )}
-            {!ticketsLoading && !tier.originalPrice && savings > 0 && (
-              <p className="text-sm text-gray-700 mt-3">
-                {savings}€ günstiger als der Final-Preis
+                50€ gespart – Owen hat entschieden 🐸
               </p>
             )}
           </div>
