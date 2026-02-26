@@ -236,13 +236,25 @@ export function Pricing() {
                 <span className="inline-block w-44 h-16 rounded shimmer" />
               </div>
             ) : (
-              <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-                {tier.price}€
+              <div className="flex flex-col items-center gap-2">
+                {tier.originalPrice && (
+                  <div className="text-2xl md:text-3xl text-gray-400 line-through">
+                    {tier.originalPrice}€
+                  </div>
+                )}
+                <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-black">
+                  {tier.price}€
+                </div>
               </div>
             )}
             <div className="text-gray-500 mt-2">einmalig, inkl. MwSt.</div>
 
-            {!ticketsLoading && savings > 0 && (
+            {!ticketsLoading && tier.originalPrice && (
+              <p className="text-sm text-green-600 font-medium mt-3">
+                {tier.originalPrice - tier.price}€ gespart – Owen hat entschieden 🐸
+              </p>
+            )}
+            {!ticketsLoading && !tier.originalPrice && savings > 0 && (
               <p className="text-sm text-gray-700 mt-3">
                 {savings}€ günstiger als der Final-Preis
               </p>

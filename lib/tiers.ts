@@ -1,8 +1,8 @@
 // Tier-Konfiguration – einzige Quelle der Wahrheit
 export const TIERS = [
-  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 4 },
-  { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 249, priceCents: 24900, start: 4, end: 10 },
-  { name: 'final', label: 'Final', badge: '🎯 FINAL TICKETS', price: 299, priceCents: 29900, start: 10, end: 100 },
+  { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 4, originalPrice: null },
+  { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 249, priceCents: 24900, start: 4, end: 10, originalPrice: null },
+  { name: 'final', label: 'Final', badge: '🐸 OWEN SONDERPREIS', price: 249, priceCents: 24900, start: 10, end: 100, originalPrice: 299 },
 ] as const;
 
 export type TierName = (typeof TIERS)[number]['name'];
@@ -13,6 +13,7 @@ export interface TierInfo {
   badge: string;
   price: number;
   priceCents: number;
+  originalPrice: number | null;
   spotsInTier: number;
   spotsLeft: number;
   soldInTier: number;
@@ -36,6 +37,7 @@ export function getTierInfo(sold: number): TierInfo {
     badge: tier.badge,
     price: tier.price,
     priceCents: tier.priceCents,
+    originalPrice: tier.originalPrice,
     spotsInTier,
     spotsLeft,
     soldInTier,
