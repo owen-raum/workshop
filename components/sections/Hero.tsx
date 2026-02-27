@@ -2,7 +2,7 @@
 
 import { useTickets, getCtaText } from '@/lib/useTickets';
 import { getNextTiers } from '@/lib/tiers';
-import { BadgeCheck } from 'lucide-react';
+import { BadgeCheck, ChevronDown } from 'lucide-react';
 import { isRegistrationClosed } from '@/lib/deadline';
 
 export function Hero() {
@@ -92,6 +92,12 @@ export function Hero() {
             </span>
           </div>
         </div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
+        <span className="text-xs text-gray-400 font-medium">Mehr erfahren</span>
+        <ChevronDown className="w-5 h-5 text-gray-400" />
       </div>
     </section>
   );
