@@ -1,9 +1,8 @@
 // Tier-Konfiguration – einzige Quelle der Wahrheit
-// Owen Sonderpreis: Regular bleibt bei 249€, Final ist "übersprungen" (299€ durchgestrichen)
 export const TIERS = [
   { name: 'early_frog', label: 'Early Frog', badge: '🐸 EARLY FROG', price: 199, priceCents: 19900, start: 0, end: 4, originalPrice: null, skipped: false },
-  { name: 'regular', label: 'Regular', badge: '🐸 OWEN SONDERPREIS', price: 249, priceCents: 24900, start: 4, end: 100, originalPrice: null, skipped: false },
-  { name: 'final', label: 'Final', badge: '🎯 FINAL', price: 299, priceCents: 29900, start: 100, end: 101, originalPrice: null, skipped: true },
+  { name: 'regular', label: 'Regular', badge: '⚡ REGULAR', price: 249, priceCents: 24900, start: 5, end: 10, originalPrice: null, skipped: false },
+  { name: 'final', label: 'Final', badge: '🎯 FINAL', price: 299, priceCents: 29900, start: 11, end: 101, originalPrice: null, skipped: false },
 ] as const;
 
 export type TierName = (typeof TIERS)[number]['name'];
