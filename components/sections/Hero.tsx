@@ -22,7 +22,7 @@ export function Hero() {
           {/* Date & Price Row — Mobile: always visible above fold */}
           <div className="flex items-center justify-center gap-3 mb-5 sm:mb-8">
             <span className="text-sm font-medium text-gray-600">
-              1. März 2026 · 19:00
+              15. März 2026 · 19:00
             </span>
             <span className="w-px h-4 bg-gray-300" />
             <span className="text-sm font-bold text-gray-900">
@@ -88,7 +88,7 @@ export function Hero() {
                 ? 'text-gray-400 bg-gray-100 border border-gray-200'
                 : 'text-gray-500 bg-white/60 border border-gray-200/80'
             }`}>
-              {closed ? '🔒 Anmeldeschluss vorbei' : '📅 Anmeldeschluss: 28. Februar, 12:00 Uhr'}
+              {closed ? '🔒 Anmeldeschluss vorbei' : '📅 Anmeldeschluss: 14. März, 12:00 Uhr'}
             </span>
           </div>
         </div>
