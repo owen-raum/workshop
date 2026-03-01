@@ -17,8 +17,8 @@ export function getStripe(): Stripe {
  */
 export async function getSoldTicketsCount(stripe: Stripe): Promise<number> {
   const SOLD_OFFSET = 0;
-  // March 1 Deep Dive — nur nach dem ersten Event erstellte Sessions prüfen
-  const WORKSHOP_LAUNCH = Math.floor(new Date('2026-02-16T00:00:00Z').getTime() / 1000);
+  // March 15 Deep Dive — nur Sessions nach dem vorherigen Event zählen
+  const WORKSHOP_LAUNCH = Math.floor(new Date('2026-03-02T00:00:00Z').getTime() / 1000);
   
   const sessions = await stripe.checkout.sessions
     .list({ 
