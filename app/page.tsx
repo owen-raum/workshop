@@ -7,6 +7,7 @@ import { DeepDiveProof } from '@/components/sections/DeepDiveProof';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { WhatIsOpenClaw } from '@/components/sections/WhatIsOpenClaw';
 import { MeetOwen } from '@/components/sections/MeetOwen';
+import { OwenTeam } from '@/components/sections/OwenTeam';
 import { Pricing } from '@/components/sections/Pricing';
 import { FAQ } from '@/components/sections/FAQ';
 import { Footer } from '@/components/sections/Footer';
@@ -24,6 +25,7 @@ export default function HomePage() {
       {/* <SocialProof /> */}
       <WhatIsOpenClaw />
       <MeetOwen />
+      <OwenTeam />
       <Pricing />
       <FAQ />
       <Footer />

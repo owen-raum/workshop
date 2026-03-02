@@ -1,42 +1,42 @@
 import Image from 'next/image';
 import {
   MessageSquare,
-  Globe,
-  Search,
-  UserPlus,
-  CreditCard,
+  Monitor,
+  Home,
+  Car,
+  Glasses,
   Users,
 } from 'lucide-react';
 
 export function WhatIsOpenClaw() {
   const features = [
     {
-      title: 'WhatsApp-Messages schreiben',
+      title: 'Terminal Dashboard',
+      description: 'Ein Tablet zeigt live: Kalender, Mails, Sales, Owen\'s Status',
+      icon: Monitor,
+    },
+    {
+      title: 'Geofence Begrüßung',
+      description: 'Owen weiß wenn ich heimkomme – mit dem Kontext des Tages',
+      icon: Home,
+    },
+    {
+      title: 'Voice im Auto',
+      description: '30 Min Autofahrt = 30 Min produktive Zeit. KITT-Style.',
+      icon: Car,
+    },
+    {
+      title: 'WhatsApp & Messaging',
       description: 'An Kunden, ans Team, automatisch oder auf Command',
       icon: MessageSquare,
     },
     {
-      title: 'Browser steuern',
-      description: 'Formulare ausfüllen, Screenshots machen, Websites scrapen',
-      icon: Globe,
+      title: 'AR-Brille (WIP)',
+      description: 'Work in Progress: Owen in meinem Sichtfeld',
+      icon: Glasses,
     },
     {
-      title: 'Mein gesamtes Leben durchsuchen',
-      description: 'Mails, Kalender, Notizen, Files – alles an einem Ort',
-      icon: Search,
-    },
-    {
-      title: 'Accounts erstellen',
-      description: 'Anmeldungen, Registrierungen, Setups',
-      icon: UserPlus,
-    },
-    {
-      title: 'Geld ausgeben',
-      description: "Wenn ich's ihm erlaube (Bestellungen, Buchungen, Zahlungen)",
-      icon: CreditCard,
-    },
-    {
-      title: 'Aufgaben an sein Team delegieren',
+      title: 'Team-Delegation',
       description: 'Owen hat eigene Mitarbeiter, die parallel arbeiten',
       icon: Users,
     },
