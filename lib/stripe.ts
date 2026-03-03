@@ -16,7 +16,7 @@ export function getStripe(): Stripe {
  * Filtert ab Workshop-Launch (2026-02-04) um nicht alle historischen Sessions zu laden.
  */
 export async function getSoldTicketsCount(stripe: Stripe): Promise<number> {
-  const SOLD_OFFSET = 0;
+  const SOLD_OFFSET = 4;
   // March 15 Deep Dive — nur Sessions nach dem vorherigen Event zählen
   const WORKSHOP_LAUNCH = Math.floor(new Date('2026-03-02T00:00:00Z').getTime() / 1000);
   
