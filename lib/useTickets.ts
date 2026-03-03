@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getTierInfo, type TierInfo } from './tiers';
+import { TIERS, type TierInfo, type TierName } from './tiers';
 
 interface TicketsState {
-  soldCount: number;
   tier: TierInfo;
   loading: boolean;
   error: Error | null;
@@ -12,23 +11,23 @@ interface TicketsState {
 
 // Singleton cache für alle Komponenten
 const globalCache: {
-  soldCount: number | null;
+  tier: { price: number; label: string } | null;
   timestamp: number;
-  promise: Promise<number> | null;
+  promise: Promise<{ price: number; label: string }> | null;
 } = {
-  soldCount: null,
+  tier: null,
   timestamp: 0,
   promise: null,
 };
 
 const CACHE_TTL = 30_000; // 30 Sekunden
 
-async function fetchTickets(): Promise<number> {
+async function fetchTier(): Promise<{ price: number; label: string }> {
   const now = Date.now();
   
   // Return cached value if fresh
-  if (globalCache.soldCount !== null && now - globalCache.timestamp < CACHE_TTL) {
-    return globalCache.soldCount;
+  if (globalCache.tier !== null && now - globalCache.timestamp < CACHE_TTL) {
+    return globalCache.tier;
   }
   
   // Deduplicate concurrent requests
@@ -39,11 +38,11 @@ async function fetchTickets(): Promise<number> {
   globalCache.promise = fetch('/api/tickets')
     .then((res) => res.json())
     .then((data) => {
-      const sold = data.sold ?? 0;
-      globalCache.soldCount = sold;
+      const tier = { price: data.price ?? 199, label: data.label ?? 'Early Frog' };
+      globalCache.tier = tier;
       globalCache.timestamp = Date.now();
       globalCache.promise = null;
-      return sold;
+      return tier;
     })
     .catch((err) => {
       globalCache.promise = null;
@@ -53,18 +52,43 @@ async function fetchTickets(): Promise<number> {
   return globalCache.promise;
 }
 
+function buildTierInfo(apiTier: { price: number; label: string }): TierInfo {
+  // Find matching tier from TIERS config
+  const tier = TIERS.find((t) => t.price === apiTier.price) ?? TIERS[0];
+  
+  return {
+    name: tier.name,
+    label: tier.label,
+    badge: tier.badge,
+    price: tier.price,
+    priceCents: tier.priceCents,
+    originalPrice: tier.originalPrice,
+    skipped: tier.skipped,
+    spotsInTier: tier.end - tier.start,
+    spotsLeft: 5, // Placeholder - not exposed
+    soldInTier: 0, // Not exposed
+    progressPercent: 50, // Placeholder
+    tierStart: tier.start,
+    tierEnd: tier.end,
+  };
+}
+
+const defaultTier = buildTierInfo({ price: 199, label: 'Early Frog' });
+
 export function useTickets(): TicketsState {
-  const [soldCount, setSoldCount] = useState<number>(globalCache.soldCount ?? 0);
-  const [loading, setLoading] = useState<boolean>(globalCache.soldCount === null);
+  const [tier, setTier] = useState<TierInfo>(
+    globalCache.tier ? buildTierInfo(globalCache.tier) : defaultTier
+  );
+  const [loading, setLoading] = useState<boolean>(globalCache.tier === null);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     let mounted = true;
     
-    fetchTickets()
-      .then((count) => {
+    fetchTier()
+      .then((apiTier) => {
         if (mounted) {
-          setSoldCount(count);
+          setTier(buildTierInfo(apiTier));
           setLoading(false);
         }
       })
@@ -80,12 +104,10 @@ export function useTickets(): TicketsState {
     };
   }, []);
 
-  const tier = getTierInfo(soldCount);
-
-  return { soldCount, tier, loading, error };
+  return { tier, loading, error };
 }
 
-// Helper für CTA Button Text (ohne Preis — nur Pricing.tsx zeigt Preis)
+// Helper für CTA Button Text
 export function getCtaText(tier: TierInfo, loading: boolean): string {
   if (loading) return 'Jetzt Platz sichern';
   return 'Jetzt Platz sichern';

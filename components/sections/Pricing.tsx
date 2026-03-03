@@ -5,8 +5,6 @@ import { TIERS, type TierName } from '@/lib/tiers';
 import { useTickets } from '@/lib/useTickets';
 import { isRegistrationClosed } from '@/lib/deadline';
 
-const TOTAL_TICKETS = 100;
-
 const TIER_ICONS: Record<TierName, string> = {
   early_frog: '🐸',
   regular: '⚡',
@@ -17,14 +15,11 @@ export function Pricing() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { tier, soldCount, loading: ticketsLoading } = useTickets();
+  const { tier, loading: ticketsLoading } = useTickets();
   const closed = isRegistrationClosed();
 
   const finalTier = TIERS.find((t) => t.name === 'final') ?? TIERS[TIERS.length - 1];
   const savings = !ticketsLoading && finalTier ? Math.max(finalTier.price - tier.price, 0) : 0;
-  const progressPercent = ticketsLoading
-    ? 0
-    : Math.min((soldCount / TOTAL_TICKETS) * 100, 100);
 
   const currentTierIndex = TIERS.findIndex((t) => t.name === tier.name);
 
