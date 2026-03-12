@@ -233,15 +233,22 @@ export function Pricing() {
                 <span className="inline-block w-44 h-16 rounded shimmer" />
               </div>
             ) : (
-              <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-                {tier.price}€
+              <div className="flex items-baseline justify-center gap-4">
+                {savings > 0 && (
+                  <span className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-300 line-through">
+                    {finalTier.price}€
+                  </span>
+                )}
+                <span className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-black">
+                  {tier.price}€
+                </span>
               </div>
             )}
             <div className="text-gray-500 mt-2">einmalig, inkl. MwSt.</div>
 
-            {!ticketsLoading && TIERS.find(t => t.skipped) && (
+            {!ticketsLoading && savings > 0 && (
               <p className="text-sm text-green-600 font-medium mt-3">
-                50€ gespart – Owen hat entschieden 🐸
+                {savings}€ gespart – Owen hat entschieden 🐸
               </p>
             )}
           </div>
