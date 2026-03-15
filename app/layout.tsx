@@ -22,13 +22,13 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OpenClaw Deep Dive mit Andy Steinberger",
-  description: "Mein echtes AI-Agent-Setup live: Demos, echte Zahlen, echte Fails. Klarheit statt Hype. 15. März 2026.",
-  keywords: ["OpenClaw", "AI Agent", "Deep Dive", "Andy Steinberger", "KI", "Automatisierung"],
+  title: "Danke – OpenClaw Deep Dive",
+  description: "Die Deep Dives pausieren. Weiter geht's bei The Circle.",
+  keywords: ["OpenClaw", "AI Agent", "Deep Dive", "Andy Steinberger", "The Circle"],
   authors: [{ name: "Andy Steinberger" }],
   openGraph: {
-    title: "OpenClaw Deep Dive",
-    description: "Mein echtes AI-Agent-Setup live: Demos, echte Zahlen, echte Fails. Klarheit statt Hype.",
+    title: "Danke – OpenClaw Deep Dive",
+    description: "Die Deep Dives pausieren. Weiter geht's bei The Circle.",
     type: "website",
     locale: "de_DE",
     url: "https://agents.andy.cy",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenClaw Deep Dive",
-    description: "Mein echtes AI-Agent-Setup live: Demos, echte Zahlen, echte Fails. Klarheit statt Hype.",
+    title: "Danke – OpenClaw Deep Dive",
+    description: "Die Deep Dives pausieren. Weiter geht's bei The Circle.",
     images: ["https://agents.andy.cy/owen-demo.jpg"],
   },
   robots: {
